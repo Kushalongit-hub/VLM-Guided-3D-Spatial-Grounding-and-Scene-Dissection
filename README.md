@@ -1,11 +1,11 @@
-# VLM-Guided 3D Spatial Grounding and Scene Dissection
+﻿# VLM-Guided 3D Spatial Grounding and Scene Dissection
 
 **Metric 3D Scene Understanding from a Single RGB Image via Vision-Language and Monocular Depth Ensembles**
 
 ---
 
-**Authors:** Research Team  
-**Affiliation:** [Institution / Lab Name]  
+**Authors:** Kushal M Anvekar  
+**Affiliation:**  
 **Date:** 2026-09-27  
 **Status:** Research Prototype  
 
@@ -362,7 +362,7 @@ We have presented a four-stage ensemble pipeline for metric 3D spatial grounding
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/[user]/VLM-Guided-3D-Spatial-Grounding.git
+git clone https://github.com/Kushalongit-hub/VLM-Guided-3D-Spatial-Grounding.git
 cd "VLM-Guided-3D-Spatial-Grounding"
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
@@ -400,7 +400,7 @@ If this work is used in academic research, please cite as:
 ```bibtex
 @misc{vlm3dgrounding2026,
   title   = {VLM-Guided 3D Spatial Grounding and Scene Dissection},
-  author  = {Research Team},
+  author  = {Kushal M Anvekar},
   year    = {2026},
   note    = {Research Prototype}
 }
@@ -408,6 +408,4 @@ If this work is used in academic research, please cite as:
 
 ## Appendix D: License and Contact
 
-This project is released under the MIT License. For questions, collaboration inquiries, or issue reports, please open a GitHub Issue or contact the authors at [email].
-#   V L M - G u i d e d - 3 D - S p a t i a l - G r o u n d i n g - a n d - S c e n e - D i s s e c t i o n  
- 
+This project is released under the MIT License. For questions, collaboration inquiries, or issue reports, please open a GitHub Issue or contact the authors at kushalonmsrit@gmail.com.
