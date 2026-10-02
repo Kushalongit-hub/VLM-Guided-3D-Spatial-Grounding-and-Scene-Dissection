@@ -1,0 +1,15 @@
+{
+  "status": "rgb_and_2d_box_visual_labels_frozen_before_depth_inference",
+  "annotation_rule": "Positive iff the uniquely paired mug/cup visibly rests on the uniquely paired table. Negative if visibly on a different surface; null if contact cannot be verified from RGB and 2D boxes. No depth maps or 3D centers were inspected before labeling.",
+  "scenes": [
+    {"scene_id": "sunrgbd_000275", "supported_by_table": false, "child_id": "object_2", "parent_id": "object_0", "note": "Cup lies over the distinct central coffee table; the paired table is at the left edge."},
+    {"scene_id": "sunrgbd_001058", "supported_by_table": false, "child_id": "object_1", "parent_id": "object_3", "note": "Mug rests on the left desk; paired table box is the right surface."},
+    {"scene_id": "sunrgbd_001146", "supported_by_table": true, "child_id": "object_3", "parent_id": "object_4"},
+    {"scene_id": "sunrgbd_002604", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_0"},
+    {"scene_id": "sunrgbd_002607", "supported_by_table": true, "child_id": "object_3", "parent_id": "object_2"},
+    {"scene_id": "sunrgbd_002645", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_0"},
+    {"scene_id": "sunrgbd_002725", "supported_by_table": true, "child_id": "object_3", "parent_id": "object_0"},
+    {"scene_id": "sunrgbd_003475", "supported_by_table": null, "child_id": "object_3", "parent_id": "object_2", "note": "Mug and table are largely cut off at the right image edge; contact is unclear."},
+    {"scene_id": "sunrgbd_003507", "supported_by_table": false, "child_id": "object_5", "parent_id": "object_0", "note": "Cup is on the rear shelf, not foreground table."}
+  ]
+}

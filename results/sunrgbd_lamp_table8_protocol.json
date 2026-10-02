@@ -1,0 +1,22 @@
+{
+  "status": "frozen_before_images_depth_or_3d_reference_inspection",
+  "date": "2026-10-02",
+  "selection_sha256": "3c48db59e27d068ba6a4215a8d105acce92783ffc152c2159c5b94ed61822667",
+  "child_ray_code_sha256": "8bce35c7fcac365a7fbe3d19a0aff22e644da9d5779e64a27a44f15d8b984509",
+  "paired_ray_code_sha256": "7603cda820543bf6762bc0e92b8ee8e80ed4d558d944f980634f11757b9157e3",
+  "height_correction_code_sha256": "9ae81392a09522e7bfcc7fd5e5bc11bd9f7024874c152aa8e21f854612b025b4",
+  "depth_checkpoint_sha256": "b782898d8a3e8be1f639de33837ed85e9b4b73e40f8f5e5cd99067588d722545",
+  "split": "official_sunrgbd_test",
+  "sample": "Eight uniquely paired lamp+table candidates, each at least 30 metadata indices from previous project selections, selected before viewing images or 3D references. Index spacing alone does not guarantee distinct rooms.",
+  "annotation_rule": "Inspect RGB and 2D boxes only. Mark true if paired lamp visibly rests on paired table, false if visibly supported elsewhere or hanging, null if ambiguous. Save labels before viewing depth or 3D reference values. Include all candidates in count summaries.",
+  "inference": "Depth-Anything-V2-Metric-Hypersim-Small RGB depth; official intrinsics and oracle 2D boxes for all primary placement comparisons; supplied visually positive support relation. No detector selection. No parameter tuning on this sample.",
+  "methods": {
+    "uncorrected": {},
+    "height_exact": {"offset_m": 0.4, "child_sigma_m": 0.4, "parent_sigma_m": 0.8, "relation_sigma_m": 0.2},
+    "paired_radial": {"offset_m": 0.4, "child_sigma_m": 0.4, "parent_sigma_m": 0.2, "relation_sigma_m": 0.2, "max_shift_m": 0.5},
+    "child_only_ray_soft": {"offset_m": 0.4, "child_sigma_m": 0.4, "relation_sigma_m": 0.2, "max_shift_m": 0.5}
+  },
+  "primary_metric": "Mean child 3D centroid error in metres for all visually positive pairs, child-only soft minus paired radial. Also report per-scene paired differences and 10000-resample scene-bootstrap 95% interval, clearly labeled small-sample descriptive uncertainty.",
+  "secondary_metrics": ["child-only soft minus no correction", "child-only soft minus height exact", "parent centroid error", "pair mean centroid error", "true child-parent camera-up gap error", "positive and negative and uncertain pair counts"],
+  "claim_limits": "New object category and official test split, but a manual cup-derived 0.4m offset likely transfers poorly to lamps. One visual annotator, at most eight candidates, oracle boxes and calibration, possible room dependence. This is an out-of-category stress test, not evidence of generic support reconstruction."
+}

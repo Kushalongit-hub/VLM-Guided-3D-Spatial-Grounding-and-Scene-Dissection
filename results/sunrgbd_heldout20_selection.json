@@ -1,0 +1,153 @@
+{
+  "split": "sunrgbd_testing_images.txt",
+  "selection_seed": 27,
+  "per_sensor": 5,
+  "minimum_pairable_objects": 3,
+  "source_sha256": {
+    "sunrgbd_testing_images.txt": "b65e32ce06442218417f6d079b17cdba04772eba2a01a5d73e83cbcb0adfead0",
+    "SUNRGBDMeta3DBB_v2.mat": "0f8c97ab95630d2461212ffc9589facb8cf3444cafab4c6d93d97541b347e36b",
+    "SUNRGBDMeta2DBB_v2.mat": "d42020e95c6b654b2c81f0e04c8dba615b98733075e0c8605e6bd43bbb9b2899"
+  },
+  "scenes": [
+    {
+      "metadata_index": 146,
+      "scene_id": "sunrgbd_000147",
+      "sensor": "kv2",
+      "pairable_objects": 4,
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000280_2014-06-02_16-13-06_260595134347_rgbf000064-resize"
+    },
+    {
+      "metadata_index": 675,
+      "scene_id": "sunrgbd_000676",
+      "sensor": "kv2",
+      "pairable_objects": 5,
+      "sequence_name": "SUNRGBD/kv2/kinect2data/001689_2014-06-26_19-16-46_260595134347_rgbf000077-resize"
+    },
+    {
+      "metadata_index": 677,
+      "scene_id": "sunrgbd_000678",
+      "sensor": "kv2",
+      "pairable_objects": 6,
+      "sequence_name": "SUNRGBD/kv2/kinect2data/001691_2014-06-26_19-17-37_260595134347_rgbf000073-resize"
+    },
+    {
+      "metadata_index": 791,
+      "scene_id": "sunrgbd_000792",
+      "sensor": "kv2",
+      "pairable_objects": 8,
+      "sequence_name": "SUNRGBD/kv2/kinect2data/001808_2014-06-26_20-50-58_260595134347_rgbf000029-resize"
+    },
+    {
+      "metadata_index": 1211,
+      "scene_id": "sunrgbd_001212",
+      "sensor": "kv2",
+      "pairable_objects": 6,
+      "sequence_name": "SUNRGBD/kv2/kinect2data/003158_2014-05-12_11-32-40_094959634447_rgbf002887-resize"
+    },
+    {
+      "metadata_index": 1957,
+      "scene_id": "sunrgbd_001958",
+      "sensor": "kv1",
+      "pairable_objects": 3,
+      "sequence_name": "SUNRGBD/kv1/NYUdata/NYU0210"
+    },
+    {
+      "metadata_index": 2148,
+      "scene_id": "sunrgbd_002149",
+      "sensor": "kv1",
+      "pairable_objects": 4,
+      "sequence_name": "SUNRGBD/kv1/NYUdata/NYU0689"
+    },
+    {
+      "metadata_index": 2270,
+      "scene_id": "sunrgbd_002271",
+      "sensor": "kv1",
+      "pairable_objects": 3,
+      "sequence_name": "SUNRGBD/kv1/NYUdata/NYU0973"
+    },
+    {
+      "metadata_index": 2281,
+      "scene_id": "sunrgbd_002282",
+      "sensor": "kv1",
+      "pairable_objects": 4,
+      "sequence_name": "SUNRGBD/kv1/NYUdata/NYU1002"
+    },
+    {
+      "metadata_index": 2590,
+      "scene_id": "sunrgbd_002591",
+      "sensor": "kv1",
+      "pairable_objects": 3,
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0555"
+    },
+    {
+      "metadata_index": 3273,
+      "scene_id": "sunrgbd_003274",
+      "sensor": "xtion",
+      "pairable_objects": 5,
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_46_ted_lab2/ted_lab_a/0000035-000001350987"
+    },
+    {
+      "metadata_index": 3402,
+      "scene_id": "sunrgbd_003403",
+      "sensor": "xtion",
+      "pairable_objects": 8,
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_76_4printroom/76-4printroom1/0000005-000000157760"
+    },
+    {
+      "metadata_index": 3604,
+      "scene_id": "sunrgbd_003605",
+      "sensor": "xtion",
+      "pairable_objects": 8,
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_dorm_next_dn/dorm_next_dn_oct_30_2012_scan1_erika/0003086-000135777120"
+    },
+    {
+      "metadata_index": 3685,
+      "scene_id": "sunrgbd_003686",
+      "sensor": "xtion",
+      "pairable_objects": 4,
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_lab_16/lab_16_nov_2_2012_scan1_erika/0008229-000353258640"
+    },
+    {
+      "metadata_index": 4401,
+      "scene_id": "sunrgbd_004402",
+      "sensor": "xtion",
+      "pairable_objects": 3,
+      "sequence_name": "SUNRGBD/xtion/xtion_align_data/2014_12_18_12_1_55"
+    },
+    {
+      "metadata_index": 4517,
+      "scene_id": "sunrgbd_004518",
+      "sensor": "realsense",
+      "pairable_objects": 3,
+      "sequence_name": "SUNRGBD/realsense/lg/2014_10_24-12_51_46-1311000073"
+    },
+    {
+      "metadata_index": 4626,
+      "scene_id": "sunrgbd_004627",
+      "sensor": "realsense",
+      "pairable_objects": 4,
+      "sequence_name": "SUNRGBD/realsense/lg/2014_10_26-14_07_19-1311000073"
+    },
+    {
+      "metadata_index": 4739,
+      "scene_id": "sunrgbd_004740",
+      "sensor": "realsense",
+      "pairable_objects": 6,
+      "sequence_name": "SUNRGBD/realsense/lg/2014_10_27-14_48_24-1311000073"
+    },
+    {
+      "metadata_index": 4925,
+      "scene_id": "sunrgbd_004926",
+      "sensor": "realsense",
+      "pairable_objects": 3,
+      "sequence_name": "SUNRGBD/realsense/lg/2014_10_29-16_50_58-1311000073"
+    },
+    {
+      "metadata_index": 4973,
+      "scene_id": "sunrgbd_004974",
+      "sensor": "realsense",
+      "pairable_objects": 3,
+      "sequence_name": "SUNRGBD/realsense/lg/2014_10_30-15_39_41-1311000073"
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "setting": "post-hoc paired YOLO11n-seg box-vs-mask analysis of existing SUN RGB-D heldout20 report",
+  "matched_object_count": 15,
+  "scene_count_with_matches": 13,
+  "mean_box_error_m": 0.5852776147665256,
+  "mean_mask_error_m": 0.5256183309134735,
+  "mean_mask_minus_box_error_m": -0.0596592838530519,
+  "median_mask_minus_box_error_m": -0.02178037526633947,
+  "mask_better_count": 10,
+  "scene_bootstrap_95pct_interval_m": [
+    -0.22951564615826794,
+    0.05870028820041293
+  ],
+  "per_label": {
+    "backpack": {
+      "count": 1,
+      "mean_mask_minus_box_error_m": 0.012980571320193424,
+      "mask_better_count": 0
+    },
+    "bed": {
+      "count": 4,
+      "mean_mask_minus_box_error_m": 0.11689837037637081,
+      "mask_better_count": 2
+    },
+    "bicycle": {
+      "count": 1,
+      "mean_mask_minus_box_error_m": -0.035719456031662045,
+      "mask_better_count": 1
+    },
+    "chair": {
+      "count": 4,
+      "mean_mask_minus_box_error_m": -0.32180653882101545,
+      "mask_better_count": 4
+    },
+    "couch": {
+      "count": 1,
+      "mean_mask_minus_box_error_m": 0.005240067088148392,
+      "mask_better_count": 0
+    },
+    "cup": {
+      "count": 1,
+      "mean_mask_minus_box_error_m": -0.0056725911314292055,
+      "mask_better_count": 1
+    },
+    "sink": {
+      "count": 1,
+      "mean_mask_minus_box_error_m": -0.004673472805540604,
+      "mask_better_count": 1
+    },
+    "toilet": {
+      "count": 1,
+      "mean_mask_minus_box_error_m": 0.002267803498669063,
+      "mask_better_count": 0
+    },
+    "tv": {
+      "count": 1,
+      "mean_mask_minus_box_error_m": -0.049679505955578795,
+      "mask_better_count": 1
+    }
+  },
+  "note": "Only 2D class-aware IoU>=0.5 matches; same YOLO detection boxes and predicted metric depth for both methods. No new scenes or checkpoint; source report was previously inspected. Scene bootstrap is descriptive, not independent-room uncertainty.",
+  "objects": [
+    {
+      "scene_id": "sunrgbd_000147",
+      "reference_id": "object_1",
+      "predicted_label": "chair",
+      "box_iou": 0.8558286239978973,
+      "box_error_m": 1.2830402657897944,
+      "mask_error_m": 1.2612598905234549,
+      "mask_minus_box_error_m": -0.02178037526633947
+    },
+    {
+      "scene_id": "sunrgbd_000147",
+      "reference_id": "object_3",
+      "predicted_label": "tv",
+      "box_iou": 0.9218499775799116,
+      "box_error_m": 1.3280162753687605,
+      "mask_error_m": 1.2783367694131818,
+      "mask_minus_box_error_m": -0.049679505955578795
+    },
+    {
+      "scene_id": "sunrgbd_000676",
+      "reference_id": "object_1",
+      "predicted_label": "chair",
+      "box_iou": 0.9563714305469128,
+      "box_error_m": 0.6172552565611246,
+      "mask_error_m": 0.5161780809175471,
+      "mask_minus_box_error_m": -0.10107717564357743
+    },
+    {
+      "scene_id": "sunrgbd_000678",
+      "reference_id": "object_0",
+      "predicted_label": "bed",
+      "box_iou": 0.8842149104539775,
+      "box_error_m": 0.20393340831592635,
+      "mask_error_m": 0.5831897573741166,
+      "mask_minus_box_error_m": 0.3792563490581903
+    },
+    {
+      "scene_id": "sunrgbd_000792",
+      "reference_id": "object_1",
+      "predicted_label": "bed",
+      "box_iou": 0.9725869758291712,
+      "box_error_m": 0.9810499801650029,
+      "mask_error_m": 0.9406418258363184,
+      "mask_minus_box_error_m": -0.0404081543286845
+    },
+    {
+      "scene_id": "sunrgbd_001958",
+      "reference_id": "object_2",
+      "predicted_label": "couch",
+      "box_iou": 0.9450286920701944,
+      "box_error_m": 0.5896057498027766,
+      "mask_error_m": 0.594845816890925,
+      "mask_minus_box_error_m": 0.005240067088148392
+    },
+    {
+      "scene_id": "sunrgbd_002149",
+      "reference_id": "object_0",
+      "predicted_label": "toilet",
+      "box_iou": 0.9552887310783031,
+      "box_error_m": 0.06843227001255768,
+      "mask_error_m": 0.07070007351122674,
+      "mask_minus_box_error_m": 0.002267803498669063
+    },
+    {
+      "scene_id": "sunrgbd_002271",
+      "reference_id": "object_0",
+      "predicted_label": "bed",
+      "box_iou": 0.5502096226791775,
+      "box_error_m": 0.8578993499747742,
+      "mask_error_m": 0.8212527396625628,
+      "mask_minus_box_error_m": -0.03664661031221139
+    },
+    {
+      "scene_id": "sunrgbd_002282",
+      "reference_id": "object_0",
+      "predicted_label": "bed",
+      "box_iou": 0.8719658176497972,
+      "box_error_m": 0.41944672963160895,
+      "mask_error_m": 0.5848386267197978,
+      "mask_minus_box_error_m": 0.16539189708818886
+    },
+    {
+      "scene_id": "sunrgbd_002591",
+      "reference_id": "object_2",
+      "predicted_label": "cup",
+      "box_iou": 0.9487179487179487,
+      "box_error_m": 0.3932174117361612,
+      "mask_error_m": 0.387544820604732,
+      "mask_minus_box_error_m": -0.0056725911314292055
+    },
+    {
+      "scene_id": "sunrgbd_003605",
+      "reference_id": "object_6",
+      "predicted_label": "backpack",
+      "box_iou": 0.8554765291607397,
+      "box_error_m": 0.19146508290446673,
+      "mask_error_m": 0.20444565422466016,
+      "mask_minus_box_error_m": 0.012980571320193424
+    },
+    {
+      "scene_id": "sunrgbd_003605",
+      "reference_id": "object_7",
+      "predicted_label": "bicycle",
+      "box_iou": 0.6165562069844507,
+      "box_error_m": 0.1305038521454205,
+      "mask_error_m": 0.09478439611375847,
+      "mask_minus_box_error_m": -0.035719456031662045
+    },
+    {
+      "scene_id": "sunrgbd_003686",
+      "reference_id": "object_0",
+      "predicted_label": "chair",
+      "box_iou": 0.6488396055149404,
+      "box_error_m": 1.368828811100687,
+      "mask_error_m": 0.33836526716897136,
+      "mask_minus_box_error_m": -1.0304635439317156
+    },
+    {
+      "scene_id": "sunrgbd_004740",
+      "reference_id": "object_1",
+      "predicted_label": "chair",
+      "box_iou": 0.8482754512420325,
+      "box_error_m": 0.219409050195945,
+      "mask_error_m": 0.08550398975351556,
+      "mask_minus_box_error_m": -0.13390506044242945
+    },
+    {
+      "scene_id": "sunrgbd_004926",
+      "reference_id": "object_1",
+      "predicted_label": "sink",
+      "box_iou": 0.9375265017667844,
+      "box_error_m": 0.12706072779287683,
+      "mask_error_m": 0.12238725498733623,
+      "mask_minus_box_error_m": -0.004673472805540604
+    }
+  ]
+}

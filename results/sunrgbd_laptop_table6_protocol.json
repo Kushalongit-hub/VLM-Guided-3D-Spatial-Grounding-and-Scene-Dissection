@@ -1,0 +1,31 @@
+{
+  "status": "frozen_before_image_depth_or_3d_reference_inspection",
+  "date": "2026-10-02",
+  "selection_sha256": "be439d701d5882d58176ad30737e8fdca4c8d50ca4461e2edc484a1953ad16f0",
+  "split": "official_sunrgbd_test",
+  "sample": "Six metadata-selected scenes with exactly one 2D/3D annotated laptop and table; at least 30 indices from prior selections. Different indices do not prove different rooms.",
+  "annotation_rule": "First inspect RGB and annotated 2D boxes only. Mark laptop supported by the paired table true, false, or uncertain, with one short reason. Save labels before reading depth or 3D centers. Preserve all six scenes in every count.",
+  "frozen_inference": {
+    "detector": "Grounding DINO Tiny, separate prompts 'a laptop' and 'a table', box/text threshold 0.25, confidence-based same-class duplicate suppression at mask IoU >= 0.7",
+    "segmenter": "SAM ViT-B prompted with detected boxes; masked metric-depth lifting; box fallback for empty masks",
+    "depth": "Depth Anything V2 Metric Hypersim Small, no per-scene scale fitting",
+    "matching": "One-to-one, class-aware box IoU >= 0.5 against the annotated 2D laptop and table; no oracle boxes in inference",
+    "relation_candidate": "For a matched detector pair, child's box-bottom center inside parent's box and absolute median predicted-depth gap <= 0.75 m; evaluate all detector proposals as well as annotation-matched pair",
+    "mask_gate": "Visible child lower-contour / parent SAM mask adjacency fraction > 0 within 8 vertical pixels; no threshold tuning",
+    "support_correction": "Child-only camera-ray soft correction with 0.4 m center-height offset and maximum 0.5 m shift, only for one accepted candidate; report uncorrected if zero or multiple candidates"
+  },
+  "primary_metrics": [
+    "Per-scene paired laptop/table detection coverage at IoU >= 0.5, denominator six",
+    "Among visually certain labels, candidate recall on positives and false-candidate rate on negatives before and after mask gate, denominator all labeled scenes; missed detections count as no candidate",
+    "Mean and per-scene laptop 3D center error for detected matched positive pairs: masked uncorrected versus masked corrected, with counts and abstentions"
+  ],
+  "secondary_metrics": ["Box versus SAM 3D center error for matched laptop and table objects", "Parent 3D center error", "Correction shift and processing time"],
+  "code_sha256": {
+    "grounding_dino_detector.py": "caaa758c28c91f84e005935945f6d5689da21325a9bdb8e5cee46cc23d4182f9",
+    "mask_contact.py": "d13352fe52d4871e293d254525758404c46bf265406f9d1b17e97f07c8d87afd",
+    "mask_support_gate.py": "515e1a30949f5dc46f2b3b1d1a190b49b0958558764a138351de70feef1b888b",
+    "child_ray_support.py": "8bce35c7fcac365a7fbe3d19a0aff22e644da9d5779e64a27a44f15d8b984509",
+    "depth_checkpoint": "b782898d8a3e8be1f639de33837ed85e9b4b73e40f8f5e5cd99067588d722545"
+  },
+  "claim_limits": "Small metadata sample, one visual annotator, possible room overlap and RGB ambiguity. A category-transfer stress test, not a benchmark-scale novelty result."
+}

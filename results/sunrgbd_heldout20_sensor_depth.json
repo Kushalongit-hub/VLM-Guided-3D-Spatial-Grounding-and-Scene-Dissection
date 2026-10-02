@@ -1,0 +1,582 @@
+{
+  "scene_count": 20,
+  "reference_count": 93,
+  "matched_count": 93,
+  "coverage": 1.0,
+  "median_centroid_error_m": 0.3011344695250338,
+  "p90_centroid_error_m": 0.7463169391658119,
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000147",
+      "reference_count": 4,
+      "matched_count": 4,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.23648819712376556,
+      "p90_centroid_error_m": 0.43537709212949594,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.21899213597252895
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.1341984087805364
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.513116878067136
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.25398425827500215
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_000676",
+      "reference_count": 5,
+      "matched_count": 5,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.3591337896541382,
+      "p90_centroid_error_m": 0.4357560186416593,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.4245777031317439
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.4432082289816029
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.3591337896541382
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.1539815846795281
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.04412290185530998
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_000678",
+      "reference_count": 6,
+      "matched_count": 6,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.3761805956342802,
+      "p90_centroid_error_m": 0.6255712176581212,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.8231647062802205
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.12339609642128767
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.1785696602694314
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.4219549344533713
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.33040625681518915
+        },
+        {
+          "instance_id": "object_5",
+          "centroid_error_m": 0.4279777290360217
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_000792",
+      "reference_count": 8,
+      "matched_count": 8,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.4744461364464615,
+      "p90_centroid_error_m": 0.8341171041302853,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.17174070963656624
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.9751324210402224
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.17456155880648658
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.4659382708269597
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.3863709329152115
+        },
+        {
+          "instance_id": "object_5",
+          "centroid_error_m": 0.7736819683117409
+        },
+        {
+          "instance_id": "object_6",
+          "centroid_error_m": 0.48295400206596323
+        },
+        {
+          "instance_id": "object_7",
+          "centroid_error_m": 0.6037388606214161
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_001212",
+      "reference_count": 6,
+      "matched_count": 6,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.6485206871076702,
+      "p90_centroid_error_m": 1.4214733330219103,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.45383487242647486
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 1.1944907200793842
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.09337444162806918
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.32295415067331734
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 1.6484559459644366
+        },
+        {
+          "instance_id": "object_5",
+          "centroid_error_m": 0.8432065017888655
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_001958",
+      "reference_count": 3,
+      "matched_count": 3,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.4369622883334329,
+      "p90_centroid_error_m": 0.6897260839477612,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.7529170328513434
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.04640570000244651
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.4369622883334329
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002149",
+      "reference_count": 4,
+      "matched_count": 4,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.11263530341523659,
+      "p90_centroid_error_m": 0.19356341501858432,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.0639624386200805
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.207387092222095
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.05526916711306694
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.16130816821039268
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002271",
+      "reference_count": 3,
+      "matched_count": 3,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.4340633081815691,
+      "p90_centroid_error_m": 0.8898948655173552,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 1.0038527548513017
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.15555851480643898
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.4340633081815691
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002282",
+      "reference_count": 4,
+      "matched_count": 4,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.24124009211768896,
+      "p90_centroid_error_m": 0.6202851541489695,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.3878118635079628
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.07862866842324873
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.7199165644236866
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.0946683207274151
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002591",
+      "reference_count": 3,
+      "matched_count": 3,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.412186535207907,
+      "p90_centroid_error_m": 0.45702395404106316,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.4682333087493522
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.412186535207907
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.014886503755551804
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003274",
+      "reference_count": 5,
+      "matched_count": 5,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.419294720999887,
+      "p90_centroid_error_m": 0.6372319958931233,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.5490505649798045
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.419294720999887
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.3541770117165576
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.6960196165020025
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.13438068632337746
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003403",
+      "reference_count": 8,
+      "matched_count": 8,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.24221773382593678,
+      "p90_centroid_error_m": 0.5783639714574472,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.11055054427904917
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.1442685768580491
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.14819568483587323
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.42944811591601384
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.9258343010541253
+        },
+        {
+          "instance_id": "object_5",
+          "centroid_error_m": 0.28154503641864675
+        },
+        {
+          "instance_id": "object_6",
+          "centroid_error_m": 0.2028904312332268
+        },
+        {
+          "instance_id": "object_7",
+          "centroid_error_m": 0.3953172612638859
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003605",
+      "reference_count": 8,
+      "matched_count": 8,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.23035081340509994,
+      "p90_centroid_error_m": 0.6298456354323054,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.8935685672949418
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.08028047276253027
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.12475362456946766
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.15757265184015645
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.51682152177689
+        },
+        {
+          "instance_id": "object_5",
+          "centroid_error_m": 0.30312897497004343
+        },
+        {
+          "instance_id": "object_6",
+          "centroid_error_m": 0.066093294158087
+        },
+        {
+          "instance_id": "object_7",
+          "centroid_error_m": 0.4499920041054353
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003686",
+      "reference_count": 4,
+      "matched_count": 4,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.2599464614021533,
+      "p90_centroid_error_m": 0.48751335704665605,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.14661454118286266
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.57807649918981
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.27619935871263
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.24369356409167653
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_004402",
+      "reference_count": 3,
+      "matched_count": 3,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.27396361124657753,
+      "p90_centroid_error_m": 0.33920712920957685,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.27396361124657753
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.2367677009477495
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.3555180087003267
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_004518",
+      "reference_count": 3,
+      "matched_count": 3,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.3011344695250338,
+      "p90_centroid_error_m": 0.30175824092639686,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.3019141837767376
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.27396084107536234
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.3011344695250338
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_004627",
+      "reference_count": 4,
+      "matched_count": 4,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.28596391421982603,
+      "p90_centroid_error_m": 0.4203638040760728,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.2541384420986683
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.4643242688196824
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.2497536281520527
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.31778938634098375
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_004740",
+      "reference_count": 6,
+      "matched_count": 6,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.1391166278638109,
+      "p90_centroid_error_m": 0.5541033130691725,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.12846400675418657
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.11425464995026909
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.5534328440391003
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.5547737820992447
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.12282903081623282
+        },
+        {
+          "instance_id": "object_5",
+          "centroid_error_m": 0.14976924897343527
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_004926",
+      "reference_count": 3,
+      "matched_count": 3,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.21032385312420607,
+      "p90_centroid_error_m": 0.2564642976222107,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.26799940874671185
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.14417266991269304
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.21032385312420607
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_004974",
+      "reference_count": 3,
+      "matched_count": 3,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.2894729598190514,
+      "p90_centroid_error_m": 0.46800227063427413,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.5126345983380798
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.12570251240190247
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.2894729598190514
+        }
+      ]
+    }
+  ]
+}

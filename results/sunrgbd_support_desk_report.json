@@ -1,0 +1,187 @@
+{
+  "setting": "frozen desk candidates; official oracle boxes and calibration; RGB-predicted depth",
+  "selection_sha256": "bf23d7784cd5b9070376e1c4ad89886394a025a669ffeb3f5e85891af795a2a3",
+  "proposal_code_sha256": "e72d54a4ef9de6e1166cfaae8fe5c1d8ef2bdacc658afa0d5f372e4d374ace23",
+  "positive_count": 9,
+  "negative_count": 0,
+  "uncertain_count": 1,
+  "tp": 9,
+  "tn": 0,
+  "fp": 0,
+  "fn": 0,
+  "candidate_pair_precision": 1.0,
+  "candidate_pair_recall": 1.0,
+  "candidate_pair_f1": 1.0,
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_001657",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_7",
+          "parent_id": "object_1",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.5980985164642334,
+          "footpoint_px": [
+            708.5,
+            140.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_001701",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_3",
+          "parent_id": "object_7",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.2852839231491089,
+          "footpoint_px": [
+            539.5,
+            130.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002008",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_3",
+          "parent_id": "object_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.25601327419281006,
+          "footpoint_px": [
+            498.5,
+            284.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002532",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_1",
+          "parent_id": "object_2",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.2116883397102356,
+          "footpoint_px": [
+            366.0,
+            182.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002739",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_3",
+          "parent_id": "object_2",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.08869826793670654,
+          "footpoint_px": [
+            319.0,
+            333.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003126",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_0",
+          "parent_id": "object_3",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.1713937520980835,
+          "footpoint_px": [
+            85.0,
+            117.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003429",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_4",
+          "parent_id": "object_1",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.09179949760437012,
+          "footpoint_px": [
+            527.5,
+            236.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003741",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_3",
+          "parent_id": "object_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.6881120204925537,
+          "footpoint_px": [
+            58.5,
+            412.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003897",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_3",
+          "parent_id": "object_4",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.3926345109939575,
+          "footpoint_px": [
+            218.5,
+            187.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003983",
+      "label": null,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_7",
+          "parent_id": "object_11",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.4768390655517578,
+          "footpoint_px": [
+            565.0,
+            237.0
+          ]
+        }
+      ]
+    }
+  ]
+}

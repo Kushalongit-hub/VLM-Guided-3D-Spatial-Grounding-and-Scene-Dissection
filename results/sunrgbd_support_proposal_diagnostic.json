@@ -1,0 +1,295 @@
+{
+  "setting": "oracle 2D boxes, RGB-predicted depth, previously inspected mug/cup-table pairs",
+  "warning": "Heuristic designed after inspecting these scenes; diagnostic only, not held-out accuracy.",
+  "positive_count": 13,
+  "negative_count": 5,
+  "uncertain_count": 1,
+  "tp": 13,
+  "tn": 5,
+  "fp": 0,
+  "fn": 0,
+  "precision_on_labeled_candidate_pairs": 1.0,
+  "recall_on_labeled_candidate_pairs": 1.0,
+  "f1_on_labeled_candidate_pairs": 1.0,
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000276",
+      "label": false,
+      "candidate_pair_proposed": false,
+      "proposals": [
+        {
+          "child_id": "object_3",
+          "parent_id": "object_5",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.5999792814254761,
+          "footpoint_px": [
+            270.5,
+            278.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002584",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_1",
+          "parent_id": "object_3",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.12492543458938599,
+          "footpoint_px": [
+            182.0,
+            363.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002590",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_1",
+          "parent_id": "object_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.1875646710395813,
+          "footpoint_px": [
+            341.0,
+            328.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002605",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_1",
+          "parent_id": "object_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.08369159698486328,
+          "footpoint_px": [
+            409.0,
+            289.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002632",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_5",
+          "parent_id": "object_3",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.47375917434692383,
+          "footpoint_px": [
+            495.0,
+            173.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002633",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_2",
+          "parent_id": "object_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.12989550828933716,
+          "footpoint_px": [
+            453.0,
+            217.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002639",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_2",
+          "parent_id": "object_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.16763019561767578,
+          "footpoint_px": [
+            387.5,
+            267.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002934",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_1",
+          "parent_id": "object_4",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.30874335765838623,
+          "footpoint_px": [
+            76.0,
+            200.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003508",
+      "label": false,
+      "candidate_pair_proposed": false,
+      "proposals": []
+    },
+    {
+      "scene_id": "sunrgbd_004225",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_0",
+          "parent_id": "object_4",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.1236121654510498,
+          "footpoint_px": [
+            104.5,
+            421.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_000275",
+      "label": false,
+      "candidate_pair_proposed": false,
+      "proposals": []
+    },
+    {
+      "scene_id": "sunrgbd_001058",
+      "label": false,
+      "candidate_pair_proposed": false,
+      "proposals": [
+        {
+          "child_id": "object_1",
+          "parent_id": "object_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.11327362060546875,
+          "footpoint_px": [
+            34.5,
+            164.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_001146",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_3",
+          "parent_id": "object_4",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.5005896091461182,
+          "footpoint_px": [
+            446.5,
+            188.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002604",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_1",
+          "parent_id": "object_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.07192420959472656,
+          "footpoint_px": [
+            210.0,
+            234.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002607",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_3",
+          "parent_id": "object_2",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.13613969087600708,
+          "footpoint_px": [
+            535.5,
+            312.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002645",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_1",
+          "parent_id": "object_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.40572047233581543,
+          "footpoint_px": [
+            240.5,
+            249.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002725",
+      "label": true,
+      "candidate_pair_proposed": true,
+      "proposals": [
+        {
+          "child_id": "object_3",
+          "parent_id": "object_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.009851515293121338,
+          "footpoint_px": [
+            312.5,
+            269.0
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003475",
+      "label": null,
+      "candidate_pair_proposed": false,
+      "proposals": []
+    },
+    {
+      "scene_id": "sunrgbd_003507",
+      "label": false,
+      "candidate_pair_proposed": false,
+      "proposals": []
+    }
+  ]
+}

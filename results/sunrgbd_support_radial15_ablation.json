@@ -1,0 +1,160 @@
+{
+  "status": "post_hoc_stronger_baselines_not_frozen_primary_evaluation",
+  "parent_class": "table",
+  "positive_count": 12,
+  "mean_child_error_m": {
+    "uncorrected": 0.717354302867396,
+    "height_exact": 0.7143720311818389,
+    "paired_radial": 0.6354873554425552,
+    "child_only_ray_soft": 0.6328506288819342,
+    "child_only_ray_exact": 0.6042908824130214
+  },
+  "comparisons": {
+    "paired_radial_minus_height_exact": {
+      "mean_m": -0.07888467573928372,
+      "scene_bootstrap_95pct_interval_m": [
+        -0.15728967973933608,
+        0.000423527072075498
+      ],
+      "paired_radial_better_count": 9
+    },
+    "paired_radial_minus_child_only_ray_soft": {
+      "mean_m": 0.002636726560620927,
+      "scene_bootstrap_95pct_interval_m": [
+        -0.007344509329806225,
+        0.012673863274072493
+      ],
+      "paired_radial_better_count": 4
+    },
+    "paired_radial_minus_child_only_ray_exact": {
+      "mean_m": 0.031196473029533756,
+      "scene_bootstrap_95pct_interval_m": [
+        -0.123220101884521,
+        0.1713205673836001
+      ],
+      "paired_radial_better_count": 4
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_005246",
+      "child_error_m": {
+        "uncorrected": 0.8888587183200629,
+        "height_exact": 0.8834838916774077,
+        "paired_radial": 0.8069989726884544,
+        "child_only_ray_soft": 0.7997046008099368,
+        "child_only_ray_exact": 0.44349823140657224
+      }
+    },
+    {
+      "scene_id": "sunrgbd_005253",
+      "child_error_m": {
+        "uncorrected": 1.2350668162224818,
+        "height_exact": 1.2386442954636412,
+        "paired_radial": 1.2979897906165658,
+        "child_only_ray_soft": 1.3087080542663994,
+        "child_only_ray_exact": 1.7348480934249944
+      }
+    },
+    {
+      "scene_id": "sunrgbd_005254",
+      "child_error_m": {
+        "uncorrected": 1.051307050605295,
+        "height_exact": 1.0642624390273472,
+        "paired_radial": 1.216462712020933,
+        "child_only_ray_soft": 1.2404569312650524,
+        "child_only_ray_exact": 1.551258153885346
+      }
+    },
+    {
+      "scene_id": "sunrgbd_005278",
+      "child_error_m": {
+        "uncorrected": 0.5709409263707411,
+        "height_exact": 0.569435219167386,
+        "paired_radial": 0.5451732325056541,
+        "child_only_ray_soft": 0.5416933796861104,
+        "child_only_ray_exact": 0.4469501943878655
+      }
+    },
+    {
+      "scene_id": "sunrgbd_005437",
+      "child_error_m": {
+        "uncorrected": 1.4007534019848218,
+        "height_exact": 1.4005302266718922,
+        "paired_radial": 1.3973336353262562,
+        "child_only_ray_soft": 1.3970048804994246,
+        "child_only_ray_exact": 1.373144391147978
+      }
+    },
+    {
+      "scene_id": "sunrgbd_005466",
+      "child_error_m": {
+        "uncorrected": 0.3773790743114634,
+        "height_exact": 0.37186437960509783,
+        "paired_radial": 0.31989020654650147,
+        "child_only_ray_soft": 0.30947769302198763,
+        "child_only_ray_exact": 0.06733324499079998
+      }
+    },
+    {
+      "scene_id": "sunrgbd_007890",
+      "child_error_m": {
+        "uncorrected": 0.8113468638876439,
+        "height_exact": 0.8028501370914748,
+        "paired_radial": 0.5904380499948356,
+        "child_only_ray_soft": 0.5737586028208044,
+        "child_only_ray_exact": 0.31256886783053306
+      }
+    },
+    {
+      "scene_id": "sunrgbd_007898",
+      "child_error_m": {
+        "uncorrected": 0.23079748608046108,
+        "height_exact": 0.2274659422829375,
+        "paired_radial": 0.02940931714808045,
+        "child_only_ray_soft": 0.04716168946198292,
+        "child_only_ray_exact": 0.2711417048417344
+      }
+    },
+    {
+      "scene_id": "sunrgbd_007903",
+      "child_error_m": {
+        "uncorrected": 0.08680045077418182,
+        "height_exact": 0.10476088256936597,
+        "paired_radial": 0.21287305196092177,
+        "child_only_ray_soft": 0.2332912167948298,
+        "child_only_ray_exact": 0.41940815017775923
+      }
+    },
+    {
+      "scene_id": "sunrgbd_007914",
+      "child_error_m": {
+        "uncorrected": 0.41344696363981165,
+        "height_exact": 0.39801064227447697,
+        "paired_radial": 0.16586174701947035,
+        "child_only_ray_soft": 0.13706336781208506,
+        "child_only_ray_exact": 0.08933627497308547
+      }
+    },
+    {
+      "scene_id": "sunrgbd_007916",
+      "child_error_m": {
+        "uncorrected": 0.8258111030744715,
+        "height_exact": 0.8057957875535825,
+        "paired_radial": 0.5458071017366972,
+        "child_only_ray_soft": 0.514905435332071,
+        "child_only_ray_exact": 0.3259525725978986
+      }
+    },
+    {
+      "scene_id": "sunrgbd_008047",
+      "child_error_m": {
+        "uncorrected": 0.7157427791373152,
+        "height_exact": 0.7053605307974566,
+        "paired_radial": 0.4976104477462913,
+        "child_only_ray_soft": 0.4909816948125263,
+        "child_only_ray_exact": 0.21605070929168993
+      }
+    }
+  ]
+}

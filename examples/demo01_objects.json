@@ -1,0 +1,4 @@
+[
+  {"label": "bus", "instance_id": "bus_0", "bbox_2d": [1440, 690, 1770, 1050]},
+  {"label": "silver car", "instance_id": "car_0", "bbox_2d": [1350, 970, 1650, 1230]}
+]

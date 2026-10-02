@@ -1,0 +1,112 @@
+{
+  "setting": "post-hoc mask and child-ray interaction on already viewed lamp/table positives",
+  "visually_positive_count": 4,
+  "paired_detector_coverage": 3,
+  "methods": {
+    "box_uncorrected": {
+      "child_error_m": 1.0230006232115654,
+      "parent_error_m": 0.36137919622312437,
+      "height_gap_error_m": 0.29143060504189977
+    },
+    "box_child_ray_soft": {
+      "child_error_m": 1.0425178378392423,
+      "parent_error_m": 0.36137919622312437,
+      "height_gap_error_m": 0.24652055566895106
+    },
+    "mask_uncorrected": {
+      "child_error_m": 0.44331880393916556,
+      "parent_error_m": 0.45303220545999595,
+      "height_gap_error_m": 0.29465614976475235
+    },
+    "mask_child_ray_soft": {
+      "child_error_m": 0.45288854384879257,
+      "parent_error_m": 0.45303220545999595,
+      "height_gap_error_m": 0.27679743816198404
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000543",
+      "paired_detection": true,
+      "methods": {
+        "box_uncorrected": {
+          "child_error_m": 1.496398997740302,
+          "parent_error_m": 0.4326281981690624,
+          "height_gap_error_m": 0.36356722200343794
+        },
+        "box_child_ray_soft": {
+          "child_error_m": 1.5772063724619507,
+          "parent_error_m": 0.4326281981690624,
+          "height_gap_error_m": 0.3493285271107949
+        },
+        "mask_uncorrected": {
+          "child_error_m": 0.6406897412520786,
+          "parent_error_m": 0.39868138477058324,
+          "height_gap_error_m": 0.5783048712041446
+        },
+        "mask_child_ray_soft": {
+          "child_error_m": 0.6654064250020877,
+          "parent_error_m": 0.39868138477058324,
+          "height_gap_error_m": 0.5749302759890104
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_000638",
+      "paired_detection": true,
+      "methods": {
+        "box_uncorrected": {
+          "child_error_m": 1.2556669136658611,
+          "parent_error_m": 0.4746766793574826,
+          "height_gap_error_m": 0.13447682770727531
+        },
+        "box_child_ray_soft": {
+          "child_error_m": 1.4174370378205157,
+          "parent_error_m": 0.4746766793574826,
+          "height_gap_error_m": 0.11059042411238373
+        },
+        "mask_uncorrected": {
+          "child_error_m": 0.5723436675744978,
+          "parent_error_m": 0.6581324429992266,
+          "height_gap_error_m": 0.010484562315605461
+        },
+        "mask_child_ray_soft": {
+          "child_error_m": 0.6252673859106055,
+          "parent_error_m": 0.6581324429992266,
+          "height_gap_error_m": 0.015432030274449171
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_001898",
+      "paired_detection": false
+    },
+    {
+      "scene_id": "sunrgbd_002994",
+      "paired_detection": true,
+      "methods": {
+        "box_uncorrected": {
+          "child_error_m": 0.3169359582285328,
+          "parent_error_m": 0.17683271114282825,
+          "height_gap_error_m": 0.37624776541498606
+        },
+        "box_child_ray_soft": {
+          "child_error_m": 0.1329101032352604,
+          "parent_error_m": 0.17683271114282825,
+          "height_gap_error_m": 0.27964271578367456
+        },
+        "mask_uncorrected": {
+          "child_error_m": 0.11692300299092023,
+          "parent_error_m": 0.302282788610178,
+          "height_gap_error_m": 0.2951790157745069
+        },
+        "mask_child_ray_soft": {
+          "child_error_m": 0.06799182063368442,
+          "parent_error_m": 0.302282788610178,
+          "height_gap_error_m": 0.2400300082224927
+        }
+      }
+    }
+  ],
+  "note": "Same detected DINO boxes and predicted depth. Only positives with both objects matched at IoU>=0.5 are scored. Oracle boxes align predictions for scoring only. No fresh-holdout claim."
+}

@@ -1,0 +1,13 @@
+{
+  "status": "frozen_before_confirmation_images_or_depth_inference",
+  "selection": "All remaining uniquely paired mug/cup plus table test scenes, excluding the 20-scene development split and 10-scene exploratory pilot.",
+  "relation_annotation": "Inspect RGB image and 2D boxes only. Positive iff paired mug/cup visibly rests on paired table. Negative or uncertain scenes receive no correction; report all candidates.",
+  "methods": ["uncorrected", "weighted", "hard"],
+  "offset_prior_m": 0.4,
+  "offset_sigma_m": 0.2,
+  "center_sigma_m": {"table": 0.8, "cup_or_mug": 0.4, "other": 0.2},
+  "basis": "The exploratory ten-scene pilot showed that 0.2 m table uncertainty over-trusted broad table boxes. A separate 20-scene development benchmark had four table centers averaging 0.793 m 3D error. Round table uncertainty to 0.8 m; other values and offset stay as in the pilot.",
+  "primary_metric": "mean 3D centroid error of positively labeled cups and mugs",
+  "secondary_metrics": ["mean 3D centroid error across both objects in each positive pair", "mean absolute upright height-gap error", "number of positive children improved versus worsened"],
+  "limitations": "The remaining scenes are few and some may be nearby frames. This is a small confirmation diagnostic, not an independent statistical benchmark or novel-method proof."
+}

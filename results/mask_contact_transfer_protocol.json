@@ -1,0 +1,12 @@
+{
+  "status": "diagnostic_rule_fixed_before_sam_masks_on_second_existing_set",
+  "date": "2026-10-02",
+  "source": "SUN RGB-D support_train15; these scenes and relation labels were previously inspected for other work, so this is not a new held-out benchmark",
+  "mask_contact_code_sha256": "d13352fe52d4871e293d254525758404c46bf265406f9d1b17e97f07c8d87afd",
+  "relation_labels_sha256": "96170f852232d427ff959807e5a115e9bd4f4f0dba838dfd74184953f780ffe4",
+  "grounding_dino_report_sha256": "e5e8bc190d3c978ba510b912ca69d81cd9929bbd335c52ba9f523b7b3bf1aa5a",
+  "sam_checkpoint": "facebook/sam-vit-base local safetensors",
+  "mask_rule": {"vertical_radius_px": 8, "bottom_fraction": 0.2, "accept_contact_fraction_if": ">0"},
+  "matching": "Use the previously saved Grounding DINO detections, match annotated child and parent at box IoU >=0.5, then compare visible mask adjacency to RGB-only pair labels. Report missing detections and uncertain labels separately.",
+  "claim_limits": "The rule was devised after viewing the first 15-scene radial table sample. The second sample was itself previously viewed, so results are diagnostic transfer only. Mask adjacency is not physical contact and can miss occluded supports."
+}

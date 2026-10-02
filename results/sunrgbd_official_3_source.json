@@ -1,0 +1,58 @@
+{
+  "archive_url": "https://rgbd.cs.princeton.edu/data/SUNRGBD.zip",
+  "archive_bytes": 6885481608,
+  "metadata_sha256": {
+    "SUNRGBDMeta3DBB_v2.mat": "0f8c97ab95630d2461212ffc9589facb8cf3444cafab4c6d93d97541b347e36b",
+    "SUNRGBDMeta2DBB_v2.mat": "d42020e95c6b654b2c81f0e04c8dba615b98733075e0c8605e6bd43bbb9b2899"
+  },
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000001",
+      "metadata_index": 0,
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000002_2014-05-26_14-23-37_260595134347_rgbf000103-resize",
+      "paired_objects": 5,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/kv2/kinect2data/000002_2014-05-26_14-23-37_260595134347_rgbf000103-resize/image/0000103.jpg",
+          "sha256": "ef3e1573bd0daec7a9f0ca9c2e69645d43333b481677418bd47095036867eaff"
+        },
+        "depth": {
+          "member": "SUNRGBD/kv2/kinect2data/000002_2014-05-26_14-23-37_260595134347_rgbf000103-resize/depth/0000103.png",
+          "sha256": "d07a84373d6d10068bde8e6ddc6b95f2a2bf0667a01cd401c3250b6e166d5d10"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_000003",
+      "metadata_index": 2,
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000008_2014-05-26_14-30-06_260595134347_rgbf000060-resize",
+      "paired_objects": 5,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/kv2/kinect2data/000008_2014-05-26_14-30-06_260595134347_rgbf000060-resize/image/0000060.jpg",
+          "sha256": "05e1cd977cd26b82fb9811d9082cc1c4622e4b191f14e844376f8dd6db87ad08"
+        },
+        "depth": {
+          "member": "SUNRGBD/kv2/kinect2data/000008_2014-05-26_14-30-06_260595134347_rgbf000060-resize/depth/0000060.png",
+          "sha256": "0543c9f4b449a829b744e7c706cd59174a48232daac3077f84e9ac20ce288183"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_000004",
+      "metadata_index": 3,
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000009_2014-05-26_14-32-05_260595134347_rgbf000034-resize",
+      "paired_objects": 4,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/kv2/kinect2data/000009_2014-05-26_14-32-05_260595134347_rgbf000034-resize/image/0000034.jpg",
+          "sha256": "ff72c7436f3281e5edd48a4e1cd1199e7ed4a2eb5fbe8bf6001fd8d3c1c6ae67"
+        },
+        "depth": {
+          "member": "SUNRGBD/kv2/kinect2data/000009_2014-05-26_14-32-05_260595134347_rgbf000034-resize/depth/0000034.png",
+          "sha256": "9374d91281aa8c40919dacd628e356380bd28e529e89ff6a4146c4b9c620ba1c"
+        }
+      }
+    }
+  ]
+}

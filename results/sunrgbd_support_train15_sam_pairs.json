@@ -1,0 +1,432 @@
+{
+  "setting": "post-hoc SAM masks on frozen Grounding DINO detections for previously scored support pairs",
+  "scene_count": 15,
+  "matched_region_count": 25,
+  "child_region_count": 14,
+  "parent_region_count": 11,
+  "mean_mask_minus_box_error_m": -0.04134884298065076,
+  "child_mean_mask_minus_box_error_m": -0.01199431302786766,
+  "parent_mean_mask_minus_box_error_m": -0.07870915382964744,
+  "positive_paired_count": 7,
+  "positive_paired_support_child_error_m": {
+    "box_uncorrected": 0.6427895808415542,
+    "box_child_ray_soft": 0.5263512617127523,
+    "mask_uncorrected": 0.6365696492502039,
+    "mask_child_ray_soft": 0.47575309360945256
+  },
+  "note": "Same previously saved DINO boxes, predicted depth and oracle matching for both arms. Previously inspected scenes; no independent test claim.",
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_005247",
+      "relation_label": true,
+      "child_matched": false,
+      "parent_matched": true,
+      "regions": {
+        "parent": {
+          "box_iou": 0.7974806650303339,
+          "sam_iou_estimate": 0.9792799353599548,
+          "empty_mask": false,
+          "box_error_m": 0.1432675045016751,
+          "mask_error_m": 0.05167368832098843,
+          "mask_minus_box_error_m": -0.09159381618068668
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_005285",
+      "relation_label": false,
+      "child_matched": true,
+      "parent_matched": false,
+      "regions": {
+        "child": {
+          "box_iou": 0.8131868131868132,
+          "sam_iou_estimate": 0.9467887878417969,
+          "empty_mask": false,
+          "box_error_m": 0.8152755761306356,
+          "mask_error_m": 0.8032863421374491,
+          "mask_minus_box_error_m": -0.011989233993186521
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_005307",
+      "relation_label": false,
+      "child_matched": true,
+      "parent_matched": true,
+      "regions": {
+        "child": {
+          "box_iou": 0.8092643051771117,
+          "sam_iou_estimate": 0.9621774554252625,
+          "empty_mask": false,
+          "box_error_m": 0.6935721248696152,
+          "mask_error_m": 0.6685756747953134,
+          "mask_minus_box_error_m": -0.024996450074301735
+        },
+        "parent": {
+          "box_iou": 0.6166267297023077,
+          "sam_iou_estimate": 0.9181697964668274,
+          "empty_mask": false,
+          "box_error_m": 0.6846333027024027,
+          "mask_error_m": 0.36735152362396406,
+          "mask_minus_box_error_m": -0.3172817790784387
+        }
+      },
+      "mask_contact": {
+        "contact_fraction": 0.0,
+        "contact_columns": 0,
+        "sampled_columns": 40
+      }
+    },
+    {
+      "scene_id": "sunrgbd_005436",
+      "relation_label": true,
+      "child_matched": true,
+      "parent_matched": true,
+      "regions": {
+        "child": {
+          "box_iou": 0.8472400513478819,
+          "sam_iou_estimate": 0.9553322196006775,
+          "empty_mask": false,
+          "box_error_m": 0.8114352028587136,
+          "mask_error_m": 0.7925641966318686,
+          "mask_minus_box_error_m": -0.01887100622684501
+        },
+        "parent": {
+          "box_iou": 0.9760543715918969,
+          "sam_iou_estimate": 0.9578642845153809,
+          "empty_mask": false,
+          "box_error_m": 0.8110258760700433,
+          "mask_error_m": 0.582121398071645,
+          "mask_minus_box_error_m": -0.2289044779983983
+        }
+      },
+      "mask_contact": {
+        "contact_fraction": 1.0,
+        "contact_columns": 22,
+        "sampled_columns": 22
+      },
+      "support_child_error_m": {
+        "box_uncorrected": 0.8114352028587136,
+        "box_child_ray_soft": 1.0465586375032947,
+        "mask_uncorrected": 0.7925641966318686,
+        "mask_child_ray_soft": 0.5815986300875982
+      }
+    },
+    {
+      "scene_id": "sunrgbd_005496",
+      "relation_label": false,
+      "child_matched": true,
+      "parent_matched": false,
+      "regions": {
+        "child": {
+          "box_iou": 0.8148264984227129,
+          "sam_iou_estimate": 0.9884648323059082,
+          "empty_mask": false,
+          "box_error_m": 0.25223351707382696,
+          "mask_error_m": 0.21834641438979926,
+          "mask_minus_box_error_m": -0.0338871026840277
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_006976",
+      "relation_label": true,
+      "child_matched": true,
+      "parent_matched": true,
+      "regions": {
+        "child": {
+          "box_iou": 0.9190600522193212,
+          "sam_iou_estimate": 0.9413344860076904,
+          "empty_mask": false,
+          "box_error_m": 0.4911521343070481,
+          "mask_error_m": 0.4654728751239932,
+          "mask_minus_box_error_m": -0.025679259183054914
+        },
+        "parent": {
+          "box_iou": 0.9767441860465116,
+          "sam_iou_estimate": 0.8466655015945435,
+          "empty_mask": false,
+          "box_error_m": 0.3478777286782955,
+          "mask_error_m": 0.7095411241747271,
+          "mask_minus_box_error_m": 0.36166339549643167
+        }
+      },
+      "mask_contact": {
+        "contact_fraction": 0.0,
+        "contact_columns": 0,
+        "sampled_columns": 31
+      },
+      "support_child_error_m": {
+        "box_uncorrected": 0.4911521343070481,
+        "box_child_ray_soft": 0.21598952683479258,
+        "mask_uncorrected": 0.4654728751239932,
+        "mask_child_ray_soft": 0.4745908794655718
+      }
+    },
+    {
+      "scene_id": "sunrgbd_007789",
+      "relation_label": false,
+      "child_matched": true,
+      "parent_matched": true,
+      "regions": {
+        "child": {
+          "box_iou": 0.9591836734693877,
+          "sam_iou_estimate": 0.983484148979187,
+          "empty_mask": false,
+          "box_error_m": 0.8379026034076182,
+          "mask_error_m": 0.8319034763310948,
+          "mask_minus_box_error_m": -0.005999127076523392
+        },
+        "parent": {
+          "box_iou": 0.9805194805194806,
+          "sam_iou_estimate": 0.9337015151977539,
+          "empty_mask": false,
+          "box_error_m": 0.39844522357954193,
+          "mask_error_m": 0.4205739105859326,
+          "mask_minus_box_error_m": 0.022128687006390646
+        }
+      },
+      "mask_contact": {
+        "contact_fraction": 0.0,
+        "contact_columns": 0,
+        "sampled_columns": 48
+      }
+    },
+    {
+      "scene_id": "sunrgbd_007840",
+      "relation_label": true,
+      "child_matched": true,
+      "parent_matched": true,
+      "regions": {
+        "child": {
+          "box_iou": 0.9124236252545825,
+          "sam_iou_estimate": 0.9761810898780823,
+          "empty_mask": false,
+          "box_error_m": 1.5834734582711958,
+          "mask_error_m": 1.5279003947306777,
+          "mask_minus_box_error_m": -0.05557306354051805
+        },
+        "parent": {
+          "box_iou": 0.9768613594907969,
+          "sam_iou_estimate": 0.9997762441635132,
+          "empty_mask": false,
+          "box_error_m": 1.3698602857559559,
+          "mask_error_m": 1.270072908975698,
+          "mask_minus_box_error_m": -0.09978737678025795
+        }
+      },
+      "mask_contact": {
+        "contact_fraction": 0.0,
+        "contact_columns": 0,
+        "sampled_columns": 54
+      },
+      "support_child_error_m": {
+        "box_uncorrected": 1.5834734582711958,
+        "box_child_ray_soft": 1.3659999995016177,
+        "mask_uncorrected": 1.5279003947306777,
+        "mask_child_ray_soft": 1.332788459768678
+      }
+    },
+    {
+      "scene_id": "sunrgbd_007869",
+      "relation_label": true,
+      "child_matched": true,
+      "parent_matched": true,
+      "regions": {
+        "child": {
+          "box_iou": 0.805982905982906,
+          "sam_iou_estimate": 0.9558373093605042,
+          "empty_mask": false,
+          "box_error_m": 0.4481257546841319,
+          "mask_error_m": 0.4138828965463731,
+          "mask_minus_box_error_m": -0.03424285813775879
+        },
+        "parent": {
+          "box_iou": 0.9222392347790184,
+          "sam_iou_estimate": 0.8261586427688599,
+          "empty_mask": false,
+          "box_error_m": 0.28844141253882744,
+          "mask_error_m": 0.2695393828142889,
+          "mask_minus_box_error_m": -0.018902029724538527
+        }
+      },
+      "mask_contact": {
+        "contact_fraction": 0.36666666666666664,
+        "contact_columns": 11,
+        "sampled_columns": 30
+      },
+      "support_child_error_m": {
+        "box_uncorrected": 0.4481257546841319,
+        "box_child_ray_soft": 0.1693906955243931,
+        "mask_uncorrected": 0.4138828965463731,
+        "mask_child_ray_soft": 0.1656939239876455
+      }
+    },
+    {
+      "scene_id": "sunrgbd_008483",
+      "relation_label": true,
+      "child_matched": true,
+      "parent_matched": false,
+      "regions": {
+        "child": {
+          "box_iou": 0.9375,
+          "sam_iou_estimate": 0.94025719165802,
+          "empty_mask": false,
+          "box_error_m": 0.17963270543769552,
+          "mask_error_m": 0.16550858280083455,
+          "mask_minus_box_error_m": -0.01412412263686097
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_008556",
+      "relation_label": true,
+      "child_matched": true,
+      "parent_matched": true,
+      "regions": {
+        "child": {
+          "box_iou": 0.7283072546230441,
+          "sam_iou_estimate": 0.9524758458137512,
+          "empty_mask": false,
+          "box_error_m": 0.4680408864281696,
+          "mask_error_m": 0.47196238771686577,
+          "mask_minus_box_error_m": 0.003921501288696172
+        },
+        "parent": {
+          "box_iou": 0.87533527696793,
+          "sam_iou_estimate": 0.8994619846343994,
+          "empty_mask": false,
+          "box_error_m": 0.6068587881834654,
+          "mask_error_m": 0.44922288057183696,
+          "mask_minus_box_error_m": -0.15763590761162843
+        }
+      },
+      "mask_contact": {
+        "contact_fraction": 0.53125,
+        "contact_columns": 17,
+        "sampled_columns": 32
+      },
+      "support_child_error_m": {
+        "box_uncorrected": 0.4680408864281696,
+        "box_child_ray_soft": 0.4829910766066015,
+        "mask_uncorrected": 0.47196238771686577,
+        "mask_child_ray_soft": 0.2811971810709443
+      }
+    },
+    {
+      "scene_id": "sunrgbd_008752",
+      "relation_label": true,
+      "child_matched": true,
+      "parent_matched": true,
+      "regions": {
+        "child": {
+          "box_iou": 0.5974842767295597,
+          "sam_iou_estimate": 0.9388428926467896,
+          "empty_mask": false,
+          "box_error_m": 0.33204134183387535,
+          "mask_error_m": 0.3661285627950654,
+          "mask_minus_box_error_m": 0.034087220961190046
+        },
+        "parent": {
+          "box_iou": 0.88557336621455,
+          "sam_iou_estimate": 0.9585415124893188,
+          "empty_mask": false,
+          "box_error_m": 0.04905485610914349,
+          "mask_error_m": 0.05717386064827873,
+          "mask_minus_box_error_m": 0.008119004539135243
+        }
+      },
+      "mask_contact": {
+        "contact_fraction": 0.8,
+        "contact_columns": 12,
+        "sampled_columns": 15
+      },
+      "support_child_error_m": {
+        "box_uncorrected": 0.33204134183387535,
+        "box_child_ray_soft": 0.38074061480705573,
+        "mask_uncorrected": 0.3661285627950654,
+        "mask_child_ray_soft": 0.4006418867294381
+      }
+    },
+    {
+      "scene_id": "sunrgbd_009218",
+      "relation_label": true,
+      "child_matched": true,
+      "parent_matched": false,
+      "regions": {
+        "child": {
+          "box_iou": 0.8826086956521739,
+          "sam_iou_estimate": 0.9676389098167419,
+          "empty_mask": false,
+          "box_error_m": 0.5801179331272971,
+          "mask_error_m": 0.5553028813085726,
+          "mask_minus_box_error_m": -0.024815051818724454
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_009491",
+      "relation_label": true,
+      "child_matched": true,
+      "parent_matched": true,
+      "regions": {
+        "child": {
+          "box_iou": 0.7731343283582089,
+          "sam_iou_estimate": 0.9089910984039307,
+          "empty_mask": false,
+          "box_error_m": 0.3652582875077457,
+          "mask_error_m": 0.4180762312065836,
+          "mask_minus_box_error_m": 0.05281794369883791
+        },
+        "parent": {
+          "box_iou": 0.869930737998567,
+          "sam_iou_estimate": 0.8935195803642273,
+          "empty_mask": false,
+          "box_error_m": 0.5741852703354628,
+          "mask_error_m": 0.26185274098947575,
+          "mask_minus_box_error_m": -0.3123325293459871
+        }
+      },
+      "mask_contact": {
+        "contact_fraction": 1.0,
+        "contact_columns": 26,
+        "sampled_columns": 26
+      },
+      "support_child_error_m": {
+        "box_uncorrected": 0.3652582875077457,
+        "box_child_ray_soft": 0.022788281211510216,
+        "mask_uncorrected": 0.4180762312065836,
+        "mask_child_ray_soft": 0.09376069415629153
+      }
+    },
+    {
+      "scene_id": "sunrgbd_009521",
+      "relation_label": false,
+      "child_matched": true,
+      "parent_matched": true,
+      "regions": {
+        "child": {
+          "box_iou": 0.8011738811445341,
+          "sam_iou_estimate": 0.9590175151824951,
+          "empty_mask": false,
+          "box_error_m": 0.0316238376709137,
+          "mask_error_m": 0.02305406470384386,
+          "mask_minus_box_error_m": -0.00856977296706984
+        },
+        "parent": {
+          "box_iou": 0.6712192699279861,
+          "sam_iou_estimate": 0.9588088989257812,
+          "empty_mask": false,
+          "box_error_m": 0.3316947680031302,
+          "mask_error_m": 0.3004209055549864,
+          "mask_minus_box_error_m": -0.031273862448143785
+        }
+      },
+      "mask_contact": {
+        "contact_fraction": 0.0,
+        "contact_columns": 0,
+        "sampled_columns": 16
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "scenes": [
+    {
+      "scene_id": "synthetic_smoke_test",
+      "depth": "depth.npy",
+      "objects": "objects.json",
+      "reference": "reference.example.json",
+      "intrinsics": {"fx": 525.0, "fy": 525.0, "cx": 319.5, "cy": 239.5}
+    }
+  ]
+}

@@ -1,0 +1,1015 @@
+{
+  "setting": "Grounding DINO Tiny, official checkpoint, cup/mug/desk/table prompt; SUN RGB-D support_radial15 set",
+  "checkpoint": "checkpoints\\grounding-dino-tiny",
+  "prompt": [
+    "a cup",
+    "a mug",
+    "a desk",
+    "a table"
+  ],
+  "prompt_format": "separate",
+  "box_threshold": 0.25,
+  "text_threshold": 0.25,
+  "iou_threshold": 0.5,
+  "device": "cuda",
+  "model_load_seconds": 4.08762249999927,
+  "median_inference_seconds_excluding_first": 0.311155599999438,
+  "peak_cuda_allocated_mib": 1821.142578125,
+  "peak_cuda_reserved_mib": 2206.0,
+  "positive_count": 12,
+  "positive_pair_detected_count": 11,
+  "positive_pair_detection_coverage": 0.9166666666666666,
+  "note": "Small selected positive set; no negative relation labels, precision/AP claim, or tuned threshold.",
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_005246",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.40966200828552246,
+          "bbox_2d": [
+            294,
+            180,
+            501,
+            293
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.3660699129104614,
+          "bbox_2d": [
+            374,
+            175,
+            397,
+            214
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.31397590041160583,
+          "bbox_2d": [
+            368,
+            170,
+            403,
+            219
+          ]
+        },
+        {
+          "instance_id": "gdino_3",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.28542348742485046,
+          "bbox_2d": [
+            376,
+            188,
+            394,
+            212
+          ]
+        }
+      ],
+      "seconds": 0.9000152999997226,
+      "label": true,
+      "child_match": {
+        "instance_id": "gdino_1",
+        "label": "cup",
+        "iou": 0.9230769230769231
+      },
+      "parent_match": {
+        "instance_id": "gdino_0",
+        "label": "desk",
+        "iou": 0.9070155187892779
+      },
+      "pair_detected": true
+    },
+    {
+      "scene_id": "sunrgbd_005253",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.3709736764431,
+          "bbox_2d": [
+            366,
+            140,
+            392,
+            165
+          ]
+        },
+        {
+          "instance_id": "gdino_3",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.3281213045120239,
+          "bbox_2d": [
+            361,
+            136,
+            398,
+            172
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.31114089488983154,
+          "bbox_2d": [
+            99,
+            135,
+            504,
+            453
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.30250537395477295,
+          "bbox_2d": [
+            100,
+            136,
+            503,
+            290
+          ]
+        }
+      ],
+      "seconds": 0.31129479999981413,
+      "label": true,
+      "child_match": {
+        "instance_id": "gdino_0",
+        "label": "cup",
+        "iou": 0.8264900662251655
+      },
+      "parent_match": {
+        "instance_id": "gdino_1",
+        "label": "desk",
+        "iou": 0.9750778816199377
+      },
+      "pair_detected": true
+    },
+    {
+      "scene_id": "sunrgbd_005254",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.4275788962841034,
+          "bbox_2d": [
+            1,
+            184,
+            383,
+            482
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.3530633747577667,
+          "bbox_2d": [
+            142,
+            216,
+            172,
+            250
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.3515709340572357,
+          "bbox_2d": [
+            118,
+            189,
+            141,
+            220
+          ]
+        },
+        {
+          "instance_id": "gdino_3",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.3052608072757721,
+          "bbox_2d": [
+            137,
+            211,
+            181,
+            256
+          ]
+        },
+        {
+          "instance_id": "gdino_4",
+          "label": "cup",
+          "raw_label": "cup mug",
+          "confidence": 0.26007360219955444,
+          "bbox_2d": [
+            110,
+            184,
+            149,
+            226
+          ]
+        }
+      ],
+      "seconds": 0.3121695000008913,
+      "label": true,
+      "child_match": {
+        "instance_id": "gdino_1",
+        "label": "cup",
+        "iou": 0.884871550903901
+      },
+      "parent_match": {
+        "instance_id": "gdino_0",
+        "label": "desk",
+        "iou": 0.9865771812080537
+      },
+      "pair_detected": true
+    },
+    {
+      "scene_id": "sunrgbd_005256",
+      "detections": [
+        {
+          "instance_id": "gdino_3",
+          "label": "desk",
+          "raw_label": "a desk",
+          "confidence": 0.416243314743042,
+          "bbox_2d": [
+            475,
+            109,
+            560,
+            163
+          ]
+        },
+        {
+          "instance_id": "gdino_0",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.4121823310852051,
+          "bbox_2d": [
+            3,
+            462,
+            65,
+            528
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.3880322575569153,
+          "bbox_2d": [
+            216,
+            312,
+            404,
+            527
+          ]
+        },
+        {
+          "instance_id": "gdino_4",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.29678285121917725,
+          "bbox_2d": [
+            2,
+            451,
+            82,
+            528
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "table",
+          "raw_label": "table",
+          "confidence": 0.2568049132823944,
+          "bbox_2d": [
+            1,
+            404,
+            240,
+            529
+          ]
+        }
+      ],
+      "seconds": 0.3376057999994373,
+      "label": false,
+      "child_match": {
+        "instance_id": "gdino_0",
+        "label": "cup",
+        "iou": 0.8987574781408192
+      },
+      "parent_match": {
+        "instance_id": "gdino_3",
+        "label": "desk",
+        "iou": 0.8601307189542484
+      },
+      "pair_detected": true
+    },
+    {
+      "scene_id": "sunrgbd_005278",
+      "detections": [
+        {
+          "instance_id": "gdino_2",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.4075935482978821,
+          "bbox_2d": [
+            78,
+            171,
+            534,
+            414
+          ]
+        },
+        {
+          "instance_id": "gdino_0",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.38220110535621643,
+          "bbox_2d": [
+            263,
+            198,
+            303,
+            234
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.30256569385528564,
+          "bbox_2d": [
+            212,
+            180,
+            242,
+            227
+          ]
+        },
+        {
+          "instance_id": "gdino_3",
+          "label": "cup",
+          "raw_label": "cup mug",
+          "confidence": 0.2687319815158844,
+          "bbox_2d": [
+            256,
+            190,
+            311,
+            243
+          ]
+        }
+      ],
+      "seconds": 0.3169225000001461,
+      "label": true,
+      "child_match": {
+        "instance_id": "gdino_0",
+        "label": "cup",
+        "iou": 0.8666666666666667
+      },
+      "parent_match": {
+        "instance_id": "gdino_2",
+        "label": "desk",
+        "iou": 0.9732221011450722
+      },
+      "pair_detected": true
+    },
+    {
+      "scene_id": "sunrgbd_005437",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.3873663544654846,
+          "bbox_2d": [
+            120,
+            164,
+            145,
+            198
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.353707879781723,
+          "bbox_2d": [
+            518,
+            115,
+            652,
+            237
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.34995144605636597,
+          "bbox_2d": [
+            1,
+            157,
+            216,
+            228
+          ]
+        },
+        {
+          "instance_id": "gdino_3",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.3373967707157135,
+          "bbox_2d": [
+            113,
+            159,
+            154,
+            204
+          ]
+        }
+      ],
+      "seconds": 0.31409570000141684,
+      "label": true,
+      "child_match": {
+        "instance_id": "gdino_0",
+        "label": "cup",
+        "iou": 0.7081545064377682
+      },
+      "parent_match": {
+        "instance_id": "gdino_2",
+        "label": "desk",
+        "iou": 0.29402756508422667
+      },
+      "pair_detected": false
+    },
+    {
+      "scene_id": "sunrgbd_005466",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.3562709391117096,
+          "bbox_2d": [
+            225,
+            179,
+            256,
+            231
+          ]
+        },
+        {
+          "instance_id": "gdino_4",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.33039867877960205,
+          "bbox_2d": [
+            1,
+            165,
+            389,
+            374
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.3284318149089813,
+          "bbox_2d": [
+            1,
+            162,
+            390,
+            527
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.3037750720977783,
+          "bbox_2d": [
+            217,
+            175,
+            264,
+            236
+          ]
+        },
+        {
+          "instance_id": "gdino_3",
+          "label": "cup",
+          "raw_label": "cup mug",
+          "confidence": 0.2668132483959198,
+          "bbox_2d": [
+            208,
+            168,
+            276,
+            246
+          ]
+        }
+      ],
+      "seconds": 0.32613800000035553,
+      "label": true,
+      "child_match": {
+        "instance_id": "gdino_0",
+        "label": "cup",
+        "iou": 0.7439613526570048
+      },
+      "parent_match": {
+        "instance_id": "gdino_2",
+        "label": "desk",
+        "iou": 0.9755434782608695
+      },
+      "pair_detected": true
+    },
+    {
+      "scene_id": "sunrgbd_007787",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.4068748652935028,
+          "bbox_2d": [
+            178,
+            72,
+            250,
+            181
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.33394894003868103,
+          "bbox_2d": [
+            1,
+            250,
+            141,
+            425
+          ]
+        },
+        {
+          "instance_id": "gdino_3",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.31219005584716797,
+          "bbox_2d": [
+            163,
+            63,
+            269,
+            190
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "desk",
+          "raw_label": "a desk",
+          "confidence": 0.27149996161460876,
+          "bbox_2d": [
+            1,
+            248,
+            559,
+            426
+          ]
+        }
+      ],
+      "seconds": 0.31378919999951904,
+      "label": false,
+      "child_match": {
+        "instance_id": "gdino_0",
+        "label": "cup",
+        "iou": 0.9238347859037515
+      },
+      "parent_match": {
+        "instance_id": "gdino_2",
+        "label": "desk",
+        "iou": 0.9630803058317925
+      },
+      "pair_detected": true
+    },
+    {
+      "scene_id": "sunrgbd_007890",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.44619300961494446,
+          "bbox_2d": [
+            191,
+            303,
+            559,
+            426
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.33793532848358154,
+          "bbox_2d": [
+            227,
+            281,
+            278,
+            312
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "cup",
+          "raw_label": "a cup a",
+          "confidence": 0.2810932397842407,
+          "bbox_2d": [
+            238,
+            282,
+            275,
+            310
+          ]
+        },
+        {
+          "instance_id": "gdino_4",
+          "label": "cup",
+          "raw_label": "cup mug",
+          "confidence": 0.26733624935150146,
+          "bbox_2d": [
+            221,
+            280,
+            278,
+            328
+          ]
+        },
+        {
+          "instance_id": "gdino_3",
+          "label": "cup",
+          "raw_label": "cup mug",
+          "confidence": 0.2632082402706146,
+          "bbox_2d": [
+            219,
+            272,
+            288,
+            323
+          ]
+        }
+      ],
+      "seconds": 0.30141290000028675,
+      "label": true,
+      "child_match": {
+        "instance_id": "gdino_4",
+        "label": "cup",
+        "iou": 0.8516129032258064
+      },
+      "parent_match": {
+        "instance_id": "gdino_0",
+        "label": "desk",
+        "iou": 0.8236141108711303
+      },
+      "pair_detected": true
+    },
+    {
+      "scene_id": "sunrgbd_007898",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.4062328040599823,
+          "bbox_2d": [
+            1,
+            232,
+            560,
+            424
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.39861351251602173,
+          "bbox_2d": [
+            536,
+            278,
+            560,
+            326
+          ]
+        },
+        {
+          "instance_id": "gdino_3",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.30363893508911133,
+          "bbox_2d": [
+            528,
+            269,
+            560,
+            332
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "desk",
+          "raw_label": "a desk a",
+          "confidence": 0.27503257989883423,
+          "bbox_2d": [
+            1,
+            234,
+            559,
+            367
+          ]
+        }
+      ],
+      "seconds": 0.3069598000001861,
+      "label": true,
+      "child_match": {
+        "instance_id": "gdino_1",
+        "label": "cup",
+        "iou": 0.8270676691729323
+      },
+      "parent_match": {
+        "instance_id": "gdino_0",
+        "label": "desk",
+        "iou": 0.8619171465725431
+      },
+      "pair_detected": true
+    },
+    {
+      "scene_id": "sunrgbd_007903",
+      "detections": [
+        {
+          "instance_id": "gdino_1",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.4477227032184601,
+          "bbox_2d": [
+            36,
+            262,
+            560,
+            427
+          ]
+        },
+        {
+          "instance_id": "gdino_0",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.37206482887268066,
+          "bbox_2d": [
+            160,
+            325,
+            221,
+            427
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.30510979890823364,
+          "bbox_2d": [
+            148,
+            320,
+            235,
+            427
+          ]
+        }
+      ],
+      "seconds": 0.31101639999906183,
+      "label": true,
+      "child_match": {
+        "instance_id": "gdino_0",
+        "label": "cup",
+        "iou": 0.922854387656702
+      },
+      "parent_match": {
+        "instance_id": "gdino_1",
+        "label": "desk",
+        "iou": 0.907555747997402
+      },
+      "pair_detected": true
+    },
+    {
+      "scene_id": "sunrgbd_007914",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.42242538928985596,
+          "bbox_2d": [
+            1,
+            278,
+            559,
+            425
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.38413137197494507,
+          "bbox_2d": [
+            247,
+            269,
+            298,
+            323
+          ]
+        },
+        {
+          "instance_id": "gdino_3",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.3080710768699646,
+          "bbox_2d": [
+            240,
+            260,
+            311,
+            331
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.2822306752204895,
+          "bbox_2d": [
+            261,
+            273,
+            293,
+            317
+          ]
+        }
+      ],
+      "seconds": 0.30238549999921815,
+      "label": true,
+      "child_match": {
+        "instance_id": "gdino_1",
+        "label": "cup",
+        "iou": 0.8718228031953522
+      },
+      "parent_match": {
+        "instance_id": "gdino_0",
+        "label": "desk",
+        "iou": 0.9293041442398204
+      },
+      "pair_detected": true
+    },
+    {
+      "scene_id": "sunrgbd_007916",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.45386597514152527,
+          "bbox_2d": [
+            1,
+            284,
+            560,
+            426
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.4312315285205841,
+          "bbox_2d": [
+            374,
+            286,
+            423,
+            338
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.30930086970329285,
+          "bbox_2d": [
+            364,
+            276,
+            433,
+            348
+          ]
+        }
+      ],
+      "seconds": 0.30262690000017756,
+      "label": true,
+      "child_match": {
+        "instance_id": "gdino_1",
+        "label": "cup",
+        "iou": 0.905587668593449
+      },
+      "parent_match": {
+        "instance_id": "gdino_0",
+        "label": "desk",
+        "iou": 0.9703285587621914
+      },
+      "pair_detected": true
+    },
+    {
+      "scene_id": "sunrgbd_008047",
+      "detections": [
+        {
+          "instance_id": "gdino_1",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.46687206625938416,
+          "bbox_2d": [
+            21,
+            333,
+            390,
+            427
+          ]
+        },
+        {
+          "instance_id": "gdino_0",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.46475163102149963,
+          "bbox_2d": [
+            209,
+            348,
+            260,
+            408
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.32021766901016235,
+          "bbox_2d": [
+            199,
+            339,
+            272,
+            415
+          ]
+        }
+      ],
+      "seconds": 0.31080220000148984,
+      "label": true,
+      "child_match": {
+        "instance_id": "gdino_0",
+        "label": "cup",
+        "iou": 0.7915194346289752
+      },
+      "parent_match": {
+        "instance_id": "gdino_1",
+        "label": "desk",
+        "iou": 0.916791230692576
+      },
+      "pair_detected": true
+    },
+    {
+      "scene_id": "sunrgbd_008746",
+      "detections": [
+        {
+          "instance_id": "gdino_2",
+          "label": "desk",
+          "raw_label": "a desk a table",
+          "confidence": 0.40142226219177246,
+          "bbox_2d": [
+            0,
+            364,
+            371,
+            440
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.34494850039482117,
+          "bbox_2d": [
+            79,
+            388,
+            129,
+            439
+          ]
+        },
+        {
+          "instance_id": "gdino_0",
+          "label": "cup",
+          "raw_label": "a cup a mug",
+          "confidence": 0.32530006766319275,
+          "bbox_2d": [
+            51,
+            347,
+            85,
+            398
+          ]
+        }
+      ],
+      "seconds": 0.30957780000062485,
+      "label": null,
+      "child_match": {
+        "instance_id": "gdino_1",
+        "label": "cup",
+        "iou": 0.8707482993197279
+      },
+      "parent_match": {
+        "instance_id": "gdino_2",
+        "label": "desk",
+        "iou": 0.8528620822128313
+      },
+      "pair_detected": true
+    }
+  ]
+}

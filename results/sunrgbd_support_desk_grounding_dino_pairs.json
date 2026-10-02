@@ -1,0 +1,104 @@
+{
+  "setting": "Grounding DINO Tiny detections, predicted metric depth, heuristic support proposals; IoU>=0.5 for both annotated objects",
+  "positive_count": 9,
+  "positive_pair_matched_count": 1,
+  "positive_pair_coverage": 0.1111111111111111,
+  "negative_count": 0,
+  "uncertain_count": 1,
+  "note": "Only positive desk relations were confidently labeled; no specificity estimate. Official intrinsics supplied.",
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_001657",
+      "label": true,
+      "detector_count": 0,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_001701",
+      "label": true,
+      "detector_count": 0,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_002008",
+      "label": true,
+      "detector_count": 0,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_002532",
+      "label": true,
+      "detector_count": 2,
+      "proposal_count": 1,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.15889430046081543,
+          "footpoint_px": [
+            365.5,
+            183.0
+          ],
+          "child_iou": 0.9299516908212561,
+          "parent_iou": 0.8539779148833676
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002739",
+      "label": true,
+      "detector_count": 0,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_003126",
+      "label": true,
+      "detector_count": 1,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_003429",
+      "label": true,
+      "detector_count": 0,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_003741",
+      "label": true,
+      "detector_count": 2,
+      "proposal_count": 1,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_003897",
+      "label": true,
+      "detector_count": 0,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_003983",
+      "label": null,
+      "detector_count": 0,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    }
+  ]
+}

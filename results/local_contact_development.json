@@ -1,0 +1,443 @@
+{
+  "setting": "development scenes only; oracle boxes and relations; predicted depth",
+  "positive_count": 13,
+  "local_estimate_available_count": 13,
+  "summary": {
+    "uncorrected": {
+      "mean_child_error_m": 0.2642872713693905,
+      "median_child_error_m": 0.21317001869572452
+    },
+    "weighted_fixed": {
+      "mean_child_error_m": 0.24984065752858925,
+      "median_child_error_m": 0.21241029176340634
+    },
+    "hard_fixed": {
+      "mean_child_error_m": 0.24961454355615464,
+      "median_child_error_m": 0.21237258470107068
+    },
+    "local_0.25": {
+      "mean_child_error_m": 0.26245825507038495,
+      "median_child_error_m": 0.21042150378175012
+    },
+    "local_0.5": {
+      "mean_child_error_m": 0.2618833494931288,
+      "median_child_error_m": 0.20782232852577534
+    },
+    "local_0.75": {
+      "mean_child_error_m": 0.2626907483265527,
+      "median_child_error_m": 0.20537816293618494
+    },
+    "local_1.0": {
+      "mean_child_error_m": 0.2644179291728713,
+      "median_child_error_m": 0.20309460353557807
+    },
+    "radial_parent_sigma_0.1": {
+      "mean_child_error_m": 0.206315161966852,
+      "median_child_error_m": 0.17604538727857053
+    },
+    "radial_parent_sigma_0.2": {
+      "mean_child_error_m": 0.20638885728421566,
+      "median_child_error_m": 0.14900147618682139
+    },
+    "radial_parent_sigma_0.4": {
+      "mean_child_error_m": 0.20694331595809348,
+      "median_child_error_m": 0.19196022562746115
+    },
+    "radial_parent_sigma_0.8": {
+      "mean_child_error_m": 0.21817235574598512,
+      "median_child_error_m": 0.21134462422966352
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_002584",
+      "methods": {
+        "uncorrected": 0.0780567990478778,
+        "weighted_fixed": 0.07666962290472062,
+        "hard_fixed": 0.07810029822310605,
+        "local_0.25": 0.078732364873168,
+        "local_0.5": 0.07943004012119682,
+        "local_0.75": 0.08014924742628954,
+        "local_1.0": 0.08088941245032395,
+        "radial_parent_sigma_0.1": 0.2533153722408578,
+        "radial_parent_sigma_0.2": 0.22234633651757674,
+        "radial_parent_sigma_0.4": 0.14110525870066137,
+        "radial_parent_sigma_0.8": 0.032142739107157633
+      },
+      "predicted_gap_m": 0.05088325479798566,
+      "reference_gap_m": 0.3401516702272961,
+      "predicted_child_height_m": -0.519711583871354,
+      "parent_depth_iqr_m": 0.38757097721099854,
+      "child_depth_iqr_m": 0.09866416454315186,
+      "parent_center_error_m": 0.5249647179663766,
+      "local_contact": {
+        "applied": true,
+        "blend": 1.0,
+        "target_child_height_m": -0.525661100969325,
+        "surface_height_m": -0.6054872240103635,
+        "child_height_estimate_m": 0.15965224608207715,
+        "surface_pixel_count": 7216
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002590",
+      "methods": {
+        "uncorrected": 0.38351253097933846,
+        "weighted_fixed": 0.3494748629434914,
+        "hard_fixed": 0.34794502900560803,
+        "local_0.25": 0.3988438110800381,
+        "local_0.5": 0.4149542899276795,
+        "local_0.75": 0.4317567517662979,
+        "local_1.0": 0.44917354723541864,
+        "radial_parent_sigma_0.1": 0.0988753535854698,
+        "radial_parent_sigma_0.2": 0.12663625042784857,
+        "radial_parent_sigma_0.4": 0.19888665593052968,
+        "radial_parent_sigma_0.8": 0.2966899266374681
+      },
+      "predicted_gap_m": 0.09214566531331458,
+      "reference_gap_m": 0.4671716762937071,
+      "predicted_child_height_m": -0.799630746683511,
+      "parent_depth_iqr_m": 0.422599196434021,
+      "child_depth_iqr_m": 0.11973965167999268,
+      "parent_center_error_m": 0.3018614921180028,
+      "local_contact": {
+        "applied": true,
+        "blend": 1.0,
+        "target_child_height_m": -0.894125312616771,
+        "surface_height_m": -1.0052408267981559,
+        "child_height_estimate_m": 0.22223102836276984,
+        "surface_pixel_count": 4836
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002605",
+      "methods": {
+        "uncorrected": 0.43389072024362835,
+        "weighted_fixed": 0.41282268003322864,
+        "hard_fixed": 0.4119043945840318,
+        "local_0.25": 0.4337441981327486,
+        "local_0.5": 0.43359785643305304,
+        "local_0.75": 0.4334516953272725,
+        "local_1.0": 0.43330571499815906,
+        "radial_parent_sigma_0.1": 0.18153605447145252,
+        "radial_parent_sigma_0.2": 0.2056618165902149,
+        "radial_parent_sigma_0.4": 0.2688370490972193,
+        "radial_parent_sigma_0.8": 0.35558672560415094
+      },
+      "predicted_gap_m": 0.13417631566536142,
+      "reference_gap_m": 0.45075754916627614,
+      "predicted_child_height_m": -0.5885933272218243,
+      "parent_depth_iqr_m": 0.3665200471878052,
+      "child_depth_iqr_m": 0.04798316955566406,
+      "parent_center_error_m": 0.2875560800586659,
+      "local_contact": {
+        "applied": true,
+        "blend": 1.0,
+        "target_child_height_m": -0.5873303490561754,
+        "surface_height_m": -0.676375894947751,
+        "child_height_estimate_m": 0.17809109178315102,
+        "surface_pixel_count": 3360
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002632",
+      "methods": {
+        "uncorrected": 0.05637373103432969,
+        "weighted_fixed": 0.0863771298169336,
+        "hard_fixed": 0.08913201340294646,
+        "local_0.25": 0.05618529144333793,
+        "local_0.5": 0.057628844898225534,
+        "local_0.75": 0.06058785290735868,
+        "local_1.0": 0.06485521907628375,
+        "radial_parent_sigma_0.1": 0.37761222968451585,
+        "radial_parent_sigma_0.2": 0.3399969655500528,
+        "radial_parent_sigma_0.4": 0.2489073521193207,
+        "radial_parent_sigma_0.8": 0.1392567642820444
+      },
+      "predicted_gap_m": 0.023951769716640342,
+      "reference_gap_m": 0.45000000865058065,
+      "predicted_child_height_m": -0.6013710459905032,
+      "parent_depth_iqr_m": 0.6015396118164062,
+      "child_depth_iqr_m": 0.06195998191833496,
+      "parent_center_error_m": 0.8744344273420686,
+      "local_contact": {
+        "applied": true,
+        "blend": 1.0,
+        "target_child_height_m": -0.562847560593768,
+        "surface_height_m": -0.6346449866212457,
+        "child_height_estimate_m": 0.14359485205495542,
+        "surface_pixel_count": 1152
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002633",
+      "methods": {
+        "uncorrected": 0.21317001869572452,
+        "weighted_fixed": 0.21241029176340634,
+        "hard_fixed": 0.21237258470107068,
+        "local_0.25": 0.21042150378175012,
+        "local_0.5": 0.20782232852577534,
+        "local_0.75": 0.20537816293618494,
+        "local_1.0": 0.20309460353557807,
+        "radial_parent_sigma_0.1": 0.20490455356310439,
+        "radial_parent_sigma_0.2": 0.20609343398722582,
+        "radial_parent_sigma_0.4": 0.2086779428970116,
+        "radial_parent_sigma_0.8": 0.21134462422966352
+      },
+      "predicted_gap_m": 0.3911576834708199,
+      "reference_gap_m": 0.3909091849609695,
+      "predicted_child_height_m": -0.7407664242656897,
+      "parent_depth_iqr_m": 0.344077467918396,
+      "child_depth_iqr_m": 0.12331461906433105,
+      "parent_center_error_m": 0.15692299512324395,
+      "local_contact": {
+        "applied": true,
+        "blend": 1.0,
+        "target_child_height_m": -0.7159215298904423,
+        "surface_height_m": -0.7964759440500443,
+        "child_height_estimate_m": 0.16110882831920392,
+        "surface_pixel_count": 2163
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002639",
+      "methods": {
+        "uncorrected": 0.07130079387757883,
+        "weighted_fixed": 0.04081690227307833,
+        "hard_fixed": 0.04009264269824298,
+        "local_0.25": 0.06479902277471562,
+        "local_0.5": 0.05863680430946612,
+        "local_0.75": 0.052932859442680454,
+        "local_1.0": 0.04785135024232741,
+        "radial_parent_sigma_0.1": 0.1635924047870733,
+        "radial_parent_sigma_0.2": 0.13836851216215865,
+        "radial_parent_sigma_0.4": 0.07760584368981119,
+        "radial_parent_sigma_0.8": 0.02604772571183949
+      },
+      "predicted_gap_m": 0.15719951010340724,
+      "reference_gap_m": 0.37727285391269094,
+      "predicted_child_height_m": -0.690377463486575,
+      "parent_depth_iqr_m": 0.6109111309051514,
+      "child_depth_iqr_m": 0.057627320289611816,
+      "parent_center_error_m": 0.2298636921703232,
+      "local_contact": {
+        "applied": true,
+        "blend": 1.0,
+        "target_child_height_m": -0.6588495302103954,
+        "surface_height_m": -0.7247694949393353,
+        "child_height_estimate_m": 0.1318399294578799,
+        "surface_pixel_count": 3525
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002934",
+      "methods": {
+        "uncorrected": 0.06804976163229169,
+        "weighted_fixed": 0.04907491580813404,
+        "hard_fixed": 0.04918429992759443,
+        "local_0.25": 0.05264934261917769,
+        "local_0.5": 0.04987589742037796,
+        "local_0.75": 0.06146320569235904,
+        "local_1.0": 0.08150039760461973,
+        "radial_parent_sigma_0.1": 0.17604538727857053,
+        "radial_parent_sigma_0.2": 0.14900147618682139,
+        "radial_parent_sigma_0.4": 0.08384636128022249,
+        "radial_parent_sigma_0.8": 0.021560143719504675
+      },
+      "predicted_gap_m": 0.1470547596266043,
+      "reference_gap_m": 0.24545437639351708,
+      "predicted_child_height_m": -1.1535169834433678,
+      "parent_depth_iqr_m": 0.3520359992980957,
+      "child_depth_iqr_m": 0.08806204795837402,
+      "parent_center_error_m": 0.16524079197326505,
+      "local_contact": {
+        "applied": true,
+        "blend": 1.0,
+        "target_child_height_m": -1.0412861981752721,
+        "surface_height_m": -1.1217268314554354,
+        "child_height_estimate_m": 0.16088126656032675,
+        "surface_pixel_count": 1020
+      }
+    },
+    {
+      "scene_id": "sunrgbd_004225",
+      "methods": {
+        "uncorrected": 0.4052532185557354,
+        "weighted_fixed": 0.3645759882091314,
+        "hard_fixed": 0.3627350159294142,
+        "local_0.25": 0.39717014275003915,
+        "local_0.5": 0.3893040650998944,
+        "local_0.75": 0.3816684026526585,
+        "local_1.0": 0.3742772578349816,
+        "radial_parent_sigma_0.1": 0.08292798954498168,
+        "radial_parent_sigma_0.2": 0.11257740831185356,
+        "radial_parent_sigma_0.4": 0.19196022562746115,
+        "radial_parent_sigma_0.8": 0.30315811905464557
+      },
+      "predicted_gap_m": 0.0549601970324874,
+      "reference_gap_m": 0.4136365342052572,
+      "predicted_child_height_m": -0.9529143198587167,
+      "parent_depth_iqr_m": 0.4696669578552246,
+      "child_depth_iqr_m": 0.08582186698913574,
+      "parent_center_error_m": 0.4511618580779469,
+      "local_contact": {
+        "applied": true,
+        "blend": 1.0,
+        "target_child_height_m": -0.9039586935089197,
+        "surface_height_m": -0.9858105093194116,
+        "child_height_estimate_m": 0.16370363162098397,
+        "surface_pixel_count": 2900
+      }
+    },
+    {
+      "scene_id": "sunrgbd_001146",
+      "methods": {
+        "uncorrected": 0.4710948456711231,
+        "weighted_fixed": 0.4660307382466437,
+        "hard_fixed": 0.4657976078606908,
+        "local_0.25": 0.46840039323516686,
+        "local_0.5": 0.46590635967832617,
+        "local_0.75": 0.46361597948674266,
+        "local_1.0": 0.46153228459457196,
+        "radial_parent_sigma_0.1": 0.38571049029268595,
+        "radial_parent_sigma_0.2": 0.3964364361354411,
+        "radial_parent_sigma_0.4": 0.4214047140543717,
+        "radial_parent_sigma_0.8": 0.4498391931226499
+      },
+      "predicted_gap_m": 0.29740829502494376,
+      "reference_gap_m": 0.42272747129588384,
+      "predicted_child_height_m": -0.7584713792695166,
+      "parent_depth_iqr_m": 0.6717963218688965,
+      "child_depth_iqr_m": 0.1335897445678711,
+      "parent_center_error_m": 0.06668496736761652,
+      "local_contact": {
+        "applied": true,
+        "blend": 1.0,
+        "target_child_height_m": -0.7183482845841707,
+        "surface_height_m": -0.8106718586449295,
+        "child_height_estimate_m": 0.18464714812151772,
+        "surface_pixel_count": 1168
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002604",
+      "methods": {
+        "uncorrected": 0.6986211465458032,
+        "weighted_fixed": 0.6829057817617579,
+        "hard_fixed": 0.6821633291255852,
+        "local_0.25": 0.6961557319967947,
+        "local_0.5": 0.6937262584123309,
+        "local_0.75": 0.6913331047022917,
+        "local_1.0": 0.6889766493369754,
+        "radial_parent_sigma_0.1": 0.5167976478479903,
+        "radial_parent_sigma_0.2": 0.5372998493458871,
+        "radial_parent_sigma_0.4": 0.5874463517426275,
+        "radial_parent_sigma_0.8": 0.6490659468471774
+      },
+      "predicted_gap_m": 0.2054956773915055,
+      "reference_gap_m": 0.4537880036772546,
+      "predicted_child_height_m": -0.6789591796266178,
+      "parent_depth_iqr_m": 0.35574448108673096,
+      "child_depth_iqr_m": 0.14497554302215576,
+      "parent_center_error_m": 0.4181938695962826,
+      "local_contact": {
+        "applied": true,
+        "blend": 1.0,
+        "target_child_height_m": -0.6566842380538787,
+        "surface_height_m": -0.778194350925283,
+        "child_height_estimate_m": 0.24302022574280868,
+        "surface_pixel_count": 3600
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002607",
+      "methods": {
+        "uncorrected": 0.08444464260209461,
+        "weighted_fixed": 0.0786061576291168,
+        "hard_fixed": 0.07906681471504054,
+        "local_0.25": 0.08325843322930197,
+        "local_0.5": 0.08217030670086767,
+        "local_0.75": 0.08118420697860541,
+        "local_1.0": 0.08030389269574224,
+        "radial_parent_sigma_0.1": 0.07659116945676413,
+        "radial_parent_sigma_0.2": 0.06999235234262037,
+        "radial_parent_sigma_0.4": 0.049077581455062205,
+        "radial_parent_sigma_0.8": 0.020758705090745268
+      },
+      "predicted_gap_m": 0.14875983896480402,
+      "reference_gap_m": 0.4919191600659776,
+      "predicted_child_height_m": -0.2919546566156824,
+      "parent_depth_iqr_m": 0.28244924545288086,
+      "child_depth_iqr_m": 0.08089947700500488,
+      "parent_center_error_m": 0.3112525949223477,
+      "local_contact": {
+        "applied": true,
+        "blend": 1.0,
+        "target_child_height_m": -0.2796506540429022,
+        "surface_height_m": -0.34291197178649985,
+        "child_height_estimate_m": 0.12652263548719533,
+        "surface_pixel_count": 1152
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002645",
+      "methods": {
+        "uncorrected": 0.10838358580927496,
+        "weighted_fixed": 0.0920592212469195,
+        "hard_fixed": 0.09157622169315686,
+        "local_0.25": 0.11122272407685133,
+        "local_0.5": 0.11419521581406857,
+        "local_0.75": 0.1172909227694769,
+        "local_1.0": 0.12050034895782005,
+        "radial_parent_sigma_0.1": 0.082221521164606,
+        "radial_parent_sigma_0.2": 0.06604885664466695,
+        "radial_parent_sigma_0.4": 0.023738184434523576,
+        "radial_parent_sigma_0.8": 0.04614301324692374
+      },
+      "predicted_gap_m": 0.20168875774396453,
+      "reference_gap_m": 0.4287875313343069,
+      "predicted_child_height_m": -0.603107769004318,
+      "parent_depth_iqr_m": 0.5392690896987915,
+      "child_depth_iqr_m": 0.0754733681678772,
+      "parent_center_error_m": 0.5783565404680271,
+      "local_contact": {
+        "applied": true,
+        "blend": 1.0,
+        "target_child_height_m": -0.6224075691167248,
+        "surface_height_m": -0.6949824957628749,
+        "child_height_estimate_m": 0.14514985329230012,
+        "surface_pixel_count": 3630
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002725",
+      "methods": {
+        "uncorrected": 0.3635827331072757,
+        "weighted_fixed": 0.33610425523509874,
+        "hard_fixed": 0.33491881436352244,
+        "local_0.25": 0.3603743559219137,
+        "local_0.5": 0.35723527606941247,
+        "local_0.75": 0.35416733615696705,
+        "local_1.0": 0.3511724006845247,
+        "radial_parent_sigma_0.1": 0.08196693165100452,
+        "radial_parent_sigma_0.2": 0.11259545049243572,
+        "radial_parent_sigma_0.4": 0.18876958642639258,
+        "radial_parent_sigma_0.8": 0.2846469980438355
+      },
+      "predicted_gap_m": 0.10491406014442868,
+      "reference_gap_m": 0.3681817005842119,
+      "predicted_child_height_m": -0.8930745501249258,
+      "parent_depth_iqr_m": 0.4961707592010498,
+      "child_depth_iqr_m": 0.059249281883239746,
+      "parent_center_error_m": 0.12452891327010235,
+      "local_contact": {
+        "applied": true,
+        "blend": 1.0,
+        "target_child_height_m": -0.8693944369702062,
+        "surface_height_m": -0.952431436405533,
+        "child_height_estimate_m": 0.16607399887065338,
+        "surface_pixel_count": 1617
+      }
+    }
+  ]
+}

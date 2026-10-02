@@ -1,0 +1,255 @@
+{
+  "setting": "Grounding DINO Tiny (exploratory 0.25) detections, predicted metric depth, heuristic support proposals; IoU>=0.5 for both annotated objects",
+  "positive_count": 9,
+  "positive_pair_matched_count": 8,
+  "positive_pair_coverage": 0.8888888888888888,
+  "negative_count": 0,
+  "uncertain_count": 1,
+  "note": "Only positive desk relations were confidently labeled; no specificity estimate. Official intrinsics supplied.",
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_001657",
+      "label": true,
+      "detector_count": 2,
+      "proposal_count": 1,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "gdino_1",
+          "parent_id": "gdino_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.5121933817863464,
+          "footpoint_px": [
+            712.5,
+            133.0
+          ],
+          "child_iou": 0.6335346028797028,
+          "parent_iou": 0.9012202115458137
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_001701",
+      "label": true,
+      "detector_count": 3,
+      "proposal_count": 2,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "gdino_1",
+          "parent_id": "gdino_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.28675293922424316,
+          "footpoint_px": [
+            538.0,
+            130.0
+          ],
+          "child_iou": 0.8856447688564477,
+          "parent_iou": 0.9846758891917067
+        },
+        {
+          "child_id": "gdino_2",
+          "parent_id": "gdino_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.3126600980758667,
+          "footpoint_px": [
+            538.5,
+            139.0
+          ],
+          "child_iou": 0.5158730158730159,
+          "parent_iou": 0.9846758891917067
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002008",
+      "label": true,
+      "detector_count": 4,
+      "proposal_count": 3,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "gdino_1",
+          "parent_id": "gdino_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.33014214038848877,
+          "footpoint_px": [
+            497.5,
+            287.0
+          ],
+          "child_iou": 0.890879094979967,
+          "parent_iou": 0.8787738632557694
+        },
+        {
+          "child_id": "gdino_2",
+          "parent_id": "gdino_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.365861177444458,
+          "footpoint_px": [
+            487.5,
+            284.0
+          ],
+          "child_iou": 0.6497130933750652,
+          "parent_iou": 0.8787738632557694
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002532",
+      "label": true,
+      "detector_count": 4,
+      "proposal_count": 3,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.15889430046081543,
+          "footpoint_px": [
+            365.5,
+            183.0
+          ],
+          "child_iou": 0.9299516908212561,
+          "parent_iou": 0.8539779148833676
+        },
+        {
+          "child_id": "gdino_3",
+          "parent_id": "gdino_1",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.1967722773551941,
+          "footpoint_px": [
+            363.5,
+            196.0
+          ],
+          "child_iou": 0.506578947368421,
+          "parent_iou": 0.8539779148833676
+        },
+        {
+          "child_id": "gdino_2",
+          "parent_id": "gdino_1",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.1252356767654419,
+          "footpoint_px": [
+            359.5,
+            179.0
+          ],
+          "child_iou": 0.6893939393939394,
+          "parent_iou": 0.8539779148833676
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002739",
+      "label": true,
+      "detector_count": 3,
+      "proposal_count": 2,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.07797414064407349,
+          "footpoint_px": [
+            320.0,
+            328.0
+          ],
+          "child_iou": 0.8950534759358288,
+          "parent_iou": 0.7990983259055517
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003126",
+      "label": true,
+      "detector_count": 3,
+      "proposal_count": 2,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.17807388305664062,
+          "footpoint_px": [
+            81.0,
+            117.0
+          ],
+          "child_iou": 0.7241379310344828,
+          "parent_iou": 0.9173734660460324
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003429",
+      "label": true,
+      "detector_count": 5,
+      "proposal_count": 2,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "gdino_2",
+          "parent_id": "gdino_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.07393419742584229,
+          "footpoint_px": [
+            529.5,
+            241.0
+          ],
+          "child_iou": 0.5094594594594595,
+          "parent_iou": 0.8962733502299821
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003741",
+      "label": true,
+      "detector_count": 3,
+      "proposal_count": 2,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_003897",
+      "label": true,
+      "detector_count": 3,
+      "proposal_count": 2,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.322373628616333,
+          "footpoint_px": [
+            216.0,
+            192.0
+          ],
+          "child_iou": 0.5154639175257731,
+          "parent_iou": 0.9577258866285141
+        },
+        {
+          "child_id": "gdino_2",
+          "parent_id": "gdino_1",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.33027005195617676,
+          "footpoint_px": [
+            215.0,
+            198.0
+          ],
+          "child_iou": 0.5791505791505791,
+          "parent_iou": 0.9577258866285141
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003983",
+      "label": null,
+      "detector_count": 2,
+      "proposal_count": 1,
+      "matched_pair": false,
+      "matched_pairs": []
+    }
+  ]
+}

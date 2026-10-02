@@ -1,0 +1,185 @@
+{
+  "setting": "Grounding DINO Tiny 0.25/0.25 detections, predicted metric depth, heuristic support proposals; IoU>=0.5 for both annotated objects",
+  "positive_count": 5,
+  "positive_pair_matched_count": 5,
+  "positive_pair_coverage": 1.0,
+  "negative_count": 3,
+  "negative_pair_matched_count": 0,
+  "uncertain_count": 1,
+  "note": "Pair matches require IoU>=0.5 for both annotated objects. Other emitted proposals are not exhaustively labeled; this is not detector precision. Official intrinsics supplied.",
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000275",
+      "label": false,
+      "detector_count": 6,
+      "proposal_count": 3,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_001058",
+      "label": false,
+      "detector_count": 2,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_001146",
+      "label": true,
+      "detector_count": 3,
+      "proposal_count": 2,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "gdino_1",
+          "parent_id": "gdino_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.4567636251449585,
+          "footpoint_px": [
+            443.5,
+            188.0
+          ],
+          "child_iou": 0.8048780487804879,
+          "parent_iou": 0.9222863497785362
+        },
+        {
+          "child_id": "gdino_2",
+          "parent_id": "gdino_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.47745656967163086,
+          "footpoint_px": [
+            445.0,
+            195.0
+          ],
+          "child_iou": 0.5658823529411765,
+          "parent_iou": 0.9222863497785362
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002604",
+      "label": true,
+      "detector_count": 3,
+      "proposal_count": 2,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "gdino_1",
+          "parent_id": "gdino_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.05915522575378418,
+          "footpoint_px": [
+            208.5,
+            231.0
+          ],
+          "child_iou": 0.864549578742709,
+          "parent_iou": 0.9669833262696534
+        },
+        {
+          "child_id": "gdino_2",
+          "parent_id": "gdino_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.08869099617004395,
+          "footpoint_px": [
+            207.5,
+            243.0
+          ],
+          "child_iou": 0.5895281189398837,
+          "parent_iou": 0.9669833262696534
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002607",
+      "label": true,
+      "detector_count": 2,
+      "proposal_count": 1,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "gdino_1",
+          "parent_id": "gdino_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.1992362141609192,
+          "footpoint_px": [
+            537.0,
+            312.0
+          ],
+          "child_iou": 0.876358695652174,
+          "parent_iou": 0.706503645026118
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002645",
+      "label": true,
+      "detector_count": 3,
+      "proposal_count": 2,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "gdino_1",
+          "parent_id": "gdino_0",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.3936655521392822,
+          "footpoint_px": [
+            239.5,
+            252.0
+          ],
+          "child_iou": 0.9077380952380952,
+          "parent_iou": 0.9857643464200841
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002725",
+      "label": true,
+      "detector_count": 4,
+      "proposal_count": 3,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.007593691349029541,
+          "footpoint_px": [
+            311.0,
+            268.0
+          ],
+          "child_iou": 0.8625054561326931,
+          "parent_iou": 0.9801208309194737
+        },
+        {
+          "child_id": "gdino_3",
+          "parent_id": "gdino_1",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.034185171127319336,
+          "footpoint_px": [
+            313.0,
+            276.0
+          ],
+          "child_iou": 0.5019426906265178,
+          "parent_iou": 0.9801208309194737
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003475",
+      "label": null,
+      "detector_count": 3,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_003507",
+      "label": false,
+      "detector_count": 4,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    }
+  ]
+}

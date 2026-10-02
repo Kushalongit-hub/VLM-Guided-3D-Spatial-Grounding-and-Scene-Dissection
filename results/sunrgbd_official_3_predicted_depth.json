@@ -1,0 +1,101 @@
+{
+  "scene_count": 3,
+  "reference_count": 14,
+  "matched_count": 14,
+  "coverage": 1.0,
+  "median_centroid_error_m": 0.4145734356842262,
+  "p90_centroid_error_m": 1.227666639971653,
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000001",
+      "reference_count": 5,
+      "matched_count": 5,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.37773626642965186,
+      "p90_centroid_error_m": 1.5387059033950554,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 1.3732881132129617
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 1.6489844301831178
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.36705171649023666
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.37773626642965186
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.33114627475147906
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_000003",
+      "reference_count": 5,
+      "matched_count": 5,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.45141060493880064,
+      "p90_centroid_error_m": 0.7280583003005028,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.7022700434029111
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.20370177059113084
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.45141060493880064
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.34184073347966304
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.7452504715655639
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_000004",
+      "reference_count": 4,
+      "matched_count": 4,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.41266018357625617,
+      "p90_centroid_error_m": 0.7617920726449451,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.4675794365297569
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.3577409306227554
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.8878832024085971
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.16300766122521876
+        }
+      ]
+    }
+  ],
+  "depth_source": "Depth-Anything-V2-Metric-Hypersim-Small",
+  "boxes_source": "official_oracle_2d_annotations",
+  "camera_source": "official_sunrgbd_calibration",
+  "device": "cuda",
+  "mean_depth_inference_seconds": 0.44703959999606013
+}

@@ -1,0 +1,9 @@
+{
+  "status": "frozen_before_desk_images_or_depth_inference",
+  "selection_sha256": "bf23d7784cd5b9070376e1c4ad89886394a025a669ffeb3f5e85891af795a2a3",
+  "proposal_code_sha256": "e72d54a4ef9de6e1166cfaae8fe5c1d8ef2bdacc658afa0d5f372e4d374ace23",
+  "proposal_rule": "cup/mug bbox-bottom center inside desk bbox; absolute median predicted-depth gap <=0.75 m; one closest-depth parent per child",
+  "annotation_rule": "Use RGB image and 2D boxes only. Positive when paired cup/mug visibly rests on paired desk; negative when clearly elsewhere; null if ambiguous. Do not view depth or 3D reference before labels are saved.",
+  "evaluation": "Candidate-pair TP/TN/FP/FN, excluding null labels. No threshold tuning or code edits after labels.",
+  "caveat": "Ten selected scenes, one annotator, official oracle 2D boxes and intrinsics. Metadata-index spacing reduces immediate neighbors but does not prove room independence."
+}

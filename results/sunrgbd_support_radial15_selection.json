@@ -1,0 +1,143 @@
+{
+  "status": "frozen_candidates_not_relation_labels",
+  "selection_seed": 109,
+  "split": "train",
+  "eligible_count": 15,
+  "spaced_pool_count": 15,
+  "min_index_gap": 0,
+  "selection_rule": "unique paired mug/cup and table classes in SUN RGB-D train split",
+  "excluded_selection_sha256": "121e3cc5abf753a4cfee5f8ef9000c966e86d4a6cdbebc5fbd37deaf34f1c59d",
+  "additional_exclusion_sha256": [
+    "48c9a3589f62cb5484a60623a3a14f137459b22a1b3564b99d8875facfa3f648",
+    "08bc43dd2f538d2094a4e513ed7bb03966e2ff7958b98ef7bf3f970202a7e87e",
+    "8d9ffeced951f620206129c93686fc4e2e8b39dff6be5b67fbb02eae4d788bea",
+    "bf23d7784cd5b9070376e1c4ad89886394a025a669ffeb3f5e85891af795a2a3"
+  ],
+  "source_sha256": {
+    "SUNRGBDMeta3DBB_v2.mat": "0f8c97ab95630d2461212ffc9589facb8cf3444cafab4c6d93d97541b347e36b",
+    "SUNRGBDMeta2DBB_v2.mat": "d42020e95c6b654b2c81f0e04c8dba615b98733075e0c8605e6bd43bbb9b2899",
+    "sunrgbd_testing_images.txt": "b65e32ce06442218417f6d079b17cdba04772eba2a01a5d73e83cbcb0adfead0"
+  },
+  "scenes": [
+    {
+      "metadata_index": 5245,
+      "scene_id": "sunrgbd_005246",
+      "candidate_child_class": "cup",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000538_2014-06-08_17-32-58_260595134347_rgbf000196-resize"
+    },
+    {
+      "metadata_index": 5252,
+      "scene_id": "sunrgbd_005253",
+      "candidate_child_class": "mug",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000545_2014-06-08_18-41-58_260595134347_rgbf000145-resize"
+    },
+    {
+      "metadata_index": 5253,
+      "scene_id": "sunrgbd_005254",
+      "candidate_child_class": "cup",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000546_2014-06-08_18-43-02_260595134347_rgbf000158-resize"
+    },
+    {
+      "metadata_index": 5255,
+      "scene_id": "sunrgbd_005256",
+      "candidate_child_class": "cup",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000548_2014-06-08_18-49-46_260595134347_rgbf000111-resize"
+    },
+    {
+      "metadata_index": 5277,
+      "scene_id": "sunrgbd_005278",
+      "candidate_child_class": "mug",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000588_2014-06-09_16-37-41_260595134347_rgbf000122-resize"
+    },
+    {
+      "metadata_index": 5436,
+      "scene_id": "sunrgbd_005437",
+      "candidate_child_class": "cup",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000913_2014-06-08_18-44-31_260595134347_rgbf000118-resize"
+    },
+    {
+      "metadata_index": 5465,
+      "scene_id": "sunrgbd_005466",
+      "candidate_child_class": "cup",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000947_2014-06-08_18-19-07_260595134347_rgbf000058-resize"
+    },
+    {
+      "metadata_index": 7786,
+      "scene_id": "sunrgbd_007787",
+      "candidate_child_class": "cup",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0080"
+    },
+    {
+      "metadata_index": 7889,
+      "scene_id": "sunrgbd_007890",
+      "candidate_child_class": "mug",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0183"
+    },
+    {
+      "metadata_index": 7897,
+      "scene_id": "sunrgbd_007898",
+      "candidate_child_class": "mug",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0191"
+    },
+    {
+      "metadata_index": 7902,
+      "scene_id": "sunrgbd_007903",
+      "candidate_child_class": "mug",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0196"
+    },
+    {
+      "metadata_index": 7913,
+      "scene_id": "sunrgbd_007914",
+      "candidate_child_class": "mug",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0207"
+    },
+    {
+      "metadata_index": 7915,
+      "scene_id": "sunrgbd_007916",
+      "candidate_child_class": "mug",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0209"
+    },
+    {
+      "metadata_index": 8046,
+      "scene_id": "sunrgbd_008047",
+      "candidate_child_class": "cup",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0405"
+    },
+    {
+      "metadata_index": 8745,
+      "scene_id": "sunrgbd_008746",
+      "candidate_child_class": "mug",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/home_bksh/home_bksh_2012_oct_19_scan1/0007409-000317218501"
+    }
+  ]
+}

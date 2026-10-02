@@ -1,0 +1,15 @@
+{
+  "status": "rgb_and_2d_box_labels_frozen_before_depth_or_3d_reference",
+  "annotator": "single visual review of RGB images and paired 2D boxes on 2026-10-02",
+  "rule": "True if paired lamp visibly rests on paired table; false if supported elsewhere; null if ambiguous. Predicted depth and 3D reference values were not inspected before saving.",
+  "scenes": [
+    {"scene_id": "sunrgbd_000410", "supported_by_table": false, "child_id": "object_5", "parent_id": "object_2", "note": "Paired lamp stands on floor at right; paired desk/table is at left."},
+    {"scene_id": "sunrgbd_000543", "supported_by_table": true, "child_id": "object_2", "parent_id": "object_1"},
+    {"scene_id": "sunrgbd_000638", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_0"},
+    {"scene_id": "sunrgbd_001898", "supported_by_table": true, "child_id": "object_4", "parent_id": "object_3", "note": "Small bedside table and lamp at left."},
+    {"scene_id": "sunrgbd_002496", "supported_by_table": false, "child_id": "object_4", "parent_id": "object_1", "note": "Lamp rests on right cabinet, not the paired foreground table."},
+    {"scene_id": "sunrgbd_002779", "supported_by_table": null, "child_id": "object_3", "parent_id": "object_2", "note": "Lamp and base are cut by left image edge; support is unclear."},
+    {"scene_id": "sunrgbd_002994", "supported_by_table": true, "child_id": "object_2", "parent_id": "object_4", "note": "Desk lamp rests on the large desk."},
+    {"scene_id": "sunrgbd_003200", "supported_by_table": false, "child_id": "object_1", "parent_id": "object_4", "note": "Lamp rests on back side table, not the paired foreground conference table."}
+  ]
+}

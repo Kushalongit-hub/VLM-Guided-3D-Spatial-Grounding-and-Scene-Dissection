@@ -1,0 +1,20 @@
+{
+  "status": "frozen_before_images_depth_or_3d_reference_inspection",
+  "date": "2026-10-02",
+  "parent_class": "desk",
+  "selection_sha256": "bcd41d1bae681fc866aedbd722afefa9df5700af6ad4f339eb2a2cb05643024b",
+  "support_constraints_code_sha256": "9ae81392a09522e7bfcc7fd5e5bc11bd9f7024874c152aa8e21f854612b025b4",
+  "support_proposals_code_sha256": "e72d54a4ef9de6e1166cfaae8fe5c1d8ef2bdacc658afa0d5f372e4d374ace23",
+  "grounding_dino_adapter_code_sha256": "caaa758c28c91f84e005935945f6d5689da21325a9bdb8e5cee46cc23d4182f9",
+  "grounding_dino_weights_sha256": "1a2412ef99bd74bcd3c2a246fa1e48581f8889a1300c9051974741314fc042f3",
+  "radial_support_code_sha256": "7603cda820543bf6762bc0e92b8ee8e80ed4d558d944f980634f11757b9157e3",
+  "annotation_rule": "Inspect RGB and 2D boxes only. Mark cup/mug on paired desk true, clearly on another surface false, uncertain null. Save labels before depth or 3D reference inspection.",
+  "detector": {"labels": ["cup", "mug", "desk", "table"], "prompt_format": "separate", "box_threshold": 0.25, "text_threshold": 0.25, "duplicate_iou_threshold": 0.7},
+  "matching": {"child_allowed": ["cup", "mug"], "parent_allowed": ["desk", "table"], "box_iou_min": 0.5},
+  "support_proposal": "Unchanged cup/mug footpoint inside surface box and median-depth gap <=0.75m.",
+  "correction": {"offset_prior_m": 0.4, "offset_sigma_m": 0.2, "center_sigma_m": {"table": 0.8, "cup_or_mug": 0.4, "other": 0.2}, "methods": ["uncorrected", "weighted", "hard", "radial"]},
+  "radial_correction": {"offset_m": 0.4, "child_sigma_m": 0.4, "parent_sigma_m": 0.2, "relation_sigma_m": 0.2, "max_shift_m": 0.5},
+  "primary_metric": "Paired mean child 3D centroid error in metres, radial minus exact contact, on visually positive pairs using oracle 2D boxes and relations",
+  "secondary_metrics": ["radial versus no correction", "radial versus weighted height correction", "conditional automatic matched-pair error", "pair detection and support proposal coverage", "annotated negative-pair false proposals"],
+  "claim_limits": "Seven spaced training-split desk candidates, one visual annotator, official intrinsics and manual 0.4m offset. No tuning on this sample. This transfers the already frozen table-development radial method; small n cannot establish broad novelty."
+}

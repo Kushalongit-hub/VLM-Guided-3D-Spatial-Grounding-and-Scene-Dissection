@@ -1,0 +1,2033 @@
+{
+  "setting": "RGB to YOLO11n-seg to metric depth to 3D; official oracle calibration",
+  "matching": "one-to-one 2D box IoU>=0.5; labels incomplete; no AP/precision claim",
+  "class_mapping": {
+    "chair": "chair",
+    "bed": "bed",
+    "sofa": "couch",
+    "tv": "tv",
+    "toilet": "toilet",
+    "sink": "sink",
+    "bicycle": "bicycle",
+    "bench": "bench",
+    "keyboard": "keyboard",
+    "mouse": "mouse",
+    "mug": "cup",
+    "back_pack": "backpack"
+  },
+  "confidence_threshold": 0.25,
+  "depth_checkpoint": "depth_anything_v2_metric_hypersim_vits.pth",
+  "segmenter_checkpoint": "yolo11n-seg.pt",
+  "device": "cuda",
+  "summary": {
+    "scene_count": 20,
+    "reference_count": 93,
+    "class_agnostic_iou50_coverage": 0.2903225806451613,
+    "class_agnostic_matched_count": 27,
+    "class_aware_eligible_count": 22,
+    "class_aware_matched_count": 15,
+    "class_aware_iou50_coverage": 0.6818181818181818,
+    "class_aware_all_reference_coverage": 0.16129032258064516,
+    "class_aware_center_error": {
+      "oracle_boxes": {
+        "count": 15,
+        "median_m": 0.5380791525511698,
+        "mean_m": 0.5613484096000165,
+        "p90_m": 1.1751038821650432
+      },
+      "predicted_boxes": {
+        "count": 15,
+        "median_m": 0.41944672963160895,
+        "mean_m": 0.5852776147665256,
+        "p90_m": 1.310025871537174
+      },
+      "predicted_masks": {
+        "count": 15,
+        "median_m": 0.5161780809175471,
+        "mean_m": 0.5256183309134735,
+        "p90_m": 1.1330126646486
+      }
+    },
+    "class_agnostic_center_error": {
+      "oracle_boxes": {
+        "count": 27,
+        "median_m": 0.46038469524706493,
+        "mean_m": 0.543655917038856,
+        "p90_m": 1.1715392911508684
+      },
+      "predicted_boxes": {
+        "count": 27,
+        "median_m": 0.41944672963160895,
+        "mean_m": 0.5529533517282664,
+        "p90_m": 1.2276370187672176
+      },
+      "predicted_masks": {
+        "count": 27,
+        "median_m": 0.4904022327776721,
+        "mean_m": 0.508716701214049,
+        "p90_m": 1.078982120632347
+      }
+    },
+    "model_load_seconds": 4.065862400006154,
+    "mean_detection_seconds": 0.12370142000072519,
+    "mean_depth_seconds": 0.10355070500008878,
+    "mean_geometry_and_matching_seconds": 0.04743060000182595,
+    "mean_sum_seconds": 0.2746827250026399,
+    "median_sum_seconds": 0.1843128000109573,
+    "mean_sum_seconds_after_first": 0.18993840000276627,
+    "mean_wall_seconds_after_first": 0.19250008947519268,
+    "peak_cuda_allocated_mib": 403.07470703125,
+    "peak_cuda_reserved_mib": 522.0
+  },
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000147",
+      "reference_count": 4,
+      "detection_count": 4,
+      "detections": [
+        {
+          "label": "chair",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            140,
+            302,
+            290,
+            523
+          ],
+          "confidence": 0.9082139134407043
+        },
+        {
+          "label": "tv",
+          "instance_id": "seg_1",
+          "bbox_2d": [
+            273,
+            140,
+            398,
+            258
+          ],
+          "confidence": 0.8802926540374756
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_2",
+          "bbox_2d": [
+            522,
+            320,
+            590,
+            389
+          ],
+          "confidence": 0.30019134283065796
+        },
+        {
+          "label": "dining table",
+          "instance_id": "seg_3",
+          "bbox_2d": [
+            475,
+            376,
+            730,
+            528
+          ],
+          "confidence": 0.2691025137901306
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 4,
+        "matched_count": 3,
+        "coverage": 0.75,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_3",
+            "iou": 0.945055784808192
+          },
+          {
+            "reference_id": "object_1",
+            "prediction_id": "seg_0",
+            "iou": 0.8558286239978973
+          },
+          {
+            "reference_id": "object_3",
+            "prediction_id": "seg_1",
+            "iou": 0.9218499775799116
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 1.177570600936658,
+            "object_1": 1.2987045378194915,
+            "object_3": 1.3224790457843858
+          },
+          "predicted_boxes": {
+            "object_0": 1.190701520752166,
+            "object_1": 1.2830402657897944,
+            "object_3": 1.3280162753687605
+          },
+          "predicted_masks": {
+            "object_0": 1.0673081376616056,
+            "object_1": 1.2612598905234549,
+            "object_3": 1.2783367694131818
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 2,
+        "matched_count": 2,
+        "coverage": 1.0,
+        "matches": [
+          {
+            "reference_id": "object_1",
+            "prediction_id": "seg_0",
+            "iou": 0.8558286239978973
+          },
+          {
+            "reference_id": "object_3",
+            "prediction_id": "seg_1",
+            "iou": 0.9218499775799116
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_1": 1.2987045378194915,
+            "object_3": 1.3224790457843858
+          },
+          "predicted_boxes": {
+            "object_1": 1.2830402657897944,
+            "object_3": 1.3280162753687605
+          },
+          "predicted_masks": {
+            "object_1": 1.2612598905234549,
+            "object_3": 1.2783367694131818
+          }
+        }
+      },
+      "seconds": {
+        "detection": 1.6076221999974223,
+        "depth": 0.24173690000316128,
+        "geometry_and_matching": 0.035465799999656156,
+        "sum": 1.8848249000002397,
+        "wall": 1.8879616000049282
+      }
+    },
+    {
+      "scene_id": "sunrgbd_000676",
+      "reference_count": 5,
+      "detection_count": 1,
+      "detections": [
+        {
+          "label": "chair",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            285,
+            245,
+            444,
+            512
+          ],
+          "confidence": 0.8927596211433411
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 5,
+        "matched_count": 1,
+        "coverage": 0.2,
+        "matches": [
+          {
+            "reference_id": "object_1",
+            "prediction_id": "seg_0",
+            "iou": 0.9563714305469128
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_1": 0.6179785426623338
+          },
+          "predicted_boxes": {
+            "object_1": 0.6172552565611246
+          },
+          "predicted_masks": {
+            "object_1": 0.5161780809175471
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 1,
+        "matched_count": 1,
+        "coverage": 1.0,
+        "matches": [
+          {
+            "reference_id": "object_1",
+            "prediction_id": "seg_0",
+            "iou": 0.9563714305469128
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_1": 0.6179785426623338
+          },
+          "predicted_boxes": {
+            "object_1": 0.6172552565611246
+          },
+          "predicted_masks": {
+            "object_1": 0.5161780809175471
+          }
+        }
+      },
+      "seconds": {
+        "detection": 0.04755620000651106,
+        "depth": 0.1018949999997858,
+        "geometry_and_matching": 0.03750910000235308,
+        "sum": 0.18696030000864994,
+        "wall": 0.19026170000142884
+      }
+    },
+    {
+      "scene_id": "sunrgbd_000678",
+      "reference_count": 6,
+      "detection_count": 6,
+      "detections": [
+        {
+          "label": "chair",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            111,
+            360,
+            301,
+            529
+          ],
+          "confidence": 0.8889454007148743
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_1",
+          "bbox_2d": [
+            0,
+            265,
+            40,
+            325
+          ],
+          "confidence": 0.7412270307540894
+        },
+        {
+          "label": "dining table",
+          "instance_id": "seg_2",
+          "bbox_2d": [
+            0,
+            304,
+            271,
+            525
+          ],
+          "confidence": 0.7392445206642151
+        },
+        {
+          "label": "bed",
+          "instance_id": "seg_3",
+          "bbox_2d": [
+            140,
+            136,
+            572,
+            522
+          ],
+          "confidence": 0.7046107053756714
+        },
+        {
+          "label": "tv",
+          "instance_id": "seg_4",
+          "bbox_2d": [
+            132,
+            58,
+            288,
+            266
+          ],
+          "confidence": 0.6594756245613098
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_5",
+          "bbox_2d": [
+            632,
+            232,
+            730,
+            432
+          ],
+          "confidence": 0.3875608444213867
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 6,
+        "matched_count": 4,
+        "coverage": 0.6666666666666666,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_3",
+            "iou": 0.8842149104539775
+          },
+          {
+            "reference_id": "object_3",
+            "prediction_id": "seg_4",
+            "iou": 0.9699481865284975
+          },
+          {
+            "reference_id": "object_4",
+            "prediction_id": "seg_2",
+            "iou": 0.9611208177528127
+          },
+          {
+            "reference_id": "object_5",
+            "prediction_id": "seg_5",
+            "iou": 0.9609736868039814
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 0.15454061367767033,
+            "object_3": 1.0952627462352624,
+            "object_4": 0.3212199827481768,
+            "object_5": 1.167518417960342
+          },
+          "predicted_boxes": {
+            "object_0": 0.20393340831592635,
+            "object_3": 1.0977701278272258,
+            "object_4": 0.32591496925553815,
+            "object_5": 1.1638401220138677
+          },
+          "predicted_masks": {
+            "object_0": 0.5831897573741166,
+            "object_3": 1.0964930950884595,
+            "object_4": 0.28373959778771296,
+            "object_5": 1.0158129420269861
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 1,
+        "matched_count": 1,
+        "coverage": 1.0,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_3",
+            "iou": 0.8842149104539775
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 0.15454061367767033
+          },
+          "predicted_boxes": {
+            "object_0": 0.20393340831592635
+          },
+          "predicted_masks": {
+            "object_0": 0.5831897573741166
+          }
+        }
+      },
+      "seconds": {
+        "detection": 0.04843539999274071,
+        "depth": 0.10374240000965074,
+        "geometry_and_matching": 0.09919419999641832,
+        "sum": 0.25137199999880977,
+        "wall": 0.25558969999838155
+      }
+    },
+    {
+      "scene_id": "sunrgbd_000792",
+      "reference_count": 8,
+      "detection_count": 5,
+      "detections": [
+        {
+          "label": "bed",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            104,
+            137,
+            661,
+            504
+          ],
+          "confidence": 0.9132252931594849
+        },
+        {
+          "label": "laptop",
+          "instance_id": "seg_1",
+          "bbox_2d": [
+            595,
+            114,
+            652,
+            156
+          ],
+          "confidence": 0.6572200655937195
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_2",
+          "bbox_2d": [
+            671,
+            151,
+            726,
+            241
+          ],
+          "confidence": 0.4524390995502472
+        },
+        {
+          "label": "vase",
+          "instance_id": "seg_3",
+          "bbox_2d": [
+            476,
+            60,
+            494,
+            95
+          ],
+          "confidence": 0.31332865357398987
+        },
+        {
+          "label": "tv",
+          "instance_id": "seg_4",
+          "bbox_2d": [
+            595,
+            114,
+            653,
+            151
+          ],
+          "confidence": 0.26004359126091003
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 8,
+        "matched_count": 2,
+        "coverage": 0.25,
+        "matches": [
+          {
+            "reference_id": "object_1",
+            "prediction_id": "seg_0",
+            "iou": 0.9725869758291712
+          },
+          {
+            "reference_id": "object_6",
+            "prediction_id": "seg_4",
+            "iou": 0.9095697980684812
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_1": 0.9897028986833714,
+            "object_6": 0.7570878578920184
+          },
+          "predicted_boxes": {
+            "object_1": 0.9810499801650029,
+            "object_6": 0.7695301774541248
+          },
+          "predicted_masks": {
+            "object_1": 0.9406418258363184,
+            "object_6": 0.7081417162363262
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 2,
+        "matched_count": 1,
+        "coverage": 0.5,
+        "matches": [
+          {
+            "reference_id": "object_1",
+            "prediction_id": "seg_0",
+            "iou": 0.9725869758291712
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_1": 0.9897028986833714
+          },
+          "predicted_boxes": {
+            "object_1": 0.9810499801650029
+          },
+          "predicted_masks": {
+            "object_1": 0.9406418258363184
+          }
+        }
+      },
+      "seconds": {
+        "detection": 0.04263660000287928,
+        "depth": 0.10131949999777135,
+        "geometry_and_matching": 0.09512600000016391,
+        "sum": 0.23908210000081453,
+        "wall": 0.2427501000056509
+      }
+    },
+    {
+      "scene_id": "sunrgbd_001212",
+      "reference_count": 6,
+      "detection_count": 18,
+      "detections": [
+        {
+          "label": "tv",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            0,
+            1,
+            72,
+            185
+          ],
+          "confidence": 0.8560371994972229
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_1",
+          "bbox_2d": [
+            489,
+            297,
+            669,
+            454
+          ],
+          "confidence": 0.7427901029586792
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_2",
+          "bbox_2d": [
+            62,
+            232,
+            130,
+            408
+          ],
+          "confidence": 0.6514759063720703
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_3",
+          "bbox_2d": [
+            657,
+            207,
+            730,
+            257
+          ],
+          "confidence": 0.5515739321708679
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_4",
+          "bbox_2d": [
+            544,
+            394,
+            730,
+            528
+          ],
+          "confidence": 0.45041295886039734
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_5",
+          "bbox_2d": [
+            607,
+            187,
+            659,
+            225
+          ],
+          "confidence": 0.4384620785713196
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_6",
+          "bbox_2d": [
+            682,
+            394,
+            730,
+            524
+          ],
+          "confidence": 0.43683600425720215
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_7",
+          "bbox_2d": [
+            662,
+            251,
+            730,
+            352
+          ],
+          "confidence": 0.43236905336380005
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_8",
+          "bbox_2d": [
+            499,
+            217,
+            554,
+            263
+          ],
+          "confidence": 0.4235434830188751
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_9",
+          "bbox_2d": [
+            686,
+            141,
+            730,
+            173
+          ],
+          "confidence": 0.4149201214313507
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_10",
+          "bbox_2d": [
+            528,
+            246,
+            595,
+            313
+          ],
+          "confidence": 0.4031032621860504
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_11",
+          "bbox_2d": [
+            542,
+            394,
+            687,
+            494
+          ],
+          "confidence": 0.3461783528327942
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_12",
+          "bbox_2d": [
+            679,
+            167,
+            730,
+            223
+          ],
+          "confidence": 0.32740092277526855
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_13",
+          "bbox_2d": [
+            562,
+            200,
+            611,
+            235
+          ],
+          "confidence": 0.3216341435909271
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_14",
+          "bbox_2d": [
+            456,
+            215,
+            557,
+            308
+          ],
+          "confidence": 0.2996568977832794
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_16",
+          "bbox_2d": [
+            569,
+            172,
+            612,
+            203
+          ],
+          "confidence": 0.27796080708503723
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_17",
+          "bbox_2d": [
+            493,
+            304,
+            592,
+            377
+          ],
+          "confidence": 0.2766636312007904
+        },
+        {
+          "label": "book",
+          "instance_id": "seg_18",
+          "bbox_2d": [
+            226,
+            194,
+            300,
+            226
+          ],
+          "confidence": 0.2527213990688324
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 6,
+        "matched_count": 1,
+        "coverage": 0.16666666666666666,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_4",
+            "iou": 0.8741582491582491
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 0.27765247815531785
+          },
+          "predicted_boxes": {
+            "object_0": 0.2806764745474481
+          },
+          "predicted_masks": {
+            "object_0": 0.26554925697560305
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 2,
+        "matched_count": 0,
+        "coverage": 0.0,
+        "matches": [],
+        "center_errors_m": {
+          "oracle_boxes": {},
+          "predicted_boxes": {},
+          "predicted_masks": {}
+        }
+      },
+      "seconds": {
+        "detection": 0.07634659999166615,
+        "depth": 0.10007000000041444,
+        "geometry_and_matching": 0.05368840000301134,
+        "sum": 0.23010499999509193,
+        "wall": 0.23337239999091253
+      }
+    },
+    {
+      "scene_id": "sunrgbd_001958",
+      "reference_count": 3,
+      "detection_count": 6,
+      "detections": [
+        {
+          "label": "chair",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            126,
+            133,
+            221,
+            233
+          ],
+          "confidence": 0.7177920341491699
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_1",
+          "bbox_2d": [
+            232,
+            124,
+            282,
+            168
+          ],
+          "confidence": 0.7036423683166504
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_2",
+          "bbox_2d": [
+            428,
+            139,
+            500,
+            213
+          ],
+          "confidence": 0.6561743021011353
+        },
+        {
+          "label": "couch",
+          "instance_id": "seg_3",
+          "bbox_2d": [
+            1,
+            202,
+            560,
+            422
+          ],
+          "confidence": 0.6458741426467896
+        },
+        {
+          "label": "tv",
+          "instance_id": "seg_4",
+          "bbox_2d": [
+            171,
+            28,
+            261,
+            112
+          ],
+          "confidence": 0.4980802536010742
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_5",
+          "bbox_2d": [
+            284,
+            133,
+            418,
+            214
+          ],
+          "confidence": 0.2596985399723053
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 3,
+        "matched_count": 1,
+        "coverage": 0.3333333333333333,
+        "matches": [
+          {
+            "reference_id": "object_2",
+            "prediction_id": "seg_3",
+            "iou": 0.9450286920701944
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_2": 0.6023519179873645
+          },
+          "predicted_boxes": {
+            "object_2": 0.5896057498027766
+          },
+          "predicted_masks": {
+            "object_2": 0.594845816890925
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 1,
+        "matched_count": 1,
+        "coverage": 1.0,
+        "matches": [
+          {
+            "reference_id": "object_2",
+            "prediction_id": "seg_3",
+            "iou": 0.9450286920701944
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_2": 0.6023519179873645
+          },
+          "predicted_boxes": {
+            "object_2": 0.5896057498027766
+          },
+          "predicted_masks": {
+            "object_2": 0.594845816890925
+          }
+        }
+      },
+      "seconds": {
+        "detection": 0.11265520000597462,
+        "depth": 0.09499260000302456,
+        "geometry_and_matching": 0.05789630000072066,
+        "sum": 0.26554410000971984,
+        "wall": 0.26714550000906456
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002149",
+      "reference_count": 4,
+      "detection_count": 2,
+      "detections": [
+        {
+          "label": "toilet",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            156,
+            170,
+            322,
+            424
+          ],
+          "confidence": 0.8864923119544983
+        },
+        {
+          "label": "book",
+          "instance_id": "seg_1",
+          "bbox_2d": [
+            211,
+            137,
+            286,
+            173
+          ],
+          "confidence": 0.2553975284099579
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 4,
+        "matched_count": 1,
+        "coverage": 0.25,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_0",
+            "iou": 0.9552887310783031
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 0.06337370000324828
+          },
+          "predicted_boxes": {
+            "object_0": 0.06843227001255768
+          },
+          "predicted_masks": {
+            "object_0": 0.07070007351122674
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 1,
+        "matched_count": 1,
+        "coverage": 1.0,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_0",
+            "iou": 0.9552887310783031
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 0.06337370000324828
+          },
+          "predicted_boxes": {
+            "object_0": 0.06843227001255768
+          },
+          "predicted_masks": {
+            "object_0": 0.07070007351122674
+          }
+        }
+      },
+      "seconds": {
+        "detection": 0.03547210000397172,
+        "depth": 0.09554819999902975,
+        "geometry_and_matching": 0.024107900011586025,
+        "sum": 0.1551282000145875,
+        "wall": 0.15665269999590237
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002271",
+      "reference_count": 3,
+      "detection_count": 1,
+      "detections": [
+        {
+          "label": "bed",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            482,
+            168,
+            561,
+            324
+          ],
+          "confidence": 0.36943790316581726
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 3,
+        "matched_count": 1,
+        "coverage": 0.3333333333333333,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_0",
+            "iou": 0.5502096226791775
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 0.8088660821134166
+          },
+          "predicted_boxes": {
+            "object_0": 0.8578993499747742
+          },
+          "predicted_masks": {
+            "object_0": 0.8212527396625628
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 1,
+        "matched_count": 1,
+        "coverage": 1.0,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_0",
+            "iou": 0.5502096226791775
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 0.8088660821134166
+          },
+          "predicted_boxes": {
+            "object_0": 0.8578993499747742
+          },
+          "predicted_masks": {
+            "object_0": 0.8212527396625628
+          }
+        }
+      },
+      "seconds": {
+        "detection": 0.04470700000820216,
+        "depth": 0.09321140000247397,
+        "geometry_and_matching": 0.009717799999634735,
+        "sum": 0.14763620001031086,
+        "wall": 0.14899980000336654
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002282",
+      "reference_count": 4,
+      "detection_count": 1,
+      "detections": [
+        {
+          "label": "bed",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            9,
+            100,
+            561,
+            423
+          ],
+          "confidence": 0.8007618188858032
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 4,
+        "matched_count": 1,
+        "coverage": 0.25,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_0",
+            "iou": 0.8719658176497972
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 0.5380791525511698
+          },
+          "predicted_boxes": {
+            "object_0": 0.41944672963160895
+          },
+          "predicted_masks": {
+            "object_0": 0.5848386267197978
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 1,
+        "matched_count": 1,
+        "coverage": 1.0,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_0",
+            "iou": 0.8719658176497972
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 0.5380791525511698
+          },
+          "predicted_boxes": {
+            "object_0": 0.41944672963160895
+          },
+          "predicted_masks": {
+            "object_0": 0.5848386267197978
+          }
+        }
+      },
+      "seconds": {
+        "detection": 0.041233600000850856,
+        "depth": 0.09114800000679679,
+        "geometry_and_matching": 0.07050400000298396,
+        "sum": 0.2028856000106316,
+        "wall": 0.20451960001082625
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002591",
+      "reference_count": 3,
+      "detection_count": 2,
+      "detections": [
+        {
+          "label": "cup",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            157,
+            293,
+            206,
+            368
+          ],
+          "confidence": 0.7216696739196777
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_1",
+          "bbox_2d": [
+            17,
+            83,
+            170,
+            220
+          ],
+          "confidence": 0.7058428525924683
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 3,
+        "matched_count": 1,
+        "coverage": 0.3333333333333333,
+        "matches": [
+          {
+            "reference_id": "object_2",
+            "prediction_id": "seg_0",
+            "iou": 0.9487179487179487
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_2": 0.39353213765905615
+          },
+          "predicted_boxes": {
+            "object_2": 0.3932174117361612
+          },
+          "predicted_masks": {
+            "object_2": 0.387544820604732
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 1,
+        "matched_count": 1,
+        "coverage": 1.0,
+        "matches": [
+          {
+            "reference_id": "object_2",
+            "prediction_id": "seg_0",
+            "iou": 0.9487179487179487
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_2": 0.39353213765905615
+          },
+          "predicted_boxes": {
+            "object_2": 0.3932174117361612
+          },
+          "predicted_masks": {
+            "object_2": 0.387544820604732
+          }
+        }
+      },
+      "seconds": {
+        "detection": 0.03571060000103898,
+        "depth": 0.09626649999700021,
+        "geometry_and_matching": 0.02262249999330379,
+        "sum": 0.15459959999134298,
+        "wall": 0.15664250000554603
+      }
+    },
+    {
+      "scene_id": "sunrgbd_003274",
+      "reference_count": 5,
+      "detection_count": 0,
+      "detections": [],
+      "class_agnostic": {
+        "eligible_count": 5,
+        "matched_count": 0,
+        "coverage": 0.0,
+        "matches": [],
+        "center_errors_m": {
+          "oracle_boxes": {},
+          "predicted_boxes": {},
+          "predicted_masks": {}
+        }
+      },
+      "class_aware": {
+        "eligible_count": 0,
+        "matched_count": 0,
+        "coverage": null,
+        "matches": [],
+        "center_errors_m": {
+          "oracle_boxes": {},
+          "predicted_boxes": {},
+          "predicted_masks": {}
+        }
+      },
+      "seconds": {
+        "detection": 0.03322889999253675,
+        "depth": 0.10076139999728184,
+        "geometry_and_matching": 0.013808000003336929,
+        "sum": 0.14779829999315552,
+        "wall": 0.14939130000129808
+      }
+    },
+    {
+      "scene_id": "sunrgbd_003403",
+      "reference_count": 8,
+      "detection_count": 1,
+      "detections": [
+        {
+          "label": "sink",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            80,
+            179,
+            407,
+            339
+          ],
+          "confidence": 0.4004967510700226
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 8,
+        "matched_count": 1,
+        "coverage": 0.125,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_0",
+            "iou": 0.6904469693970466
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 0.1376851832269901
+          },
+          "predicted_boxes": {
+            "object_0": 0.11499502745946862
+          },
+          "predicted_masks": {
+            "object_0": 0.11913536016674499
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 0,
+        "matched_count": 0,
+        "coverage": null,
+        "matches": [],
+        "center_errors_m": {
+          "oracle_boxes": {},
+          "predicted_boxes": {},
+          "predicted_masks": {}
+        }
+      },
+      "seconds": {
+        "detection": 0.03461529999913182,
+        "depth": 0.09942069998942316,
+        "geometry_and_matching": 0.053629000001819804,
+        "sum": 0.18766499999037478,
+        "wall": 0.18939970000064932
+      }
+    },
+    {
+      "scene_id": "sunrgbd_003605",
+      "reference_count": 8,
+      "detection_count": 3,
+      "detections": [
+        {
+          "label": "bicycle",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            212,
+            12,
+            342,
+            163
+          ],
+          "confidence": 0.528849720954895
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_1",
+          "bbox_2d": [
+            395,
+            196,
+            591,
+            414
+          ],
+          "confidence": 0.2621046006679535
+        },
+        {
+          "label": "backpack",
+          "instance_id": "seg_2",
+          "bbox_2d": [
+            6,
+            257,
+            196,
+            368
+          ],
+          "confidence": 0.2607508897781372
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 8,
+        "matched_count": 2,
+        "coverage": 0.25,
+        "matches": [
+          {
+            "reference_id": "object_6",
+            "prediction_id": "seg_2",
+            "iou": 0.8554765291607397
+          },
+          {
+            "reference_id": "object_7",
+            "prediction_id": "seg_0",
+            "iou": 0.6165562069844507
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_6": 0.19242950774002351,
+            "object_7": 0.6769281550573774
+          },
+          "predicted_boxes": {
+            "object_6": 0.19146508290446673,
+            "object_7": 0.1305038521454205
+          },
+          "predicted_masks": {
+            "object_6": 0.20444565422466016,
+            "object_7": 0.09478439611375847
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 4,
+        "matched_count": 2,
+        "coverage": 0.5,
+        "matches": [
+          {
+            "reference_id": "object_6",
+            "prediction_id": "seg_2",
+            "iou": 0.8554765291607397
+          },
+          {
+            "reference_id": "object_7",
+            "prediction_id": "seg_0",
+            "iou": 0.6165562069844507
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_6": 0.19242950774002351,
+            "object_7": 0.6769281550573774
+          },
+          "predicted_boxes": {
+            "object_6": 0.19146508290446673,
+            "object_7": 0.1305038521454205
+          },
+          "predicted_masks": {
+            "object_6": 0.20444565422466016,
+            "object_7": 0.09478439611375847
+          }
+        }
+      },
+      "seconds": {
+        "detection": 0.037962500005960464,
+        "depth": 0.10179669999342877,
+        "geometry_and_matching": 0.03696420000051148,
+        "sum": 0.17672339999990072,
+        "wall": 0.17838060000212863
+      }
+    },
+    {
+      "scene_id": "sunrgbd_003686",
+      "reference_count": 4,
+      "detection_count": 5,
+      "detections": [
+        {
+          "label": "chair",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            279,
+            85,
+            507,
+            317
+          ],
+          "confidence": 0.5265917181968689
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_1",
+          "bbox_2d": [
+            185,
+            132,
+            297,
+            245
+          ],
+          "confidence": 0.47888821363449097
+        },
+        {
+          "label": "tv",
+          "instance_id": "seg_3",
+          "bbox_2d": [
+            383,
+            58,
+            428,
+            106
+          ],
+          "confidence": 0.3322373926639557
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_4",
+          "bbox_2d": [
+            141,
+            35,
+            258,
+            258
+          ],
+          "confidence": 0.2617295980453491
+        },
+        {
+          "label": "tv",
+          "instance_id": "seg_5",
+          "bbox_2d": [
+            523,
+            32,
+            567,
+            86
+          ],
+          "confidence": 0.2542949616909027
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 4,
+        "matched_count": 1,
+        "coverage": 0.25,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_0",
+            "iou": 0.6488396055149404
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 0.44705860364011873
+          },
+          "predicted_boxes": {
+            "object_0": 1.368828811100687
+          },
+          "predicted_masks": {
+            "object_0": 0.33836526716897136
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 1,
+        "matched_count": 1,
+        "coverage": 1.0,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_0",
+            "iou": 0.6488396055149404
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 0.44705860364011873
+          },
+          "predicted_boxes": {
+            "object_0": 1.368828811100687
+          },
+          "predicted_masks": {
+            "object_0": 0.33836526716897136
+          }
+        }
+      },
+      "seconds": {
+        "detection": 0.038480100003653206,
+        "depth": 0.09890899999300018,
+        "geometry_and_matching": 0.030259100007242523,
+        "sum": 0.1676482000038959,
+        "wall": 0.16992110000865068
+      }
+    },
+    {
+      "scene_id": "sunrgbd_004402",
+      "reference_count": 3,
+      "detection_count": 1,
+      "detections": [
+        {
+          "label": "potted plant",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            11,
+            133,
+            80,
+            182
+          ],
+          "confidence": 0.5858154296875
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 3,
+        "matched_count": 0,
+        "coverage": 0.0,
+        "matches": [],
+        "center_errors_m": {
+          "oracle_boxes": {},
+          "predicted_boxes": {},
+          "predicted_masks": {}
+        }
+      },
+      "class_aware": {
+        "eligible_count": 0,
+        "matched_count": 0,
+        "coverage": null,
+        "matches": [],
+        "center_errors_m": {
+          "oracle_boxes": {},
+          "predicted_boxes": {},
+          "predicted_masks": {}
+        }
+      },
+      "seconds": {
+        "detection": 0.036833299993304536,
+        "depth": 0.09625869999581482,
+        "geometry_and_matching": 0.019915500000934117,
+        "sum": 0.15300749999005347,
+        "wall": 0.15505309999571182
+      }
+    },
+    {
+      "scene_id": "sunrgbd_004518",
+      "reference_count": 3,
+      "detection_count": 4,
+      "detections": [
+        {
+          "label": "chair",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            483,
+            66,
+            681,
+            360
+          ],
+          "confidence": 0.5007507801055908
+        },
+        {
+          "label": "couch",
+          "instance_id": "seg_1",
+          "bbox_2d": [
+            0,
+            22,
+            371,
+            363
+          ],
+          "confidence": 0.4279637336730957
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_2",
+          "bbox_2d": [
+            374,
+            17,
+            681,
+            274
+          ],
+          "confidence": 0.322828084230423
+        },
+        {
+          "label": "couch",
+          "instance_id": "seg_3",
+          "bbox_2d": [
+            481,
+            64,
+            681,
+            360
+          ],
+          "confidence": 0.2803252935409546
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 3,
+        "matched_count": 1,
+        "coverage": 0.3333333333333333,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_0",
+            "iou": 0.9284468272385372
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 0.5046699203344379
+          },
+          "predicted_boxes": {
+            "object_0": 0.47916686035945755
+          },
+          "predicted_masks": {
+            "object_0": 0.5377776654039131
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 0,
+        "matched_count": 0,
+        "coverage": null,
+        "matches": [],
+        "center_errors_m": {
+          "oracle_boxes": {},
+          "predicted_boxes": {},
+          "predicted_masks": {}
+        }
+      },
+      "seconds": {
+        "detection": 0.046180299992556684,
+        "depth": 0.09433849999913946,
+        "geometry_and_matching": 0.07285810000030324,
+        "sum": 0.21337689999199938,
+        "wall": 0.21667730000626761
+      }
+    },
+    {
+      "scene_id": "sunrgbd_004627",
+      "reference_count": 4,
+      "detection_count": 3,
+      "detections": [
+        {
+          "label": "keyboard",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            0,
+            221,
+            183,
+            314
+          ],
+          "confidence": 0.9161036610603333
+        },
+        {
+          "label": "mouse",
+          "instance_id": "seg_1",
+          "bbox_2d": [
+            88,
+            196,
+            133,
+            219
+          ],
+          "confidence": 0.8223599791526794
+        },
+        {
+          "label": "tv",
+          "instance_id": "seg_2",
+          "bbox_2d": [
+            0,
+            38,
+            113,
+            205
+          ],
+          "confidence": 0.8017853498458862
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 4,
+        "matched_count": 1,
+        "coverage": 0.25,
+        "matches": [
+          {
+            "reference_id": "object_3",
+            "prediction_id": "seg_2",
+            "iou": 0.7280997441416561
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_3": 0.19769105260788608
+          },
+          "predicted_boxes": {
+            "object_3": 0.13192215048872738
+          },
+          "predicted_masks": {
+            "object_3": 0.1048798101780468
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 0,
+        "matched_count": 0,
+        "coverage": null,
+        "matches": [],
+        "center_errors_m": {
+          "oracle_boxes": {},
+          "predicted_boxes": {},
+          "predicted_masks": {}
+        }
+      },
+      "seconds": {
+        "detection": 0.03605070000048727,
+        "depth": 0.08815020001202356,
+        "geometry_and_matching": 0.049254600002313964,
+        "sum": 0.1734555000148248,
+        "wall": 0.1766053000028478
+      }
+    },
+    {
+      "scene_id": "sunrgbd_004740",
+      "reference_count": 6,
+      "detection_count": 3,
+      "detections": [
+        {
+          "label": "chair",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            210,
+            190,
+            490,
+            518
+          ],
+          "confidence": 0.8773421049118042
+        },
+        {
+          "label": "chair",
+          "instance_id": "seg_1",
+          "bbox_2d": [
+            0,
+            98,
+            161,
+            371
+          ],
+          "confidence": 0.8420827984809875
+        },
+        {
+          "label": "tv",
+          "instance_id": "seg_2",
+          "bbox_2d": [
+            85,
+            1,
+            162,
+            73
+          ],
+          "confidence": 0.32155922055244446
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 6,
+        "matched_count": 3,
+        "coverage": 0.5,
+        "matches": [
+          {
+            "reference_id": "object_0",
+            "prediction_id": "seg_0",
+            "iou": 0.9393842372163639
+          },
+          {
+            "reference_id": "object_1",
+            "prediction_id": "seg_1",
+            "iou": 0.8482754512420325
+          },
+          {
+            "reference_id": "object_4",
+            "prediction_id": "seg_2",
+            "iou": 0.8058139534883721
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_0": 0.058363337884081365,
+            "object_1": 0.207560448120088,
+            "object_4": 0.10337734282062737
+          },
+          "predicted_boxes": {
+            "object_0": 0.04098312296145612,
+            "object_1": 0.219409050195945,
+            "object_4": 0.10152679614457004
+          },
+          "predicted_masks": {
+            "object_0": 0.0700973750965035,
+            "object_1": 0.08550398975351556,
+            "object_4": 0.0917387796776451
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 2,
+        "matched_count": 1,
+        "coverage": 0.5,
+        "matches": [
+          {
+            "reference_id": "object_1",
+            "prediction_id": "seg_1",
+            "iou": 0.8482754512420325
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_1": 0.207560448120088
+          },
+          "predicted_boxes": {
+            "object_1": 0.219409050195945
+          },
+          "predicted_masks": {
+            "object_1": 0.08550398975351556
+          }
+        }
+      },
+      "seconds": {
+        "detection": 0.0413369000016246,
+        "depth": 0.08879969999543391,
+        "geometry_and_matching": 0.07067520001146477,
+        "sum": 0.20081180000852328,
+        "wall": 0.20466429999214597
+      }
+    },
+    {
+      "scene_id": "sunrgbd_004926",
+      "reference_count": 3,
+      "detection_count": 2,
+      "detections": [
+        {
+          "label": "oven",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            1,
+            143,
+            317,
+            522
+          ],
+          "confidence": 0.8291946053504944
+        },
+        {
+          "label": "sink",
+          "instance_id": "seg_1",
+          "bbox_2d": [
+            371,
+            185,
+            670,
+            254
+          ],
+          "confidence": 0.40164652466773987
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 3,
+        "matched_count": 1,
+        "coverage": 0.3333333333333333,
+        "matches": [
+          {
+            "reference_id": "object_1",
+            "prediction_id": "seg_1",
+            "iou": 0.9375265017667844
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_1": 0.10664080050113199
+          },
+          "predicted_boxes": {
+            "object_1": 0.12706072779287683
+          },
+          "predicted_masks": {
+            "object_1": 0.12238725498733623
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 1,
+        "matched_count": 1,
+        "coverage": 1.0,
+        "matches": [
+          {
+            "reference_id": "object_1",
+            "prediction_id": "seg_1",
+            "iou": 0.9375265017667844
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_1": 0.10664080050113199
+          },
+          "predicted_boxes": {
+            "object_1": 0.12706072779287683
+          },
+          "predicted_masks": {
+            "object_1": 0.12238725498733623
+          }
+        }
+      },
+      "seconds": {
+        "detection": 0.03682470000057947,
+        "depth": 0.09293980000074953,
+        "geometry_and_matching": 0.043600100005278364,
+        "sum": 0.17336460000660736,
+        "wall": 0.1760000000067521
+      }
+    },
+    {
+      "scene_id": "sunrgbd_004974",
+      "reference_count": 3,
+      "detection_count": 2,
+      "detections": [
+        {
+          "label": "chair",
+          "instance_id": "seg_0",
+          "bbox_2d": [
+            334,
+            11,
+            643,
+            302
+          ],
+          "confidence": 0.7241904139518738
+        },
+        {
+          "label": "couch",
+          "instance_id": "seg_1",
+          "bbox_2d": [
+            0,
+            0,
+            437,
+            164
+          ],
+          "confidence": 0.260518878698349
+        }
+      ],
+      "class_agnostic": {
+        "eligible_count": 3,
+        "matched_count": 1,
+        "coverage": 0.3333333333333333,
+        "matches": [
+          {
+            "reference_id": "object_1",
+            "prediction_id": "seg_0",
+            "iou": 0.9516380655226209
+          }
+        ],
+        "center_errors_m": {
+          "oracle_boxes": {
+            "object_1": 0.46038469524706493
+          },
+          "predicted_boxes": {
+            "object_1": 0.4535489259012591
+          },
+          "predicted_masks": {
+            "object_1": 0.4904022327776721
+          }
+        }
+      },
+      "class_aware": {
+        "eligible_count": 1,
+        "matched_count": 0,
+        "coverage": 0.0,
+        "matches": [],
+        "center_errors_m": {
+          "oracle_boxes": {},
+          "predicted_boxes": {},
+          "predicted_masks": {}
+        }
+      },
+      "seconds": {
+        "detection": 0.04014020001341123,
+        "depth": 0.08970890000637155,
+        "geometry_and_matching": 0.05181619999348186,
+        "sum": 0.18166530001326464,
+        "wall": 0.18547499999112915
+      }
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "scene_count": 8,
+  "reference_count": 40,
+  "matched_count": 40,
+  "coverage": 1.0,
+  "median_centroid_error_m": 0.39161041582362377,
+  "p90_centroid_error_m": 1.1300880857329252,
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000410",
+      "reference_count": 9,
+      "matched_count": 9,
+      "coverage": 1.0,
+      "median_centroid_error_m": 1.0364324519089099,
+      "p90_centroid_error_m": 1.2465123181064601,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 1.1266102764807495
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 1.0668104967570775
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.8403593114877747
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 1.0364324519089099
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.8452200302993123
+        },
+        {
+          "instance_id": "object_5",
+          "centroid_error_m": 0.7291759885625625
+        },
+        {
+          "instance_id": "object_6",
+          "centroid_error_m": 1.2348355281556085
+        },
+        {
+          "instance_id": "object_7",
+          "centroid_error_m": 0.8558047997175623
+        },
+        {
+          "instance_id": "object_8",
+          "centroid_error_m": 1.2932194779098665
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_000543",
+      "reference_count": 3,
+      "matched_count": 3,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.4319907289625125,
+      "p90_centroid_error_m": 1.2941649317448654,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.4319907289625125
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.4239354352944088
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 1.5097084824404536
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_000638",
+      "reference_count": 3,
+      "matched_count": 3,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.4700050422091417,
+      "p90_centroid_error_m": 1.0231117036438326,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.4700050422091417
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 1.1613883690025053
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.18627474106035263
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_001898",
+      "reference_count": 5,
+      "matched_count": 5,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.21266151839111797,
+      "p90_centroid_error_m": 0.4970259078127415,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.034842809133462424
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.6234689319226583
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.16900507388430605
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.3073613716478661
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.21266151839111797
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002496",
+      "reference_count": 6,
+      "matched_count": 6,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.4774010446414819,
+      "p90_centroid_error_m": 0.9317715971499183,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.1261622163180551
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.7377206739639328
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 1.1258225203359038
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.49605941923980423
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.45874267004315966
+        },
+        {
+          "instance_id": "object_5",
+          "centroid_error_m": 0.06630142246037972
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002779",
+      "reference_count": 4,
+      "matched_count": 4,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.26008842528664156,
+      "p90_centroid_error_m": 0.6423713198797582,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.7636938585341522
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.3592853963528387
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.10161335759588727
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.16089145422044437
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002994",
+      "reference_count": 5,
+      "matched_count": 5,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.2745827749867436,
+      "p90_centroid_error_m": 0.2998847380839729,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.2745827749867436
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.2804126958311234
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.3128660995858726
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.2023212052573756
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.16854203905531973
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003200",
+      "reference_count": 5,
+      "matched_count": 5,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.221595766083515,
+      "p90_centroid_error_m": 0.27452509315488827,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.17319721903215826
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.221595766083515
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.23773708920281494
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.08884238723523008
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.29905042912293717
+        }
+      ]
+    }
+  ],
+  "depth_source": "Depth-Anything-V2-Metric-Hypersim-Small",
+  "boxes_source": "official_oracle_2d_annotations",
+  "camera_source": "official_sunrgbd_calibration",
+  "device": "cuda",
+  "mean_depth_inference_seconds": 0.13821847500048534
+}

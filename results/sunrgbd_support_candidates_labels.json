@@ -1,0 +1,20 @@
+{
+  "status": "rgb_and_2d_box_visual_labels_frozen_before_depth_inference",
+  "relation_type": "physical_contact_supported_by",
+  "annotation_rule": "Label positive only when the unique cup/mug appears to rest on the uniquely paired table; mark other co-occurrences negative. Labels were made from RGB images and 2D boxes, without consulting depth maps or 3D centers.",
+  "offset_prior_m": 0.4,
+  "offset_sigma_m": 0.2,
+  "center_sigma_m": {"table": 0.2, "cup_or_mug": 0.4, "other": 0.2},
+  "scenes": [
+    {"scene_id": "sunrgbd_000276", "supported_by_table": false, "child_id": "object_3", "parent_id": "object_7", "note": "Cup appears on the distinct coffee_table, not the paired rear table."},
+    {"scene_id": "sunrgbd_002584", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_3"},
+    {"scene_id": "sunrgbd_002590", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_0"},
+    {"scene_id": "sunrgbd_002605", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_0"},
+    {"scene_id": "sunrgbd_002632", "supported_by_table": true, "child_id": "object_5", "parent_id": "object_3"},
+    {"scene_id": "sunrgbd_002633", "supported_by_table": true, "child_id": "object_2", "parent_id": "object_0"},
+    {"scene_id": "sunrgbd_002639", "supported_by_table": true, "child_id": "object_2", "parent_id": "object_0"},
+    {"scene_id": "sunrgbd_002934", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_4"},
+    {"scene_id": "sunrgbd_003508", "supported_by_table": false, "child_id": "object_4", "parent_id": "object_0", "note": "Cup appears on the rear shelf, not the foreground table."},
+    {"scene_id": "sunrgbd_004225", "supported_by_table": true, "child_id": "object_0", "parent_id": "object_4"}
+  ]
+}

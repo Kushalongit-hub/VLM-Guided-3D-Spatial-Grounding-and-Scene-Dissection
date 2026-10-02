@@ -1,0 +1,302 @@
+{
+  "setting": "oracle 2D boxes, predicted RGB depth, official calibration, manual RGB support labels",
+  "candidate_count": 10,
+  "positive_count": 8,
+  "negative_count": 2,
+  "offset_prior_m": 0.4,
+  "note": "Nearby frames may be correlated; no relation detection or independent test-set claim.",
+  "summary_positive_pairs": {
+    "uncorrected": {
+      "mean_child_error_m": 0.21370094675831308,
+      "median_child_error_m": 0.14561340887180116,
+      "mean_pair_error_m": 0.2938508518060248,
+      "mean_height_gap_error_m": 0.2605402118879218
+    },
+    "weighted": {
+      "mean_child_error_m": 0.23751617852439663,
+      "median_child_error_m": 0.23083903006319273,
+      "mean_pair_error_m": 0.29775445117288557,
+      "mean_height_gap_error_m": 0.06709588716551196,
+      "child_improved_count": 4,
+      "child_worsened_count": 4
+    },
+    "hard": {
+      "mean_child_error_m": 0.2562507585569308,
+      "median_child_error_m": 0.27585824797362857,
+      "mean_pair_error_m": 0.30587323826002555,
+      "mean_height_gap_error_m": 0.05347221035266845
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000276",
+      "supported_by_table": false,
+      "child_class": "cup",
+      "child_id": "object_3",
+      "parent_id": "object_7",
+      "methods": {
+        "uncorrected": {
+          "child_error_m": 0.8130713980522225,
+          "parent_error_m": 1.0218043903160532,
+          "pair_mean_error_m": 0.9174378941841379,
+          "height_gap_error_m": 0.09447164252354326
+        },
+        "weighted": {
+          "child_error_m": 0.8130713980522225,
+          "parent_error_m": 1.0218043903160532,
+          "pair_mean_error_m": 0.9174378941841379,
+          "height_gap_error_m": 0.09447164252354326
+        },
+        "hard": {
+          "child_error_m": 0.8130713980522225,
+          "parent_error_m": 1.0218043903160532,
+          "pair_mean_error_m": 0.9174378941841379,
+          "height_gap_error_m": 0.09447164252354326
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002584",
+      "supported_by_table": true,
+      "child_class": "cup",
+      "child_id": "object_1",
+      "parent_id": "object_3",
+      "methods": {
+        "uncorrected": {
+          "child_error_m": 0.0780567990478778,
+          "parent_error_m": 0.5249647179663766,
+          "pair_mean_error_m": 0.30151075850712716,
+          "height_gap_error_m": 0.2892684154293103
+        },
+        "weighted": {
+          "child_error_m": 0.2098440058264927,
+          "parent_error_m": 0.499367453621145,
+          "pair_mean_error_m": 0.3546057297238189,
+          "height_gap_error_m": 0.0016622055723682916
+        },
+        "hard": {
+          "child_error_m": 0.25421179270829525,
+          "parent_error_m": 0.49491048026208323,
+          "pair_mean_error_m": 0.37456113648518924,
+          "height_gap_error_m": 0.059848329772704045
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002590",
+      "supported_by_table": true,
+      "child_class": "mug",
+      "child_id": "object_1",
+      "parent_id": "object_0",
+      "methods": {
+        "uncorrected": {
+          "child_error_m": 0.38351253097933846,
+          "parent_error_m": 0.3018614921180028,
+          "pair_mean_error_m": 0.34268701154867065,
+          "height_gap_error_m": 0.3750260109803925
+        },
+        "weighted": {
+          "child_error_m": 0.2997445620651639,
+          "parent_error_m": 0.2830331431980473,
+          "pair_mean_error_m": 0.29138885263160563,
+          "height_gap_error_m": 0.1184807320748213
+        },
+        "hard": {
+          "child_error_m": 0.29750470323896183,
+          "parent_error_m": 0.2802446586516398,
+          "pair_mean_error_m": 0.2888746809453008,
+          "height_gap_error_m": 0.06717167629370707
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002605",
+      "supported_by_table": true,
+      "child_class": "mug",
+      "child_id": "object_1",
+      "parent_id": "object_0",
+      "methods": {
+        "uncorrected": {
+          "child_error_m": 0.43389072024362835,
+          "parent_error_m": 0.2875560800586659,
+          "pair_mean_error_m": 0.3607234001511471,
+          "height_gap_error_m": 0.3165812335009147
+        },
+        "weighted": {
+          "child_error_m": 0.3850435554257301,
+          "parent_error_m": 0.27285849026161046,
+          "pair_mean_error_m": 0.3289510228436703,
+          "height_gap_error_m": 0.09506149655538249
+        },
+        "hard": {
+          "child_error_m": 0.38444156997325835,
+          "parent_error_m": 0.270694456084152,
+          "pair_mean_error_m": 0.3275680130287052,
+          "height_gap_error_m": 0.05075754916627606
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002632",
+      "supported_by_table": true,
+      "child_class": "cup",
+      "child_id": "object_5",
+      "parent_id": "object_3",
+      "methods": {
+        "uncorrected": {
+          "child_error_m": 0.05637373103432969,
+          "parent_error_m": 0.8744344273420686,
+          "pair_mean_error_m": 0.46540407918819915,
+          "height_gap_error_m": 0.4260482389339403
+        },
+        "weighted": {
+          "child_error_m": 0.2511201319489301,
+          "parent_error_m": 0.846108996987301,
+          "pair_mean_error_m": 0.5486145644681155,
+          "height_gap_error_m": 0.11267471369780713
+        },
+        "hard": {
+          "child_error_m": 0.3002031993841801,
+          "parent_error_m": 0.8408900978557657,
+          "pair_mean_error_m": 0.570546648619973,
+          "height_gap_error_m": 0.05000000865058063
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002633",
+      "supported_by_table": true,
+      "child_class": "cup",
+      "child_id": "object_2",
+      "parent_id": "object_0",
+      "methods": {
+        "uncorrected": {
+          "child_error_m": 0.21317001869572452,
+          "parent_error_m": 0.15692299512324395,
+          "pair_mean_error_m": 0.18504650690948424,
+          "height_gap_error_m": 0.00024849850985042554
+        },
+        "weighted": {
+          "child_error_m": 0.21055792817745533,
+          "parent_error_m": 0.157838911600927,
+          "pair_mean_error_m": 0.18419841988919117,
+          "height_gap_error_m": 0.007617095617500513
+        },
+        "hard": {
+          "child_error_m": 0.21005146480759443,
+          "parent_error_m": 0.1580231071156759,
+          "pair_mean_error_m": 0.18403728596163516,
+          "height_gap_error_m": 0.009090815039030531
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002639",
+      "supported_by_table": true,
+      "child_class": "cup",
+      "child_id": "object_2",
+      "parent_id": "object_0",
+      "methods": {
+        "uncorrected": {
+          "child_error_m": 0.07130079387757883,
+          "parent_error_m": 0.2298636921703232,
+          "pair_mean_error_m": 0.150582243023951,
+          "height_gap_error_m": 0.2200733438092837
+        },
+        "weighted": {
+          "child_error_m": 0.10879570595085697,
+          "parent_error_m": 0.203778371615089,
+          "pair_mean_error_m": 0.15628703878297298,
+          "height_gap_error_m": 0.01773960222878962
+        },
+        "hard": {
+          "child_error_m": 0.13955381671788553,
+          "parent_error_m": 0.19913889660914816,
+          "pair_mean_error_m": 0.16934635666351683,
+          "height_gap_error_m": 0.022727146087309136
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002934",
+      "supported_by_table": true,
+      "child_class": "mug",
+      "child_id": "object_1",
+      "parent_id": "object_4",
+      "methods": {
+        "uncorrected": {
+          "child_error_m": 0.06804976163229169,
+          "parent_error_m": 0.16524079197326505,
+          "pair_mean_error_m": 0.11664527680277836,
+          "height_gap_error_m": 0.09839961676691278
+        },
+        "weighted": {
+          "child_error_m": 0.13101073514781347,
+          "parent_error_m": 0.15735621377653633,
+          "pair_mean_error_m": 0.1441834744621749,
+          "height_gap_error_m": 0.11238808354425034
+        },
+        "hard": {
+          "child_error_m": 0.16277313256204615,
+          "parent_error_m": 0.1570949130770876,
+          "pair_mean_error_m": 0.15993402281956687,
+          "height_gap_error_m": 0.15454562360648288
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_003508",
+      "supported_by_table": false,
+      "child_class": "cup",
+      "child_id": "object_4",
+      "parent_id": "object_0",
+      "methods": {
+        "uncorrected": {
+          "child_error_m": 0.5921487359052907,
+          "parent_error_m": 0.4405476192869807,
+          "pair_mean_error_m": 0.5163481775961357,
+          "height_gap_error_m": 0.33611853777461353
+        },
+        "weighted": {
+          "child_error_m": 0.5921487359052907,
+          "parent_error_m": 0.4405476192869807,
+          "pair_mean_error_m": 0.5163481775961357,
+          "height_gap_error_m": 0.33611853777461353
+        },
+        "hard": {
+          "child_error_m": 0.5921487359052907,
+          "parent_error_m": 0.4405476192869807,
+          "pair_mean_error_m": 0.5163481775961357,
+          "height_gap_error_m": 0.33611853777461353
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_004225",
+      "supported_by_table": true,
+      "child_class": "mug",
+      "child_id": "object_0",
+      "parent_id": "object_4",
+      "methods": {
+        "uncorrected": {
+          "child_error_m": 0.4052532185557354,
+          "parent_error_m": 0.4511618580779469,
+          "pair_mean_error_m": 0.4282075383168411,
+          "height_gap_error_m": 0.35867633717276987
+        },
+        "weighted": {
+          "child_error_m": 0.3040128036527305,
+          "parent_error_m": 0.44360020951033957,
+          "pair_mean_error_m": 0.373806506581535,
+          "height_gap_error_m": 0.071143168033176
+        },
+        "hard": {
+          "child_error_m": 0.3012663890632246,
+          "parent_error_m": 0.44296913404940974,
+          "pair_mean_error_m": 0.37211776155631715,
+          "height_gap_error_m": 0.013636534205257234
+        }
+      }
+    }
+  ]
+}

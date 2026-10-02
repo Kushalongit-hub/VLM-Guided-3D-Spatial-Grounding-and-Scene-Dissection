@@ -1,0 +1,22 @@
+{
+  "status": "rgb_and_2d_box_labels_frozen_before_depth_or_3d_reference",
+  "annotator": "single visual review of RGB images and 2D boxes on 2026-10-02",
+  "rule": "True when paired cup/mug visibly rests on paired table; false when on a different surface; null when contact cannot be judged. No depth or 3D reference values viewed before saving.",
+  "scenes": [
+    {"scene_id": "sunrgbd_005246", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_5"},
+    {"scene_id": "sunrgbd_005253", "supported_by_table": true, "child_id": "object_0", "parent_id": "object_1"},
+    {"scene_id": "sunrgbd_005254", "supported_by_table": true, "child_id": "object_0", "parent_id": "object_2"},
+    {"scene_id": "sunrgbd_005256", "supported_by_table": false, "child_id": "object_3", "parent_id": "object_5", "note": "Cup on foreground ottoman, paired table is against rear wall."},
+    {"scene_id": "sunrgbd_005278", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_2"},
+    {"scene_id": "sunrgbd_005437", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_2"},
+    {"scene_id": "sunrgbd_005466", "supported_by_table": true, "child_id": "object_3", "parent_id": "object_4"},
+    {"scene_id": "sunrgbd_007787", "supported_by_table": false, "child_id": "object_1", "parent_id": "object_0", "note": "Cup on computer tower above foreground table."},
+    {"scene_id": "sunrgbd_007890", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_5"},
+    {"scene_id": "sunrgbd_007898", "supported_by_table": true, "child_id": "object_3", "parent_id": "object_8", "note": "Mug near right image edge on desk."},
+    {"scene_id": "sunrgbd_007903", "supported_by_table": true, "child_id": "object_0", "parent_id": "object_3"},
+    {"scene_id": "sunrgbd_007914", "supported_by_table": true, "child_id": "object_4", "parent_id": "object_8"},
+    {"scene_id": "sunrgbd_007916", "supported_by_table": true, "child_id": "object_0", "parent_id": "object_3"},
+    {"scene_id": "sunrgbd_008047", "supported_by_table": true, "child_id": "object_3", "parent_id": "object_0"},
+    {"scene_id": "sunrgbd_008746", "supported_by_table": null, "child_id": "object_0", "parent_id": "object_1", "note": "Mug appears cut off at lower frame edge and contact cannot be verified."}
+  ]
+}

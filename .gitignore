@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+outputs/
+checkpoints/
+*.pth
+*.pt
+.DS_Store
+data/
+datasets/
+.cache/
+Ultralytics/

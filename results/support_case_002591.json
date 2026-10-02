@@ -1,0 +1,72 @@
+{
+  "scene_id": "sunrgbd_002591",
+  "setting": "oracle 2D boxes; predicted RGB depth; official calibration; manually identified support",
+  "assumption": "0.40 m mug-center-above-table-center offset; prior chosen without reading 3D labels",
+  "center_sigma_m": {
+    "object_0": 0.2,
+    "object_1": 0.2,
+    "object_2": 0.4
+  },
+  "relation": {
+    "child_id": "object_2",
+    "parent_id": "object_1",
+    "offset_m": 0.4,
+    "sigma_m": 0.2
+  },
+  "methods": {
+    "uncorrected": {
+      "object_1": {
+        "center_point_3d": [
+          -0.17531236446522203,
+          0.31271601794529535,
+          1.685745656490326
+        ],
+        "centroid_error_m": 0.4578716948189028
+      },
+      "object_2": {
+        "center_point_3d": [
+          -0.2598843928645126,
+          0.3079785972357271,
+          1.4031859636306763
+        ],
+        "centroid_error_m": 0.39353213765905615
+      }
+    },
+    "weighted": {
+      "object_1": {
+        "center_point_3d": [
+          -0.17840732654833322,
+          0.3577514589204269,
+          1.7044016333655085
+        ],
+        "centroid_error_m": 0.4456996522360556
+      },
+      "object_2": {
+        "center_point_3d": [
+          -0.24750454453206788,
+          0.12783683333520082,
+          1.328562056129946
+        ],
+        "centroid_error_m": 0.3301025736414034
+      }
+    },
+    "hard": {
+      "object_1": {
+        "center_point_3d": [
+          -0.17902631896495544,
+          0.36675854711545325,
+          1.708132828740545
+        ],
+        "centroid_error_m": 0.44387060487318974
+      },
+      "object_2": {
+        "center_point_3d": [
+          -0.24502857486557894,
+          0.09180848055509558,
+          1.3136372746298002
+        ],
+        "centroid_error_m": 0.33007464712015944
+      }
+    }
+  }
+}

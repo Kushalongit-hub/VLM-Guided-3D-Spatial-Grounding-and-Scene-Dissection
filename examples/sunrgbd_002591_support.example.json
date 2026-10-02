@@ -1,0 +1,17 @@
+{
+  "description": "Scene-specific RGB-only support prior for SUN RGB-D scene 002591 using official object IDs. The camera up vector was derived from its official Rtilt calibration. This is an exploratory example, not an automatic prediction.",
+  "up_camera": [0.06336318, -0.92201082, -0.38194391],
+  "center_sigma_m": {
+    "object_0": 0.2,
+    "object_1": 0.8,
+    "object_2": 0.4
+  },
+  "relations": [
+    {
+      "child_id": "object_2",
+      "parent_id": "object_1",
+      "offset_m": 0.4,
+      "sigma_m": 0.2
+    }
+  ]
+}

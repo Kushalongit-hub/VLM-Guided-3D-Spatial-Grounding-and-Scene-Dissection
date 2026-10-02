@@ -1,0 +1,7 @@
+{
+  "coordinate_system": "camera_x_right_y_down_z_forward_meters",
+  "objects": [
+    {"instance_id": "object_0", "center_point_3d": [0.0, 0.0, 3.0]},
+    {"instance_id": "object_1", "center_point_3d": [0.0, 0.0, 3.0]}
+  ]
+}

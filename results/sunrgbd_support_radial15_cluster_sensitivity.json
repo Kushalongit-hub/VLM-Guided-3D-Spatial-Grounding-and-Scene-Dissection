@@ -1,0 +1,48 @@
+{
+  "status": "post_hoc_sensitivity_not_predeclared",
+  "group_rule": "Consecutive positive metadata indices separated by less than 50 form one group; no RGB or outcome information used to form groups",
+  "scene_count": 12,
+  "group_count": 4,
+  "scene_weighted_mean_m": -0.07888467573928372,
+  "equal_group_mean_m": -0.0916336436029229,
+  "equal_group_bootstrap_95pct_interval_m": [
+    -0.18332445391676588,
+    5.7166710920070196e-05
+  ],
+  "excluding_b3dodata_scene_count": 6,
+  "excluding_b3dodata_mean_m": 0.009271349681932153,
+  "groups": [
+    {
+      "scene_ids": [
+        "sunrgbd_005246",
+        "sunrgbd_005253",
+        "sunrgbd_005254",
+        "sunrgbd_005278"
+      ],
+      "mean_radial_minus_hard_m": 0.027699715623956317
+    },
+    {
+      "scene_ids": [
+        "sunrgbd_005437",
+        "sunrgbd_005466"
+      ],
+      "mean_radial_minus_hard_m": -0.027585382202116177
+    },
+    {
+      "scene_ids": [
+        "sunrgbd_007890",
+        "sunrgbd_007898",
+        "sunrgbd_007903",
+        "sunrgbd_007914",
+        "sunrgbd_007916"
+      ],
+      "mean_radial_minus_hard_m": -0.15889882478236644
+    },
+    {
+      "scene_ids": [
+        "sunrgbd_008047"
+      ],
+      "mean_radial_minus_hard_m": -0.20775008305116532
+    }
+  ]
+}

@@ -1,0 +1,580 @@
+{
+  "setting": "frozen laptop/table category transfer",
+  "summary": {
+    "scene_count": 6,
+    "visible_positive_count": 5,
+    "visible_negative_count": 1,
+    "paired_detection_coverage": 5,
+    "positive_pair_candidates_before_gate": 5,
+    "positive_pair_candidates_after_gate": 5,
+    "negative_pair_candidates_before_gate": 0,
+    "negative_pair_candidates_after_gate": 0,
+    "negative_scenes_with_any_proposal_before_gate": 1,
+    "negative_scenes_with_any_proposal_after_gate": 1,
+    "corrected_matched_laptop_count": 6,
+    "positive_matched_laptop_error_mean_m": {
+      "box_m": 0.6369583623332182,
+      "mask_m": 0.6064461292166085,
+      "corrected_mask_m": 0.3458743664873887
+    },
+    "positive_matched_table_error_mean_m": {
+      "box_m": 0.43481833663370734,
+      "mask_m": 0.33114026395663393
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000967",
+      "visible_relation": true,
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "laptop",
+          "raw_label": "a laptop",
+          "confidence": 0.8378151059150696,
+          "bbox_2d": [
+            331,
+            232,
+            460,
+            295
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.5436191558837891,
+          "bbox_2d": [
+            118,
+            182,
+            711,
+            526
+          ]
+        }
+      ],
+      "sam_iou_estimates": {
+        "gdino_0": 0.9725043177604675,
+        "gdino_1": 0.9768213629722595
+      },
+      "correction": {
+        "child_id": "gdino_0",
+        "parent_id": "gdino_1",
+        "radial_shift_m": -0.3357280984915225,
+        "residual_m": -0.21200705650577367,
+        "offset_m": 0.4,
+        "relation_sigma_m": 0.2,
+        "max_shift_m": 0.5
+      },
+      "matches": {
+        "laptop": {
+          "instance_id": "gdino_0",
+          "box_iou": 0.8382838283828383
+        },
+        "table": {
+          "instance_id": "gdino_1",
+          "box_iou": 0.9676420415996279
+        }
+      },
+      "errors": {
+        "laptop": {
+          "box_m": 0.5891853075750215,
+          "mask_m": 0.586256296959256,
+          "corrected_mask_m": 0.2520131677149105
+        },
+        "table": {
+          "box_m": 0.5101288756041406,
+          "mask_m": 0.31055917611644535
+        }
+      },
+      "proposals_before_gate": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "depth_gap_m": 0.22211778163909912
+        }
+      ],
+      "proposals_after_gate": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "depth_gap_m": 0.22211778163909912,
+          "visible_mask_contact_fraction": 1.0
+        }
+      ],
+      "contact_evidence": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "contact_fraction": 1.0,
+          "contact_columns": 84,
+          "sampled_columns": 84,
+          "accepted": true
+        }
+      ],
+      "paired_candidate_before_gate": true,
+      "paired_candidate_after_gate": true
+    },
+    {
+      "scene_id": "sunrgbd_001100",
+      "visible_relation": true,
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "laptop",
+          "raw_label": "a laptop",
+          "confidence": 0.8978308439254761,
+          "bbox_2d": [
+            239,
+            107,
+            365,
+            206
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.4796912372112274,
+          "bbox_2d": [
+            202,
+            117,
+            678,
+            371
+          ]
+        }
+      ],
+      "sam_iou_estimates": {
+        "gdino_0": 0.9728003144264221,
+        "gdino_1": 0.9292001128196716,
+        "gdino_2": 0.9582011103630066
+      },
+      "correction": {
+        "child_id": "gdino_0",
+        "parent_id": "gdino_1",
+        "radial_shift_m": -0.2008907712128915,
+        "residual_m": -0.14274926880130362,
+        "offset_m": 0.4,
+        "relation_sigma_m": 0.2,
+        "max_shift_m": 0.5
+      },
+      "matches": {
+        "laptop": {
+          "instance_id": "gdino_0",
+          "box_iou": 0.9486932820266154
+        },
+        "table": {
+          "instance_id": "gdino_1",
+          "box_iou": 0.8822716154418803
+        }
+      },
+      "errors": {
+        "laptop": {
+          "box_m": 0.9803242858368828,
+          "mask_m": 0.9300502543994751,
+          "corrected_mask_m": 0.7299599007735704
+        },
+        "table": {
+          "box_m": 0.8864801249845092,
+          "mask_m": 0.6196539917643292
+        }
+      },
+      "proposals_before_gate": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "depth_gap_m": 0.21272563934326172
+        }
+      ],
+      "proposals_after_gate": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "depth_gap_m": 0.21272563934326172,
+          "visible_mask_contact_fraction": 1.0
+        }
+      ],
+      "contact_evidence": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "contact_fraction": 1.0,
+          "contact_columns": 104,
+          "sampled_columns": 104,
+          "accepted": true
+        }
+      ],
+      "paired_candidate_before_gate": true,
+      "paired_candidate_after_gate": true
+    },
+    {
+      "scene_id": "sunrgbd_002837",
+      "visible_relation": true,
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.6755457520484924,
+          "bbox_2d": [
+            262,
+            196,
+            584,
+            439
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "laptop",
+          "raw_label": "a laptop",
+          "confidence": 0.5218714475631714,
+          "bbox_2d": [
+            465,
+            280,
+            590,
+            438
+          ]
+        }
+      ],
+      "sam_iou_estimates": {
+        "gdino_0": 0.5318584442138672,
+        "gdino_1": 0.9314103126525879
+      },
+      "correction": {
+        "child_id": "gdino_1",
+        "parent_id": "gdino_0",
+        "radial_shift_m": -0.4132049771748945,
+        "residual_m": -0.1599816883504443,
+        "offset_m": 0.4,
+        "relation_sigma_m": 0.2,
+        "max_shift_m": 0.5
+      },
+      "matches": {
+        "laptop": {
+          "instance_id": "gdino_1",
+          "box_iou": 0.9528607594936709
+        },
+        "table": {
+          "instance_id": "gdino_0",
+          "box_iou": 0.8670462739637467
+        }
+      },
+      "errors": {
+        "laptop": {
+          "box_m": 0.588112950934905,
+          "mask_m": 0.45951722851498633,
+          "corrected_mask_m": 0.09591242639547566
+        },
+        "table": {
+          "box_m": 0.3317312093334765,
+          "mask_m": 0.14488056060022675
+        }
+      },
+      "proposals_before_gate": [
+        {
+          "child_id": "gdino_1",
+          "parent_id": "gdino_0",
+          "depth_gap_m": 0.2684929370880127
+        }
+      ],
+      "proposals_after_gate": [
+        {
+          "child_id": "gdino_1",
+          "parent_id": "gdino_0",
+          "depth_gap_m": 0.2684929370880127,
+          "visible_mask_contact_fraction": 0.5510204081632653
+        }
+      ],
+      "contact_evidence": [
+        {
+          "child_id": "gdino_1",
+          "parent_id": "gdino_0",
+          "contact_fraction": 0.5510204081632653,
+          "contact_columns": 54,
+          "sampled_columns": 98,
+          "accepted": true
+        }
+      ],
+      "paired_candidate_before_gate": true,
+      "paired_candidate_after_gate": true
+    },
+    {
+      "scene_id": "sunrgbd_003070",
+      "visible_relation": true,
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "laptop",
+          "raw_label": "a laptop",
+          "confidence": 0.8019591569900513,
+          "bbox_2d": [
+            362,
+            105,
+            515,
+            234
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.33819398283958435,
+          "bbox_2d": [
+            267,
+            104,
+            542,
+            438
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.3261963427066803,
+          "bbox_2d": [
+            269,
+            123,
+            518,
+            340
+          ]
+        }
+      ],
+      "sam_iou_estimates": {
+        "gdino_0": 0.8283701539039612,
+        "gdino_1": 0.8365742564201355,
+        "gdino_2": 0.8504015803337097
+      },
+      "correction": {
+        "child_id": "gdino_0",
+        "parent_id": "gdino_2",
+        "radial_shift_m": -0.350208613231349,
+        "residual_m": -0.188012207832613,
+        "offset_m": 0.4,
+        "relation_sigma_m": 0.2,
+        "max_shift_m": 0.5
+      },
+      "matches": {
+        "laptop": {
+          "instance_id": "gdino_0",
+          "box_iou": 0.9323746794710644
+        },
+        "table": {
+          "instance_id": "gdino_2",
+          "box_iou": 0.8389997806536521
+        }
+      },
+      "errors": {
+        "laptop": {
+          "box_m": 0.5405863635731781,
+          "mask_m": 0.5683417668925718,
+          "corrected_mask_m": 0.2318266904484544
+        },
+        "table": {
+          "box_m": 0.2666530452585666,
+          "mask_m": 0.34714649690859467
+        }
+      },
+      "proposals_before_gate": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_2",
+          "depth_gap_m": 0.10262095928192139
+        }
+      ],
+      "proposals_after_gate": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_2",
+          "depth_gap_m": 0.10262095928192139,
+          "visible_mask_contact_fraction": 0.9146341463414634
+        }
+      ],
+      "contact_evidence": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_2",
+          "contact_fraction": 0.9146341463414634,
+          "contact_columns": 75,
+          "sampled_columns": 82,
+          "accepted": true
+        }
+      ],
+      "paired_candidate_before_gate": true,
+      "paired_candidate_after_gate": true
+    },
+    {
+      "scene_id": "sunrgbd_003328",
+      "visible_relation": false,
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "laptop",
+          "raw_label": "a laptop",
+          "confidence": 0.9165453314781189,
+          "bbox_2d": [
+            199,
+            5,
+            326,
+            133
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.3209322392940521,
+          "bbox_2d": [
+            149,
+            77,
+            553,
+            411
+          ]
+        }
+      ],
+      "sam_iou_estimates": {
+        "gdino_0": 0.959682285785675,
+        "gdino_1": 0.8768306970596313
+      },
+      "correction": {
+        "child_id": "gdino_0",
+        "parent_id": "gdino_1",
+        "radial_shift_m": -0.13459654920599948,
+        "residual_m": -0.11285564051539615,
+        "offset_m": 0.4,
+        "relation_sigma_m": 0.2,
+        "max_shift_m": 0.5
+      },
+      "matches": {
+        "laptop": {
+          "instance_id": "gdino_0",
+          "box_iou": 0.8418430118110236
+        },
+        "table": null
+      },
+      "errors": {
+        "laptop": {
+          "box_m": 0.5237355984816457,
+          "mask_m": 0.489014910003364,
+          "corrected_mask_m": 0.35582015535086386
+        }
+      },
+      "proposals_before_gate": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "depth_gap_m": 0.7146044969558716
+        }
+      ],
+      "proposals_after_gate": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "depth_gap_m": 0.7146044969558716,
+          "visible_mask_contact_fraction": 0.4107142857142857
+        }
+      ],
+      "contact_evidence": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "contact_fraction": 0.4107142857142857,
+          "contact_columns": 46,
+          "sampled_columns": 112,
+          "accepted": true
+        }
+      ],
+      "paired_candidate_before_gate": false,
+      "paired_candidate_after_gate": false
+    },
+    {
+      "scene_id": "sunrgbd_004172",
+      "visible_relation": true,
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "laptop",
+          "raw_label": "a laptop",
+          "confidence": 0.6216654777526855,
+          "bbox_2d": [
+            1,
+            101,
+            95,
+            186
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.5506620407104492,
+          "bbox_2d": [
+            0,
+            134,
+            210,
+            311
+          ]
+        }
+      ],
+      "sam_iou_estimates": {
+        "gdino_0": 0.8737028241157532,
+        "gdino_1": 0.8930676579475403
+      },
+      "correction": {
+        "child_id": "gdino_0",
+        "parent_id": "gdino_1",
+        "radial_shift_m": -0.06852001279091796,
+        "residual_m": -0.06737575593245676,
+        "offset_m": 0.4,
+        "relation_sigma_m": 0.2,
+        "max_shift_m": 0.5
+      },
+      "matches": {
+        "laptop": {
+          "instance_id": "gdino_0",
+          "box_iou": 0.8261012852905636
+        },
+        "table": {
+          "instance_id": "gdino_1",
+          "box_iou": 0.9078160291891086
+        }
+      },
+      "errors": {
+        "laptop": {
+          "box_m": 0.48658290374610386,
+          "mask_m": 0.4880650993167533,
+          "corrected_mask_m": 0.4196596471045325
+        },
+        "table": {
+          "box_m": 0.17909842798784376,
+          "mask_m": 0.2334610943935736
+        }
+      },
+      "proposals_before_gate": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "depth_gap_m": 0.053058505058288574
+        }
+      ],
+      "proposals_after_gate": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "depth_gap_m": 0.053058505058288574,
+          "visible_mask_contact_fraction": 0.32
+        }
+      ],
+      "contact_evidence": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "contact_fraction": 0.32,
+          "contact_columns": 16,
+          "sampled_columns": 50,
+          "accepted": true
+        }
+      ],
+      "paired_candidate_before_gate": true,
+      "paired_candidate_after_gate": true
+    }
+  ]
+}

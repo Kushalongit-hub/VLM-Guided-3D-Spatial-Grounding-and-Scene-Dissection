@@ -1,0 +1,96 @@
+{
+  "scene_count": 3,
+  "reference_count": 14,
+  "matched_count": 14,
+  "coverage": 1.0,
+  "median_centroid_error_m": 0.44222959198262735,
+  "p90_centroid_error_m": 1.1868444419637654,
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000001",
+      "reference_count": 5,
+      "matched_count": 5,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.5256699419585249,
+      "p90_centroid_error_m": 1.8447400671417833,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 1.272978469303441
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 2.225914465700678
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.22460031029929095
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.5256699419585249
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.365988562355795
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_000003",
+      "reference_count": 5,
+      "matched_count": 5,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.5184706216094597,
+      "p90_centroid_error_m": 0.8335294523448883,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.9858650448378545
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.2653934783314268
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.6050260636054389
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.5184706216094597
+        },
+        {
+          "instance_id": "object_4",
+          "centroid_error_m": 0.14933037347308006
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_000004",
+      "reference_count": 4,
+      "matched_count": 4,
+      "coverage": 1.0,
+      "median_centroid_error_m": 0.24293319399492802,
+      "p90_centroid_error_m": 0.7069870140093446,
+      "per_object": [
+        {
+          "instance_id": "object_0",
+          "centroid_error_m": 0.8894114069021563
+        },
+        {
+          "instance_id": "object_1",
+          "centroid_error_m": 0.28133009725945035
+        },
+        {
+          "instance_id": "object_2",
+          "centroid_error_m": 0.18006000009043124
+        },
+        {
+          "instance_id": "object_3",
+          "centroid_error_m": 0.20453629073040566
+        }
+      ]
+    }
+  ]
+}

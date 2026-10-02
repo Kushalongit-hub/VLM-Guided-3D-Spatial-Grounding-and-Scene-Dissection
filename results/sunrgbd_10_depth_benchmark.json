@@ -1,0 +1,137 @@
+{
+  "dataset": "wyrx/SUNRGBD_seg",
+  "dataset_revision": "3eb91204b39054a07891210e6f02918f60f1b397",
+  "split": "test",
+  "model": "Depth-Anything-V2-Metric-Hypersim-Small",
+  "device": "cuda",
+  "input_size": 518,
+  "valid_depth_range_m": [
+    0.1,
+    7.99
+  ],
+  "summary": {
+    "scene_count": 10,
+    "total_valid_pixels": 2775294,
+    "mean_scene_mae_m": 0.3992719929109246,
+    "mean_scene_median_ae_m": 0.35314826369285585,
+    "mean_scene_rmse_m": 0.45652072770755014,
+    "mean_scene_abs_rel": 0.16417921327513355,
+    "mean_scene_delta_1": 0.7688805249323339,
+    "mean_scene_coverage": 0.7173155854225899,
+    "mean_scene_inference_seconds": 0.22341348999761976,
+    "peak_cuda_allocated_mib": 383.85791015625,
+    "peak_cuda_reserved_mib": 426.0
+  },
+  "scenes": [
+    {
+      "valid_pixels": 280956,
+      "coverage": 0.7261721375032308,
+      "mae_m": 0.44459348900120355,
+      "median_ae_m": 0.20447462797164917,
+      "rmse_m": 0.6538928056613275,
+      "abs_rel": 0.11758117924829825,
+      "delta_1": 0.7630945770868036,
+      "row_idx": 0,
+      "inference_seconds": 1.319168100002571
+    },
+    {
+      "valid_pixels": 256599,
+      "coverage": 0.663217885758594,
+      "mae_m": 0.40024081381534876,
+      "median_ae_m": 0.3748207092285156,
+      "rmse_m": 0.44409158196047516,
+      "abs_rel": 0.18254523336264153,
+      "delta_1": 0.6916862497515579,
+      "row_idx": 1,
+      "inference_seconds": 0.1032448000041768
+    },
+    {
+      "valid_pixels": 337518,
+      "coverage": 0.8723649521840269,
+      "mae_m": 0.12316164400187633,
+      "median_ae_m": 0.11279475688934326,
+      "rmse_m": 0.1482092285706196,
+      "abs_rel": 0.04249644213921957,
+      "delta_1": 1.0,
+      "row_idx": 2,
+      "inference_seconds": 0.10644459999457467
+    },
+    {
+      "valid_pixels": 330393,
+      "coverage": 0.8539493409149651,
+      "mae_m": 0.3164093321006111,
+      "median_ae_m": 0.2576162815093994,
+      "rmse_m": 0.404350238848889,
+      "abs_rel": 0.15952052133105613,
+      "delta_1": 0.7830977048545217,
+      "row_idx": 3,
+      "inference_seconds": 0.10321469999325927
+    },
+    {
+      "valid_pixels": 268018,
+      "coverage": 0.6927319720858103,
+      "mae_m": 0.3903400137673475,
+      "median_ae_m": 0.3737201690673828,
+      "rmse_m": 0.407723542750012,
+      "abs_rel": 0.23418807125690974,
+      "delta_1": 0.6102463267392488,
+      "row_idx": 4,
+      "inference_seconds": 0.10234219999983907
+    },
+    {
+      "valid_pixels": 285779,
+      "coverage": 0.7386378909278883,
+      "mae_m": 0.2684525469927165,
+      "median_ae_m": 0.2576718330383301,
+      "rmse_m": 0.29469458791776904,
+      "abs_rel": 0.10535968969916856,
+      "delta_1": 0.9851143715948337,
+      "row_idx": 5,
+      "inference_seconds": 0.10053910000715405
+    },
+    {
+      "valid_pixels": 184309,
+      "coverage": 0.4763737399844921,
+      "mae_m": 0.5037788201944556,
+      "median_ae_m": 0.5043781995773315,
+      "rmse_m": 0.5251404309045812,
+      "abs_rel": 0.15630475513498898,
+      "delta_1": 0.9023759013395982,
+      "row_idx": 6,
+      "inference_seconds": 0.09452259998943191
+    },
+    {
+      "valid_pixels": 221656,
+      "coverage": 0.5729025588007237,
+      "mae_m": 0.5788113721446202,
+      "median_ae_m": 0.5133039951324463,
+      "rmse_m": 0.6495440450938946,
+      "abs_rel": 0.208123097745187,
+      "delta_1": 0.6241969538383801,
+      "row_idx": 7,
+      "inference_seconds": 0.10331069999665488
+    },
+    {
+      "valid_pixels": 262755,
+      "coverage": 0.6791289738950633,
+      "mae_m": 0.45047211963936085,
+      "median_ae_m": 0.37682628631591797,
+      "rmse_m": 0.5036713886682982,
+      "abs_rel": 0.17846849801816306,
+      "delta_1": 0.9723963387946947,
+      "row_idx": 8,
+      "inference_seconds": 0.1016162999876542
+    },
+    {
+      "valid_pixels": 347311,
+      "coverage": 0.8976764021711037,
+      "mae_m": 0.5164597774517049,
+      "median_ae_m": 0.5558757781982422,
+      "rmse_m": 0.5338894266996348,
+      "abs_rel": 0.25720464481570254,
+      "delta_1": 0.35659682532370124,
+      "row_idx": 9,
+      "inference_seconds": 0.09973180000088178
+    }
+  ]
+}

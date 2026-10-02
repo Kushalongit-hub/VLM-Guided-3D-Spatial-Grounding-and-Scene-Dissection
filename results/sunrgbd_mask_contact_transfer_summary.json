@@ -1,0 +1,40 @@
+{
+  "setting": "diagnostic transfer on previously inspected scenes; no independent test claim",
+  "rule": "visible child/parent SAM mask adjacency fraction > 0, 8px vertical radius",
+  "denominator": "annotated pairs with both detector boxes matched at IoU >= 0.5",
+  "per_set": [
+    {
+      "input": "results\\sunrgbd_support_radial15_sam_pairs.json",
+      "positive": {
+        "detected_pairs": 11,
+        "retained": 8
+      },
+      "negative": {
+        "detected_pairs": 2,
+        "retained": 0
+      }
+    },
+    {
+      "input": "results\\sunrgbd_support_train15_sam_pairs.json",
+      "positive": {
+        "detected_pairs": 7,
+        "retained": 5
+      },
+      "negative": {
+        "detected_pairs": 3,
+        "retained": 0
+      }
+    }
+  ],
+  "combined": {
+    "positive": {
+      "detected_pairs": 18,
+      "retained": 13
+    },
+    "negative": {
+      "detected_pairs": 5,
+      "retained": 0
+    }
+  },
+  "caveat": "Pair labels and matching use annotation; whole-scene false positives, missed detections, and unknown supports are excluded."
+}

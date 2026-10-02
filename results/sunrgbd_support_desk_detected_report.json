@@ -1,0 +1,117 @@
+{
+  "setting": "YOLO11n-seg detections, predicted metric depth, heuristic support proposals; IoU>=0.5 for both annotated objects",
+  "positive_count": 9,
+  "positive_pair_matched_count": 2,
+  "positive_pair_coverage": 0.2222222222222222,
+  "negative_count": 0,
+  "uncertain_count": 1,
+  "note": "Only positive desk relations were confidently labeled; no specificity estimate. Official intrinsics supplied.",
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_001657",
+      "label": true,
+      "detector_count": 6,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_001701",
+      "label": true,
+      "detector_count": 12,
+      "proposal_count": 1,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "seg_6",
+          "parent_id": "seg_9",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.2190573811531067,
+          "footpoint_px": [
+            537.0,
+            132.0
+          ],
+          "child_iou": 0.832,
+          "parent_iou": 0.8206776203408993
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002008",
+      "label": true,
+      "detector_count": 0,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_002532",
+      "label": true,
+      "detector_count": 7,
+      "proposal_count": 1,
+      "matched_pair": true,
+      "matched_pairs": [
+        {
+          "child_id": "seg_1",
+          "parent_id": "seg_2",
+          "relation": "supported_by_candidate",
+          "depth_gap_m": 0.14763635396957397,
+          "footpoint_px": [
+            365.5,
+            184.0
+          ],
+          "child_iou": 0.9442105263157895,
+          "parent_iou": 0.8389927791149787
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002739",
+      "label": true,
+      "detector_count": 4,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_003126",
+      "label": true,
+      "detector_count": 1,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_003429",
+      "label": true,
+      "detector_count": 3,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_003741",
+      "label": true,
+      "detector_count": 5,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_003897",
+      "label": true,
+      "detector_count": 4,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    },
+    {
+      "scene_id": "sunrgbd_003983",
+      "label": null,
+      "detector_count": 5,
+      "proposal_count": 0,
+      "matched_pair": false,
+      "matched_pairs": []
+    }
+  ]
+}

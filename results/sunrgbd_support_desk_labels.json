@@ -1,0 +1,16 @@
+{
+  "status": "rgb_box_labels_frozen_before_predicted_depth_inference",
+  "annotation_rule": "Positive iff the paired cup/mug visibly rests on the paired desk; negative if clearly elsewhere; null if contact cannot be verified. Only RGB images and 2D boxes were inspected before saving these labels.",
+  "scenes": [
+    {"scene_id": "sunrgbd_001657", "supported_by_desk": true, "child_id": "object_7", "parent_id": "object_1"},
+    {"scene_id": "sunrgbd_001701", "supported_by_desk": true, "child_id": "object_3", "parent_id": "object_7"},
+    {"scene_id": "sunrgbd_002008", "supported_by_desk": true, "child_id": "object_3", "parent_id": "object_0"},
+    {"scene_id": "sunrgbd_002532", "supported_by_desk": true, "child_id": "object_1", "parent_id": "object_2"},
+    {"scene_id": "sunrgbd_002739", "supported_by_desk": true, "child_id": "object_3", "parent_id": "object_2"},
+    {"scene_id": "sunrgbd_003126", "supported_by_desk": true, "child_id": "object_0", "parent_id": "object_3"},
+    {"scene_id": "sunrgbd_003429", "supported_by_desk": true, "child_id": "object_4", "parent_id": "object_1"},
+    {"scene_id": "sunrgbd_003741", "supported_by_desk": true, "child_id": "object_3", "parent_id": "object_0"},
+    {"scene_id": "sunrgbd_003897", "supported_by_desk": true, "child_id": "object_3", "parent_id": "object_4"},
+    {"scene_id": "sunrgbd_003983", "supported_by_desk": null, "child_id": "object_7", "parent_id": "object_11", "note": "Mug and contact region are partially cut off at the image edge."}
+  ]
+}

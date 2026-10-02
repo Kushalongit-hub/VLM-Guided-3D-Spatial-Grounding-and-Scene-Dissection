@@ -1,0 +1,330 @@
+{
+  "archive_url": "https://rgbd.cs.princeton.edu/data/SUNRGBD.zip",
+  "archive_bytes": 6885481608,
+  "metadata_sha256": {
+    "SUNRGBDMeta3DBB_v2.mat": "0f8c97ab95630d2461212ffc9589facb8cf3444cafab4c6d93d97541b347e36b",
+    "SUNRGBDMeta2DBB_v2.mat": "d42020e95c6b654b2c81f0e04c8dba615b98733075e0c8605e6bd43bbb9b2899"
+  },
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000147",
+      "metadata_index": 146,
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000280_2014-06-02_16-13-06_260595134347_rgbf000064-resize",
+      "paired_objects": 4,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/kv2/kinect2data/000280_2014-06-02_16-13-06_260595134347_rgbf000064-resize/image/0000064.jpg",
+          "sha256": "965fcdcbe86569428e5dcc252cc66ea80912e470d1a50797364581480d8c19b6"
+        },
+        "depth": {
+          "member": "SUNRGBD/kv2/kinect2data/000280_2014-06-02_16-13-06_260595134347_rgbf000064-resize/depth/0000064.png",
+          "sha256": "cd1ba1c96da321cbe630cf4f97320e3e5c0cbd237ce7d9df8a906319de04edf1"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_000676",
+      "metadata_index": 675,
+      "sequence_name": "SUNRGBD/kv2/kinect2data/001689_2014-06-26_19-16-46_260595134347_rgbf000077-resize",
+      "paired_objects": 5,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/kv2/kinect2data/001689_2014-06-26_19-16-46_260595134347_rgbf000077-resize/image/0000077.jpg",
+          "sha256": "f4d1088615053f3e9e2db1857ce23dacd94bb24d5492a8ab8125e354de8b9314"
+        },
+        "depth": {
+          "member": "SUNRGBD/kv2/kinect2data/001689_2014-06-26_19-16-46_260595134347_rgbf000077-resize/depth/0000077.png",
+          "sha256": "f454fdd9179be41cfc69f48eebe6df9f519679a7ad2b289823afe5d8d007a025"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_000678",
+      "metadata_index": 677,
+      "sequence_name": "SUNRGBD/kv2/kinect2data/001691_2014-06-26_19-17-37_260595134347_rgbf000073-resize",
+      "paired_objects": 6,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/kv2/kinect2data/001691_2014-06-26_19-17-37_260595134347_rgbf000073-resize/image/0000073.jpg",
+          "sha256": "798610837ec342d17af639b19ec9f9764a969679e4a334e91ea323f227812326"
+        },
+        "depth": {
+          "member": "SUNRGBD/kv2/kinect2data/001691_2014-06-26_19-17-37_260595134347_rgbf000073-resize/depth/0000073.png",
+          "sha256": "0d176c247c8fa1b7205b97aa759f7fd83370d179ad4272a8e003a2247dfd1ecc"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_000792",
+      "metadata_index": 791,
+      "sequence_name": "SUNRGBD/kv2/kinect2data/001808_2014-06-26_20-50-58_260595134347_rgbf000029-resize",
+      "paired_objects": 8,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/kv2/kinect2data/001808_2014-06-26_20-50-58_260595134347_rgbf000029-resize/image/0000029.jpg",
+          "sha256": "ab27e6b39de2b9de85726b165e5b3bc78c1da1efe38e9e545f14cbd8825b3062"
+        },
+        "depth": {
+          "member": "SUNRGBD/kv2/kinect2data/001808_2014-06-26_20-50-58_260595134347_rgbf000029-resize/depth/0000029.png",
+          "sha256": "8c5d12e7902b24c974defd113a8c69925f3cb06d131ca5180e512be8e6b725d8"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_001212",
+      "metadata_index": 1211,
+      "sequence_name": "SUNRGBD/kv2/kinect2data/003158_2014-05-12_11-32-40_094959634447_rgbf002887-resize",
+      "paired_objects": 6,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/kv2/kinect2data/003158_2014-05-12_11-32-40_094959634447_rgbf002887-resize/image/0002887.jpg",
+          "sha256": "c4729e0323be25188f8c1facfae4aacf2c796ca2e73f0a88e8bdb1b3b8f811fb"
+        },
+        "depth": {
+          "member": "SUNRGBD/kv2/kinect2data/003158_2014-05-12_11-32-40_094959634447_rgbf002887-resize/depth/0002887.png",
+          "sha256": "d44cb2dbda88d2ad0b593594db4c905b5f27e4adc2525a3e29b2357b6fc93057"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_001958",
+      "metadata_index": 1957,
+      "sequence_name": "SUNRGBD/kv1/NYUdata/NYU0210",
+      "paired_objects": 3,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/kv1/NYUdata/NYU0210/image/NYU0210.jpg",
+          "sha256": "858eec695abccdbcfeb1b9a84ad95f904c05ca5f4ffc6037de17cbb51546a179"
+        },
+        "depth": {
+          "member": "SUNRGBD/kv1/NYUdata/NYU0210/depth/NYU0210.png",
+          "sha256": "17fb8a68b06cb5e9a616f7dd245fe7b159484138d6ab9cbec8a64d31473291e4"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002149",
+      "metadata_index": 2148,
+      "sequence_name": "SUNRGBD/kv1/NYUdata/NYU0689",
+      "paired_objects": 4,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/kv1/NYUdata/NYU0689/image/NYU0689.jpg",
+          "sha256": "f1e42e8a065bd425ca4fa6460b9e33816cfb4dd080390f011a1799c889408344"
+        },
+        "depth": {
+          "member": "SUNRGBD/kv1/NYUdata/NYU0689/depth/NYU0689.png",
+          "sha256": "1e886d6ee79a97d3776d384db4432ec94e3e9c9e817c2ce0a313353bf2d09c2f"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002271",
+      "metadata_index": 2270,
+      "sequence_name": "SUNRGBD/kv1/NYUdata/NYU0973",
+      "paired_objects": 3,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/kv1/NYUdata/NYU0973/image/NYU0973.jpg",
+          "sha256": "8d85f1a6f4a5242b3312c659a85d17763d2511099a2f31e5250afae6448d809c"
+        },
+        "depth": {
+          "member": "SUNRGBD/kv1/NYUdata/NYU0973/depth/NYU0973.png",
+          "sha256": "5cdf82393580c552c6960a47c613cd646744b1f5a6076dce2c37b4a1a0e15446"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002282",
+      "metadata_index": 2281,
+      "sequence_name": "SUNRGBD/kv1/NYUdata/NYU1002",
+      "paired_objects": 4,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/kv1/NYUdata/NYU1002/image/NYU1002.jpg",
+          "sha256": "7e66e1a02c801bf8d64f988a2986e9fe87531dd9c34198f1049e5796cda02a2d"
+        },
+        "depth": {
+          "member": "SUNRGBD/kv1/NYUdata/NYU1002/depth/NYU1002.png",
+          "sha256": "bb6b500eef2a1bfcec8f6ff56fdd63449311d06f52242e811c50017210a48586"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002591",
+      "metadata_index": 2590,
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0555",
+      "paired_objects": 3,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/kv1/b3dodata/img_0555/image/img_0555.jpg",
+          "sha256": "08047f5afdd97b27ec0cd4005758d3c50406fde4c9fde6e033ed716e849f94da"
+        },
+        "depth": {
+          "member": "SUNRGBD/kv1/b3dodata/img_0555/depth/img_0555_abs.png",
+          "sha256": "f30b856a5c68cd53044bd19cecce8b00cb63a4e49e548cc9c0e40403fd9b0471"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_003274",
+      "metadata_index": 3273,
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_46_ted_lab2/ted_lab_a/0000035-000001350987",
+      "paired_objects": 5,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/xtion/sun3ddata/mit_46_ted_lab2/ted_lab_a/0000035-000001350987/image/0000035-000001350987.jpg",
+          "sha256": "eb1144759b91d2f9c299f6c31035234b7e273a5eea5d1fefb53739b2ad49727c"
+        },
+        "depth": {
+          "member": "SUNRGBD/xtion/sun3ddata/mit_46_ted_lab2/ted_lab_a/0000035-000001350987/depth/0000035-000001334770.png",
+          "sha256": "ed04767db3bed9d0a45d4ce8f8f33856498b120e534e0160e4d9166428b9ee42"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_003403",
+      "metadata_index": 3402,
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_76_4printroom/76-4printroom1/0000005-000000157760",
+      "paired_objects": 8,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/xtion/sun3ddata/mit_76_4printroom/76-4printroom1/0000005-000000157760/image/0000005-000000157760.jpg",
+          "sha256": "e6e6ae2a6358d724551f03fdd92e1ae02e02fa3b82746d31f65f15d8ed30d5da"
+        },
+        "depth": {
+          "member": "SUNRGBD/xtion/sun3ddata/mit_76_4printroom/76-4printroom1/0000005-000000157760/depth/0000006-000000166846.png",
+          "sha256": "94637afd79e34829490438b260425ac46e2ddc67870c999f29a21802d5608241"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_003605",
+      "metadata_index": 3604,
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_dorm_next_dn/dorm_next_dn_oct_30_2012_scan1_erika/0003086-000135777120",
+      "paired_objects": 8,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/xtion/sun3ddata/mit_dorm_next_dn/dorm_next_dn_oct_30_2012_scan1_erika/0003086-000135777120/image/0003086-000135777120.jpg",
+          "sha256": "040f564661f471789e429bae3531842d6b56064e5e72c837c8d4a514819bdeeb"
+        },
+        "depth": {
+          "member": "SUNRGBD/xtion/sun3ddata/mit_dorm_next_dn/dorm_next_dn_oct_30_2012_scan1_erika/0003086-000135777120/depth/0003082-000135779479.png",
+          "sha256": "b3fc7e065f9b26a88671d14cc1bf1533953b4f683895e8273936b319d5fffd40"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_003686",
+      "metadata_index": 3685,
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_lab_16/lab_16_nov_2_2012_scan1_erika/0008229-000353258640",
+      "paired_objects": 4,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/xtion/sun3ddata/mit_lab_16/lab_16_nov_2_2012_scan1_erika/0008229-000353258640/image/0008229-000353258640.jpg",
+          "sha256": "d227c37b1a24db82517bbf7bc264cdfadcf1e762ee5c0b7ec5e285a128f05ac4"
+        },
+        "depth": {
+          "member": "SUNRGBD/xtion/sun3ddata/mit_lab_16/lab_16_nov_2_2012_scan1_erika/0008229-000353258640/depth/0008236-000353264679.png",
+          "sha256": "3617ed6a785e71e3dc7136c97b8feb63a6b5d2c7f236340c901c95ca7d7791f7"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_004402",
+      "metadata_index": 4401,
+      "sequence_name": "SUNRGBD/xtion/xtion_align_data/2014_12_18_12_1_55",
+      "paired_objects": 3,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/xtion/xtion_align_data/2014_12_18_12_1_55/image/0000057.jpg",
+          "sha256": "97eb81ffbef3e75a4b962e74b8483f5959d7478bfe673a9974cefddf205336c5"
+        },
+        "depth": {
+          "member": "SUNRGBD/xtion/xtion_align_data/2014_12_18_12_1_55/depth/0000057.png",
+          "sha256": "df093deceafe6e718a5f102cef4114043218726fce27dc199644749270e12cd3"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_004518",
+      "metadata_index": 4517,
+      "sequence_name": "SUNRGBD/realsense/lg/2014_10_24-12_51_46-1311000073",
+      "paired_objects": 3,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/realsense/lg/2014_10_24-12_51_46-1311000073/image/0000063.jpg",
+          "sha256": "1f873bbdaeb706736b73a3369bfea053dd124c81b65b44eda667b6445c86f103"
+        },
+        "depth": {
+          "member": "SUNRGBD/realsense/lg/2014_10_24-12_51_46-1311000073/depth/0000063.png",
+          "sha256": "cc23e78a71e46cc976278c5894a9100090df802a29ceaa2bcc69edbed4260b4b"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_004627",
+      "metadata_index": 4626,
+      "sequence_name": "SUNRGBD/realsense/lg/2014_10_26-14_07_19-1311000073",
+      "paired_objects": 4,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/realsense/lg/2014_10_26-14_07_19-1311000073/image/0000063.jpg",
+          "sha256": "484ea9fa48e0b417cb130bfecf3cfca019a649e85d255a33e700dcfa0dcc454a"
+        },
+        "depth": {
+          "member": "SUNRGBD/realsense/lg/2014_10_26-14_07_19-1311000073/depth/0000063.png",
+          "sha256": "f5324bda28f24a78ef35303811d774a91a3f89a4ce287606ceb62cbfeaeade1c"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_004740",
+      "metadata_index": 4739,
+      "sequence_name": "SUNRGBD/realsense/lg/2014_10_27-14_48_24-1311000073",
+      "paired_objects": 6,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/realsense/lg/2014_10_27-14_48_24-1311000073/image/0000063.jpg",
+          "sha256": "8582b2c935858d897ca2042071954b9bea4b73af7867fb63e11500739eb929a8"
+        },
+        "depth": {
+          "member": "SUNRGBD/realsense/lg/2014_10_27-14_48_24-1311000073/depth/0000063.png",
+          "sha256": "cc4ec803a06fc4defb24205c4f04e5eddd033f62655563474cc18c2ee52e3fea"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_004926",
+      "metadata_index": 4925,
+      "sequence_name": "SUNRGBD/realsense/lg/2014_10_29-16_50_58-1311000073",
+      "paired_objects": 3,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/realsense/lg/2014_10_29-16_50_58-1311000073/image/0000060.jpg",
+          "sha256": "2bed03435c575081bbb8a1374f8c966a6dd8899e589f6e5f319173fd1b29fa19"
+        },
+        "depth": {
+          "member": "SUNRGBD/realsense/lg/2014_10_29-16_50_58-1311000073/depth/0000060.png",
+          "sha256": "fdabe6e4ab5b941a950d0d856c96428c7c69dfe42ddf5bb9d5d83ff247f0c240"
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_004974",
+      "metadata_index": 4973,
+      "sequence_name": "SUNRGBD/realsense/lg/2014_10_30-15_39_41-1311000073",
+      "paired_objects": 3,
+      "files": {
+        "image": {
+          "member": "SUNRGBD/realsense/lg/2014_10_30-15_39_41-1311000073/image/0000064.jpg",
+          "sha256": "8a041196f61de631cda097e027913f23bf6a8583e1464638f16a48ab029a073e"
+        },
+        "depth": {
+          "member": "SUNRGBD/realsense/lg/2014_10_30-15_39_41-1311000073/depth/0000064.png",
+          "sha256": "35b62254fbb63c59c0ae79810b4867e5b668a6c6896e705e51329392467e0979"
+        }
+      }
+    }
+  ]
+}

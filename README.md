@@ -2,7 +2,233 @@
 
 **Metric 3D Scene Understanding from a Single RGB Image via Vision-Language and Monocular Depth Ensembles**
 
+> **Implementation status (2026-10-02):** The runnable pipeline now combines
+> Grounding DINO or YOLO detection, Depth Anything V2 indoor metric depth,
+> camera-calibrated 3D lifting, support proposals, and optional camera-ray
+> support correction. Grounding DINO boxes can now be refined with SAM ViT-B
+> masks; mask overlap also removes duplicate instances before support proposals.
+> See the [masked pipeline milestone](RESEARCH_STATUS_2026-10-02_MASKS.md)
+> and [frozen laptop/table transfer](RESEARCH_STATUS_2026-10-02_LAPTOP_TRANSFER.md)
+> for measured results and limits. A Streamlit viewer for saved results is
+> implemented; the VLM stage remains proposed. Numerical and VRAM figures in the original design sections are
+> illustrative unless backed by a result report. Ordinary Depth Anything V2
+> checkpoints estimate relative depth; this pipeline requires a metric checkpoint.
+
+Run the implemented baseline with:
+
+```bash
+python scripts/run_baseline.py --depth path/to/metric_depth.npy \
+  --objects path/to/objects.json --fx 525 --fy 525 --cx 319.5 --cy 239.5 \
+  --output outputs/layout.json
+python -m unittest discover -s tests -v
+```
+
+`objects.json` is a JSON list such as
+`[{"label":"sofa","bbox_2d":[120,80,420,380]}]`; boxes use
+`[xmin,ymin,xmax,ymax]` in original image pixels with exclusive maxima.
+The exported `visible_extent_3d` covers observed points and does not estimate
+occluded dimensions. See [the research plan](RESEARCH_PLAN.md) for milestones.
+For evaluation, add a stable `instance_id` to each input object. The baseline
+assigns `object_0`, `object_1`, etc. when IDs are absent. A reference JSON can
+use the same `coordinate_system` and an `objects` list containing
+`instance_id` and camera-frame `center_point_3d` in metres. Run
+`python scripts/evaluate_layout.py --prediction outputs/layout.json --reference
+path/to/reference.json` to report match coverage and centroid error. Random
+synthetic depth is useful for checking execution, not measuring model accuracy.
+
+For multiple scenes, create a JSON manifest with a `scenes` list. Each scene
+specifies `scene_id`, relative paths to `depth`, `objects`, and `reference`
+files, and `intrinsics` with `fx`, `fy`, `cx`, and `cy`. See
+[`examples/benchmark_manifest.example.json`](examples/benchmark_manifest.example.json).
+Run `python scripts/run_benchmark.py --manifest path/to/manifest.json
+--output outputs/benchmark.json`. This benchmark uses supplied boxes and depth;
+its scores measure geometry only. The example reference file contains invented
+coordinates for a smoke test and must not be used as research ground truth.
+
+### Prepare one SUN RGB-D v2 scene
+
+Download the original depth PNG and V2 annotations from the [official SUN
+RGB-D site](https://rgbd.cs.princeton.edu/). The label and calibration TXT
+files must be produced by the [VoteNet SUN RGB-D v2 extraction
+script](https://github.com/facebookresearch/votenet/blob/main/sunrgbd/matlab/extract_rgbd_data_v2.m)
+for the **same image ID**. This converter does not read the metadata MAT files
+directly. Replace the placeholders below with actual paths:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\prepare_sunrgbd_scene.py `
+  --scene-id 000001 `
+  --depth-png C:\path\to\original\depth.png `
+  --label-txt C:\path\to\sunrgbd_trainval\label\000001.txt `
+  --calib-txt C:\path\to\sunrgbd_trainval\calib\000001.txt `
+  --output-dir data\sunrgbd\000001
+
+.\.venv\Scripts\python.exe scripts\run_benchmark.py `
+  --manifest data\sunrgbd\000001\manifest.json
+```
+
+The adapter decodes SUN RGB-D's rotated 16-bit depth values, reads the column
+major calibration matrices, converts 2D `x,y,width,height` labels to pixel
+boxes, and maps annotated 3D centers from the upright depth frame into camera
+coordinates. It has been tested on synthetic calibration and depth values;
+**verify an overlay and a projected 3D center on a real sample before running
+a full benchmark**. The evaluation uses measured depth and annotated boxes,
+so it measures geometric lifting only, not single-RGB inference accuracy.
+
+### Predict indoor metric depth from RGB
+
+Download the [official Depth Anything V2 Metric Hypersim Small
+checkpoint](https://huggingface.co/depth-anything/Depth-Anything-V2-Metric-Hypersim-Small)
+as `checkpoints/depth_anything_v2_metric_hypersim_vits.pth`. It is an indoor
+metric model; the ordinary Depth Anything V2 Small checkpoint gives relative
+depth and cannot be substituted. The expected checkpoint SHA-256 is
+`b782898d8a3e8be1f639de33837ed85e9b4b73e40f8f5e5cd99067588d722545`.
+
+```powershell
+.\.venv\Scripts\python.exe scripts\infer_depth.py `
+  --image path\to\indoor.jpg `
+  --checkpoint checkpoints\depth_anything_v2_metric_hypersim_vits.pth `
+  --output outputs\indoor_metric_depth.npy `
+  --preview outputs\indoor_depth_preview.png --device auto
+```
+
+The checkpoint is already downloaded in this local checkout and ignored by
+Git. CPU inference was verified on a vendored example image; the output kept
+the original 1362×2048 resolution. CUDA inference was also verified with
+PyTorch 2.14.0+cu130 on an RTX 5060 Laptop GPU. `--device auto` selects CUDA
+when available. These runs check execution, not metric accuracy. A real indoor
+scene comparison and peak VRAM measurement remain pending.
+The optional preview colors 0 m blue and 20 m red with a fixed Turbo scale;
+the `.npy` file preserves the actual floating-point metre values.
+
+### One-command RGB-to-layout baseline
+
+With object boxes in `[xmin,ymin,xmax,ymax]` pixels and actual camera
+intrinsics, the current stages can run together:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\run_inference.py `
+  --image path\to\indoor.jpg `
+  --objects path\to\objects.json `
+  --checkpoint checkpoints\depth_anything_v2_metric_hypersim_vits.pth `
+  --fx 525 --fy 525 --cx 319.5 --cy 239.5 `
+  --output outputs\layout.json --depth-output outputs\depth.npy
+```
+
+Replace the focal lengths and principal point with the image's calibration;
+the numbers above are examples. This baseline has externally supplied boxes,
+predicted depth, and observed point extents. It does not detect objects or infer
+full hidden object dimensions, orientation, or support relations. A run on the
+bundled outdoor demo confirms that the command executes, but its indoor depth
+checkpoint, assumed camera calibration, and coarse boxes make those numbers
+unsuitable as physical measurements.
+
+For automatic boxes, use the local [YOLO11n COCO detector
+weights](https://docs.ultralytics.com/models/yolo11/) instead of `--objects`:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\run_inference.py `
+  --image path\to\indoor.jpg `
+  --detector-weights checkpoints\yolo11n.pt `
+  --checkpoint checkpoints\depth_anything_v2_metric_hypersim_vits.pth `
+  --fx 525 --fy 525 --cx 319.5 --cy 239.5 `
+  --output outputs\auto_layout.json `
+  --detections-output outputs\detections.json `
+  --boxes-preview outputs\boxes.png
+```
+
+The detector weights are downloaded in this local checkout and ignored by Git.
+Detection returns COCO labels, pixel boxes, and confidence scores. The preview
+helps spot boxes that include substantial background; the geometry stage
+currently lifts all valid pixels inside each box. This detector is a
+closed-category baseline, not the proposed VLM semantic stage. The bundled
+outdoor demo yielded 19 boxes and a JSON layout, but no measured 3D accuracy.
+
+For mask-based lifting, replace `--detector-weights` with
+`--segmenter-weights checkpoints\yolo11n-seg.pt`. Add
+`--masks-output outputs\masks.npz` to save binary instance masks and
+`--boxes-preview outputs\masks_preview.png` to inspect the overlays. The
+local segmentation checkpoint is also ignored by Git. Pixels outside each
+mask are excluded from the 3D centroid and visible-extent calculation. A
+controlled test confirms this removes background depth from an object region;
+it does not prove improved accuracy on real scenes. The bundled demo produced
+17 segmented instances and includes at least one false positive, so inspect
+the mask overlay before interpreting object measurements.
+Same-class instance masks with at least 0.7 intersection-over-union are
+deduplicated by retaining the higher-confidence mask. On the bundled indoor
+`demo10.jpg`, this removed one duplicate chair instance (3 to 2). The table
+and cabinet were still missed, and the camera intrinsics were assumed, so
+the reported 3D coordinates are not validated measurements.
+
+For an open-vocabulary indoor path, `--grounding-dino-checkpoint
+checkpoints\grounding-dino-tiny` selects Grounding DINO Tiny with cup, mug,
+desk, and table prompts. The default box/text thresholds are 0.25/0.25.
+Add `--propose-support` to write cup/mug-on-surface candidates alongside
+the 3D layout. In an exploratory ten-scene SUN RGB-D desk check, both paired
+boxes and the support proposal were found in 8 of 9 visibly positive cases
+at IoU ≥ 0.5. This threshold was tested after seeing the scenes; it is not
+an independent final estimate or a validated novel correction method. The
+full command and limitations are in [`results/README.md`](results/README.md).
+
+For open-vocabulary **masked** lifting, add
+`--sam-checkpoint checkpoints\sam-vit-base`. SAM uses each detected box as a
+prompt, and same-label masks with IoU ≥ 0.7 are deduplicated before geometry
+and support proposals. The local SAM checkpoint comes from
+[`facebook/sam-vit-base`](https://huggingface.co/facebook/sam-vit-base) and is
+ignored by Git. With camera calibration and one proposed support pair,
+`--radial-proposed-support --support-method child-ray-soft` applies the
+research correction automatically. See the [reproducible CUDA example and
+its limits](RESEARCH_STATUS_2026-10-02_MASKS.md). The saved JSON records
+mask fallbacks and suppressed duplicate IDs.
+
+For conservative support filtering, add `--mask-contact-gate` with SAM and
+`--radial-proposed-support`. The JSON records all initial proposals, visible
+mask adjacency evidence, retained proposals, and any abstention. This optional
+rule can miss real supports when contact is occluded. Its diagnostic transfer
+on previously inspected SUN RGB-D scenes is reported in the
+[mask milestone report](RESEARCH_STATUS_2026-10-02_MASKS.md).
+
+To inspect a saved layout interactively, run:
+
+```powershell
+.\.venv\Scripts\python.exe -m streamlit run src\viz\streamlit_app.py
+```
+
+The viewer opens the local masked desk example by default. It shows image
+masks, metric depth, camera-frame 3D centers, the correction displacement,
+and downloadable JSON. Supply different saved layout/depth/mask paths in the
+sidebar. The [example 3D plot](outputs/grounded_sam_auto_desk_3d.png) shows
+only visible depth points, not a complete reconstructed room.
+
+The first real indoor **depth-only** check is documented in
+[`results/README.md`](results/README.md). It compares the predicted depth with
+SUN RGB-D sensor depth on ten fixed test images. It does not evaluate 3D object
+centres or scene relations.
+The same results folder now also contains an initial calibrated 3D object-center
+check on three official SUN RGB-D scenes. Both sensor and predicted depth use
+annotated 2D boxes, so this isolates geometry/depth rather than detector recall.
+A frozen 20-scene SUN RGB-D test subset across four sensor types now provides
+a stronger check: 93 matched object centers have median error 0.301 m with
+sensor depth and 0.422 m with predicted depth, still using oracle 2D boxes.
+See [`results/README.md`](results/README.md) for sampling and limitations.
+
+An October 2 evaluation on 15 newly selected SUN RGB-D training-split
+images is summarized in [`RESEARCH_STATUS_2026-10-02.md`](RESEARCH_STATUS_2026-10-02.md).
+The automatic pipeline proposed 7/10 visually positive support pairs and
+one of five annotated negative pairs. Weighted 3D correction was essentially
+tied with exact contact. The current
+method therefore remains an engineering baseline, not a validated research
+novelty.
+
 ---
+
+## Original proposal below (historical specification)
+
+The sections below preserve the initial research proposal. They are **not a
+description of the implemented system or measured results**. The Llama VLM,
+uncalibrated metric reconstruction, complete object dimensions, orientation,
+edge deployment, and 7.5 GB VRAM figure have not been validated. Use the
+[current status](RESEARCH_STATUS_2026-10-02_MASKS.md), runnable commands
+above, and [result reports](results/README.md) for actual evidence.
 
 **Authors:** Kushal M Anvekar  
 **Affiliation:**  

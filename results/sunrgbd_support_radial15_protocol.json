@@ -1,0 +1,20 @@
+{
+  "status": "frozen_before_images_depth_or_3d_reference_inspection",
+  "date": "2026-10-02",
+  "selection_sha256": "6c2a5402aa242e3f5182dadd15f73e4e2ab4e8d33ffa4b9317f427206f40c6b9",
+  "support_constraints_code_sha256": "9ae81392a09522e7bfcc7fd5e5bc11bd9f7024874c152aa8e21f854612b025b4",
+  "support_proposals_code_sha256": "e72d54a4ef9de6e1166cfaae8fe5c1d8ef2bdacc658afa0d5f372e4d374ace23",
+  "grounding_dino_adapter_code_sha256": "caaa758c28c91f84e005935945f6d5689da21325a9bdb8e5cee46cc23d4182f9",
+  "grounding_dino_weights_sha256": "1a2412ef99bd74bcd3c2a246fa1e48581f8889a1300c9051974741314fc042f3",
+  "radial_support_code_sha256": "7603cda820543bf6762bc0e92b8ee8e80ed4d558d944f980634f11757b9157e3",
+  "annotation_rule": "Inspect RGB and 2D boxes only. Mark paired cup/mug on paired table true, clearly on another surface false, uncertain null. Save labels before depth or 3D reference inspection.",
+  "detector": {"labels": ["cup", "mug", "desk", "table"], "prompt_format": "separate", "box_threshold": 0.25, "text_threshold": 0.25, "duplicate_iou_threshold": 0.7},
+  "matching": {"child_allowed": ["cup", "mug"], "parent_allowed": ["table", "desk"], "box_iou_min": 0.5},
+  "support_proposal": "Unchanged cup/mug footpoint inside surface box and median-depth gap <=0.75m.",
+  "correction": {"offset_prior_m": 0.4, "offset_sigma_m": 0.2, "center_sigma_m": {"table": 0.8, "cup_or_mug": 0.4, "other": 0.2}, "methods": ["uncorrected", "weighted", "hard", "radial"]},
+  "radial_correction": {"offset_m": 0.4, "child_sigma_m": 0.4, "parent_sigma_m": 0.2, "relation_sigma_m": 0.2, "max_shift_m": 0.5},
+  "development_basis": "The local-surface method failed on 13 previously inspected positive pairs. A radial camera-ray correction was tested on those development pairs only. Parent radial sigma 0.2m gave 0.206m mean child error against 0.250m exact contact; chosen before this selection's images or 3D data were viewed.",
+  "primary_metric": "Paired mean child 3D centroid error in metres, radial minus exact contact, on all visually positive pairs using oracle 2D boxes and relations",
+  "secondary_metrics": ["radial versus no correction", "radial versus weighted height correction", "mean pair error", "conditional automatic matched-pair error", "pair detection and support proposal coverage", "annotated negative-pair false proposals"],
+  "claim_limits": "All remaining 15 uniquely paired train-split candidates, including nearby frames and possibly repeated rooms. Official intrinsics, manual offset, one visual annotator. A result here alone cannot establish novelty against published radial or scene-optimization methods. No parameter tuning after unblinding."
+}

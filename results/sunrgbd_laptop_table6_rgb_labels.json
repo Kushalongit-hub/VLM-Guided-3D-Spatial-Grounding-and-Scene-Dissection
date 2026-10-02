@@ -1,0 +1,14 @@
+{
+  "status": "rgb_and_2d_box_only_before_depth_or_3d_scoring",
+  "date": "2026-10-02",
+  "selection_sha256": "be439d701d5882d58176ad30737e8fdca4c8d50ca4461e2edc484a1953ad16f0",
+  "annotation_source": "One visual inspection of image.jpg with paired annotated laptop/table 2D boxes; no sensor depth, predicted depth, or 3D reference inspected before saving.",
+  "scenes": [
+    {"scene_id": "sunrgbd_000967", "supported_by_paired_table": true, "reason": "Closed laptop lies on the visible white tabletop."},
+    {"scene_id": "sunrgbd_001100", "supported_by_paired_table": true, "reason": "Open laptop rests on the visible conference table."},
+    {"scene_id": "sunrgbd_002837", "supported_by_paired_table": true, "reason": "Laptop at lower right rests on the annotated desk/table surface."},
+    {"scene_id": "sunrgbd_003070", "supported_by_paired_table": true, "reason": "Open laptop rests on the annotated office table."},
+    {"scene_id": "sunrgbd_003328", "supported_by_paired_table": false, "reason": "Laptop rests on the right workstation surface; annotated table box covers the separate left surface."},
+    {"scene_id": "sunrgbd_004172", "supported_by_paired_table": true, "reason": "Open laptop on the left rests on the annotated white table."}
+  ]
+}

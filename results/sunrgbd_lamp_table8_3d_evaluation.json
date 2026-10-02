@@ -1,0 +1,214 @@
+{
+  "setting": "frozen SUN RGB-D official test-split lamp/table category transfer",
+  "candidate_count": 8,
+  "positive_count": 4,
+  "negative_count": 3,
+  "uncertain_count": 1,
+  "oracle_positive": {
+    "uncorrected": {
+      "child_error_m": 0.7991561173549874,
+      "parent_error_m": 0.342460972051684,
+      "pair_mean_error_m": 0.5708085447033356,
+      "height_gap_error_m": 0.28826113335786524
+    },
+    "height_exact": {
+      "child_error_m": 0.7957755030033491,
+      "parent_error_m": 0.2430400202286191,
+      "pair_mean_error_m": 0.5194077616159841,
+      "height_gap_error_m": 0.17363479493710426
+    },
+    "paired_radial": {
+      "child_error_m": 0.799549610510796,
+      "parent_error_m": 0.325606515249208,
+      "pair_mean_error_m": 0.5625780628800019,
+      "height_gap_error_m": 0.2286056356431686
+    },
+    "child_only_ray_soft": {
+      "child_error_m": 0.8036724079766093,
+      "parent_error_m": 0.342460972051684,
+      "pair_mean_error_m": 0.5730666900141467,
+      "height_gap_error_m": 0.25327181079282524
+    }
+  },
+  "comparisons": {
+    "child_only_minus_paired_radial_child_error_m": {
+      "mean": 0.004122797465813309,
+      "scene_bootstrap_95pct_interval": [
+        -0.018154801978069977,
+        0.02434387632713972
+      ],
+      "child_only_better_count": 2
+    },
+    "child_only_minus_uncorrected_child_error_m": {
+      "mean": 0.004516290621621878,
+      "scene_bootstrap_95pct_interval": [
+        -0.11743368307999622,
+        0.12509687301086858
+      ],
+      "child_only_better_count": 2
+    },
+    "child_only_minus_height_exact_child_error_m": {
+      "mean": 0.0078969049732601,
+      "scene_bootstrap_95pct_interval": [
+        -0.10387060117423547,
+        0.11966441112075565
+      ],
+      "child_only_better_count": 2
+    }
+  },
+  "note": "Category transfer with fixed cup-derived 0.4m prior and oracle boxes/relations. Small scene bootstrap is descriptive; index spacing does not guarantee room independence.",
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000410",
+      "relation_label": false,
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000831_2014-06-04_19-50-37_260595134347_rgbf000064-resize"
+    },
+    {
+      "scene_id": "sunrgbd_000543",
+      "relation_label": true,
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/001134_2014-06-17_15-18-31_260595134347_rgbf000034-resize",
+      "methods": {
+        "uncorrected": {
+          "child_error_m": 1.5097084824404536,
+          "parent_error_m": 0.4239354352944088,
+          "pair_mean_error_m": 0.9668219588674312,
+          "height_gap_error_m": 0.35115138830635245
+        },
+        "height_exact": {
+          "child_error_m": 1.5093765776219927,
+          "parent_error_m": 0.3567023050711306,
+          "pair_mean_error_m": 0.9330394413465617,
+          "height_gap_error_m": 0.2295455391563636
+        },
+        "paired_radial": {
+          "child_error_m": 1.5709863588999033,
+          "parent_error_m": 0.38262461575822154,
+          "pair_mean_error_m": 0.9768054873290625,
+          "height_gap_error_m": 0.3178168898653924
+        },
+        "child_only_ray_soft": {
+          "child_error_m": 1.5847359336883977,
+          "parent_error_m": 0.4239354352944088,
+          "pair_mean_error_m": 1.0043356844914033,
+          "height_gap_error_m": 0.3376042714529626
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_000638",
+      "relation_label": true,
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/001231_2014-06-17_16-33-01_260595134347_rgbf000093-resize",
+      "methods": {
+        "uncorrected": {
+          "child_error_m": 1.1613883690025053,
+          "parent_error_m": 0.4700050422091417,
+          "pair_mean_error_m": 0.8156967056058235,
+          "height_gap_error_m": 0.16382990449410928
+        },
+        "height_exact": {
+          "child_error_m": 1.172585197601192,
+          "parent_error_m": 0.3410595195031539,
+          "pair_mean_error_m": 0.756822358552173,
+          "height_gap_error_m": 0.16363623583827108
+        },
+        "paired_radial": {
+          "child_error_m": 1.303632515776194,
+          "parent_error_m": 0.46380364727360746,
+          "pair_mean_error_m": 0.8837180815249008,
+          "height_gap_error_m": 0.08164161746674259
+        },
+        "child_only_ray_soft": {
+          "child_error_m": 1.3365546637762984,
+          "parent_error_m": 0.4700050422091417,
+          "pair_mean_error_m": 0.9032798529927201,
+          "height_gap_error_m": 0.1384067066248278
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_001898",
+      "relation_label": true,
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/NYUdata/NYU0079",
+      "methods": {
+        "uncorrected": {
+          "child_error_m": 0.21266151839111797,
+          "parent_error_m": 0.3073613716478661,
+          "pair_mean_error_m": 0.260011445019492,
+          "height_gap_error_m": 0.2645583108244639
+        },
+        "height_exact": {
+          "child_error_m": 0.21409702750752913,
+          "parent_error_m": 0.22172160834164498,
+          "pair_mean_error_m": 0.21790931792458706,
+          "height_gap_error_m": 0.12812494789247014
+        },
+        "paired_radial": {
+          "child_error_m": 0.16351126807026528,
+          "parent_error_m": 0.3040994820196846,
+          "pair_mean_error_m": 0.23380537504497495,
+          "height_gap_error_m": 0.25537967500074576
+        },
+        "child_only_ray_soft": {
+          "child_error_m": 0.16212032937851129,
+          "parent_error_m": 0.3073613716478661,
+          "pair_mean_error_m": 0.2347408505131887,
+          "height_gap_error_m": 0.2590538924618376
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_002496",
+      "relation_label": false,
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/NYUdata/NYU1413"
+    },
+    {
+      "scene_id": "sunrgbd_002779",
+      "relation_label": null,
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0828"
+    },
+    {
+      "scene_id": "sunrgbd_002994",
+      "relation_label": true,
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_32_lounge_d429/d4_lounge_1/0003315-000111072024",
+      "methods": {
+        "uncorrected": {
+          "child_error_m": 0.3128660995858726,
+          "parent_error_m": 0.16854203905531973,
+          "pair_mean_error_m": 0.24070406932059615,
+          "height_gap_error_m": 0.3735049298065352
+        },
+        "height_exact": {
+          "child_error_m": 0.2870432092826827,
+          "parent_error_m": 0.05267664799854689,
+          "pair_mean_error_m": 0.16985992864061478,
+          "height_gap_error_m": 0.17323245686131217
+        },
+        "paired_radial": {
+          "child_error_m": 0.16006829929682104,
+          "parent_error_m": 0.1518983159453182,
+          "pair_mean_error_m": 0.1559833076210696,
+          "height_gap_error_m": 0.25958436023979353
+        },
+        "child_only_ray_soft": {
+          "child_error_m": 0.1312787050632296,
+          "parent_error_m": 0.16854203905531973,
+          "pair_mean_error_m": 0.14991037205927465,
+          "height_gap_error_m": 0.27802237263167295
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_003200",
+      "relation_label": false,
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_46_5conf_2/bcs_floor5_conf_a/0003034-000101711212"
+    }
+  ]
+}

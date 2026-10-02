@@ -1,0 +1,565 @@
+{
+  "setting": "frozen SUN RGB-D train-complement scenes, RGB-predicted depth, official intrinsics",
+  "positive_count": 10,
+  "negative_count": 5,
+  "uncertain_count": 0,
+  "positive_detected_pair_count": 7,
+  "positive_proposed_pair_count": 7,
+  "negative_proposed_pair_count": 1,
+  "oracle_positive": {
+    "count": 10,
+    "methods": {
+      "uncorrected": {
+        "child_error_m": 0.5568266110308235,
+        "parent_error_m": 0.5402821167323212,
+        "pair_mean_error_m": 0.5485543638815724,
+        "height_gap_error_m": 0.2414638712111028
+      },
+      "weighted": {
+        "child_error_m": 0.5493680734041608,
+        "parent_error_m": 0.5308492512639609,
+        "pair_mean_error_m": 0.5401086623340609,
+        "height_gap_error_m": 0.10337292292462667
+      },
+      "hard": {
+        "child_error_m": 0.5492219476934728,
+        "parent_error_m": 0.5331208991550035,
+        "pair_mean_error_m": 0.5411714234242381,
+        "height_gap_error_m": 0.10593836320960011
+      }
+    },
+    "weighted_minus_uncorrected_child_error_m": {
+      "mean": -0.007458537626662662,
+      "bootstrap_95pct_interval": [
+        -0.014542279145609746,
+        0.00028892237304063543
+      ],
+      "weighted_better_count": 6
+    },
+    "weighted_minus_hard_child_error_m": {
+      "mean": 0.00014612571068810254,
+      "bootstrap_95pct_interval": [
+        -0.00022058027374803529,
+        0.0005007256544414668
+      ],
+      "weighted_better_count": 5
+    }
+  },
+  "automatic_matched_positive": {
+    "count": 7,
+    "methods": {
+      "uncorrected": {
+        "child_error_m": 0.6427895808415542,
+        "parent_error_m": 0.5574474868387322,
+        "pair_mean_error_m": 0.6001185338401431,
+        "height_gap_error_m": 0.23873876156539584
+      },
+      "weighted": {
+        "child_error_m": 0.6362579070821067,
+        "parent_error_m": 0.5349928305454404,
+        "pair_mean_error_m": 0.5856253688137737,
+        "height_gap_error_m": 0.09615273373092252
+      },
+      "hard": {
+        "child_error_m": 0.6360600237839246,
+        "parent_error_m": 0.5365699763780196,
+        "pair_mean_error_m": 0.5863150000809719,
+        "height_gap_error_m": 0.09475713338534202
+      }
+    },
+    "weighted_minus_uncorrected_child_error_m": {
+      "mean": -0.0065316737594474416,
+      "bootstrap_95pct_interval": [
+        -0.014550489330255847,
+        0.0028339606162876008
+      ],
+      "weighted_better_count": 4
+    },
+    "weighted_minus_hard_child_error_m": {
+      "mean": 0.00019788329818229818,
+      "bootstrap_95pct_interval": [
+        -0.00022418462131721067,
+        0.000572910316813946
+      ],
+      "weighted_better_count": 3
+    }
+  },
+  "note": "Automatic matched-pair 3D errors use oracle 2D boxes only to align an emitted proposal to its annotated objects for scoring. They are conditional on a matched proposal; unmatched positives are counted separately. Other proposals lack exhaustive labels. Bootstrap resamples scenes and does not correct room dependence.",
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_005247",
+      "label": true,
+      "child_iou": 0.09320587231136906,
+      "parent_iou": 0.7974806650303339,
+      "pair_detected": false,
+      "pair_proposed": false,
+      "proposal_count": 2,
+      "oracle_methods": {
+        "uncorrected": {
+          "child_error_m": 0.32361614907998637,
+          "parent_error_m": 0.16298067730568577,
+          "height_gap_error_m": 0.029316590100563193,
+          "pair_mean_error_m": 0.24329841319283607
+        },
+        "weighted": {
+          "child_error_m": 0.32923389010544946,
+          "parent_error_m": 0.3255966701189639,
+          "height_gap_error_m": 0.3442532319675192,
+          "pair_mean_error_m": 0.32741528011220666
+        },
+        "hard": {
+          "child_error_m": 0.32982816769041645,
+          "parent_error_m": 0.33662788815449163,
+          "height_gap_error_m": 0.3600000640608671,
+          "pair_mean_error_m": 0.33322802792245404
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_005285",
+      "label": false,
+      "child_iou": 0.8131868131868132,
+      "parent_iou": 0.0,
+      "pair_detected": false,
+      "pair_proposed": false,
+      "proposal_count": 2
+    },
+    {
+      "scene_id": "sunrgbd_005307",
+      "label": false,
+      "child_iou": 0.8092643051771117,
+      "parent_iou": 0.6166267297023077,
+      "pair_detected": true,
+      "pair_proposed": true,
+      "proposal_count": 4
+    },
+    {
+      "scene_id": "sunrgbd_005436",
+      "label": true,
+      "child_iou": 0.8472400513478819,
+      "parent_iou": 0.9760543715918969,
+      "pair_detected": true,
+      "pair_proposed": true,
+      "proposal_count": 3,
+      "oracle_methods": {
+        "uncorrected": {
+          "child_error_m": 0.812984386626942,
+          "parent_error_m": 0.8082422513375352,
+          "height_gap_error_m": 0.2840711608202387,
+          "pair_mean_error_m": 0.8106133189822387
+        },
+        "weighted": {
+          "child_error_m": 0.8285515530292019,
+          "parent_error_m": 0.6976655464429973,
+          "height_gap_error_m": 0.01785601740017667,
+          "pair_mean_error_m": 0.7631085497360997
+        },
+        "hard": {
+          "child_error_m": 0.8294119647309953,
+          "parent_error_m": 0.6933920589917536,
+          "height_gap_error_m": 0.004545260229173509,
+          "pair_mean_error_m": 0.7614020118613745
+        }
+      },
+      "automatic_methods": {
+        "uncorrected": {
+          "child_error_m": 0.8114352028587136,
+          "parent_error_m": 0.8110258760700433,
+          "height_gap_error_m": 0.2856483140924316,
+          "pair_mean_error_m": 0.8112305394643784
+        },
+        "weighted": {
+          "child_error_m": 0.826940218024254,
+          "parent_error_m": 0.7008081629371207,
+          "height_gap_error_m": 0.017931119936947626,
+          "pair_mean_error_m": 0.7638741904806874
+        },
+        "hard": {
+          "child_error_m": 0.827798760699169,
+          "parent_error_m": 0.6965692590013356,
+          "height_gap_error_m": 0.004545260229173453,
+          "pair_mean_error_m": 0.7621840098502524
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_005496",
+      "label": false,
+      "child_iou": 0.8148264984227129,
+      "parent_iou": 0.03484387747533932,
+      "pair_detected": false,
+      "pair_proposed": false,
+      "proposal_count": 2
+    },
+    {
+      "scene_id": "sunrgbd_006976",
+      "label": true,
+      "child_iou": 0.9190600522193212,
+      "parent_iou": 0.9767441860465116,
+      "pair_detected": true,
+      "pair_proposed": true,
+      "proposal_count": 2,
+      "oracle_methods": {
+        "uncorrected": {
+          "child_error_m": 0.4903410986142244,
+          "parent_error_m": 0.33780898742886184,
+          "height_gap_error_m": 0.376038144665652,
+          "pair_mean_error_m": 0.41407504302154313
+        },
+        "weighted": {
+          "child_error_m": 0.47609724361182143,
+          "parent_error_m": 0.2435603264824945,
+          "height_gap_error_m": 0.06390656442898368,
+          "pair_mean_error_m": 0.359828785047158
+        },
+        "hard": {
+          "child_error_m": 0.47558899256932197,
+          "parent_error_m": 0.24465380931898353,
+          "height_gap_error_m": 0.04829998541715019,
+          "pair_mean_error_m": 0.36012140094415274
+        }
+      },
+      "automatic_methods": {
+        "uncorrected": {
+          "child_error_m": 0.4911521343070481,
+          "parent_error_m": 0.3478777286782955,
+          "height_gap_error_m": 0.3745363946431408,
+          "pair_mean_error_m": 0.4195149314926718
+        },
+        "weighted": {
+          "child_error_m": 0.4774283050825096,
+          "parent_error_m": 0.2553964891823951,
+          "height_gap_error_m": 0.0638350525231498,
+          "pair_mean_error_m": 0.3664123971324523
+        },
+        "hard": {
+          "child_error_m": 0.4769443144092686,
+          "parent_error_m": 0.2562837806060828,
+          "height_gap_error_m": 0.04829998541715036,
+          "pair_mean_error_m": 0.3666140475076757
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_007789",
+      "label": false,
+      "child_iou": 0.9591836734693877,
+      "parent_iou": 0.9805194805194806,
+      "pair_detected": true,
+      "pair_proposed": false,
+      "proposal_count": 0
+    },
+    {
+      "scene_id": "sunrgbd_007840",
+      "label": true,
+      "child_iou": 0.9124236252545825,
+      "parent_iou": 0.9768613594907969,
+      "pair_detected": true,
+      "pair_proposed": true,
+      "proposal_count": 2,
+      "oracle_methods": {
+        "uncorrected": {
+          "child_error_m": 1.573635986125417,
+          "parent_error_m": 1.3592907991975822,
+          "height_gap_error_m": 0.08531543767107358,
+          "pair_mean_error_m": 1.4664633926614996
+        },
+        "weighted": {
+          "child_error_m": 1.5572856163172746,
+          "parent_error_m": 1.435327081692856,
+          "height_gap_error_m": 0.1301366090920183,
+          "pair_mean_error_m": 1.4963063490050654
+        },
+        "hard": {
+          "child_error_m": 1.556494903818839,
+          "parent_error_m": 1.4395652632692568,
+          "height_gap_error_m": 0.14090921143017288,
+          "pair_mean_error_m": 1.4980300835440479
+        }
+      },
+      "automatic_methods": {
+        "uncorrected": {
+          "child_error_m": 1.5834734582711958,
+          "parent_error_m": 1.3698602857559559,
+          "height_gap_error_m": 0.08335571254877117,
+          "pair_mean_error_m": 1.4766668720135758
+        },
+        "weighted": {
+          "child_error_m": 1.5674317888932219,
+          "parent_error_m": 1.4445447902716588,
+          "height_gap_error_m": 0.13022992933593747,
+          "pair_mean_error_m": 1.5059882895824404
+        },
+        "hard": {
+          "child_error_m": 1.566655968410956,
+          "parent_error_m": 1.4487070325290619,
+          "height_gap_error_m": 0.14090921143017288,
+          "pair_mean_error_m": 1.5076815004700088
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_007869",
+      "label": true,
+      "child_iou": 0.805982905982906,
+      "parent_iou": 0.9222392347790184,
+      "pair_detected": true,
+      "pair_proposed": true,
+      "proposal_count": 3,
+      "oracle_methods": {
+        "uncorrected": {
+          "child_error_m": 0.4486089415021755,
+          "parent_error_m": 0.2759828114887021,
+          "height_gap_error_m": 0.30058061513414097,
+          "pair_mean_error_m": 0.3622958764954388
+        },
+        "weighted": {
+          "child_error_m": 0.42885081709614836,
+          "parent_error_m": 0.27230316805009397,
+          "height_gap_error_m": 0.033794077916316556,
+          "pair_mean_error_m": 0.35057699257312114
+        },
+        "hard": {
+          "child_error_m": 0.4280136014065162,
+          "parent_error_m": 0.2764771643032567,
+          "height_gap_error_m": 0.020454751055425324,
+          "pair_mean_error_m": 0.35224538285488644
+        }
+      },
+      "automatic_methods": {
+        "uncorrected": {
+          "child_error_m": 0.4481257546841319,
+          "parent_error_m": 0.28844141253882744,
+          "height_gap_error_m": 0.30707710036725566,
+          "pair_mean_error_m": 0.36828358361147967
+        },
+        "weighted": {
+          "child_error_m": 0.42829788566540666,
+          "parent_error_m": 0.2796466698932491,
+          "height_gap_error_m": 0.03410343435598878,
+          "pair_mean_error_m": 0.3539722777793279
+        },
+        "hard": {
+          "child_error_m": 0.4274654125365866,
+          "parent_error_m": 0.2836479188511887,
+          "height_gap_error_m": 0.02045475105542527,
+          "pair_mean_error_m": 0.35555666569388766
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_008483",
+      "label": true,
+      "child_iou": 0.9375,
+      "parent_iou": 0.1204272997032641,
+      "pair_detected": false,
+      "pair_proposed": false,
+      "proposal_count": 3,
+      "oracle_methods": {
+        "uncorrected": {
+          "child_error_m": 0.17738471521040597,
+          "parent_error_m": 0.45431715519963217,
+          "height_gap_error_m": 0.37223735480943243,
+          "pair_mean_error_m": 0.31585093520501906
+        },
+        "weighted": {
+          "child_error_m": 0.16494808458395022,
+          "parent_error_m": 0.3356186111453599,
+          "height_gap_error_m": 0.008248254468443073,
+          "pair_mean_error_m": 0.25028334786465506
+        },
+        "hard": {
+          "child_error_m": 0.16522412900789565,
+          "parent_error_m": 0.33588076652439164,
+          "height_gap_error_m": 0.02727253493233689,
+          "pair_mean_error_m": 0.25055244776614366
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_008556",
+      "label": true,
+      "child_iou": 0.7283072546230441,
+      "parent_iou": 0.87533527696793,
+      "pair_detected": true,
+      "pair_proposed": true,
+      "proposal_count": 3,
+      "oracle_methods": {
+        "uncorrected": {
+          "child_error_m": 0.46605590388806195,
+          "parent_error_m": 0.6106254211362753,
+          "height_gap_error_m": 0.3018155806894648,
+          "pair_mean_error_m": 0.5383406625121686
+        },
+        "weighted": {
+          "child_error_m": 0.46936422789685384,
+          "parent_error_m": 0.5774870425538177,
+          "height_gap_error_m": 0.23948039246043012,
+          "pair_mean_error_m": 0.5234256352253357
+        },
+        "hard": {
+          "child_error_m": 0.46953772158600465,
+          "parent_error_m": 0.5758934250273878,
+          "height_gap_error_m": 0.2363636330489784,
+          "pair_mean_error_m": 0.5227155733066963
+        }
+      },
+      "automatic_methods": {
+        "uncorrected": {
+          "child_error_m": 0.4680408864281696,
+          "parent_error_m": 0.6068587881834654,
+          "height_gap_error_m": 0.25587815958834853,
+          "pair_mean_error_m": 0.5374498373058175
+        },
+        "weighted": {
+          "child_error_m": 0.4690118422208376,
+          "parent_error_m": 0.5977505085975409,
+          "height_gap_error_m": 0.23729289621751953,
+          "pair_mean_error_m": 0.5333811754091893
+        },
+        "hard": {
+          "child_error_m": 0.46906111046148363,
+          "parent_error_m": 0.5973011639524604,
+          "height_gap_error_m": 0.23636363304897817,
+          "pair_mean_error_m": 0.533181137206972
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_008752",
+      "label": true,
+      "child_iou": 0.5974842767295597,
+      "parent_iou": 0.88557336621455,
+      "pair_detected": true,
+      "pair_proposed": true,
+      "proposal_count": 2,
+      "oracle_methods": {
+        "uncorrected": {
+          "child_error_m": 0.35573271622528324,
+          "parent_error_m": 0.08902627133690398,
+          "height_gap_error_m": 0.06404647155291882,
+          "pair_mean_error_m": 0.22237949378109362
+        },
+        "weighted": {
+          "child_error_m": 0.3564637716536647,
+          "parent_error_m": 0.1292117278143728,
+          "height_gap_error_m": 0.13291996870993222,
+          "pair_mean_error_m": 0.24283774973401875
+        },
+        "hard": {
+          "child_error_m": 0.35651425599836173,
+          "parent_error_m": 0.13150495752983654,
+          "height_gap_error_m": 0.13636364356778297,
+          "pair_mean_error_m": 0.24400960676409914
+        }
+      },
+      "automatic_methods": {
+        "uncorrected": {
+          "child_error_m": 0.33204134183387535,
+          "parent_error_m": 0.07309708437300444,
+          "height_gap_error_m": 0.04667228903657494,
+          "pair_mean_error_m": 0.2025692131034399
+        },
+        "weighted": {
+          "child_error_m": 0.3341585634611119,
+          "parent_error_m": 0.10916656961815892,
+          "height_gap_error_m": 0.1320926266853445,
+          "pair_mean_error_m": 0.2216625665396354
+        },
+        "hard": {
+          "child_error_m": 0.33428699213153357,
+          "parent_error_m": 0.11176410262842831,
+          "height_gap_error_m": 0.13636364356778297,
+          "pair_mean_error_m": 0.22302554737998093
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_009218",
+      "label": true,
+      "child_iou": 0.8826086956521739,
+      "parent_iou": 0.008766968325791855,
+      "pair_detected": false,
+      "pair_proposed": false,
+      "proposal_count": 0,
+      "oracle_methods": {
+        "uncorrected": {
+          "child_error_m": 0.5930953445380932,
+          "parent_error_m": 0.756090123335484,
+          "height_gap_error_m": 0.28799336732637476,
+          "pair_mean_error_m": 0.6745927339367885
+        },
+        "weighted": {
+          "child_error_m": 0.5731005868485303,
+          "parent_error_m": 0.7737015018230854,
+          "height_gap_error_m": 0.005322446629444311,
+          "pair_mean_error_m": 0.6734010443358078
+        },
+        "hard": {
+          "child_error_m": 0.5722291397478413,
+          "parent_error_m": 0.7763026707601142,
+          "height_gap_error_m": 0.0088110994054022,
+          "pair_mean_error_m": 0.6742659052539777
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_009491",
+      "label": true,
+      "child_iou": 0.7731343283582089,
+      "parent_iou": 0.869930737998567,
+      "pair_detected": true,
+      "pair_proposed": true,
+      "proposal_count": 3,
+      "oracle_methods": {
+        "uncorrected": {
+          "child_error_m": 0.326810868497646,
+          "parent_error_m": 0.5484566695565494,
+          "height_gap_error_m": 0.313223989341169,
+          "pair_mean_error_m": 0.4376337690270977
+        },
+        "weighted": {
+          "child_error_m": 0.3097849428987142,
+          "parent_error_m": 0.518020836515567,
+          "height_gap_error_m": 0.05781166617300265,
+          "pair_mean_error_m": 0.4139028897071406
+        },
+        "hard": {
+          "child_error_m": 0.3093766003785358,
+          "parent_error_m": 0.520910987670562,
+          "height_gap_error_m": 0.07636344894871144,
+          "pair_mean_error_m": 0.41514379402454893
+        }
+      },
+      "automatic_methods": {
+        "uncorrected": {
+          "child_error_m": 0.3652582875077457,
+          "parent_error_m": 0.4049712322715336,
+          "height_gap_error_m": 0.31800336068124824,
+          "pair_mean_error_m": 0.3851147598896396
+        },
+        "weighted": {
+          "child_error_m": 0.3505367462274064,
+          "parent_error_m": 0.3576366233179596,
+          "height_gap_error_m": 0.05758407706156998,
+          "pair_mean_error_m": 0.354086684772683
+        },
+        "hard": {
+          "child_error_m": 0.3502076078384745,
+          "parent_error_m": 0.36171657707757987,
+          "height_gap_error_m": 0.076363448948711,
+          "pair_mean_error_m": 0.3559620924580272
+        }
+      }
+    },
+    {
+      "scene_id": "sunrgbd_009521",
+      "label": false,
+      "child_iou": 0.8011738811445341,
+      "parent_iou": 0.6712192699279861,
+      "pair_detected": true,
+      "pair_proposed": false,
+      "proposal_count": 0
+    }
+  ]
+}

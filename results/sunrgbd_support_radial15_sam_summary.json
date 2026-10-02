@@ -1,0 +1,39 @@
+{
+  "setting": "post-hoc paired SAM/DINO support interaction on prior table scenes",
+  "positive_paired_count": 11,
+  "comparisons": {
+    "mask_uncorrected_minus_box_uncorrected": {
+      "mean_m": -0.011437990743596844,
+      "better_count": 10,
+      "scene_bootstrap_95pct_interval_m": [
+        -0.015553834048957502,
+        -0.0072405234951079
+      ]
+    },
+    "mask_child_ray_soft_minus_box_child_ray_soft": {
+      "mean_m": -0.10870091165674696,
+      "better_count": 9,
+      "scene_bootstrap_95pct_interval_m": [
+        -0.19856489865268284,
+        -0.033734538750374424
+      ]
+    },
+    "mask_child_ray_soft_minus_mask_uncorrected": {
+      "mean_m": -0.19224955579533426,
+      "better_count": 10,
+      "scene_bootstrap_95pct_interval_m": [
+        -0.24516426661065138,
+        -0.11861575988338917
+      ]
+    },
+    "box_child_ray_soft_minus_box_uncorrected": {
+      "mean_m": -0.09498663488218413,
+      "better_count": 8,
+      "scene_bootstrap_95pct_interval_m": [
+        -0.18863146855591184,
+        0.005290273751180361
+      ]
+    }
+  },
+  "note": "Scenes were already scored in earlier research work. Bootstrap resamples images, not independent rooms; nearby frames may be correlated. These are descriptive intervals, not a fresh held-out result."
+}

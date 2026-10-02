@@ -1,0 +1,21 @@
+{
+  "stages": {
+    "object_regions": {
+      "wall_seconds": 24.53566800000044,
+      "cuda_peak_allocated_gb": 1.856988672,
+      "cuda_peak_reserved_gb": 2.235564032
+    },
+    "metric_depth": {
+      "wall_seconds": 0.5794820999981312,
+      "cuda_peak_allocated_gb": 0.391832064,
+      "cuda_peak_reserved_gb": 0.42991616
+    },
+    "geometry_and_support": {
+      "wall_seconds": 0.006580400000530062,
+      "cuda_peak_allocated_gb": 0.033554432,
+      "cuda_peak_reserved_gb": 0.42991616
+    }
+  },
+  "total_wall_seconds": 25.123152799998934,
+  "selected_device": "cuda"
+}

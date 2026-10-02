@@ -1,0 +1,4 @@
+[
+  {"label": "sofa", "bbox_2d": [100, 80, 420, 380]},
+  {"label": "coffee table", "bbox_2d": [200, 300, 380, 450]}
+]

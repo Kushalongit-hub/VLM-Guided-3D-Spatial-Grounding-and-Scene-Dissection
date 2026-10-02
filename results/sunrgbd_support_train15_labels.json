@@ -1,0 +1,22 @@
+{
+  "status": "rgb_and_2d_box_labels_frozen_before_depth_or_3d_reference",
+  "annotator": "single visual review of RGB images and 2D boxes on 2026-10-02",
+  "rule": "True when the uniquely paired cup/mug visibly rests on the paired table, false when on a different surface; no depth or 3D reference viewed before saving.",
+  "scenes": [
+    {"scene_id": "sunrgbd_005247", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_2"},
+    {"scene_id": "sunrgbd_005285", "supported_by_table": false, "child_id": "object_1", "parent_id": "object_10", "note": "Mug on desk surface; paired table annotation is the separate left shelving unit."},
+    {"scene_id": "sunrgbd_005307", "supported_by_table": false, "child_id": "object_7", "parent_id": "object_8", "note": "Cup on foreground red bin, below the rear desk."},
+    {"scene_id": "sunrgbd_005436", "supported_by_table": true, "child_id": "object_0", "parent_id": "object_1"},
+    {"scene_id": "sunrgbd_005496", "supported_by_table": false, "child_id": "object_5", "parent_id": "object_0", "note": "Mug on front white desk; paired table box is the left unit."},
+    {"scene_id": "sunrgbd_006976", "supported_by_table": true, "child_id": "object_4", "parent_id": "object_0"},
+    {"scene_id": "sunrgbd_007789", "supported_by_table": false, "child_id": "object_2", "parent_id": "object_0", "note": "Cup on left side unit; paired table is the lower foreground desk."},
+    {"scene_id": "sunrgbd_007840", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_2"},
+    {"scene_id": "sunrgbd_007869", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_6"},
+    {"scene_id": "sunrgbd_008483", "supported_by_table": true, "child_id": "object_3", "parent_id": "object_1", "note": "Mug rests on the same white tabletop; table annotation box covers mainly its left section."},
+    {"scene_id": "sunrgbd_008556", "supported_by_table": true, "child_id": "object_3", "parent_id": "object_1"},
+    {"scene_id": "sunrgbd_008752", "supported_by_table": true, "child_id": "object_1", "parent_id": "object_2"},
+    {"scene_id": "sunrgbd_009218", "supported_by_table": true, "child_id": "object_8", "parent_id": "object_9", "note": "Cup and its small right side table are cropped at the frame edge."},
+    {"scene_id": "sunrgbd_009491", "supported_by_table": true, "child_id": "object_0", "parent_id": "object_5"},
+    {"scene_id": "sunrgbd_009521", "supported_by_table": false, "child_id": "object_3", "parent_id": "object_5", "note": "Cup on elevated shelf, separate from lower table at right."}
+  ]
+}

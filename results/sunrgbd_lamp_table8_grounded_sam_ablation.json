@@ -1,0 +1,508 @@
+{
+  "setting": "exploratory Grounding DINO lamp/table + SAM ViT-B on already inspected SUN RGB-D scenes",
+  "box_threshold": 0.25,
+  "text_threshold": 0.25,
+  "matching_box_iou_min": 0.5,
+  "scene_count": 8,
+  "matched_count": 15,
+  "scored_count": 15,
+  "empty_mask_count": 0,
+  "mean_box_error_m": 0.537335176384907,
+  "mean_mask_error_m": 0.39777214603561145,
+  "mean_mask_minus_box_error_m": -0.1395630303492955,
+  "mask_better_count": 11,
+  "scene_bootstrap_95pct_interval_m": [
+    -0.2551808868074288,
+    -0.03662926449326777
+  ],
+  "per_label": {
+    "lamp": {
+      "count": 8,
+      "mean_mask_minus_box_error_m": -0.29076771301228144
+    },
+    "table": {
+      "count": 7,
+      "mean_mask_minus_box_error_m": 0.033242321265545674
+    }
+  },
+  "wall_seconds": 12.97711170000548,
+  "note": "Same DINO boxes and RGB depth in both arms. Oracle boxes match for scoring only. Previously scored scenes; no generalization claim. Unmatched regions omitted from error means.",
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000410",
+      "detections": [
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.744384229183197,
+          "bbox_2d": [
+            1,
+            210,
+            240,
+            378
+          ]
+        },
+        {
+          "instance_id": "gdino_0",
+          "label": "lamp",
+          "raw_label": "a lamp",
+          "confidence": 0.7044186592102051,
+          "bbox_2d": [
+            568,
+            78,
+            727,
+            486
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "lamp",
+          "raw_label": "lamp",
+          "confidence": 0.312958300113678,
+          "bbox_2d": [
+            1,
+            120,
+            77,
+            238
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "label": "lamp",
+          "reference_id": "object_5",
+          "prediction_id": "gdino_0",
+          "box_iou": 0.935149863760218,
+          "sam_iou_estimate": 0.8142865896224976,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 0.7387951849881277,
+          "mask_error_m": 0.8388552907796396,
+          "mask_minus_box_error_m": 0.10006010579151192,
+          "mask_pixels_in_box": 12667
+        },
+        {
+          "label": "table",
+          "reference_id": "object_2",
+          "prediction_id": "gdino_1",
+          "box_iou": 0.9345487148834429,
+          "sam_iou_estimate": 0.8203200101852417,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 0.8263924745732951,
+          "mask_error_m": 0.7162663112200981,
+          "mask_minus_box_error_m": -0.11012616335319703,
+          "mask_pixels_in_box": 7750
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_000543",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "lamp",
+          "raw_label": "a lamp",
+          "confidence": 0.7414001226425171,
+          "bbox_2d": [
+            69,
+            0,
+            201,
+            162
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.7051457166671753,
+          "bbox_2d": [
+            103,
+            133,
+            454,
+            439
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "label": "lamp",
+          "reference_id": "object_2",
+          "prediction_id": "gdino_0",
+          "box_iou": 0.9081745884963935,
+          "sam_iou_estimate": 0.9573514461517334,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 1.496398997740302,
+          "mask_error_m": 0.6406897412520786,
+          "mask_minus_box_error_m": -0.8557092564882235,
+          "mask_pixels_in_box": 6095
+        },
+        {
+          "label": "table",
+          "reference_id": "object_1",
+          "prediction_id": "gdino_1",
+          "box_iou": 0.9659736392213092,
+          "sam_iou_estimate": 0.9804795384407043,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 0.4326281981690624,
+          "mask_error_m": 0.39868138477058324,
+          "mask_minus_box_error_m": -0.03394681339847916,
+          "mask_pixels_in_box": 38206
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_000638",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "lamp",
+          "raw_label": "a lamp",
+          "confidence": 0.8914841413497925,
+          "bbox_2d": [
+            443,
+            61,
+            542,
+            196
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.6343215703964233,
+          "bbox_2d": [
+            91,
+            132,
+            729,
+            528
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "label": "lamp",
+          "reference_id": "object_1",
+          "prediction_id": "gdino_0",
+          "box_iou": 0.9251198819623755,
+          "sam_iou_estimate": 0.952751874923706,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 1.2556669136658611,
+          "mask_error_m": 0.5723436675744978,
+          "mask_minus_box_error_m": -0.6833232460913633,
+          "mask_pixels_in_box": 4505
+        },
+        {
+          "label": "table",
+          "reference_id": "object_0",
+          "prediction_id": "gdino_1",
+          "box_iou": 0.9701851728056688,
+          "sam_iou_estimate": 0.8772386908531189,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 0.4746766793574826,
+          "mask_error_m": 0.6581324429992266,
+          "mask_minus_box_error_m": 0.18345576364174399,
+          "mask_pixels_in_box": 92975
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_001898",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "lamp",
+          "raw_label": "a lamp",
+          "confidence": 0.8133063912391663,
+          "bbox_2d": [
+            37,
+            116,
+            81,
+            194
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.6241217255592346,
+          "bbox_2d": [
+            340,
+            269,
+            499,
+            427
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "table",
+          "raw_label": "table",
+          "confidence": 0.2504202723503113,
+          "bbox_2d": [
+            0,
+            119,
+            354,
+            425
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "label": "lamp",
+          "reference_id": "object_4",
+          "prediction_id": "gdino_0",
+          "box_iou": 0.7866814037026802,
+          "sam_iou_estimate": 0.9186283349990845,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 0.23306898773637288,
+          "mask_error_m": 0.18991854291195137,
+          "mask_minus_box_error_m": -0.04315044482442151,
+          "mask_pixels_in_box": 1658
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002496",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "lamp",
+          "raw_label": "a lamp",
+          "confidence": 0.8472029566764832,
+          "bbox_2d": [
+            502,
+            17,
+            561,
+            181
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.5180763006210327,
+          "bbox_2d": [
+            471,
+            301,
+            561,
+            427
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "label": "lamp",
+          "reference_id": "object_4",
+          "prediction_id": "gdino_0",
+          "box_iou": 0.7893757751136833,
+          "sam_iou_estimate": 0.8584050536155701,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 0.4767988204631534,
+          "mask_error_m": 0.07335273625134081,
+          "mask_minus_box_error_m": -0.4034460842118126,
+          "mask_pixels_in_box": 3655
+        },
+        {
+          "label": "table",
+          "reference_id": "object_1",
+          "prediction_id": "gdino_1",
+          "box_iou": 0.699294532627866,
+          "sam_iou_estimate": 0.9812444448471069,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 0.7772192511040947,
+          "mask_error_m": 0.694605415227524,
+          "mask_minus_box_error_m": -0.08261383587657078,
+          "mask_pixels_in_box": 5548
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002779",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.724073588848114,
+          "bbox_2d": [
+            28,
+            208,
+            152,
+            297
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "lamp",
+          "raw_label": "a lamp",
+          "confidence": 0.45134907960891724,
+          "bbox_2d": [
+            1,
+            1,
+            53,
+            294
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "lamp",
+          "raw_label": "a lamp",
+          "confidence": 0.31273987889289856,
+          "bbox_2d": [
+            2,
+            1,
+            47,
+            227
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "label": "lamp",
+          "reference_id": "object_3",
+          "prediction_id": "gdino_1",
+          "box_iou": 0.8733927950886134,
+          "sam_iou_estimate": 0.9737277626991272,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 0.14715347393983244,
+          "mask_error_m": 0.06598046942945593,
+          "mask_minus_box_error_m": -0.08117300451037651,
+          "mask_pixels_in_box": 7085
+        },
+        {
+          "label": "table",
+          "reference_id": "object_2",
+          "prediction_id": "gdino_0",
+          "box_iou": 0.8118883653497644,
+          "sam_iou_estimate": 0.8545001745223999,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 0.13128435428810026,
+          "mask_error_m": 0.294392322089031,
+          "mask_minus_box_error_m": 0.16310796780093073,
+          "mask_pixels_in_box": 3746
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002994",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "lamp",
+          "raw_label": "a lamp",
+          "confidence": 0.8659281730651855,
+          "bbox_2d": [
+            207,
+            130,
+            327,
+            286
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.6031816005706787,
+          "bbox_2d": [
+            70,
+            204,
+            590,
+            439
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "label": "lamp",
+          "reference_id": "object_2",
+          "prediction_id": "gdino_0",
+          "box_iou": 0.9333646175504458,
+          "sam_iou_estimate": 0.8494048714637756,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 0.3169359582285328,
+          "mask_error_m": 0.11692300299092023,
+          "mask_minus_box_error_m": -0.2000129552376126,
+          "mask_pixels_in_box": 5873
+        },
+        {
+          "label": "table",
+          "reference_id": "object_4",
+          "prediction_id": "gdino_1",
+          "box_iou": 0.9413659898394767,
+          "sam_iou_estimate": 0.9269536137580872,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 0.17683271114282825,
+          "mask_error_m": 0.302282788610178,
+          "mask_minus_box_error_m": 0.12545007746734974,
+          "mask_pixels_in_box": 57619
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003200",
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "lamp",
+          "raw_label": "a lamp",
+          "confidence": 0.8618098497390747,
+          "bbox_2d": [
+            353,
+            8,
+            415,
+            109
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.4548304080963135,
+          "bbox_2d": [
+            301,
+            89,
+            466,
+            220
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.41094762086868286,
+          "bbox_2d": [
+            328,
+            190,
+            590,
+            439
+          ]
+        }
+      ],
+      "matches": [
+        {
+          "label": "lamp",
+          "reference_id": "object_1",
+          "prediction_id": "gdino_0",
+          "box_iou": 0.9002822201317028,
+          "sam_iou_estimate": 0.9497228860855103,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 0.27555130785579407,
+          "mask_error_m": 0.11616448932984054,
+          "mask_minus_box_error_m": -0.15938681852595354,
+          "mask_pixels_in_box": 4166
+        },
+        {
+          "label": "table",
+          "reference_id": "object_4",
+          "prediction_id": "gdino_1",
+          "box_iou": 0.9844544552187524,
+          "sam_iou_estimate": 1.0031849145889282,
+          "sam_mask_empty_in_box": false,
+          "box_error_m": 0.30062433252076487,
+          "mask_error_m": 0.2879935850978071,
+          "mask_minus_box_error_m": -0.012630747422957778,
+          "mask_pixels_in_box": 54664
+        }
+      ]
+    }
+  ]
+}
