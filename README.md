@@ -79,15 +79,15 @@ sequenceDiagram
     participant DET as Detector and SAM
     participant DEP as Metric depth
     participant VLM as Optional SmolVLM2
-    CLI->>DET: Load checkpoint; infer regions and masks
+    CLI->>DET: Load checkpoint and infer regions and masks
     DET-->>CLI: Boxes, IDs, labels, masks
     CLI->>GPU: Release detector model and cache
-    CLI->>DEP: Load checkpoint; predict H x W depth
+    CLI->>DEP: Load checkpoint and predict H x W depth
     DEP-->>CLI: Metre-valued depth array
     CLI->>GPU: Synchronize and record PyTorch peaks
-    CLI->>CLI: Lift points; propose support pairs
+    CLI->>CLI: Lift points and propose support pairs
     opt VLM enabled and proposals exist
-        CLI->>VLM: Load model; query each marked pair
+        CLI->>VLM: Load model and query each marked pair
         VLM-->>CLI: Raw text and parsed answer
         CLI->>GPU: Release VLM model and cache
     end
