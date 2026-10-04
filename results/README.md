@@ -1,11 +1,28 @@
 # Research results and reproduction
 
+The [local SmolVLM2 feasibility report](../RESEARCH_STATUS_2026-10-04_VLM.md)
+documents a frozen-prompt exploratory check on twelve previously viewed
+laptop/table and bottle/table annotated pairs. Six of eight RGB-positive
+pairs and one of four RGB-negative pairs received YES. The model fits the
+8 GB CUDA GPU when loaded sequentially, but its gate is experimental.
+On [nine annotation-matched detected pairs](smolvlm_detected_vs_geometry9.json),
+the geometry mask-contact gate accepted 7/7 visible positives and 0/2
+negatives; a VLM YES gate accepted 5/7 and 0/2. This post-hoc diagnostic
+supports keeping the VLM advisory by default.
+
 The [frozen six-scene laptop/table transfer](../RESEARCH_STATUS_2026-10-02_LAPTOP_TRANSFER.md)
 found 5/5 visually positive annotated pairs detected and proposed; mean
 matched laptop center error fell from 0.606 m with SAM masks to 0.346 m after
 the fixed child-only correction. One annotated negative pair had an alternate
 detected table surface, so whole-scene relation correctness was unresolved.
 See the selection, RGB labels, protocol and per-scene report linked there.
+
+The [frozen six-scene bottle/table transfer](../RESEARCH_STATUS_2026-10-04_BOTTLE_TRANSFER.md)
+adds three paired-table positives and three paired-table negatives. Two
+positive matched bottles improved under the unchanged correction, from
+0.652 to 0.486 m mean center error; one positive lacked a matched pair.
+One negative scene still produced candidates involving other detected objects,
+so paired specificity is not whole-scene relation precision.
 
 The latest [Grounding DINO + SAM milestone](../RESEARCH_STATUS_2026-10-02_MASKS.md)
 documents a fully automatic CUDA demo and paired box-versus-mask 3D checks.

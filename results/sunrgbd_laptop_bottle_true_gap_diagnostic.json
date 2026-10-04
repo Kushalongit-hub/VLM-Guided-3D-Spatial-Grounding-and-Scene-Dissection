@@ -1,0 +1,62 @@
+{
+  "setting": "post-hoc ground-truth gap diagnostic on already scored sets",
+  "note": "Uses annotated 3D centers and visually positive pair labels; no inference or tuning. Center gap is not physical contact height.",
+  "groups": [
+    {
+      "child_class": "laptop",
+      "positive_count": 5,
+      "mean_true_center_gap_m": 0.42423698482946887,
+      "mean_fixed_offset_error_m": 0.03939951613215935,
+      "scenes": [
+        {
+          "scene_id": "sunrgbd_000967",
+          "true_center_gap_m": 0.36663922851575903,
+          "fixed_offset_error_m": 0.03336077148424099
+        },
+        {
+          "scene_id": "sunrgbd_001100",
+          "true_center_gap_m": 0.4090909745004847,
+          "fixed_offset_error_m": 0.009090974500484683
+        },
+        {
+          "scene_id": "sunrgbd_002837",
+          "true_center_gap_m": 0.3954544432275148,
+          "fixed_offset_error_m": 0.004545556772485249
+        },
+        {
+          "scene_id": "sunrgbd_003070",
+          "true_center_gap_m": 0.5136365783199323,
+          "fixed_offset_error_m": 0.11363657831993224
+        },
+        {
+          "scene_id": "sunrgbd_004172",
+          "true_center_gap_m": 0.4363636995836536,
+          "fixed_offset_error_m": 0.0363636995836536
+        }
+      ]
+    },
+    {
+      "child_class": "bottle",
+      "positive_count": 3,
+      "mean_true_center_gap_m": 0.3122067575113337,
+      "mean_fixed_offset_error_m": 0.1287024130986661,
+      "scenes": [
+        {
+          "scene_id": "sunrgbd_000057",
+          "true_center_gap_m": 0.39980195930951884,
+          "fixed_offset_error_m": 0.00019804069048118267
+        },
+        {
+          "scene_id": "sunrgbd_000451",
+          "true_center_gap_m": 0.4613637559149997,
+          "fixed_offset_error_m": 0.06136375591499965
+        },
+        {
+          "scene_id": "sunrgbd_002874",
+          "true_center_gap_m": 0.0754545573094826,
+          "fixed_offset_error_m": 0.32454544269051744
+        }
+      ]
+    }
+  ]
+}

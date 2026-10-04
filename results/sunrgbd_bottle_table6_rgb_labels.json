@@ -1,0 +1,14 @@
+{
+  "status": "rgb_and_2d_box_only_before_depth_or_3d_scoring",
+  "date": "2026-10-04",
+  "selection_sha256": "8362c1d3b1461b7fd6e936ac919051baf151b56e53b937bef7475b85150719f9",
+  "annotation_source": "One visual inspection of image.jpg and the unique paired bottle/table 2D boxes. No depth, predicted depth, or 3D centers inspected before saving.",
+  "scenes": [
+    {"scene_id": "sunrgbd_000057", "supported_by_paired_table": true, "other_visible_support": null, "reason": "Bottle stands on the small white table at the right edge."},
+    {"scene_id": "sunrgbd_000451", "supported_by_paired_table": true, "other_visible_support": null, "reason": "Bottle sits on the small right-side table, which is the annotated table."},
+    {"scene_id": "sunrgbd_002874", "supported_by_paired_table": true, "other_visible_support": null, "reason": "Bottle stands on the near white meeting table."},
+    {"scene_id": "sunrgbd_003776", "supported_by_paired_table": false, "other_visible_support": "right laboratory counter", "reason": "Bottle stands on the right counter; annotated table box is the separate foreground-left surface."},
+    {"scene_id": "sunrgbd_003937", "supported_by_paired_table": false, "other_visible_support": "upper shelf", "reason": "Bottle stands on the upper shelf, well above the annotated lower worktable."},
+    {"scene_id": "sunrgbd_004139", "supported_by_paired_table": false, "other_visible_support": "rear kitchen counter", "reason": "Bottle stands on the rear counter, while the annotated table is in the foreground."}
+  ]
+}

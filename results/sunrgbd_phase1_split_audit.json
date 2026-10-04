@@ -1,0 +1,92 @@
+{
+  "development_count": 20,
+  "final_count": 57,
+  "duplicate_development_ids": [],
+  "duplicate_final_ids": [],
+  "overlapping_scene_ids": [],
+  "shared_source_group_count": 7,
+  "shared_source_groups": {
+    "SUNRGBD/kv1/b3dodata": {
+      "development": [
+        "sunrgbd_002519",
+        "sunrgbd_002535",
+        "sunrgbd_002575",
+        "sunrgbd_002743"
+      ],
+      "final": [
+        "sunrgbd_002539",
+        "sunrgbd_002571",
+        "sunrgbd_002582",
+        "sunrgbd_002640",
+        "sunrgbd_002641",
+        "sunrgbd_002656",
+        "sunrgbd_002711",
+        "sunrgbd_002765",
+        "sunrgbd_002780"
+      ]
+    },
+    "SUNRGBD/kv2/kinect2data": {
+      "development": [
+        "sunrgbd_001052"
+      ],
+      "final": [
+        "sunrgbd_000145",
+        "sunrgbd_000262",
+        "sunrgbd_000307",
+        "sunrgbd_000308",
+        "sunrgbd_000454",
+        "sunrgbd_001049",
+        "sunrgbd_001050",
+        "sunrgbd_001053",
+        "sunrgbd_001069",
+        "sunrgbd_001115",
+        "sunrgbd_001147",
+        "sunrgbd_001148"
+      ]
+    },
+    "SUNRGBD/xtion/sun3ddata/mit_dorm_masseeh_wm/dorm_masseeh_wm_oct_29_2012_scan1_erika": {
+      "development": [
+        "sunrgbd_003479",
+        "sunrgbd_003481"
+      ],
+      "final": [
+        "sunrgbd_003474"
+      ]
+    },
+    "SUNRGBD/xtion/sun3ddata/mit_ne47_huge_office/ne47_floor2_office_1": {
+      "development": [
+        "sunrgbd_003877"
+      ],
+      "final": [
+        "sunrgbd_003882"
+      ]
+    },
+    "SUNRGBD/xtion/sun3ddata/mit_ne47_huge_office/ne47_floor2_office_2": {
+      "development": [
+        "sunrgbd_003891"
+      ],
+      "final": [
+        "sunrgbd_003905"
+      ]
+    },
+    "SUNRGBD/xtion/sun3ddata/mit_w85_12/12_1_1": {
+      "development": [
+        "sunrgbd_003970",
+        "sunrgbd_003981"
+      ],
+      "final": [
+        "sunrgbd_003967",
+        "sunrgbd_003975"
+      ]
+    },
+    "SUNRGBD/xtion/sun3ddata/mit_w85k1/scan_1": {
+      "development": [
+        "sunrgbd_004229"
+      ],
+      "final": [
+        "sunrgbd_004247"
+      ]
+    }
+  },
+  "group_definition": "parent path of SUN RGB-D sequence_name; conservative proxy, not independently verified room identity"
+}

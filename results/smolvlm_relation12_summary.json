@@ -1,0 +1,49 @@
+{
+  "setting": "exploratory oracle-box VLM relation judgments on previously inspected scenes",
+  "source": "results\\smolvlm_laptop_bottle_relation12.json",
+  "groups": {
+    "laptop": {
+      "positive": {
+        "YES": 4,
+        "NO": 1,
+        "UNCERTAIN": 0,
+        "UNPARSEABLE": 0
+      },
+      "negative": {
+        "YES": 0,
+        "NO": 0,
+        "UNCERTAIN": 1,
+        "UNPARSEABLE": 0
+      }
+    },
+    "bottle": {
+      "positive": {
+        "YES": 2,
+        "NO": 0,
+        "UNCERTAIN": 1,
+        "UNPARSEABLE": 0
+      },
+      "negative": {
+        "YES": 1,
+        "NO": 0,
+        "UNCERTAIN": 2,
+        "UNPARSEABLE": 0
+      }
+    },
+    "all": {
+      "positive": {
+        "YES": 6,
+        "NO": 1,
+        "UNCERTAIN": 1,
+        "UNPARSEABLE": 0
+      },
+      "negative": {
+        "YES": 1,
+        "NO": 0,
+        "UNCERTAIN": 3,
+        "UNPARSEABLE": 0
+      }
+    }
+  },
+  "interpretation": "If YES is used as the only accept signal, 6/8 RGB-positive pairs are accepted and 1/4 RGB-negative pairs is accepted. UNCERTAIN and unparseable answers abstain. This is not an independent or end-to-end score."
+}

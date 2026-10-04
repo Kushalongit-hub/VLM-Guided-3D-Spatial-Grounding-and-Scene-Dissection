@@ -8,6 +8,25 @@ Claim novelty only after comparison with closely related methods, particularly
 SpatialRGPT and Diorama. Show a measurable gain over the same pipeline without
 correction.
 
+## Latest checkpoint (2026-10-04)
+
+The runnable RGB-to-3D path now uses Grounding DINO, SAM ViT-B, Depth Anything
+V2 Metric, camera-calibrated lifting, support proposals and optional child-ray
+correction on the local 8 GB CUDA GPU. A local SmolVLM2-2.2B stage can record
+RGB support judgments sequentially; its YES gate is experimental and off by
+default. The [bottle/table transfer](RESEARCH_STATUS_2026-10-04_BOTTLE_TRANSFER.md)
+and [VLM feasibility study](RESEARCH_STATUS_2026-10-04_VLM.md) are the latest
+measured results. On nine annotation-matched detected pairs already viewed in
+earlier work, adding a VLM YES gate lost two positive relations relative to
+the mask-contact geometry gate and did not improve paired specificity. This
+is a negative diagnostic, not a general comparison or novelty proof.
+
+The next research gate is a newly frozen, room-aware sample with exhaustive
+labels for every plausible support surface. Specify and test an uncertainty
+or size-aware correction against the fixed 0.4 m child-ray control on that
+sample. Keep detector coverage, paired relation validity, whole-scene false
+proposals, child and parent center error, latency and peak memory separate.
+
 ## Current baseline
 
 `scripts/run_baseline.py` takes metric depth, pixel boxes, and known camera

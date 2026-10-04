@@ -1,0 +1,565 @@
+{
+  "split": "development",
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_001052",
+      "metadata_index": 1051,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "desk",
+          "instance_id": "object_0",
+          "bbox_2d": [
+            113,
+            121,
+            664,
+            250
+          ]
+        },
+        {
+          "label": "laptop",
+          "instance_id": "object_3",
+          "bbox_2d": [
+            367,
+            129,
+            498,
+            183
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002519",
+      "metadata_index": 2518,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "laptop",
+          "instance_id": "object_1",
+          "bbox_2d": [
+            233,
+            110,
+            367,
+            237
+          ]
+        },
+        {
+          "label": "desk",
+          "instance_id": "object_2",
+          "bbox_2d": [
+            49,
+            162,
+            559,
+            427
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002535",
+      "metadata_index": 2534,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "laptop",
+          "instance_id": "object_0",
+          "bbox_2d": [
+            222,
+            37,
+            436,
+            257
+          ]
+        },
+        {
+          "label": "desk",
+          "instance_id": "object_2",
+          "bbox_2d": [
+            144,
+            103,
+            561,
+            427
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002575",
+      "metadata_index": 2574,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "laptop",
+          "instance_id": "object_0",
+          "bbox_2d": [
+            60,
+            55,
+            404,
+            236
+          ]
+        },
+        {
+          "label": "desk",
+          "instance_id": "object_3",
+          "bbox_2d": [
+            1,
+            41,
+            559,
+            425
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_002743",
+      "metadata_index": 2742,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "desk",
+          "instance_id": "object_0",
+          "bbox_2d": [
+            1,
+            231,
+            463,
+            427
+          ]
+        },
+        {
+          "label": "laptop",
+          "instance_id": "object_1",
+          "bbox_2d": [
+            115,
+            257,
+            298,
+            354
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003454",
+      "metadata_index": 3453,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "desk",
+          "instance_id": "object_1",
+          "bbox_2d": [
+            1,
+            217,
+            205,
+            403
+          ]
+        },
+        {
+          "label": "laptop",
+          "instance_id": "object_2",
+          "bbox_2d": [
+            1,
+            222,
+            132,
+            244
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003479",
+      "metadata_index": 3478,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "desk",
+          "instance_id": "object_4",
+          "bbox_2d": [
+            1,
+            394,
+            66,
+            441
+          ]
+        },
+        {
+          "label": "laptop",
+          "instance_id": "object_5",
+          "bbox_2d": [
+            1,
+            378,
+            25,
+            430
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003481",
+      "metadata_index": 3480,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "laptop",
+          "instance_id": "object_0",
+          "bbox_2d": [
+            250,
+            89,
+            463,
+            252
+          ]
+        },
+        {
+          "label": "desk",
+          "instance_id": "object_8",
+          "bbox_2d": [
+            14,
+            203,
+            591,
+            441
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003499",
+      "metadata_index": 3498,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "desk",
+          "instance_id": "object_2",
+          "bbox_2d": [
+            71,
+            157,
+            370,
+            352
+          ]
+        },
+        {
+          "label": "laptop",
+          "instance_id": "object_10",
+          "bbox_2d": [
+            177,
+            112,
+            248,
+            165
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003500",
+      "metadata_index": 3499,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "laptop",
+          "instance_id": "object_1",
+          "bbox_2d": [
+            67,
+            238,
+            162,
+            304
+          ]
+        },
+        {
+          "label": "desk",
+          "instance_id": "object_3",
+          "bbox_2d": [
+            1,
+            292,
+            310,
+            441
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003593",
+      "metadata_index": 3592,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "desk",
+          "instance_id": "object_2",
+          "bbox_2d": [
+            217,
+            278,
+            405,
+            416
+          ]
+        },
+        {
+          "label": "laptop",
+          "instance_id": "object_3",
+          "bbox_2d": [
+            340,
+            232,
+            398,
+            277
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003608",
+      "metadata_index": 3607,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "desk",
+          "instance_id": "object_0",
+          "bbox_2d": [
+            159,
+            283,
+            461,
+            441
+          ]
+        },
+        {
+          "label": "laptop",
+          "instance_id": "object_5",
+          "bbox_2d": [
+            244,
+            229,
+            321,
+            296
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003613",
+      "metadata_index": 3612,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "desk",
+          "instance_id": "object_0",
+          "bbox_2d": [
+            286,
+            350,
+            591,
+            441
+          ]
+        },
+        {
+          "label": "laptop",
+          "instance_id": "object_2",
+          "bbox_2d": [
+            377,
+            278,
+            467,
+            371
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003616",
+      "metadata_index": 3615,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "desk",
+          "instance_id": "object_1",
+          "bbox_2d": [
+            43,
+            334,
+            303,
+            428
+          ]
+        },
+        {
+          "label": "laptop",
+          "instance_id": "object_2",
+          "bbox_2d": [
+            152,
+            253,
+            236,
+            319
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003877",
+      "metadata_index": 3876,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "laptop",
+          "instance_id": "object_1",
+          "bbox_2d": [
+            249,
+            331,
+            340,
+            392
+          ]
+        },
+        {
+          "label": "desk",
+          "instance_id": "object_6",
+          "bbox_2d": [
+            39,
+            239,
+            591,
+            441
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003891",
+      "metadata_index": 3890,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "laptop",
+          "instance_id": "object_3",
+          "bbox_2d": [
+            79,
+            283,
+            148,
+            361
+          ]
+        },
+        {
+          "label": "desk",
+          "instance_id": "object_6",
+          "bbox_2d": [
+            306,
+            87,
+            591,
+            441
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003970",
+      "metadata_index": 3969,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "laptop",
+          "instance_id": "object_2",
+          "bbox_2d": [
+            184,
+            66,
+            310,
+            170
+          ]
+        },
+        {
+          "label": "desk",
+          "instance_id": "object_7",
+          "bbox_2d": [
+            0,
+            59,
+            426,
+            437
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_003981",
+      "metadata_index": 3980,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "laptop",
+          "instance_id": "object_0",
+          "bbox_2d": [
+            43,
+            141,
+            183,
+            214
+          ]
+        },
+        {
+          "label": "desk",
+          "instance_id": "object_6",
+          "bbox_2d": [
+            133,
+            123,
+            591,
+            390
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_004229",
+      "metadata_index": 4228,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "laptop",
+          "instance_id": "object_2",
+          "bbox_2d": [
+            337,
+            290,
+            455,
+            350
+          ]
+        },
+        {
+          "label": "desk",
+          "instance_id": "object_4",
+          "bbox_2d": [
+            1,
+            176,
+            387,
+            441
+          ]
+        }
+      ]
+    },
+    {
+      "scene_id": "sunrgbd_004275",
+      "metadata_index": 4274,
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "desk",
+      "candidates": [
+        {
+          "label": "desk",
+          "instance_id": "object_0",
+          "bbox_2d": [
+            1,
+            23,
+            541,
+            361
+          ]
+        },
+        {
+          "label": "laptop",
+          "instance_id": "object_1",
+          "bbox_2d": [
+            244,
+            0,
+            500,
+            262
+          ]
+        }
+      ]
+    }
+  ]
+}

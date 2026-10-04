@@ -1,0 +1,128 @@
+{
+  "status": "complete",
+  "setting": "post-hoc matched detector box VLM judgment",
+  "matched_pair_count": 9,
+  "unmatched_pair_count": 3,
+  "changed_answer_count": 2,
+  "matched": [
+    {
+      "scene_id": "sunrgbd_000967",
+      "child_class": "laptop",
+      "rgb_relation": true,
+      "detector_child_iou": 0.8382838283828383,
+      "detector_parent_iou": 0.9676420415996279,
+      "oracle_box_answer": "YES",
+      "marked_image": "outputs\\vlm_detected_pair_marked\\sunrgbd_000967.png",
+      "raw_answer": "YES",
+      "parsed_answer": "YES"
+    },
+    {
+      "scene_id": "sunrgbd_001100",
+      "child_class": "laptop",
+      "rgb_relation": true,
+      "detector_child_iou": 0.9486932820266154,
+      "detector_parent_iou": 0.8822716154418803,
+      "oracle_box_answer": "NO",
+      "marked_image": "outputs\\vlm_detected_pair_marked\\sunrgbd_001100.png",
+      "raw_answer": "YES",
+      "parsed_answer": "YES"
+    },
+    {
+      "scene_id": "sunrgbd_002837",
+      "child_class": "laptop",
+      "rgb_relation": true,
+      "detector_child_iou": 0.9528607594936709,
+      "detector_parent_iou": 0.8670462739637467,
+      "oracle_box_answer": "YES",
+      "marked_image": "outputs\\vlm_detected_pair_marked\\sunrgbd_002837.png",
+      "raw_answer": "YES",
+      "parsed_answer": "YES"
+    },
+    {
+      "scene_id": "sunrgbd_003070",
+      "child_class": "laptop",
+      "rgb_relation": true,
+      "detector_child_iou": 0.9323746794710644,
+      "detector_parent_iou": 0.8389997806536521,
+      "oracle_box_answer": "YES",
+      "marked_image": "outputs\\vlm_detected_pair_marked\\sunrgbd_003070.png",
+      "raw_answer": "UNCERTAIN",
+      "parsed_answer": "UNCERTAIN"
+    },
+    {
+      "scene_id": "sunrgbd_004172",
+      "child_class": "laptop",
+      "rgb_relation": true,
+      "detector_child_iou": 0.8261012852905636,
+      "detector_parent_iou": 0.9078160291891086,
+      "oracle_box_answer": "YES",
+      "marked_image": "outputs\\vlm_detected_pair_marked\\sunrgbd_004172.png",
+      "raw_answer": "YES",
+      "parsed_answer": "YES"
+    },
+    {
+      "scene_id": "sunrgbd_000057",
+      "child_class": "bottle",
+      "rgb_relation": true,
+      "detector_child_iou": 0.7867036011080333,
+      "detector_parent_iou": 0.9202166266540115,
+      "oracle_box_answer": "YES",
+      "marked_image": "outputs\\vlm_detected_pair_marked\\sunrgbd_000057.png",
+      "raw_answer": "YES",
+      "parsed_answer": "YES"
+    },
+    {
+      "scene_id": "sunrgbd_002874",
+      "child_class": "bottle",
+      "rgb_relation": true,
+      "detector_child_iou": 0.8260427263479145,
+      "detector_parent_iou": 0.9744215154529992,
+      "oracle_box_answer": "UNCERTAIN",
+      "marked_image": "outputs\\vlm_detected_pair_marked\\sunrgbd_002874.png",
+      "raw_answer": "UNCERTAIN",
+      "parsed_answer": "UNCERTAIN"
+    },
+    {
+      "scene_id": "sunrgbd_003776",
+      "child_class": "bottle",
+      "rgb_relation": false,
+      "detector_child_iou": 0.7197492163009405,
+      "detector_parent_iou": 0.9547657512116317,
+      "oracle_box_answer": "UNCERTAIN",
+      "marked_image": "outputs\\vlm_detected_pair_marked\\sunrgbd_003776.png",
+      "raw_answer": "UNCERTAIN",
+      "parsed_answer": "UNCERTAIN"
+    },
+    {
+      "scene_id": "sunrgbd_003937",
+      "child_class": "bottle",
+      "rgb_relation": false,
+      "detector_child_iou": 0.9466666666666667,
+      "detector_parent_iou": 0.9802644398051497,
+      "oracle_box_answer": "UNCERTAIN",
+      "marked_image": "outputs\\vlm_detected_pair_marked\\sunrgbd_003937.png",
+      "raw_answer": "UNCERTAIN",
+      "parsed_answer": "UNCERTAIN"
+    }
+  ],
+  "unmatched": [
+    {
+      "scene_id": "sunrgbd_003328",
+      "child_class": "laptop",
+      "child_matched": true,
+      "parent_matched": false
+    },
+    {
+      "scene_id": "sunrgbd_000451",
+      "child_class": "bottle",
+      "child_matched": false,
+      "parent_matched": false
+    },
+    {
+      "scene_id": "sunrgbd_004139",
+      "child_class": "bottle",
+      "child_matched": false,
+      "parent_matched": true
+    }
+  ]
+}

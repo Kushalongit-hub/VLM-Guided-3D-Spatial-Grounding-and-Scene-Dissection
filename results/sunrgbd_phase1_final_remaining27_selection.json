@@ -1,0 +1,224 @@
+{
+  "status": "remaining_scenes_from_final_selection",
+  "parent_final_selection": "results/sunrgbd_phase1_final40_selection.json",
+  "source_disjoint30_selection": "results/sunrgbd_phase1_final_source_disjoint30_selection.json",
+  "rule": "Final selection minus source-disjoint 30",
+  "scenes": [
+    {
+      "metadata_index": 144,
+      "scene_id": "sunrgbd_000145",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000278_2014-06-02_15-36-56_260595134347_rgbf000026-resize"
+    },
+    {
+      "metadata_index": 261,
+      "scene_id": "sunrgbd_000262",
+      "candidate_child_class": "bowl",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000504_2014-06-08_23-03-02_260595134347_rgbf000064-resize"
+    },
+    {
+      "metadata_index": 306,
+      "scene_id": "sunrgbd_000307",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000632_2014-06-08_16-33-08_260595134347_rgbf000036-resize"
+    },
+    {
+      "metadata_index": 307,
+      "scene_id": "sunrgbd_000308",
+      "candidate_child_class": "bowl",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000633_2014-06-08_16-33-28_260595134347_rgbf000107-resize"
+    },
+    {
+      "metadata_index": 453,
+      "scene_id": "sunrgbd_000454",
+      "candidate_child_class": "bowl",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000905_2014-06-08_13-32-55_260595134347_rgbf000150-resize"
+    },
+    {
+      "metadata_index": 1048,
+      "scene_id": "sunrgbd_001049",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/002843_2014-05-29_20-37-49_094959634447_rgbf000150-resize"
+    },
+    {
+      "metadata_index": 1049,
+      "scene_id": "sunrgbd_001050",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/002844_2014-05-29_20-38-18_094959634447_rgbf000075-resize"
+    },
+    {
+      "metadata_index": 1052,
+      "scene_id": "sunrgbd_001053",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/002847_2014-06-03_18-33-34_094959634447_rgbf000150-resize"
+    },
+    {
+      "metadata_index": 1068,
+      "scene_id": "sunrgbd_001069",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/002867_2014-06-01_15-09-15_094959634447_rgbf000151-resize"
+    },
+    {
+      "metadata_index": 1114,
+      "scene_id": "sunrgbd_001115",
+      "candidate_child_class": "bowl",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/002955_2014-06-08_17-34-45_094959634447_rgbf000150-resize"
+    },
+    {
+      "metadata_index": 1146,
+      "scene_id": "sunrgbd_001147",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/003090_2014-06-24_21-01-05_094959634447_rgbf000072-resize"
+    },
+    {
+      "metadata_index": 1147,
+      "scene_id": "sunrgbd_001148",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/003091_2014-06-24_21-01-27_094959634447_rgbf000073-resize"
+    },
+    {
+      "metadata_index": 2538,
+      "scene_id": "sunrgbd_002539",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0435"
+    },
+    {
+      "metadata_index": 2570,
+      "scene_id": "sunrgbd_002571",
+      "candidate_child_class": "bowl",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0509"
+    },
+    {
+      "metadata_index": 2581,
+      "scene_id": "sunrgbd_002582",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0546"
+    },
+    {
+      "metadata_index": 2639,
+      "scene_id": "sunrgbd_002640",
+      "candidate_child_class": "bowl",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0637"
+    },
+    {
+      "metadata_index": 2640,
+      "scene_id": "sunrgbd_002641",
+      "candidate_child_class": "bowl",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0638"
+    },
+    {
+      "metadata_index": 2655,
+      "scene_id": "sunrgbd_002656",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0663"
+    },
+    {
+      "metadata_index": 2710,
+      "scene_id": "sunrgbd_002711",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0744"
+    },
+    {
+      "metadata_index": 2764,
+      "scene_id": "sunrgbd_002765",
+      "candidate_child_class": "bowl",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0813"
+    },
+    {
+      "metadata_index": 2779,
+      "scene_id": "sunrgbd_002780",
+      "candidate_child_class": "bowl",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0829"
+    },
+    {
+      "metadata_index": 3473,
+      "scene_id": "sunrgbd_003474",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_dorm_masseeh_wm/dorm_masseeh_wm_oct_29_2012_scan1_erika/0000959-000044685209"
+    },
+    {
+      "metadata_index": 3881,
+      "scene_id": "sunrgbd_003882",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_ne47_huge_office/ne47_floor2_office_1/0001336-000044777376"
+    },
+    {
+      "metadata_index": 3904,
+      "scene_id": "sunrgbd_003905",
+      "candidate_child_class": "bowl",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_ne47_huge_office/ne47_floor2_office_2/0006265-000209990864"
+    },
+    {
+      "metadata_index": 3966,
+      "scene_id": "sunrgbd_003967",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_w85_12/12_1_1/0000005-000000134064"
+    },
+    {
+      "metadata_index": 3974,
+      "scene_id": "sunrgbd_003975",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_w85_12/12_1_1/0003470-000116736228"
+    },
+    {
+      "metadata_index": 4246,
+      "scene_id": "sunrgbd_004247",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_w85k1/scan_1/0009467-000317507423"
+    }
+  ]
+}

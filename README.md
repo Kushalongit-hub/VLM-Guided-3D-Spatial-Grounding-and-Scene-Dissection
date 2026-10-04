@@ -2,15 +2,18 @@
 
 **Metric 3D Scene Understanding from a Single RGB Image via Vision-Language and Monocular Depth Ensembles**
 
-> **Implementation status (2026-10-02):** The runnable pipeline now combines
+> **Implementation status (2026-10-04):** The runnable pipeline now combines
 > Grounding DINO or YOLO detection, Depth Anything V2 indoor metric depth,
 > camera-calibrated 3D lifting, support proposals, and optional camera-ray
 > support correction. Grounding DINO boxes can now be refined with SAM ViT-B
 > masks; mask overlap also removes duplicate instances before support proposals.
 > See the [masked pipeline milestone](RESEARCH_STATUS_2026-10-02_MASKS.md)
 > and [frozen laptop/table transfer](RESEARCH_STATUS_2026-10-02_LAPTOP_TRANSFER.md)
+> and [frozen bottle/table transfer](RESEARCH_STATUS_2026-10-04_BOTTLE_TRANSFER.md)
+> and [local VLM feasibility](RESEARCH_STATUS_2026-10-04_VLM.md)
 > for measured results and limits. A Streamlit viewer for saved results is
-> implemented; the VLM stage remains proposed. Numerical and VRAM figures in the original design sections are
+> implemented; a local VLM relation check is now optional and advisory by default.
+> Full VLM-guided scene refinement remains proposed. Numerical and VRAM figures in the original design sections are
 > illustrative unless backed by a result report. Ordinary Depth Anything V2
 > checkpoints estimate relative depth; this pipeline requires a metric checkpoint.
 
@@ -179,6 +182,26 @@ ignored by Git. With camera calibration and one proposed support pair,
 research correction automatically. See the [reproducible CUDA example and
 its limits](RESEARCH_STATUS_2026-10-02_MASKS.md). The saved JSON records
 mask fallbacks and suppressed duplicate IDs.
+
+For optional RGB support-relation judgments, download the pinned local
+SmolVLM2 checkpoint with `python scripts/download_smolvlm.py` and pass
+`--vlm-checkpoint checkpoints\smolvlm2-2.2b-instruct` alongside a support
+proposal mode. The JSON records raw and parsed judgments. The optional
+`--vlm-gate` requires an explicit YES to retain a proposal, but the
+[12-scene exploratory check](RESEARCH_STATUS_2026-10-04_VLM.md) found both
+missed true supports and an accepted false annotated pair. Keep VLM output
+advisory for research comparisons; the gate is experimental.
+
+To run the same end-to-end path on other prompted child categories, pass
+`--grounding-labels bottle table --support-child-labels bottle` (or
+`laptop table` / `laptop`) alongside the Grounding DINO checkpoint. The
+configurable proposal uses the same box-foot and 0.75 m depth-gap heuristic;
+the correction still uses the fixed 0.4 m offset. For an automatic single-pair
+correction, add `--radial-proposed-support --mask-contact-gate` and
+`--support-method child-ray-soft`, then supply `--sunrgbd-calibration` or
+`--up-camera`. A full bottle/table CUDA run matched the frozen evaluator's
+radial shift exactly; an image with two surviving proposals abstained. See the
+[bottle/table transfer report](RESEARCH_STATUS_2026-10-04_BOTTLE_TRANSFER.md).
 
 For conservative support filtering, add `--mask-contact-gate` with SAM and
 `--radial-proposed-support`. The JSON records all initial proposals, visible
@@ -557,7 +580,7 @@ Generative methods produce plausible novel views but lack metric guarantees. SLA
 
 We have presented a four-stage ensemble pipeline for metric 3D spatial grounding and scene dissection from a single RGB image. By coupling the semantic relational reasoning of a quantized VLM with the geometric precision of a monocular depth estimator and a pinhole back-projection stage, our system produces structured, metric 3D scene layouts within an 8 GB VRAM budget. The resulting JSON spatial layout matrix offers a practical representation for downstream robotics, AR, and scene-understanding tasks.
 
-**Future work** will address: (1) iterative refinement via VLM feedback on reconstructed 3D geometry, (2) extension to outdoor and multi-floor environments with learned plane priors, (3) integration with open-vocabulary segmentation (e.g., SAM) for mask-accurate lifting, (4) quantitative benchmarking on NYU Depth v2 and ScanNet with standard 3D detection metrics, and (5) ONNX/TensorRT optimization for further VRAM reduction.
+**Future work** will address: (1) iterative refinement using VLM and geometric evidence with explicit uncertainty, (2) extension to outdoor and multi-floor environments with learned plane priors, (3) exhaustive support-surface labels and independent room-aware testing, (4) broader quantitative benchmarking with calibrated 3D object annotations, and (5) runtime and memory optimization.
 
 ---
 

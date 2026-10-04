@@ -1,0 +1,285 @@
+{
+  "status": "pre_annotation_metadata_only_derived_selection",
+  "parent_final_selection": "results/sunrgbd_phase1_final40_selection.json",
+  "parent_final_sha256": "70fb348820d3f15334027a5833ee0be56590f7789a8236bcf53c1247c29e3304",
+  "development_selection_sha256": "6776069b9b4524d93c9139a7f1ba1b600c6d01357aea293529a5a16f62b99d74",
+  "rule": "Keep final scenes whose sequence_name parent path is absent from development",
+  "source_group_caveat": "Parent path is a conservative source proxy; independently verified room IDs unavailable",
+  "excluded_scene_ids": [
+    "sunrgbd_000145",
+    "sunrgbd_000262",
+    "sunrgbd_000307",
+    "sunrgbd_000308",
+    "sunrgbd_000454",
+    "sunrgbd_001049",
+    "sunrgbd_001050",
+    "sunrgbd_001053",
+    "sunrgbd_001069",
+    "sunrgbd_001115",
+    "sunrgbd_001147",
+    "sunrgbd_001148",
+    "sunrgbd_002539",
+    "sunrgbd_002571",
+    "sunrgbd_002582",
+    "sunrgbd_002640",
+    "sunrgbd_002641",
+    "sunrgbd_002656",
+    "sunrgbd_002711",
+    "sunrgbd_002765",
+    "sunrgbd_002780",
+    "sunrgbd_003474",
+    "sunrgbd_003882",
+    "sunrgbd_003905",
+    "sunrgbd_003967",
+    "sunrgbd_003975",
+    "sunrgbd_004247"
+  ],
+  "category_counts": {
+    "bowl+table": 3,
+    "bottle+table": 6,
+    "laptop+table": 7,
+    "bottle+desk": 14
+  },
+  "scenes": [
+    {
+      "metadata_index": 1950,
+      "scene_id": "sunrgbd_001951",
+      "candidate_child_class": "bowl",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/NYUdata/NYU0199"
+    },
+    {
+      "metadata_index": 1951,
+      "scene_id": "sunrgbd_001952",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/NYUdata/NYU0200"
+    },
+    {
+      "metadata_index": 1959,
+      "scene_id": "sunrgbd_001960",
+      "candidate_child_class": "bowl",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/NYUdata/NYU0212"
+    },
+    {
+      "metadata_index": 2069,
+      "scene_id": "sunrgbd_002070",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/NYUdata/NYU0525"
+    },
+    {
+      "metadata_index": 2797,
+      "scene_id": "sunrgbd_002798",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_32_d530/d530_scan_oldest/0000012-000092380997"
+    },
+    {
+      "metadata_index": 2838,
+      "scene_id": "sunrgbd_002839",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_32_g442/g442_1/0000568-000019049178"
+    },
+    {
+      "metadata_index": 2937,
+      "scene_id": "sunrgbd_002938",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_32_g7_lounge/g7_lounge_1/0005210-000174584844"
+    },
+    {
+      "metadata_index": 3115,
+      "scene_id": "sunrgbd_003116",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_3_huge_office/cl_1/0001159-000038811528"
+    },
+    {
+      "metadata_index": 3118,
+      "scene_id": "sunrgbd_003119",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_3_huge_office/cl_1/0002082-000069746796"
+    },
+    {
+      "metadata_index": 3120,
+      "scene_id": "sunrgbd_003121",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_3_huge_office/cl_1/0002758-000092403612"
+    },
+    {
+      "metadata_index": 3130,
+      "scene_id": "sunrgbd_003131",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_3_huge_office/cl_1/0006433-000215574912"
+    },
+    {
+      "metadata_index": 3139,
+      "scene_id": "sunrgbd_003140",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_3_huge_office/cl_1/0008488-000284450292"
+    },
+    {
+      "metadata_index": 3429,
+      "scene_id": "sunrgbd_003430",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_dorm_baker_cj/dorm_baker_cj_oct_29_2012_scan1_erika/0002232-000095185440"
+    },
+    {
+      "metadata_index": 3430,
+      "scene_id": "sunrgbd_003431",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_dorm_baker_cj/dorm_baker_cj_oct_29_2012_scan1_erika/0002374-000101218320"
+    },
+    {
+      "metadata_index": 3433,
+      "scene_id": "sunrgbd_003434",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_dorm_ec_tam/dorm_ec_tam_oct_30_2012_scan1_erika/0000020-000000800108"
+    },
+    {
+      "metadata_index": 3434,
+      "scene_id": "sunrgbd_003435",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_dorm_ec_tam/dorm_ec_tam_oct_30_2012_scan1_erika/0000362-000016653176"
+    },
+    {
+      "metadata_index": 3441,
+      "scene_id": "sunrgbd_003442",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_dorm_ec_tam/dorm_ec_tam_oct_30_2012_scan1_erika/0002661-000115894052"
+    },
+    {
+      "metadata_index": 3545,
+      "scene_id": "sunrgbd_003546",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_dorm_mcc_nk/dorm_mcc_nk_oct_31_2012_scan1_erika/0004237-000192884580"
+    },
+    {
+      "metadata_index": 3715,
+      "scene_id": "sunrgbd_003716",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_lab_16/lab_16_nov_2_2012_scan1_erika/0019677-000841754340"
+    },
+    {
+      "metadata_index": 3743,
+      "scene_id": "sunrgbd_003744",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_lab_hj/lab_hj_work_nov_2_2012_scan1_erika/0000805-000035292348"
+    },
+    {
+      "metadata_index": 3756,
+      "scene_id": "sunrgbd_003757",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "desk",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_lab_hj/lab_hj_work_nov_2_2012_scan1_erika/0005243-000211452444"
+    },
+    {
+      "metadata_index": 3955,
+      "scene_id": "sunrgbd_003956",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_w85_10/10_1/0000006-000000167580"
+    },
+    {
+      "metadata_index": 3957,
+      "scene_id": "sunrgbd_003958",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_w85_10/10_1/0000422-000014110236"
+    },
+    {
+      "metadata_index": 3959,
+      "scene_id": "sunrgbd_003960",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_w85_10/10_1/0001201-000040219200"
+    },
+    {
+      "metadata_index": 4014,
+      "scene_id": "sunrgbd_004015",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_w85_4/4_1/0000007-000000234211"
+    },
+    {
+      "metadata_index": 4039,
+      "scene_id": "sunrgbd_004040",
+      "candidate_child_class": "bowl",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_w85_5/5_1/0000852-000028563513"
+    },
+    {
+      "metadata_index": 4140,
+      "scene_id": "sunrgbd_004141",
+      "candidate_child_class": "bottle",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_w85d/d1/0003309-000111233560"
+    },
+    {
+      "metadata_index": 4170,
+      "scene_id": "sunrgbd_004171",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_w85h/h2_1/0004985-000167110776"
+    },
+    {
+      "metadata_index": 4221,
+      "scene_id": "sunrgbd_004222",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_w85j/j1/0006210-000208167876"
+    },
+    {
+      "metadata_index": 4682,
+      "scene_id": "sunrgbd_004683",
+      "candidate_child_class": "laptop",
+      "candidate_parent_class": "table",
+      "sensor": "realsense",
+      "sequence_name": "SUNRGBD/realsense/lg/2014_10_26-15_22_40-1311000073"
+    }
+  ]
+}

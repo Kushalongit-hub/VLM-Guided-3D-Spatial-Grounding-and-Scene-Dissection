@@ -1,0 +1,133 @@
+{
+  "status": "complete",
+  "setting": "exploratory oracle-box VLM relation check",
+  "model": {
+    "repo_id": "HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+    "revision": "482adb537c021c86670beed01cd58990d01e72e4",
+    "weight_sha256": {
+      "model-00001-of-00002.safetensors": "7c88a90e78f567460b2369a0369cc4dafbfda5607c9cb090b30fa4437b0282f2",
+      "model-00002-of-00002.safetensors": "cf3d0958a8240f71054a6812038f2a6bfbe2e5124573a3b363f6b120c9a52657"
+    }
+  },
+  "protocol": "results\\smolvlm_relation_protocol.json",
+  "cuda_peak_allocated_gb": 4.876291072,
+  "cuda_peak_reserved_gb": 5.161091072,
+  "positive_count": 8,
+  "negative_count": 4,
+  "answer_counts": {
+    "YES": 7,
+    "NO": 1,
+    "UNCERTAIN": 4,
+    "UNPARSEABLE": 0
+  },
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000967",
+      "child_class": "laptop",
+      "rgb_relation": true,
+      "marked_image": "outputs\\vlm_relation_marked\\sunrgbd_000967.png",
+      "raw_answer": "YES",
+      "parsed_answer": "YES",
+      "generation_wall_seconds": 1.6918556000018725
+    },
+    {
+      "scene_id": "sunrgbd_001100",
+      "child_class": "laptop",
+      "rgb_relation": true,
+      "marked_image": "outputs\\vlm_relation_marked\\sunrgbd_001100.png",
+      "raw_answer": "No",
+      "parsed_answer": "NO",
+      "generation_wall_seconds": 0.8419291999962297
+    },
+    {
+      "scene_id": "sunrgbd_002837",
+      "child_class": "laptop",
+      "rgb_relation": true,
+      "marked_image": "outputs\\vlm_relation_marked\\sunrgbd_002837.png",
+      "raw_answer": "YES",
+      "parsed_answer": "YES",
+      "generation_wall_seconds": 0.8701741999975638
+    },
+    {
+      "scene_id": "sunrgbd_003070",
+      "child_class": "laptop",
+      "rgb_relation": true,
+      "marked_image": "outputs\\vlm_relation_marked\\sunrgbd_003070.png",
+      "raw_answer": "YES",
+      "parsed_answer": "YES",
+      "generation_wall_seconds": 0.8538399999961257
+    },
+    {
+      "scene_id": "sunrgbd_003328",
+      "child_class": "laptop",
+      "rgb_relation": false,
+      "marked_image": "outputs\\vlm_relation_marked\\sunrgbd_003328.png",
+      "raw_answer": "UNCERTAIN",
+      "parsed_answer": "UNCERTAIN",
+      "generation_wall_seconds": 0.8975686000048881
+    },
+    {
+      "scene_id": "sunrgbd_004172",
+      "child_class": "laptop",
+      "rgb_relation": true,
+      "marked_image": "outputs\\vlm_relation_marked\\sunrgbd_004172.png",
+      "raw_answer": "YES",
+      "parsed_answer": "YES",
+      "generation_wall_seconds": 0.8474076999991667
+    },
+    {
+      "scene_id": "sunrgbd_000057",
+      "child_class": "bottle",
+      "rgb_relation": true,
+      "marked_image": "outputs\\vlm_relation_marked\\sunrgbd_000057.png",
+      "raw_answer": "YES",
+      "parsed_answer": "YES",
+      "generation_wall_seconds": 0.854547700000694
+    },
+    {
+      "scene_id": "sunrgbd_000451",
+      "child_class": "bottle",
+      "rgb_relation": true,
+      "marked_image": "outputs\\vlm_relation_marked\\sunrgbd_000451.png",
+      "raw_answer": "YES",
+      "parsed_answer": "YES",
+      "generation_wall_seconds": 0.8439408999984153
+    },
+    {
+      "scene_id": "sunrgbd_002874",
+      "child_class": "bottle",
+      "rgb_relation": true,
+      "marked_image": "outputs\\vlm_relation_marked\\sunrgbd_002874.png",
+      "raw_answer": "UNCERTAIN",
+      "parsed_answer": "UNCERTAIN",
+      "generation_wall_seconds": 0.9032944999999017
+    },
+    {
+      "scene_id": "sunrgbd_003776",
+      "child_class": "bottle",
+      "rgb_relation": false,
+      "marked_image": "outputs\\vlm_relation_marked\\sunrgbd_003776.png",
+      "raw_answer": "UNCERTAIN",
+      "parsed_answer": "UNCERTAIN",
+      "generation_wall_seconds": 0.9283171000060975
+    },
+    {
+      "scene_id": "sunrgbd_003937",
+      "child_class": "bottle",
+      "rgb_relation": false,
+      "marked_image": "outputs\\vlm_relation_marked\\sunrgbd_003937.png",
+      "raw_answer": "UNCERTAIN",
+      "parsed_answer": "UNCERTAIN",
+      "generation_wall_seconds": 0.8756237999987206
+    },
+    {
+      "scene_id": "sunrgbd_004139",
+      "child_class": "bottle",
+      "rgb_relation": false,
+      "marked_image": "outputs\\vlm_relation_marked\\sunrgbd_004139.png",
+      "raw_answer": "YES",
+      "parsed_answer": "YES",
+      "generation_wall_seconds": 0.8589947000000393
+    }
+  ]
+}

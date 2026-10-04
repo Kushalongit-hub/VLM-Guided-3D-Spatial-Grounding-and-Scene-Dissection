@@ -1,0 +1,520 @@
+{
+  "setting": "frozen bottle/table category transfer",
+  "summary": {
+    "scene_count": 6,
+    "visible_positive_count": 3,
+    "visible_negative_count": 3,
+    "paired_detection_coverage": 4,
+    "positive_pair_candidates_before_gate": 2,
+    "positive_pair_candidates_after_gate": 2,
+    "negative_pair_candidates_before_gate": 0,
+    "negative_pair_candidates_after_gate": 0,
+    "negative_scenes_with_any_proposal_before_gate": 1,
+    "negative_scenes_with_any_proposal_after_gate": 1,
+    "corrected_matched_bottle_count": 2,
+    "positive_matched_bottle_error_mean_m": {
+      "box_m": 0.7484907303965155,
+      "mask_m": 0.652458236482466,
+      "corrected_mask_m": 0.48553067330155364
+    },
+    "positive_matched_table_error_mean_m": {
+      "box_m": 0.7354774387028231,
+      "mask_m": 0.4635481269972113
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000057",
+      "visible_relation": true,
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "bottle",
+          "raw_label": "a bottle",
+          "confidence": 0.8515617847442627,
+          "bbox_2d": [
+            689,
+            222,
+            720,
+            297
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.6955165863037109,
+          "bbox_2d": [
+            643,
+            269,
+            729,
+            473
+          ]
+        }
+      ],
+      "sam_iou_estimates": {
+        "gdino_0": 0.9522337913513184,
+        "gdino_1": 0.9444096088409424
+      },
+      "correction": {
+        "child_id": "gdino_0",
+        "parent_id": "gdino_1",
+        "radial_shift_m": -0.14186997535515644,
+        "residual_m": -0.14003874071215122,
+        "offset_m": 0.4,
+        "relation_sigma_m": 0.2,
+        "max_shift_m": 0.5
+      },
+      "matches": {
+        "bottle": {
+          "instance_id": "gdino_0",
+          "box_iou": 0.7867036011080333
+        },
+        "table": {
+          "instance_id": "gdino_1",
+          "box_iou": 0.9202166266540115
+        }
+      },
+      "errors": {
+        "bottle": {
+          "box_m": 1.0467350331713992,
+          "mask_m": 0.8859732518152645,
+          "corrected_mask_m": 0.7441446746293379
+        },
+        "table": {
+          "box_m": 0.569390156739862,
+          "mask_m": 0.545863754270703
+        }
+      },
+      "proposals_before_gate": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "depth_gap_m": 0.23675084114074707
+        }
+      ],
+      "proposals_after_gate": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "depth_gap_m": 0.23675084114074707,
+          "visible_mask_contact_fraction": 1.0
+        }
+      ],
+      "contact_evidence": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "contact_fraction": 1.0,
+          "contact_columns": 23,
+          "sampled_columns": 23,
+          "accepted": true
+        }
+      ],
+      "paired_candidate_before_gate": true,
+      "paired_candidate_after_gate": true
+    },
+    {
+      "scene_id": "sunrgbd_000451",
+      "visible_relation": true,
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.48615890741348267,
+          "bbox_2d": [
+            110,
+            224,
+            508,
+            324
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "bottle",
+          "raw_label": "a bottle",
+          "confidence": 0.32338228821754456,
+          "bbox_2d": [
+            572,
+            188,
+            586,
+            218
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "bottle",
+          "raw_label": "a bottle",
+          "confidence": 0.30631589889526367,
+          "bbox_2d": [
+            552,
+            195,
+            568,
+            215
+          ]
+        }
+      ],
+      "sam_iou_estimates": {
+        "gdino_0": 0.9812373518943787,
+        "gdino_2": 0.9121443629264832,
+        "gdino_1": 0.9388859272003174
+      },
+      "correction_status": "abstained_no_unique_contact_proposal",
+      "matches": {
+        "bottle": null,
+        "table": null
+      },
+      "errors": {},
+      "proposals_before_gate": [],
+      "proposals_after_gate": [],
+      "contact_evidence": [],
+      "paired_candidate_before_gate": false,
+      "paired_candidate_after_gate": false
+    },
+    {
+      "scene_id": "sunrgbd_002874",
+      "visible_relation": true,
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "bottle",
+          "raw_label": "a bottle",
+          "confidence": 0.9245890974998474,
+          "bbox_2d": [
+            0,
+            175,
+            31,
+            233
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.6009688377380371,
+          "bbox_2d": [
+            0,
+            113,
+            190,
+            440
+          ]
+        }
+      ],
+      "sam_iou_estimates": {
+        "gdino_0": 0.9472054839134216,
+        "gdino_1": 0.9865814447402954
+      },
+      "correction": {
+        "child_id": "gdino_0",
+        "parent_id": "gdino_1",
+        "radial_shift_m": -0.1960495404318182,
+        "residual_m": -0.13404215165276423,
+        "offset_m": 0.4,
+        "relation_sigma_m": 0.2,
+        "max_shift_m": 0.5
+      },
+      "matches": {
+        "bottle": {
+          "instance_id": "gdino_0",
+          "box_iou": 0.8260427263479145
+        },
+        "table": {
+          "instance_id": "gdino_1",
+          "box_iou": 0.9744215154529992
+        }
+      },
+      "errors": {
+        "bottle": {
+          "box_m": 0.4502464276216318,
+          "mask_m": 0.41894322114966764,
+          "corrected_mask_m": 0.22691667197376936
+        },
+        "table": {
+          "box_m": 0.9015647206657841,
+          "mask_m": 0.38123249972371964
+        }
+      },
+      "proposals_before_gate": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "depth_gap_m": 0.4423694610595703
+        }
+      ],
+      "proposals_after_gate": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "depth_gap_m": 0.4423694610595703,
+          "visible_mask_contact_fraction": 1.0
+        }
+      ],
+      "contact_evidence": [
+        {
+          "child_id": "gdino_0",
+          "parent_id": "gdino_1",
+          "contact_fraction": 1.0,
+          "contact_columns": 23,
+          "sampled_columns": 23,
+          "accepted": true
+        }
+      ],
+      "paired_candidate_before_gate": true,
+      "paired_candidate_after_gate": true
+    },
+    {
+      "scene_id": "sunrgbd_003776",
+      "visible_relation": false,
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.7368518710136414,
+          "bbox_2d": [
+            1,
+            238,
+            309,
+            440
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "bottle",
+          "raw_label": "a bottle",
+          "confidence": 0.4129791259765625,
+          "bbox_2d": [
+            443,
+            180,
+            472,
+            235
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "bottle",
+          "raw_label": "a bottle",
+          "confidence": 0.3071591556072235,
+          "bbox_2d": [
+            421,
+            192,
+            442,
+            236
+          ]
+        }
+      ],
+      "sam_iou_estimates": {
+        "gdino_0": 0.9329553842544556,
+        "gdino_1": 0.9579249620437622,
+        "gdino_2": 0.9011476039886475
+      },
+      "correction_status": "abstained_no_unique_contact_proposal",
+      "matches": {
+        "bottle": {
+          "instance_id": "gdino_1",
+          "box_iou": 0.7197492163009405
+        },
+        "table": {
+          "instance_id": "gdino_0",
+          "box_iou": 0.9547657512116317
+        }
+      },
+      "errors": {
+        "bottle": {
+          "box_m": 0.31032777046926274,
+          "mask_m": 0.32365343334118213
+        },
+        "table": {
+          "box_m": 0.35897156187099544,
+          "mask_m": 0.37192183084482233
+        }
+      },
+      "proposals_before_gate": [],
+      "proposals_after_gate": [],
+      "contact_evidence": [],
+      "paired_candidate_before_gate": false,
+      "paired_candidate_after_gate": false
+    },
+    {
+      "scene_id": "sunrgbd_003937",
+      "visible_relation": false,
+      "detections": [
+        {
+          "instance_id": "gdino_1",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.547123908996582,
+          "bbox_2d": [
+            1,
+            297,
+            500,
+            439
+          ]
+        },
+        {
+          "instance_id": "gdino_0",
+          "label": "bottle",
+          "raw_label": "a bottle",
+          "confidence": 0.4865252375602722,
+          "bbox_2d": [
+            137,
+            87,
+            170,
+            162
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "bottle",
+          "raw_label": "a bottle",
+          "confidence": 0.3151223957538605,
+          "bbox_2d": [
+            282,
+            21,
+            316,
+            94
+          ]
+        }
+      ],
+      "sam_iou_estimates": {
+        "gdino_1": 0.8494632244110107,
+        "gdino_0": 0.938145637512207,
+        "gdino_2": 0.9519137144088745
+      },
+      "correction_status": "abstained_no_unique_contact_proposal",
+      "matches": {
+        "bottle": {
+          "instance_id": "gdino_0",
+          "box_iou": 0.9466666666666667
+        },
+        "table": {
+          "instance_id": "gdino_1",
+          "box_iou": 0.9802644398051497
+        }
+      },
+      "errors": {
+        "bottle": {
+          "box_m": 0.31463203334318474,
+          "mask_m": 0.2929678800173216
+        },
+        "table": {
+          "box_m": 0.4615846956068116,
+          "mask_m": 0.5650118806132665
+        }
+      },
+      "proposals_before_gate": [],
+      "proposals_after_gate": [],
+      "contact_evidence": [],
+      "paired_candidate_before_gate": false,
+      "paired_candidate_after_gate": false
+    },
+    {
+      "scene_id": "sunrgbd_004139",
+      "visible_relation": false,
+      "detections": [
+        {
+          "instance_id": "gdino_0",
+          "label": "table",
+          "raw_label": "a table",
+          "confidence": 0.7074000835418701,
+          "bbox_2d": [
+            310,
+            289,
+            590,
+            439
+          ]
+        },
+        {
+          "instance_id": "gdino_1",
+          "label": "bottle",
+          "raw_label": "a bottle",
+          "confidence": 0.4815422296524048,
+          "bbox_2d": [
+            346,
+            286,
+            392,
+            386
+          ]
+        },
+        {
+          "instance_id": "gdino_2",
+          "label": "bottle",
+          "raw_label": "a bottle",
+          "confidence": 0.28341081738471985,
+          "bbox_2d": [
+            388,
+            321,
+            427,
+            386
+          ]
+        }
+      ],
+      "sam_iou_estimates": {
+        "gdino_0": 0.9051418304443359,
+        "gdino_1": 0.9718568921089172,
+        "gdino_2": 0.952648937702179
+      },
+      "correction_status": "abstained_no_unique_contact_proposal",
+      "matches": {
+        "bottle": null,
+        "table": {
+          "instance_id": "gdino_0",
+          "box_iou": 0.9245252090017095
+        }
+      },
+      "errors": {
+        "table": {
+          "box_m": 0.3483300685135293,
+          "mask_m": 0.246837486843549
+        }
+      },
+      "proposals_before_gate": [
+        {
+          "child_id": "gdino_1",
+          "parent_id": "gdino_0",
+          "depth_gap_m": 0.07870936393737793
+        },
+        {
+          "child_id": "gdino_2",
+          "parent_id": "gdino_0",
+          "depth_gap_m": 0.04421049356460571
+        }
+      ],
+      "proposals_after_gate": [
+        {
+          "child_id": "gdino_1",
+          "parent_id": "gdino_0",
+          "depth_gap_m": 0.07870936393737793,
+          "visible_mask_contact_fraction": 0.48717948717948717
+        },
+        {
+          "child_id": "gdino_2",
+          "parent_id": "gdino_0",
+          "depth_gap_m": 0.04421049356460571,
+          "visible_mask_contact_fraction": 1.0
+        }
+      ],
+      "contact_evidence": [
+        {
+          "child_id": "gdino_1",
+          "parent_id": "gdino_0",
+          "contact_fraction": 0.48717948717948717,
+          "contact_columns": 19,
+          "sampled_columns": 39,
+          "accepted": true
+        },
+        {
+          "child_id": "gdino_2",
+          "parent_id": "gdino_0",
+          "contact_fraction": 1.0,
+          "contact_columns": 34,
+          "sampled_columns": 34,
+          "accepted": true
+        }
+      ],
+      "paired_candidate_before_gate": false,
+      "paired_candidate_after_gate": false
+    }
+  ]
+}

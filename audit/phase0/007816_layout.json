@@ -1,0 +1,104 @@
+{
+  "coordinate_system": "camera_x_right_y_down_z_forward_meters",
+  "camera_intrinsics": {
+    "fx": 520.532,
+    "fy": 520.7444,
+    "cx": 277.9258,
+    "cy": 215.115
+  },
+  "objects": [
+    {
+      "object": "desk",
+      "instance_id": "gdino_0",
+      "center_point_3d": [
+        -0.2097511613800817,
+        0.3825765218389169,
+        1.3968313336372375
+      ],
+      "visible_extent_3d": [
+        0.9198185770245102,
+        0.30809039039212943,
+        0.4854815900325775
+      ],
+      "valid_depth_pixels": 42552,
+      "bbox_2d": [
+        1,
+        246,
+        409,
+        425
+      ],
+      "region_type": "mask",
+      "detection_confidence": 0.45595425367355347
+    },
+    {
+      "object": "cup",
+      "instance_id": "gdino_1",
+      "center_point_3d": [
+        -0.004432924140141065,
+        0.1788795621516037,
+        1.184771068186468
+      ],
+      "visible_extent_3d": [
+        0.08792724802305835,
+        0.12919600907236958,
+        0.06442837715148908
+      ],
+      "valid_depth_pixels": 1869,
+      "bbox_2d": [
+        256,
+        266,
+        296,
+        324
+      ],
+      "region_type": "mask",
+      "detection_confidence": 0.40158209204673767,
+      "uncorrected_center_point_3d": [
+        -0.005311190886010213,
+        0.21431981918888915,
+        1.4195021390914917
+      ],
+      "support_radial_shift_m": -0.2373930471171492
+    }
+  ],
+  "source_image": "data\\sunrgbd_official\\radial_desk7\\sunrgbd_007816\\image.jpg",
+  "depth_model": "Depth-Anything-V2-Metric-Hypersim-Small",
+  "depth_device": "cuda",
+  "object_regions_source": "grounding_dino_tiny",
+  "segmentation_model": "SAM-ViT-B",
+  "sam_mask_iou_estimates": {
+    "gdino_0": 0.9115732312202454,
+    "gdino_1": 0.9724634885787964
+  },
+  "sam_empty_mask_box_fallback_ids": [],
+  "sam_duplicate_suppressed_ids": [
+    "gdino_2"
+  ],
+  "proposed_support_relations": [
+    {
+      "child_id": "gdino_1",
+      "parent_id": "gdino_0",
+      "relation": "supported_by_candidate",
+      "depth_gap_m": 0.02267080545425415,
+      "footpoint_px": [
+        276.0,
+        324.0
+      ]
+    }
+  ],
+  "support_proposal_rule": "cup_or_mug_box_foot_inside_surface_box_and_depth_gap_at_most_0.75_m",
+  "child_ray_support_correction": {
+    "child_id": "gdino_1",
+    "parent_id": "gdino_0",
+    "radial_shift_m": -0.2373930471171492,
+    "residual_m": -0.14331660648218986,
+    "offset_m": 0.4,
+    "relation_sigma_m": 0.2,
+    "max_shift_m": 0.5,
+    "relation_source": "image_depth_heuristic",
+    "up_camera": [
+      0.013477915869043563,
+      -0.96176561077142,
+      -0.27354205475813864
+    ]
+  }
+}

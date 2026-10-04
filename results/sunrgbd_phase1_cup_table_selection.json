@@ -1,0 +1,106 @@
+{
+  "status": "frozen_candidates_not_relation_labels",
+  "selection_seed": 505,
+  "split": "test",
+  "eligible_count": 10,
+  "spaced_pool_count": 10,
+  "min_index_gap": 0,
+  "selection_rule": "unique paired cup_or_mug and table classes in SUN RGB-D test split",
+  "excluded_selection_sha256": "bf23d7784cd5b9070376e1c4ad89886394a025a669ffeb3f5e85891af795a2a3",
+  "additional_exclusion_sha256": [
+    "8d9ffeced951f620206129c93686fc4e2e8b39dff6be5b67fbb02eae4d788bea",
+    "bcd41d1bae681fc866aedbd722afefa9df5700af6ad4f339eb2a2cb05643024b",
+    "8362c1d3b1461b7fd6e936ac919051baf151b56e53b937bef7475b85150719f9",
+    "3c48db59e27d068ba6a4215a8d105acce92783ffc152c2159c5b94ed61822667",
+    "be439d701d5882d58176ad30737e8fdca4c8d50ca4461e2edc484a1953ad16f0",
+    "48c9a3589f62cb5484a60623a3a14f137459b22a1b3564b99d8875facfa3f648",
+    "6776069b9b4524d93c9139a7f1ba1b600c6d01357aea293529a5a16f62b99d74"
+  ],
+  "source_sha256": {
+    "SUNRGBDMeta3DBB_v2.mat": "0f8c97ab95630d2461212ffc9589facb8cf3444cafab4c6d93d97541b347e36b",
+    "SUNRGBDMeta2DBB_v2.mat": "d42020e95c6b654b2c81f0e04c8dba615b98733075e0c8605e6bd43bbb9b2899",
+    "sunrgbd_testing_images.txt": "b65e32ce06442218417f6d079b17cdba04772eba2a01a5d73e83cbcb0adfead0"
+  },
+  "scenes": [
+    {
+      "metadata_index": 275,
+      "scene_id": "sunrgbd_000276",
+      "candidate_child_class": "cup",
+      "candidate_parent_class": "table",
+      "sensor": "kv2",
+      "sequence_name": "SUNRGBD/kv2/kinect2data/000525_2014-06-08_13-55-25_260595134347_rgbf000218-resize"
+    },
+    {
+      "metadata_index": 2583,
+      "scene_id": "sunrgbd_002584",
+      "candidate_child_class": "cup",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0548"
+    },
+    {
+      "metadata_index": 2589,
+      "scene_id": "sunrgbd_002590",
+      "candidate_child_class": "mug",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0554"
+    },
+    {
+      "metadata_index": 2604,
+      "scene_id": "sunrgbd_002605",
+      "candidate_child_class": "mug",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0578"
+    },
+    {
+      "metadata_index": 2631,
+      "scene_id": "sunrgbd_002632",
+      "candidate_child_class": "cup",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0620"
+    },
+    {
+      "metadata_index": 2632,
+      "scene_id": "sunrgbd_002633",
+      "candidate_child_class": "cup",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0621"
+    },
+    {
+      "metadata_index": 2638,
+      "scene_id": "sunrgbd_002639",
+      "candidate_child_class": "cup",
+      "candidate_parent_class": "table",
+      "sensor": "kv1",
+      "sequence_name": "SUNRGBD/kv1/b3dodata/img_0634"
+    },
+    {
+      "metadata_index": 2933,
+      "scene_id": "sunrgbd_002934",
+      "candidate_child_class": "mug",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_32_g7_lounge/g7_lounge_1/0003594-000120422988"
+    },
+    {
+      "metadata_index": 3507,
+      "scene_id": "sunrgbd_003508",
+      "candidate_child_class": "cup",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_dorm_mcc_eflr6/dorm_mcc_eflr6_oct_31_2012_scan1_erika/0000153-000006345759"
+    },
+    {
+      "metadata_index": 4224,
+      "scene_id": "sunrgbd_004225",
+      "candidate_child_class": "mug",
+      "candidate_parent_class": "table",
+      "sensor": "xtion",
+      "sequence_name": "SUNRGBD/xtion/sun3ddata/mit_w85j/j1/0006745-000226098936"
+    }
+  ]
+}

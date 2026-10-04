@@ -1,0 +1,31 @@
+{
+  "stages": {
+    "object_regions": {
+      "wall_seconds": 7.107898900001601,
+      "cuda_peak_allocated_gb": 2.098816,
+      "cuda_peak_reserved_gb": 2.489319424
+    },
+    "metric_depth": {
+      "wall_seconds": 0.5086007999998401,
+      "cuda_peak_allocated_gb": 0.402504192,
+      "cuda_peak_reserved_gb": 0.446693376
+    },
+    "geometry_and_proposals": {
+      "wall_seconds": 0.006023499998264015,
+      "cuda_peak_allocated_gb": 0.033554432,
+      "cuda_peak_reserved_gb": 0.446693376
+    },
+    "vlm_relation_check": {
+      "wall_seconds": 13.639136099998723,
+      "cuda_peak_allocated_gb": 4.876291072,
+      "cuda_peak_reserved_gb": 5.161091072
+    },
+    "support_correction": {
+      "wall_seconds": 0.006109299996751361,
+      "cuda_peak_allocated_gb": 0.033554432,
+      "cuda_peak_reserved_gb": 0.033554432
+    }
+  },
+  "total_wall_seconds": 21.269873199998983,
+  "selected_device": "cuda"
+}

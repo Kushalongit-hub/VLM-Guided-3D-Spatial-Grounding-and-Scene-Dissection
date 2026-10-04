@@ -1,0 +1,10 @@
+{
+  "development_count": 20,
+  "final_count": 30,
+  "duplicate_development_ids": [],
+  "duplicate_final_ids": [],
+  "overlapping_scene_ids": [],
+  "shared_source_group_count": 0,
+  "shared_source_groups": {},
+  "group_definition": "parent path of SUN RGB-D sequence_name; conservative proxy, not independently verified room identity"
+}

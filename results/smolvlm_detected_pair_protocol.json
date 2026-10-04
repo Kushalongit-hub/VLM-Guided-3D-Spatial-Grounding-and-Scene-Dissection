@@ -1,0 +1,13 @@
+{
+  "status": "post_hoc_follow_up_fixed_before_detected_box_vlm_inference",
+  "date": "2026-10-04",
+  "oracle_prompt_protocol_sha256": "165061c1dd9f43bd12d77571aa1db7e85d2f815732e522568a9d9455c3e69090",
+  "detector_reports_sha256": {
+    "laptop_table6": "beb582e7c123e4b9f44ac24bfa041845452aee607bcb14b4903cca6c501e0436",
+    "bottle_table6": "347d6782ae65143d123ab840e127cfc1d89980a1ae316d1aba1b5f59c77c4501"
+  },
+  "sample": "All scenes among the same twelve with both annotated child and table class-aware matched to Grounding DINO boxes at IoU >=0.5. No outcome-dependent filtering; report missing-pair scenes separately.",
+  "input_change": "Use matched detector child and parent boxes instead of annotated boxes for red/green image markings. Original RGB, prompt, SmolVLM2 revision, deterministic generation, strict parser and human RGB labels remain the same.",
+  "metrics": ["YES/NO/UNCERTAIN counts by RGB paired-relation label", "Per-scene answer changes relative to oracle-box prompt", "Detector pair coverage over all twelve scenes"],
+  "limits": "The set and oracle-box VLM responses have already been inspected. This is a post-hoc box-sensitivity diagnostic, not a held-out relation benchmark. Matching uses annotations only to select the pair for scoring."
+}

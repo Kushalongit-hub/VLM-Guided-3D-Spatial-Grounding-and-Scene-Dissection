@@ -1,0 +1,16 @@
+{
+  "status": "exploratory_prompt_fixed_before_first_model_inference",
+  "date": "2026-10-04",
+  "model": "HuggingFaceTB/SmolVLM2-2.2B-Instruct, revision pinned in checkpoints/smolvlm2-2.2b-instruct/source.json",
+  "sample": "Twelve previously viewed SUN RGB-D laptop/table and bottle/table scenes: eight RGB-positive and four RGB-negative annotated pairs; not held out from project inspection.",
+  "labels_sha256": {
+    "laptop_table6": "7f1cad69b4dd50192b4000bcff13f76eaebad9704010d77508ebdbb584879fcc",
+    "bottle_table6": "883e4969eb9b35986fd92d3555b75ad881eba355d1815836d204c82f02641ba6"
+  },
+  "visual_input": "Original RGB image with annotated child 2D box outlined red and annotated table 2D box outlined green; no depth, 3D coordinates, masks, or correctness labels in prompt.",
+  "prompt": "In this image, the red box marks object A and the green box marks object B. Is A physically resting on B? Answer exactly YES, NO, or UNCERTAIN. 'On' means A is supported by B, not just nearby or visually overlapping. Ignore other surfaces.",
+  "generation": {"do_sample": false, "max_new_tokens": 12},
+  "parsing": "Read the first generated token after trimming whitespace and punctuation. Accept only YES, NO or UNCERTAIN; mark all other text as unparseable, never silently coerce it to YES.",
+  "primary_metric": "Pair-level YES/NO/UNCERTAIN confusion counts against RGB labels, denominator all twelve scenes. Report unparsable responses and category splits. No prompt tuning on these scenes.",
+  "claim_limits": "Oracle boxes identify the annotated pair. Small previously inspected set and single human annotator. This is a VLM feasibility check, not a held-out relation or final pipeline result."
+}

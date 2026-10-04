@@ -1,0 +1,83 @@
+{
+  "setting": "post-hoc same nine annotation-matched detected pairs",
+  "claim_limits": "Pairs were selected through oracle IoU matching on previously inspected scenes; whole-scene relation precision and missed-detection coverage are not captured.",
+  "counts": {
+    "geometry_mask_contact_accept": {
+      "positive_accepted": 7,
+      "positive_total": 7,
+      "negative_accepted": 0,
+      "negative_total": 2
+    },
+    "vlm_yes_accept": {
+      "positive_accepted": 5,
+      "positive_total": 7,
+      "negative_accepted": 0,
+      "negative_total": 2
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": "sunrgbd_000967",
+      "rgb_relation": true,
+      "geometry_mask_contact_accept": true,
+      "vlm_yes_accept": true,
+      "vlm_answer": "YES"
+    },
+    {
+      "scene_id": "sunrgbd_001100",
+      "rgb_relation": true,
+      "geometry_mask_contact_accept": true,
+      "vlm_yes_accept": true,
+      "vlm_answer": "YES"
+    },
+    {
+      "scene_id": "sunrgbd_002837",
+      "rgb_relation": true,
+      "geometry_mask_contact_accept": true,
+      "vlm_yes_accept": true,
+      "vlm_answer": "YES"
+    },
+    {
+      "scene_id": "sunrgbd_003070",
+      "rgb_relation": true,
+      "geometry_mask_contact_accept": true,
+      "vlm_yes_accept": false,
+      "vlm_answer": "UNCERTAIN"
+    },
+    {
+      "scene_id": "sunrgbd_004172",
+      "rgb_relation": true,
+      "geometry_mask_contact_accept": true,
+      "vlm_yes_accept": true,
+      "vlm_answer": "YES"
+    },
+    {
+      "scene_id": "sunrgbd_000057",
+      "rgb_relation": true,
+      "geometry_mask_contact_accept": true,
+      "vlm_yes_accept": true,
+      "vlm_answer": "YES"
+    },
+    {
+      "scene_id": "sunrgbd_002874",
+      "rgb_relation": true,
+      "geometry_mask_contact_accept": true,
+      "vlm_yes_accept": false,
+      "vlm_answer": "UNCERTAIN"
+    },
+    {
+      "scene_id": "sunrgbd_003776",
+      "rgb_relation": false,
+      "geometry_mask_contact_accept": false,
+      "vlm_yes_accept": false,
+      "vlm_answer": "UNCERTAIN"
+    },
+    {
+      "scene_id": "sunrgbd_003937",
+      "rgb_relation": false,
+      "geometry_mask_contact_accept": false,
+      "vlm_yes_accept": false,
+      "vlm_answer": "UNCERTAIN"
+    }
+  ]
+}

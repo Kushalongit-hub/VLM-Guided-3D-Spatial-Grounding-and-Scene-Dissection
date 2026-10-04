@@ -1,0 +1,24 @@
+{
+  "status": "frozen_before_image_depth_or_3d_reference_inspection",
+  "date": "2026-10-04",
+  "selection_sha256": "8362c1d3b1461b7fd6e936ac919051baf151b56e53b937bef7475b85150719f9",
+  "split": "official_sunrgbd_test",
+  "sample": "Six metadata-selected scenes with exactly one 2D/3D annotated bottle and table; prior selections excluded with a 30-index gap. Index spacing does not prove room independence.",
+  "annotation_rule": "Before inspecting depth or 3D centers, inspect RGB and annotated 2D boxes. For the annotated bottle/table pair mark visible support true, false, or uncertain and record other plausible support surfaces. Preserve all six scenes in count summaries.",
+  "frozen_methods": {
+    "detector": "Grounding DINO Tiny, separate 'a bottle' and 'a table' prompts, box/text threshold 0.25",
+    "segmenter": "SAM ViT-B prompted by detected boxes, same-class mask IoU >= 0.7 deduplication",
+    "depth": "Depth Anything V2 Metric Hypersim Small, official camera intrinsics, no scale fitting",
+    "object_matching": "Class-aware box IoU >= 0.5 against the uniquely annotated pair, scoring only",
+    "proposal": "Bottle box-bottom center inside table box and absolute predicted median-depth gap <= 0.75m; one nearest parent per bottle",
+    "mask_gate": "Visible child lower-contour / parent SAM mask adjacency fraction > 0 within 8 vertical pixels",
+    "correction": "Fixed child-only camera-ray soft correction with 0.4m center-height offset and <=0.5m shift, if exactly one gated proposal; no tuning on these scenes"
+  },
+  "primary_outcomes": [
+    "Positive annotated-pair proposal coverage before and after gate, denominator all RGB-certain positive scenes",
+    "Per-scene and mean bottle 3D center error on positive matched pairs: masked uncorrected vs masked corrected; report correction count and abstentions",
+    "Any scene-level proposal on RGB-certain negative annotated pairs, with alternate parent validity adjudicated separately"
+  ],
+  "secondary_outcomes": ["Paired detector coverage over all six scenes", "Box vs SAM mask center error", "Parent table error", "Counts of uncertain and alternate-support scenes"],
+  "claim_limits": "Six scenes and one visual annotator; object co-occurrence is not support ground truth. Fixed 0.4m offset chosen in earlier cup work and may be inappropriate for bottles. Alternative supports may be missing from annotations."
+}
