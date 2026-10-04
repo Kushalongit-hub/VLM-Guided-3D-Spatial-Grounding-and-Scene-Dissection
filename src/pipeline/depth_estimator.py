@@ -31,7 +31,7 @@ def load_metric_model(checkpoint: Path, device: str = "auto"):
         from depth_anything_v2.dpt import DepthAnythingV2
     finally:
         sys.path.pop(0)
-    model = DepthAnythingV2(**SMALL_CONFIG)
+    model = DepthAnythingV2(**SMALL_CONFIG, device=device)
     state = torch.load(checkpoint, map_location="cpu", weights_only=True)
     model.load_state_dict(state, strict=True)
     return model.to(device).eval(), device

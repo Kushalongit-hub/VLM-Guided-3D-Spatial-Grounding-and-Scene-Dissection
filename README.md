@@ -1,660 +1,353 @@
-﻿# VLM-Guided 3D Spatial Grounding and Scene Dissection
+# Single-Image 3D Spatial Grounding and Support-Aware Scene Layout
 
-**Metric 3D Scene Understanding from a Single RGB Image via Vision-Language and Monocular Depth Ensembles**
+An executable research prototype that converts **one indoor RGB image plus supplied camera intrinsics** into an object-level 3D layout. It combines object regions, predicted indoor metric depth, camera back-projection, optional support-relation proposals, and optional camera-ray correction. A local vision-language model (VLM) can judge proposed relations, but its answers are advisory by default.
 
-> **Implementation status (2026-10-04):** The runnable pipeline now combines
-> Grounding DINO or YOLO detection, Depth Anything V2 indoor metric depth,
-> camera-calibrated 3D lifting, support proposals, and optional camera-ray
-> support correction. Grounding DINO boxes can now be refined with SAM ViT-B
-> masks; mask overlap also removes duplicate instances before support proposals.
-> See the [masked pipeline milestone](RESEARCH_STATUS_2026-10-02_MASKS.md)
-> and [frozen laptop/table transfer](RESEARCH_STATUS_2026-10-02_LAPTOP_TRANSFER.md)
-> and [frozen bottle/table transfer](RESEARCH_STATUS_2026-10-04_BOTTLE_TRANSFER.md)
-> and [local VLM feasibility](RESEARCH_STATUS_2026-10-04_VLM.md)
-> for measured results and limits. A Streamlit viewer for saved results is
-> implemented; a local VLM relation check is now optional and advisory by default.
-> Full VLM-guided scene refinement remains proposed. Numerical and VRAM figures in the original design sections are
-> illustrative unless backed by a result report. Ordinary Depth Anything V2
-> checkpoints estimate relative depth; this pipeline requires a metric checkpoint.
+**Research target:** Test whether an observation-dependent support correction with explicit abstention improves child-object center accuracy over uncorrected lifting and the fixed **0.4 m child-ray** control. This gain is **not yet established**. The October 27, 2026 deliverable is a working system and an evidence-supported report, including a negative result if the candidate fails.
 
-Run the implemented baseline with:
+> **Status: October 5, 2026.** Geometry, metric-depth inference, Grounding DINO and YOLO region paths, optional SAM masks, support proposals, camera-ray correction, optional SmolVLM2 judgments, evaluation scripts, and a Streamlit viewer exist. Phase 1 development images are prepared. Current development relation labels came from heuristics and a programmatic consistency check; despite a `human_reviewed: true` field, they are **not verified independent human annotations**. The tuned contact threshold is exploratory. Frozen final labels and a validated novelty claim are pending.
 
-```bash
-python scripts/run_baseline.py --depth path/to/metric_depth.npy \
-  --objects path/to/objects.json --fx 525 --fy 525 --cx 319.5 --cy 239.5 \
-  --output outputs/layout.json
-python -m unittest discover -s tests -v
+The [original README snapshot](docs/original_readme_snapshot_2026-10-05.md) preserves the initial proposal, including its historical Llama/INT4, uncalibrated-image, and 7.5 GB VRAM claims. This README documents the code and evidence now present.
+
+## Contents
+
+- [System boundaries](#system-boundaries)
+- [Architecture and model lifecycle](#architecture-and-model-lifecycle)
+- [Geometry and support correction](#geometry-and-support-correction)
+- [Install and run](#install-and-run)
+- [Input and output contracts](#input-and-output-contracts)
+- [Research protocol and evidence](#research-protocol-and-evidence)
+- [Repository map and limitations](#repository-map-and-limitations)
+
+## System boundaries
+
+The primary input is RGB. The camera's `fx`, `fy`, `cx`, and `cy` must be supplied. A camera-frame up vector or SUN RGB-D calibration is additionally required for radial support correction. The system does **not** self-calibrate arbitrary images. Sensor depth, annotated boxes, and reference 3D centers are diagnostic or evaluation inputs; they do not enter the automatic RGB inference path.
+
+| Stage | Implemented options | What the output means |
+|---|---|---|
+| Object regions | Supplied boxes, YOLO11n boxes, YOLO11n-seg masks, or Grounding DINO Tiny boxes optionally refined with SAM ViT-B | Detections and masks can miss objects or include background. |
+| Dense depth | Depth Anything V2 **Metric Hypersim Small** | Metre-valued indoor prediction; metric output is not a guarantee of metric accuracy. Ordinary relative-depth checkpoints are unsuitable. |
+| 3D lifting | Pinhole projection of positive finite depth pixels inside each region | Componentwise median **visible-point** center and robust observed extent, not an amodal center or complete dimensions. |
+| Support proposals | Box-footpoint/depth-gap heuristic; optional visible-mask gate | Candidate relations, not verified physical contact. |
+| Support correction | Paired-ray or child-only ray control with fixed 0.4 m center-height-gap prior | Heuristic correction; the child-only control is a mandatory research baseline. |
+| VLM | Optional local SmolVLM2-2.2B-Instruct YES/NO/UNCERTAIN pair judgment | Advisory by default; the hard YES gate is experimental. |
+| Viewer | Streamlit over saved image, depth, masks, layout | Observed geometry and correction evidence, not a full mesh. |
+
+## Architecture and model lifecycle
+
+### End-to-end dataflow
+
+```mermaid
+flowchart LR
+    RGB["Indoor RGB"] --> REG{Region source}
+    EXT["Supplied pixel boxes"] --> REG
+    REG --> YOLO["YOLO11n boxes or instance masks"]
+    REG --> DINO["Grounding DINO Tiny boxes"]
+    DINO --> SAM["Optional SAM ViT-B masks"]
+    YOLO --> CLEAN["Object IDs and optional mask-IoU deduplication"]
+    SAM --> CLEAN
+    REG --> CLEAN
+    RGB --> DEPTH["Depth Anything V2 Metric Hypersim Small"]
+    K["Supplied intrinsics"] --> LIFT["Pinhole back-projection"]
+    DEPTH --> LIFT
+    CLEAN --> LIFT
+    LIFT --> BASE["Uncorrected object layout"]
+    BASE --> PROP["Support candidate heuristic"]
+    CLEAN --> GATE["Optional mask-contact gate"]
+    PROP --> GATE
+    RGB --> VLM["Optional SmolVLM2 pair judgment"]
+    GATE --> VLM
+    GATE --> DECIDE{Unique retained pair?}
+    VLM -. "advisory unless YES gate enabled" .-> DECIDE
+    UP["Supplied up vector / calibration"] --> CORR["Camera-ray correction"]
+    DECIDE -->|yes| CORR
+    DECIDE -->|no| ABSTAIN["Abstain; preserve original centers"]
+    BASE --> JSON["Layout JSON and optional artifacts"]
+    CORR --> JSON
+    ABSTAIN --> JSON
 ```
 
-`objects.json` is a JSON list such as
-`[{"label":"sofa","bbox_2d":[120,80,420,380]}]`; boxes use
-`[xmin,ymin,xmax,ymax]` in original image pixels with exclusive maxima.
-The exported `visible_extent_3d` covers observed points and does not estimate
-occluded dimensions. See [the research plan](RESEARCH_PLAN.md) for milestones.
-For evaluation, add a stable `instance_id` to each input object. The baseline
-assigns `object_0`, `object_1`, etc. when IDs are absent. A reference JSON can
-use the same `coordinate_system` and an `objects` list containing
-`instance_id` and camera-frame `center_point_3d` in metres. Run
-`python scripts/evaluate_layout.py --prediction outputs/layout.json --reference
-path/to/reference.json` to report match coverage and centroid error. Random
-synthetic depth is useful for checking execution, not measuring model accuracy.
+**Control-flow caveat:** `--radial-proposed-support` alone raises `ValueError` for zero or multiple proposals, leaving no layout. When `--mask-contact-gate` or `--vlm-gate` is active, zero or multiple retained proposals save an uncorrected layout with `support_correction_status`. A batch evaluator must record both as abstentions rather than silently dropping those scenes.
 
-For multiple scenes, create a JSON manifest with a `scenes` list. Each scene
-specifies `scene_id`, relative paths to `depth`, `objects`, and `reference`
-files, and `intrinsics` with `fx`, `fy`, `cx`, and `cy`. See
-[`examples/benchmark_manifest.example.json`](examples/benchmark_manifest.example.json).
-Run `python scripts/run_benchmark.py --manifest path/to/manifest.json
---output outputs/benchmark.json`. This benchmark uses supplied boxes and depth;
-its scores measure geometry only. The example reference file contains invented
-coordinates for a smoke test and must not be used as research ground truth.
+### Sequential CUDA execution
 
-### Prepare one SUN RGB-D v2 scene
+The CLI loads detector/SAM, metric depth, and optional VLM stages in sequence and releases earlier model objects between stages. This is a practical memory strategy for the local approximately 8 GB RTX 5060 Laptop GPU, not evidence of general edge deployment.
 
-Download the original depth PNG and V2 annotations from the [official SUN
-RGB-D site](https://rgbd.cs.princeton.edu/). The label and calibration TXT
-files must be produced by the [VoteNet SUN RGB-D v2 extraction
-script](https://github.com/facebookresearch/votenet/blob/main/sunrgbd/matlab/extract_rgbd_data_v2.m)
-for the **same image ID**. This converter does not read the metadata MAT files
-directly. Replace the placeholders below with actual paths:
+```mermaid
+sequenceDiagram
+    participant CLI as run_inference.py
+    participant GPU as CUDA
+    participant DET as Detector and SAM
+    participant DEP as Metric depth
+    participant VLM as Optional SmolVLM2
+    CLI->>DET: Load checkpoint; infer regions and masks
+    DET-->>CLI: Boxes, IDs, labels, masks
+    CLI->>GPU: Release detector model and cache
+    CLI->>DEP: Load checkpoint; predict H x W depth
+    DEP-->>CLI: Metre-valued depth array
+    CLI->>GPU: Synchronize and record PyTorch peaks
+    CLI->>CLI: Lift points; propose support pairs
+    opt VLM enabled and proposals exist
+        CLI->>VLM: Load model; query each marked pair
+        VLM-->>CLI: Raw text and parsed answer
+        CLI->>GPU: Release VLM model and cache
+    end
+    CLI->>CLI: Correct one eligible pair or abstain
+    CLI-->>CLI: Save layout, depth, masks, profile as requested
+```
+
+The profile stores stage wall time and PyTorch CUDA allocated/reserved peaks. **Reserved PyTorch memory is not total device VRAM**; CUDA context, other allocators, and other processes need separate accounting. The [VLM pilot](RESEARCH_STATUS_2026-10-04_VLM.md) describes one measured configuration.
+
+### Code boundaries
+
+```mermaid
+flowchart TB
+    CLI["scripts/run_inference.py"] --> R["object_detector.py / grounding_dino_detector.py / sam_segmenter.py"]
+    CLI --> D["depth_estimator.py"]
+    CLI --> G["geometry.py"]
+    CLI --> P["support_proposals.py / generic_support_proposals.py"]
+    CLI --> M["mask_support_gate.py"]
+    CLI --> V["vlm_support.py"]
+    CLI --> C["radial_support.py / child_ray_support.py / support_constraints.py"]
+    E["run_baseline.py / run_benchmark.py / evaluate_layout.py"] --> G
+    E --> B["benchmark.py / evaluation.py / sunrgbd.py"]
+    CLI --> ART["Saved JSON, NPY, NPZ, PNG"]
+    VIEW["src/viz/streamlit_app.py"] --> ART
+```
+
+## Geometry and support correction
+
+### Coordinates and robust lifting
+
+Camera coordinates are **X right, Y down, Z forward**, in metres. Boxes are `[xmin, ymin, xmax, ymax]` in original-image pixels with exclusive maxima. At pixel `(u, v)` and predicted depth `z`:
+
+```text
+X = (u - cx) z / fx
+Y = (v - cy) z / fy
+Z = z
+```
+
+Only finite positive depth pixels inside the box or its instance mask contribute. `center_point_3d` is the componentwise median of lifted **visible points**. `visible_extent_3d` is the componentwise 95th minus 5th percentile. Neither is a complete 3D bounding box. An object region without valid depth raises an error.
+
+```mermaid
+flowchart LR
+    PIX["Pixel u,v"] --> REGION["Box or mask filter"]
+    Z["Metric depth z"] --> VALID{Finite and z > 0?}
+    REGION --> VALID
+    K["fx,fy,cx,cy"] --> BACK["Back-project X,Y,Z"]
+    VALID -->|yes| BACK
+    VALID -->|no| DROP["Exclude"]
+    BACK --> MED["Componentwise median: visible center"]
+    BACK --> EXT["P95 minus P5: visible extent"]
+    MED --> OUT["Object layout"]
+    EXT --> OUT
+```
+
+### Support proposal and child-ray control
+
+The configurable proposal heuristic uses the bottom-center of the child's box, checks whether it falls inside a parent surface box, requires a median-depth gap at most **0.75 m**, and chooses the eligible parent with smallest gap. It is candidate generation, not proof of physical support. The optional mask-contact gate uses visible lower-contour adjacency and can miss occluded contact.
+
+The fixed child-ray control keeps the parent center fixed. Let `c` and `p` be child and parent centers, `r = c/||c||` the child camera ray, `a` unit camera-frame up, `h = 0.4 m` the target center-height gap, and `σc`, `σr` heuristic scale parameters:
+
+```text
+innovation = h - dot(c - p, a)
+shift = clip( σc² dot(r,a) innovation /
+              (σc² dot(r,a)² + σr²), -max_shift, +max_shift )
+corrected_child = c + shift r
+```
+
+The CLI currently uses `σc = 0.4 m`, `σr = 0.2 m`, `max_shift = 0.5 m`. These are **not calibrated confidence intervals**. The alternative paired-ray control can move both centers. `--support-constraints` is a separate supplied-relations path, not an automatic detector.
+
+```mermaid
+flowchart TD
+    P["Candidate pairs"] --> MG{Mask gate enabled?}
+    MG -->|yes| M["Filter by visible adjacency"]
+    MG -->|no| VQ
+    M --> VQ{VLM gate enabled?}
+    VQ -->|yes| V["Keep explicit YES only"]
+    VQ -->|no| N
+    V --> N{Exactly one pair?}
+    N -->|yes| U["Read calibrated camera up"]
+    U --> C["Apply paired-ray or child-ray control"]
+    N -->|no, gate enabled| S["Save uncorrected layout with abstention status"]
+    N -->|no, no gate| X["Raise ValueError; no layout"]
+    C --> J["Save correction evidence in layout"]
+```
+
+The proposed research extension is a **local support-surface target plus observation-dependent reliability and abstention**. It has not yet been validated in the main CLI. Its value must be shown against the simple child-ray control on frozen data.
+
+## Install and run
+
+Commands are for **Windows PowerShell** from the repository root. Use the project `.venv`; system `python` may have different or CPU-only packages. Checkpoints and SUN RGB-D data are large ignored local assets, so installing packages alone does not provide them. See the [results index](results/README.md), [VLM report](RESEARCH_STATUS_2026-10-04_VLM.md), and download scripts for artifact provenance.
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\prepare_sunrgbd_scene.py `
-  --scene-id 000001 `
-  --depth-png C:\path\to\original\depth.png `
-  --label-txt C:\path\to\sunrgbd_trainval\label\000001.txt `
-  --calib-txt C:\path\to\sunrgbd_trainval\calib\000001.txt `
-  --output-dir data\sunrgbd\000001
-
-.\.venv\Scripts\python.exe scripts\run_benchmark.py `
-  --manifest data\sunrgbd\000001\manifest.json
+cd C:\AIML\Research\VLM-Guided-3D-Spatial-Grounding-and-Scene-Dissection
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe scripts\run_inference.py --help
 ```
 
-The adapter decodes SUN RGB-D's rotated 16-bit depth values, reads the column
-major calibration matrices, converts 2D `x,y,width,height` labels to pixel
-boxes, and maps annotated 3D centers from the upright depth frame into camera
-coordinates. It has been tested on synthetic calibration and depth values;
-**verify an overlay and a projected 3D center on a real sample before running
-a full benchmark**. The evaluation uses measured depth and annotated boxes,
-so it measures geometric lifting only, not single-RGB inference accuracy.
-
-### Predict indoor metric depth from RGB
-
-Download the [official Depth Anything V2 Metric Hypersim Small
-checkpoint](https://huggingface.co/depth-anything/Depth-Anything-V2-Metric-Hypersim-Small)
-as `checkpoints/depth_anything_v2_metric_hypersim_vits.pth`. It is an indoor
-metric model; the ordinary Depth Anything V2 Small checkpoint gives relative
-depth and cannot be substituted. The expected checkpoint SHA-256 is
-`b782898d8a3e8be1f639de33837ed85e9b4b73e40f8f5e5cd99067588d722545`.
+### Supplied-depth geometry baseline
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\infer_depth.py `
-  --image path\to\indoor.jpg `
-  --checkpoint checkpoints\depth_anything_v2_metric_hypersim_vits.pth `
-  --output outputs\indoor_metric_depth.npy `
-  --preview outputs\indoor_depth_preview.png --device auto
+.\.venv\Scripts\python.exe scripts\run_baseline.py `
+  --depth examples\depth.npy `
+  --objects examples\objects.json `
+  --fx 525 --fy 525 --cx 319.5 --cy 239.5 `
+  --output outputs\layout.json
 ```
 
-The checkpoint is already downloaded in this local checkout and ignored by
-Git. CPU inference was verified on a vendored example image; the output kept
-the original 1362×2048 resolution. CUDA inference was also verified with
-PyTorch 2.14.0+cu130 on an RTX 5060 Laptop GPU. `--device auto` selects CUDA
-when available. These runs check execution, not metric accuracy. A real indoor
-scene comparison and peak VRAM measurement remain pending.
-The optional preview colors 0 m blue and 20 m red with a fixed Turbo scale;
-the `.npy` file preserves the actual floating-point metre values.
+The example inputs, if present, are synthetic smoke tests. `run_benchmark.py` accepts a manifest of supplied depth, boxes, references, and intrinsics; it isolates geometry rather than the automatic RGB system.
 
-### One-command RGB-to-layout baseline
+### Full RGB path: Grounding DINO, SAM, metric depth, and correction
 
-With object boxes in `[xmin,ymin,xmax,ymax]` pixels and actual camera
-intrinsics, the current stages can run together:
+The following is a **previously inspected demonstration** on an official prepared SUN RGB-D scene. It requires the local checkpoints and the prepared scene folder.
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\run_inference.py `
-  --image path\to\indoor.jpg `
-  --objects path\to\objects.json `
+  --image data\sunrgbd_official\radial_desk7\sunrgbd_007816\image.jpg `
+  --grounding-dino-checkpoint checkpoints\grounding-dino-tiny `
+  --sam-checkpoint checkpoints\sam-vit-base `
   --checkpoint checkpoints\depth_anything_v2_metric_hypersim_vits.pth `
-  --fx 525 --fy 525 --cx 319.5 --cy 239.5 `
-  --output outputs\layout.json --depth-output outputs\depth.npy
+  --fx 520.532 --fy 520.7444 --cx 277.9258 --cy 215.115 `
+  --radial-proposed-support --mask-contact-gate `
+  --support-method child-ray-soft `
+  --sunrgbd-calibration data\sunrgbd_official\radial_desk7\sunrgbd_007816\calib.txt `
+  --depth-output outputs\demo_depth.npy `
+  --masks-output outputs\demo_masks.npz `
+  --boxes-preview outputs\demo_boxes.png `
+  --profile-output outputs\demo_profile.json `
+  --output outputs\demo_layout.json --device cuda
 ```
 
-Replace the focal lengths and principal point with the image's calibration;
-the numbers above are examples. This baseline has externally supplied boxes,
-predicted depth, and observed point extents. It does not detect objects or infer
-full hidden object dimensions, orientation, or support relations. A run on the
-bundled outdoor demo confirms that the command executes, but its indoor depth
-checkpoint, assumed camera calibration, and coarse boxes make those numbers
-unsuitable as physical measurements.
+For another indoor photo, replace its image and **measured intrinsics**. To propose another child class, add e.g. `--grounding-labels bottle table --support-child-labels bottle`. The prompt labels and parent vocabulary limit the candidates.
 
-For automatic boxes, use the local [YOLO11n COCO detector
-weights](https://docs.ultralytics.com/models/yolo11/) instead of `--objects`:
+### Optional VLM and viewer
 
-```powershell
-.\.venv\Scripts\python.exe scripts\run_inference.py `
-  --image path\to\indoor.jpg `
-  --detector-weights checkpoints\yolo11n.pt `
-  --checkpoint checkpoints\depth_anything_v2_metric_hypersim_vits.pth `
-  --fx 525 --fy 525 --cx 319.5 --cy 239.5 `
-  --output outputs\auto_layout.json `
-  --detections-output outputs\detections.json `
-  --boxes-preview outputs\boxes.png
-```
-
-The detector weights are downloaded in this local checkout and ignored by Git.
-Detection returns COCO labels, pixel boxes, and confidence scores. The preview
-helps spot boxes that include substantial background; the geometry stage
-currently lifts all valid pixels inside each box. This detector is a
-closed-category baseline, not the proposed VLM semantic stage. The bundled
-outdoor demo yielded 19 boxes and a JSON layout, but no measured 3D accuracy.
-
-For mask-based lifting, replace `--detector-weights` with
-`--segmenter-weights checkpoints\yolo11n-seg.pt`. Add
-`--masks-output outputs\masks.npz` to save binary instance masks and
-`--boxes-preview outputs\masks_preview.png` to inspect the overlays. The
-local segmentation checkpoint is also ignored by Git. Pixels outside each
-mask are excluded from the 3D centroid and visible-extent calculation. A
-controlled test confirms this removes background depth from an object region;
-it does not prove improved accuracy on real scenes. The bundled demo produced
-17 segmented instances and includes at least one false positive, so inspect
-the mask overlay before interpreting object measurements.
-Same-class instance masks with at least 0.7 intersection-over-union are
-deduplicated by retaining the higher-confidence mask. On the bundled indoor
-`demo10.jpg`, this removed one duplicate chair instance (3 to 2). The table
-and cabinet were still missed, and the camera intrinsics were assumed, so
-the reported 3D coordinates are not validated measurements.
-
-For an open-vocabulary indoor path, `--grounding-dino-checkpoint
-checkpoints\grounding-dino-tiny` selects Grounding DINO Tiny with cup, mug,
-desk, and table prompts. The default box/text thresholds are 0.25/0.25.
-Add `--propose-support` to write cup/mug-on-surface candidates alongside
-the 3D layout. In an exploratory ten-scene SUN RGB-D desk check, both paired
-boxes and the support proposal were found in 8 of 9 visibly positive cases
-at IoU ≥ 0.5. This threshold was tested after seeing the scenes; it is not
-an independent final estimate or a validated novel correction method. The
-full command and limitations are in [`results/README.md`](results/README.md).
-
-For open-vocabulary **masked** lifting, add
-`--sam-checkpoint checkpoints\sam-vit-base`. SAM uses each detected box as a
-prompt, and same-label masks with IoU ≥ 0.7 are deduplicated before geometry
-and support proposals. The local SAM checkpoint comes from
-[`facebook/sam-vit-base`](https://huggingface.co/facebook/sam-vit-base) and is
-ignored by Git. With camera calibration and one proposed support pair,
-`--radial-proposed-support --support-method child-ray-soft` applies the
-research correction automatically. See the [reproducible CUDA example and
-its limits](RESEARCH_STATUS_2026-10-02_MASKS.md). The saved JSON records
-mask fallbacks and suppressed duplicate IDs.
-
-For optional RGB support-relation judgments, download the pinned local
-SmolVLM2 checkpoint with `python scripts/download_smolvlm.py` and pass
-`--vlm-checkpoint checkpoints\smolvlm2-2.2b-instruct` alongside a support
-proposal mode. The JSON records raw and parsed judgments. The optional
-`--vlm-gate` requires an explicit YES to retain a proposal, but the
-[12-scene exploratory check](RESEARCH_STATUS_2026-10-04_VLM.md) found both
-missed true supports and an accepted false annotated pair. Keep VLM output
-advisory for research comparisons; the gate is experimental.
-
-To run the same end-to-end path on other prompted child categories, pass
-`--grounding-labels bottle table --support-child-labels bottle` (or
-`laptop table` / `laptop`) alongside the Grounding DINO checkpoint. The
-configurable proposal uses the same box-foot and 0.75 m depth-gap heuristic;
-the correction still uses the fixed 0.4 m offset. For an automatic single-pair
-correction, add `--radial-proposed-support --mask-contact-gate` and
-`--support-method child-ray-soft`, then supply `--sunrgbd-calibration` or
-`--up-camera`. A full bottle/table CUDA run matched the frozen evaluator's
-radial shift exactly; an image with two surviving proposals abstained. See the
-[bottle/table transfer report](RESEARCH_STATUS_2026-10-04_BOTTLE_TRANSFER.md).
-
-For conservative support filtering, add `--mask-contact-gate` with SAM and
-`--radial-proposed-support`. The JSON records all initial proposals, visible
-mask adjacency evidence, retained proposals, and any abstention. This optional
-rule can miss real supports when contact is occluded. Its diagnostic transfer
-on previously inspected SUN RGB-D scenes is reported in the
-[mask milestone report](RESEARCH_STATUS_2026-10-02_MASKS.md).
-
-To inspect a saved layout interactively, run:
+Add `--vlm-checkpoint checkpoints\smolvlm2-2.2b-instruct` to a proposal-mode command. The layout then records marked-pair raw/parsed judgments without changing geometry. `--vlm-gate` retains only YES proposals and is experimental. In the [12-pair pilot](RESEARCH_STATUS_2026-10-04_VLM.md), YES-only accepted 6/8 visually positive and 1/4 visually negative oracle-box pairs; this small inspected sample does not establish a VLM gain.
 
 ```powershell
 .\.venv\Scripts\python.exe -m streamlit run src\viz\streamlit_app.py
+.\.venv\Scripts\python.exe scripts\evaluate_layout.py `
+  --prediction outputs\demo_layout.json `
+  --reference path\to\reference.json
 ```
 
-The viewer opens the local masked desk example by default. It shows image
-masks, metric depth, camera-frame 3D centers, the correction displacement,
-and downloadable JSON. Supply different saved layout/depth/mask paths in the
-sidebar. The [example 3D plot](outputs/grounded_sam_auto_desk_3d.png) shows
-only visible depth points, not a complete reconstructed room.
+`evaluate_layout.py` requires compatible camera-frame reference centers and stable IDs. Matched-object error alone does not capture detector misses; report matching coverage separately. The viewer opens saved artifacts through its sidebar.
 
-The first real indoor **depth-only** check is documented in
-[`results/README.md`](results/README.md). It compares the predicted depth with
-SUN RGB-D sensor depth on ten fixed test images. It does not evaluate 3D object
-centres or scene relations.
-The same results folder now also contains an initial calibrated 3D object-center
-check on three official SUN RGB-D scenes. Both sensor and predicted depth use
-annotated 2D boxes, so this isolates geometry/depth rather than detector recall.
-A frozen 20-scene SUN RGB-D test subset across four sensor types now provides
-a stronger check: 93 matched object centers have median error 0.301 m with
-sensor depth and 0.422 m with predicted depth, still using oracle 2D boxes.
-See [`results/README.md`](results/README.md) for sampling and limitations.
+## Input and output contracts
 
-An October 2 evaluation on 15 newly selected SUN RGB-D training-split
-images is summarized in [`RESEARCH_STATUS_2026-10-02.md`](RESEARCH_STATUS_2026-10-02.md).
-The automatic pipeline proposed 7/10 visually positive support pairs and
-one of five annotated negative pairs. Weighted 3D correction was essentially
-tied with exact contact. The current
-method therefore remains an engineering baseline, not a validated research
-novelty.
+An `--objects` file is a JSON array. Stable IDs are recommended for evaluation:
 
----
-
-## Original proposal below (historical specification)
-
-The sections below preserve the initial research proposal. They are **not a
-description of the implemented system or measured results**. The Llama VLM,
-uncalibrated metric reconstruction, complete object dimensions, orientation,
-edge deployment, and 7.5 GB VRAM figure have not been validated. Use the
-[current status](RESEARCH_STATUS_2026-10-02_MASKS.md), runnable commands
-above, and [result reports](results/README.md) for actual evidence.
-
-**Authors:** Kushal M Anvekar  
-**Affiliation:**  
-**Date:** 2026-09-27  
-**Status:** Research Prototype  
-
----
-
-## Abstract
-
-We present a single-image pipeline that dissects complex indoor scenes into metric-accurate 3D spatial layouts by ensembling a Vision-Language Model (VLM) with a monocular depth estimator. Existing 2D recognition and generative models excel at semantic classification yet lack physical metric reasoning; conversely, multi-view reconstruction systems require calibrated rigs or SLAM trajectories. Our approach replaces these prerequisites with a lightweight four-stage ensemble: (1) a quantized Llama-3.2-11B-Vision-Instruct model performs contextual semantic dissection and relational anchoring, (2) Depth-Anything-V2-Small regresses a dense depth map, (3) pinhole back-projection lifts pixels to a metric 3D point cloud using median-plane contact heuristics, and (4) a structured JSON layout matrix encodes each entity as `center_point_3d`, `dimensions_3d`, `relative_orientation`, and `spatial_relation`. The entire system executes on consumer hardware within an 8 GB VRAM budget, rendering it viable for edge deployment. We demonstrate that this paradigm bridges the semantic precision of VLMs with the geometric fidelity of metric depth without explicit 3D supervision.
-
-**Keywords:** spatial grounding, monocular depth, vision-language models, 3D reconstruction, edge deployment
-
----
-
-## 1. Introduction
-
-Contemporary computer vision systems have achieved remarkable proficiency in 2D recognition and image generation. Vision-Language Models (VLMs) parse referring expressions, localize entities with bounding boxes, and generate rich textual descriptions [1, 2]. Generative models synthesize plausible novel views from limited context. However, these capabilities remain largely decoupled from metric physical reasoning. A model may correctly identify a "chair" yet cannot report its distance from the camera in centimeters, its contact plane, or its orientation relative to a table. This limitation is particularly acute in applications requiring physical interaction, robot navigation, or augmented reality, where 3D spatial awareness is non-negotiable.
-
-Monocular depth estimation offers a partial remedy by regressing per-pixel depth from a single RGB image [3, 4]. While depth maps encode geometry, they lack object-level semantics and structured spatial relationships. Single-image 3D reconstruction pipelines attempt to lift depth into volumetric representations, yet they typically suffer from scale ambiguity, noise propagation, and the absence of relational priors [5]. Multi-view and SLAM-based approaches deliver metric accuracy but demand calibrated camera arrays or sequential frame access, constraining their applicability in static, single-view scenarios.
-
-We propose an ensemble pipeline that unifies semantic contextualization and metric depth estimation within a single inference pass. By combining the relational reasoning of a frontier VLM with the dense geometric predictions of a state-of-the-art monocular depth network, we reconstruct a structured, metric 3D scene layout from one uncalibrated RGB image. The system is engineered for deployment on edge hardware with VRAM constraints, achieving operational feasibility on devices limited to 8 GB GPU memory.
-
-### 1.1 Contributions
-
-Our work makes the following contributions:
-
-1. **Contextual semantic dissection with relational anchors.** We employ Llama-3.2-11B-Vision-Instruct to generate bounding-box grounded object detections and inter-object spatial relationships, providing the semantic backbone for geometric lifting.
-
-2. **Metric monocular depth estimation.** We integrate Depth-Anything-V2-Small to regress dense, metric-scaled depth maps, transforming the single-view image into a continuous geometric field.
-
-3. **Geometric back-projection to 3D point cloud.** We formulate a pinhole camera inverse-projection scheme that lifts depth and image coordinates into metric 3D camera-space coordinates, stabilized by median-plane heuristics for contact surface estimation.
-
-4. **Structured spatial layout matrix (JSON).** We define a machine-readable JSON schema encoding per-object 3D properties—`center_point_3d`, `dimensions_3d`, `relative_orientation`, and `spatial_relation`—enabling downstream consumption by planning, simulation, or visualization frameworks.
-
-5. **VRAM-bounded edge deployment.** Through INT4 quantization and memory-aware tensor scheduling, the entire four-stage pipeline operates within approximately 7.5 GB VRAM, fitting within an 8 GB envelope and demonstrating viability for consumer-grade edge devices.
-
----
-
-## 2. Related Work
-
-### 2.1 Vision-Language Models for Spatial Reasoning
-
-Vision-Language Models have emerged as the dominant paradigm for joint visual and linguistic understanding. Recent advances enable referring expression comprehension, grounded question answering, and dense captioning [1, 2]. Models such as Llama-3.2-Vision demonstrate that autoregressive transformers can localize entities via bounding box predictions when prompted with structured output schemas. However, these outputs remain in image space (2D) and lack metric 3D grounding. Prior work has explored 3D referring expressions but typically requires multi-view input or pre-existing 3D scene graphs [6]. Our work uniquely couples VLM spatial reasoning with metric depth lifting in a single-view setting.
-
-### 2.2 Monocular Depth Estimation
-
-Monocular depth estimation has evolved from hand-crafted geometric priors to deep regression. Depth-Anything [3] and its successor Depth-Anything-V2 [4] leverage large-scale pseudo-label training to generalize robustly across indoor and outdoor domains. MiDaS [7] and DPT [8] established transformer-based dense prediction paradigms for depth. While these methods produce geometrically consistent depth maps, they output only per-pixel estimates without object-level abstraction. We adopt Depth-Anything-V2-Small as our geometric backbone, selected for its favorable accuracy-to-parameter ratio and suitability for resource-constrained inference.
-
-### 2.3 Single-Image 3D Reconstruction
-
-Single-image 3D reconstruction remains an ill-posed problem due to inherent scale and occluded-geometry ambiguities [5]. Classical approaches rely on parametric shape priors or category-specific CAD models. Learning-based methods predict volumetric or mesh representations but often require multi-view training corpora. SLAM and NeRF-based systems excel in sequential or multi-view regimes but are inapplicable to isolated static images. Our approach sidesteps full 3D reconstruction by outputting a structured spatial layout matrix—an object-centric representation that captures metric extents and relational semantics without explicit surface reconstruction.
-
-### 2.4 Back-Projection and Pinhole Camera Geometry
-
-The pinhole camera model provides the mathematical foundation for lifting 2D image measurements into 3D camera coordinates. Under this model, the mapping from image coordinates $(u, v)$ and depth $Z$ to Cartesian coordinates $(X, Y, Z)$ is:
-
-$$X = \frac{(u - c_x) \cdot Z}{f_x}, \quad Y = \frac{(v - c_y) \cdot Z}{f_y}$$
-
-where $(c_x, c_y)$ denotes the principal point and $(f_x, f_y)$ the focal lengths in pixel units [9]. This transformation underpins our geometric lifting stage, converting dense depth maps into metric point clouds aligned with VLM-derived object regions.
-
----
-
-## 3. Methodology
-
-Our pipeline comprises four sequential stages executed on a CUDA-enabled device. The following ASCII diagram illustrates the data flow:
-
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                        INPUT: Single RGB Image                       │
-└──────────────────────────────┬──────────────────────────────────────┘
-                               │
-                ┌──────────────▼──────────────┐
-                │   Pipeline 1: VLM           │
-                │   Semantic Dissection       │
-                │   → BBoxes + Relations      │
-                └──────────────┬──────────────┘
-                               │
-                ┌──────────────▼──────────────┐
-                │   Pipeline 2: Depth         │
-                │   Estimation                │
-                │   → Dense Depth Map         │
-                └──────────────┬──────────────┘
-                               │
-                ┌──────────────▼──────────────┐
-                │   Pipeline 3: Back-Project  │
-                │   Geometric Lifting         │
-                │   → 3D Point Cloud          │
-                └──────────────┬──────────────┘
-                               │
-                ┌──────────────▼──────────────┐
-                │   Pipeline 4: Layout        │
-                │   Matrix Synthesis          │
-                │   → JSON Spatial Layout     │
-                └─────────────────────────────┘
+```json
+[
+  {"instance_id": "object_0", "label": "laptop", "bbox_2d": [120, 80, 420, 380]}
+]
 ```
 
-### 3.1 Pipeline 1: Vision-Language Semantic Dissection
-
-We utilize Llama-3.2-11B-Vision-Instruct [2], quantized to 4-bit precision via GPTQ/AWQ, to perform zero-shot semantic dissection. The model receives the input image alongside a structured prompt requesting object detection in normalized `[ymin, xmin, ymax, xmax]` format, accompanied by pairwise spatial relations (e.g., "left of", "above"). The output is parsed into a structured intermediate representation:
+An output layout has the following structure; **numbers below illustrate schema only**, not a measured prediction:
 
 ```json
 {
-  "objects": [
-    {"label": "sofa", "bbox_2d": [120, 300, 420, 580]},
-    {"label": "coffee table", "bbox_2d": [200, 450, 380, 620]}
-  ],
-  "relations": [
-    {"subject": "coffee table", "relation": "in front of", "object": "sofa"}
-  ]
-}
-```
-
-The VLM operates as the semantic prior, guiding geometric lifting by defining regions of interest.
-
-### 3.2 Pipeline 2: Monocular Depth Estimation
-
-Depth-Anything-V2-Small [4] regresses a dense depth map $D \in \mathbb{R}^{H \times W}$ from the resized input ($518 \times 518$). The network outputs inverse-depth predictions, which are post-processed into metric depth via affine transformation using known median depths or scale-and-shift alignment when ground-truth sparse measurements are available.
-
-### 3.3 Pipeline 3: Geometric Back-Projection
-
-Given the depth map $D$, camera intrinsics $(f_x, f_y, c_x, c_y)$, and VLM bounding boxes, we perform inverse pinhole projection for each pixel within each object region. The lifting equations are:
-
-$$\mathbf{P} = \left[ X(u,v), Y(u,v), Z(u,v) \right]^\top = \left[ \frac{(u - c_x) Z}{f_x}, \frac{(v - c_y) Z}{f_y}, Z \right]^\top$$
-
-We apply a median-depth cluster analysis per object to estimate the contact plane (floor or supporting surface), using the dense lower-percentile depth distribution within the bounding box base. This stabilizes height estimates against depth noise.
-
-### 3.4 Pipeline 4: Spatial Layout Matrix Synthesis
-
-The final stage aggregates per-object 3D statistics into a unified JSON layout matrix:
-
-```json
-{
-  "scene_id": "img_001",
+  "coordinate_system": "camera_x_right_y_down_z_forward_meters",
   "camera_intrinsics": {"fx": 525.0, "fy": 525.0, "cx": 319.5, "cy": 239.5},
   "objects": [
     {
-      "object": "sofa",
-      "center_point_3d": [0.12, -0.85, 2.41],
-      "dimensions_3d": [1.80, 0.90, 0.85],
-      "relative_orientation": "facing camera",
-      "spatial_relation": "behind coffee table"
-    },
-    {
-      "object": "coffee table",
-      "center_point_3d": [-0.05, -0.40, 2.10],
-      "dimensions_3d": [1.20, 0.55, 0.45],
-      "relative_orientation": "parallel to sofa",
-      "spatial_relation": "in front of sofa"
+      "object": "laptop", "instance_id": "object_0",
+      "bbox_2d": [120, 80, 420, 380],
+      "center_point_3d": [0.1, -0.2, 2.0],
+      "visible_extent_3d": [0.4, 0.2, 0.3],
+      "valid_depth_pixels": 1234, "region_type": "mask"
     }
   ]
 }
 ```
 
-This schema is designed for interoperability with robotics simulators, AR frameworks, and scene-graph databases.
+Optional fields include `proposed_support_relations`, `mask_contact_evidence`, `vlm_support_judgments`, `support_correction_status`, `child_ray_support_correction` or `radial_support_correction`, and an object's `uncorrected_center_point_3d`. `--depth-output` writes metre-valued NPY, `--masks-output` per-ID binary NPZ masks, and `--profile-output` stage times and PyTorch memory peaks.
 
----
-
-## 4. System Requirements
-
-### 4.1 Hardware
-
-| Component | Specification | Notes |
-|-----------|--------------|-------|
-| GPU | NVIDIA RTX 3060 / 4070 or equivalent | CUDA 11.8+ |
-| VRAM | 8 GB GDDR6 | Peak utilization ~7.5 GB |
-| RAM | 16 GB system memory | For model loading and image preprocessing |
-| Storage | 10 GB available | Model weights and cache |
-
-### 4.2 Software Dependencies
-
-| Package | Version | Purpose |
-|---------|---------|---------|
-| Python | 3.10+ | Runtime environment |
-| PyTorch | 2.1+ | Tensor operations and model inference |
-| Transformers (Hugging Face) | 4.36+ | VLM and depth model loading |
-| Depth-Anything | v2 | Monocular depth estimation |
-| Streamlit | 1.29+ | Interactive visualization UI |
-| NumPy | 1.26+ | Numerical back-projection math |
-| OpenCV-Python | 4.8+ | Image I/O and preprocessing |
-
-### 4.3 VRAM Budget Justification
-
-The 8 GB VRAM constraint is a hard boundary for edge deployment. Our budget is allocated as follows:
-
-- Llama-3.2-11B-Vision-Instruct (INT4 quant): ~5.5 GB
-- Depth-Anything-V2-Small (FP16): ~0.5 GB
-- Activation buffers and KV cache: ~1.2 GB
-- Pre/post-processing and CUDA context overhead: ~0.3 GB
-- **Total:** ~7.5 GB
-
-This allocation leaves ~0.5 GB headroom, ensuring stable execution without out-of-memory errors under typical batch-size-one inference.
-
----
-
-## 5. Implementation and Repository Structure
-
-### 5.1 Directory Tree
-
-```
-VLM-Guided-3D-Spatial-Grounding/
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── src/
-│   ├── __init__.py
-│   ├── pipeline/
-│   │   ├── vlm_semantic.py
-│   │   ├── depth_estimator.py
-│   │   ├── backprojection.py
-│   │   └── layout_synthesizer.py
-│   ├── utils/
-│   │   ├── camera.py
-│   │   ├── postprocess.py
-│   │   └── json_schema.py
-│   └── viz/
-│       └── streamlit_app.py
-├── assets/
-│   ├── figures/
-│   │   ├── pipeline_overview.png
-│   │   ├── depth_heatmap_sample.png
-│   │   └── layout_3d_scatter.png
-│   └── examples/
-│       └── sample_input.jpg
-├── configs/
-│   └── default_camera.yaml
-├── tests/
-│   └── test_pipeline.py
-└── scripts/
-    └── run_inference.py
-```
-
-### 5.2 Module Responsibility Table
-
-| Module | Responsibility |
-|--------|---------------|
-| `vlm_semantic.py` | Load quantized Llama-3.2-Vision, parse structured VLM outputs, extract bounding boxes and relations |
-| `depth_estimator.py` | Load Depth-Anything-V2-Small, preprocess image, post-process depth predictions |
-| `backprojection.py` | Implement pinhole inverse projection, median-plane contact heuristics, point cloud generation |
-| `layout_synthesizer.py` | Aggregate object statistics, validate JSON schema, enforce relational consistency |
-| `camera.py` | Load and validate camera intrinsics, handle unit conversions |
-| `streamlit_app.py` | Render split-screen UI: 2D bounding-box overlay + interactive Plotly 3D scatter |
-| `run_inference.py` | CLI entry point orchestrating the four-stage pipeline |
-
-### 5.3 Execution Model
-
-Inference is executed sequentially on a single CUDA device with aggressive memory offloading between pipeline stages. The VLM and depth model are not co-located in GPU memory simultaneously; rather, the depth model is loaded after VLM inference completes and its outputs are materialized on CPU. This non-resident execution pattern is critical for maintaining the 8 GB VRAM ceiling. Parallelism is realized through asynchronous CPU preprocessing (image resizing, normalization) overlapping with GPU inference.
-
----
-
-## 6. Results and Demonstration
-
-### 6.1 Sample Output
-
-A representative `spatial_layout.json` produced by the pipeline is shown below. Values are illustrative.
-
-```json
-{
-  "scene_id": "living_room_001",
-  "timestamp": "2026-09-27T14:30:00Z",
-  "camera_intrinsics": {"fx": 525.0, "fy": 525.0, "cx": 319.5, "cy": 239.5},
-  "objects": [
-    {
-      "object": "bookshelf",
-      "center_point_3d": [-1.24, 2.10, 3.55],
-      "dimensions_3d": [1.80, 0.35, 2.10],
-      "relative_orientation": "parallel to wall",
-      "spatial_relation": "left of sofa"
-    },
-    {
-      "object": "lamp",
-      "center_point_3d": [0.45, -0.60, 1.95],
-      "dimensions_3d": [0.25, 0.25, 0.60],
-      "relative_orientation": "facing sofa",
-      "spatial_relation": "above coffee table"
+```mermaid
+erDiagram
+    LAYOUT ||--o{ OBJECT : contains
+    LAYOUT ||--o{ PROPOSAL : proposes
+    LAYOUT ||--o{ VLM_JUDGMENT : optionally_records
+    LAYOUT ||--o| CORRECTION : optionally_applies
+    OBJECT {
+        string instance_id
+        string object
+        number_array bbox_2d
+        number_array center_point_3d
+        number_array visible_extent_3d
+        integer valid_depth_pixels
     }
-  ],
-  "inference_time_ms": 1842,
-  "vram_peak_mb": 7540
-}
+    PROPOSAL {
+        string child_id
+        string parent_id
+        string relation
+        number depth_gap_m
+    }
+    VLM_JUDGMENT {
+        string child_id
+        string parent_id
+        string raw_answer
+        string parsed_answer
+    }
+    CORRECTION {
+        string child_id
+        string parent_id
+        number radial_shift_m
+        number residual_m
+        number offset_m
+    }
 ```
 
-### 6.2 Streamlit Visualization
+## Research protocol and evidence
 
-The demonstration interface is implemented in Streamlit, providing a split-screen experience:
+### Split, annotation, and leakage boundaries
 
-- **Left panel:** Original RGB image with overlaid VLM bounding boxes, color-coded by object category, and depth heatmap toggle.
-- **Right panel:** Interactive Plotly 3D scatter plot rendering the back-projected point cloud, with object centroids annotated and colored by semantic label. Users may rotate, pan, and zoom to inspect metric extents.
-
-![Figure 1: Streamlit UI showing split-screen visualization with 2D bounding-box overlay and 3D point-cloud scatter](assets/figures/streamlit_ui_sample.png)
-
-### 6.3 Qualitative Results
-
-![Figure 2: Sample depth heatmap overlaid on input image. Warmer colors indicate closer surfaces.](assets/figures/depth_heatmap_sample.png)
-
-![Figure 3: Reconstructed 3D point cloud with object centroids and bounding extents. Points are colored by depth magnitude.](assets/figures/layout_3d_scatter.png)
-
-Quantitative evaluation against sparse LiDAR ground truth or synthetic benchmarks (e.g., NYU Depth v2) is reserved for future work; the current prototype is validated via perceptual consistency and spatial relation correctness.
-
----
-
-## 7. Discussion
-
-### 7.1 Limitations
-
-Several limitations merit acknowledgment. **Single-view ambiguity** precludes recovery of occluded geometry; objects behind opaque surfaces are necessarily absent from the layout matrix. **Depth scale ambiguity**, while partially mitigated by median-plane heuristics, can still introduce systematic error in environments lacking clear contact surfaces (e.g., floating objects, aerial imagery). **VLM hallucination** may generate spurious objects or incorrect relations; the absence of a feedback loop means these errors propagate uncorrected to the final JSON output. Finally, the bounding-box coordinate format is sensitive to prompt phrasing and model version, necessitating careful prompt engineering and output parsing validation.
-
-### 7.2 Edge Viability
-
-The 7.5 GB VRAM budget places this system within reach of modern consumer GPUs (e.g., RTX 4060 Ti 16 GB, RTX 3060 12 GB) and certain edge AI accelerators. The non-resident memory pattern—serializing pipeline stages rather than loading all models concurrently—is the primary enabler of this constraint. Future work should explore model-level optimizations such as depth-estimator distillation to sub-100 MB or speculative decoding for the VLM stage.
-
-### 7.3 Comparison with Alternative Paradigms
-
-| Approach | Metric Accuracy | Single-View | Semantic Relations | VRAM (est.) | Hardware |
-|----------|----------------|-------------|-------------------|-------------|----------|
-| Generative 3D (e.g., Zero-1-to-3) | Low–Medium | Yes | Implicit | 4–8 GB | GPU |
-| SLAM / NeRF | High | No | Post-hoc | 12–24 GB | GPU + Sequential |
-| **This work** | Medium | Yes | Explicit | ~7.5 GB | Single GPU |
-
-Generative methods produce plausible novel views but lack metric guarantees. SLAM and NeRF deliver high fidelity at the cost of temporal or multi-view requirements. Our approach occupies a novel niche: explicit metric 3D object layouts from a single image with manageable hardware requirements.
-
----
-
-## 8. Conclusion
-
-We have presented a four-stage ensemble pipeline for metric 3D spatial grounding and scene dissection from a single RGB image. By coupling the semantic relational reasoning of a quantized VLM with the geometric precision of a monocular depth estimator and a pinhole back-projection stage, our system produces structured, metric 3D scene layouts within an 8 GB VRAM budget. The resulting JSON spatial layout matrix offers a practical representation for downstream robotics, AR, and scene-understanding tasks.
-
-**Future work** will address: (1) iterative refinement using VLM and geometric evidence with explicit uncertainty, (2) extension to outdoor and multi-floor environments with learned plane priors, (3) exhaustive support-surface labels and independent room-aware testing, (4) broader quantitative benchmarking with calibrated 3D object annotations, and (5) runtime and memory optimization.
-
----
-
-## References
-
-[1] R. B. Girshick, J. Donahue, T. Darrell, and J. Malik, "Rich feature hierarchies for accurate object detection and semantic segmentation," in *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*, 2014.
-
-[2] Meta AI, "Llama-3.2 technical report," 2024. [Online]. Available: https://ai.meta.com/blog/llama-3-2/
-
-[3] L. Zhang, M. Cui, and K. Jia, "Depth-anything: Unleashing transformers for depth estimation," in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2024.
-
-[4] L. Zhang et al., "Depth-anything-v2," 2024. [Online]. Available: https://github.com/DepthAnything/Depth-Anything
-
-[5] A. Kar, C. Häne, and J. Malik, "Learning a hierarchical latent structure for single-view 3D scene understanding," in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2023.
-
-[6] A. Rohrbach, M. Rohrbach, and B. Schiele, "The long-short story of movie description," in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2016.
-
-[7] R. Ranftl, K. Lasinger, D. Hafner, K. Schindler, and V. Koltun, "Towards robust monocular depth estimation: Mixing datasets for zero-shot cross-dataset transfer," in *Proceedings of the European Conference on Computer Vision (ECCV)*, 2020.
-
-[8] R. Ranftl, A. Bochkovskiy, and V. Koltun, "Vision transformers for dense prediction," in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2021.
-
-[9] R. Hartley and A. Zisserman, *Multiple View Geometry in Computer Vision*, 2nd ed. Cambridge University Press, 2004.
-
----
-
-## Appendix A: Installation
-
-Clone the repository and install dependencies:
-
-```bash
-git clone https://github.com/Kushalongit-hub/VLM-Guided-3D-Spatial-Grounding.git
-cd "VLM-Guided-3D-Spatial-Grounding"
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+```mermaid
+flowchart TB
+    META["SUN RGB-D metadata, seeds and source checksums"] --> SELECT["Freeze membership"]
+    SELECT --> DEV["Development: 20 laptop + desk scenes"]
+    SELECT --> FINAL["Original final pool: 57 scenes"]
+    FINAL --> PRIMARY["Source-proxy-disjoint subset: 30 scenes"]
+    FINAL --> EXTRA["Shared-source remainder: 27 scenes"]
+    DEV --> RGB["RGB-first support annotation"]
+    RGB --> HUMAN["Independent human review needed"]
+    HUMAN --> TUNE["Tune on development only"]
+    TUNE --> FREEZE["Freeze method, thresholds, scoring and controls"]
+    FREEZE --> SCORE["Paired final evaluation"]
+    PRIMARY --> SCORE
+    EXTRA -. "separate dependence-qualified analysis" .-> SCORE
 ```
 
-Pre-download model weights (requires Hugging Face authentication for Llama-3.2):
+The 20-scene development and 57-scene final selections have no shared scene IDs, but the [split audit](results/sunrgbd_phase1_split_audit.json) found seven shared `sequence_name` parent paths covering 27 final scenes. The [derived 30-scene subset](results/sunrgbd_phase1_final_source_disjoint30_selection.json) excludes those paths before final image inspection or scoring. A parent path is a conservative proxy for a room or scan, **not a verified room ID**. The original 57-scene selection remains intact. See the [annotation protocol](docs/phase1_annotation_protocol.md) and its [addendum](docs/phase1_annotation_protocol_addendum.md).
 
-```bash
-python -c "from transformers import AutoTokenizer; AutoTokenizer.from_pretrained('meta-llama/Llama-3.2-11B-Vision-Instruct')"
-python -c "from depth_anything.util.transform import load_state_dict; load_state_dict('LiheYoung/depth_anything_vitl14')"
-```
+The current `results/phase1_development20_final_annotations.json` is **not an independent human reference**. Its `human_reviewed: true` flag is contradicted by `review_method: programmatic_consistency_check`, and `final_support_label` remains null. The first pass was generated from RGB box heuristics. The reported contact threshold `0.50` and F1 `0.80` measure agreement with those provisional heuristics on development data, not validated physical-support accuracy. Human RGB-first review and uncertainty adjudication are needed before tuning can support a research claim.
 
-## Appendix B: Quick Start
+The main final comparison should use identical cached predictions and matching for: (A) uncorrected SAM lifting, (B) fixed 0.4 m child-ray control, and (C) any new local/size-aware candidate. The primary estimate is a paired **scene-level** difference in mean child-center error between C and B on the fixed eligible-positive cohort. An abstention retains the uncorrected center **and remains in the denominator**. Report detector and pair coverage, relation precision/recall, false proposals per scene, correction coverage, harmed cases, category results, latency, and memory separately. Sensor-depth and supplied-box tracks are diagnostics, not the automatic RGB result.
 
-Run inference on a single image:
+### Selected measured observations
 
-```bash
-python src/scripts/run_inference.py \
-  --image assets/examples/sample_input.jpg \
-  --camera configs/default_camera.yaml \
-  --output spatial_layout.json
-```
+| Observation | Scope and caveat | Source |
+|---|---|---|
+| Median object-center error 0.301 m with sensor depth versus 0.422 m with predicted depth | 20 SUN RGB-D scenes, 93 matched objects, supplied 2D boxes; isolates depth/geometry | [Results index](results/README.md) |
+| Two matched positive bottle pairs changed from 0.652 m to 0.486 m mean child-center error after fixed correction | Tiny selected transfer diagnostic, not final validation | [Bottle transfer](RESEARCH_STATUS_2026-10-04_BOTTLE_TRANSFER.md) |
+| SmolVLM2 YES-only accepted 6/8 visually positive and 1/4 visually negative oracle-box pairs | Small, previously inspected pilot; no established VLM advantage | [VLM pilot](RESEARCH_STATUS_2026-10-04_VLM.md) |
+| CUDA positive scene applied a child-ray shift near -0.237 m | One previously inspected scene; execution evidence, not accuracy evidence | [Kilo progress](KILO_PROGRESS.md) |
+| 36 unit tests pass in `.venv` | Code checks, not real-scene validation | `tests/` |
 
-Launch the Streamlit visualization:
+Prior work already combines single-image semantics, depth, 3D lifting, and spatial relations. A potential contribution here is a **specific evaluated support-correction mechanism and abstention policy**, if it beats the strong simple control. Combining backbones or exporting JSON alone is not a novelty claim. See the [research plan](RESEARCH_PLAN.md) and dated reports for historical positive and negative findings.
 
-```bash
-streamlit run src/viz/streamlit_app.py
-```
+## Repository map and limitations
 
-## Appendix C: Citation
+| Location | Purpose |
+|---|---|
+| `scripts/run_inference.py` | One-image RGB-to-layout CLI and optional artifacts/profile. |
+| `src/pipeline/geometry.py`, `depth_estimator.py` | Intrinsics, lifting, metric depth. |
+| `src/pipeline/object_detector.py`, `grounding_dino_detector.py`, `sam_segmenter.py` | Region discovery, masks, deduplication. |
+| `src/pipeline/support_proposals.py`, `generic_support_proposals.py`, `mask_support_gate.py`, `vlm_support.py` | Candidate generation and optional relation filters. |
+| `src/pipeline/child_ray_support.py`, `radial_support.py`, `support_constraints.py`, `contact_surface.py` | Correction controls and support geometry. |
+| `src/pipeline/sunrgbd.py`, `scripts/fetch_sunrgbd_official_subset.py` | Official dataset conversion and calibrated scene preparation. |
+| `scripts/run_baseline.py`, `run_benchmark.py`, `evaluate_layout.py` | Geometry-only and center-error evaluation. |
+| `src/viz/streamlit_app.py` | Saved-result viewer. |
+| `results/`, `RESEARCH_STATUS_*.md`, `KILO_PROGRESS.md` | Frozen selections, reports, and audit trail. |
 
-If this work is used in academic research, please cite as:
-
-```bibtex
-@misc{vlm3dgrounding2026,
-  title   = {VLM-Guided 3D Spatial Grounding and Scene Dissection},
-  author  = {Kushal M Anvekar},
-  year    = {2026},
-  note    = {Research Prototype}
-}
-```
-
-## Appendix D: License and Contact
-
-This project is released under the MIT License. For questions, collaboration inquiries, or issue reports, please open a GitHub Issue or contact the authors at kushalonmsrit@gmail.com.
+**Limits to retain in every claim:** predicted metre values can be wrong; calibration is externally supplied; visible-point centers differ from amodal 3D centers; mask adjacency does not establish physical contact; missed objects reduce coverage; VLM judgments are not an oracle; exploratory inspected cohorts cannot be pooled into an independent benchmark; source-path separation does not prove room independence. Record checkpoint hashes, exact commands, failures, cold/warm timing, and total-device as well as PyTorch memory when making runtime claims. The local working CUDA environment is PyTorch `2.14.0+cu130` and torchvision `0.29.0+cu130` on an RTX 5060 Laptop GPU, but these versions are one verified environment rather than universal requirements.

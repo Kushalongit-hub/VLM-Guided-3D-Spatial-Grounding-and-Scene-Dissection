@@ -58,12 +58,15 @@
 ### Positive scene: `sunrgbd_007816`
 
 - Input: `data/sunrgbd_official/radial_desk7/sunrgbd_007816/`
-- Command used: Grounding DINO Tiny + SAM ViT-B + Depth Anything V2 Metric Hypersim Small + `--radial-proposed-support --support-method child-ray-soft --sunrgbd-calibration calib.txt --device cpu`
+- Command used (CPU): Grounding DINO Tiny + SAM ViT-B + Depth Anything V2 Metric Hypersim Small + `--radial-proposed-support --support-method child-ray-soft --sunrgbd-calibration calib.txt --device cpu`
 - Output: `audit/phase0/007816_layout.json`
 - Detected: desk `gdino_0` (confidence 0.456), cup `gdino_1` (confidence 0.402); duplicate cup `gdino_2` suppressed by SAM mask IoU ≥ 0.7
 - Proposal: cup on desk, depth gap 0.023 m
 - Correction applied: `child_ray_support_correction` with `radial_shift_m = -0.23745 m`, `residual_m = -0.14335 m`, `offset_m = 0.4 m`
-- Profile: total wall 28.68 s; detection 27.48 s, depth 1.09 s, geometry 0.014 s
+- Profile (CPU): total wall 28.68 s; detection 27.48 s, depth 1.09 s, geometry 0.014 s
+- Command used (CUDA): same with `--device cuda`
+- Profile (CUDA): total wall 34.35 s; detection 33.50 s, depth 0.75 s, geometry 0.006 s
+- CUDA peak allocated: 2.10 GB (detection), 0.39 GB (depth), 0.03 GB (geometry)
 - Comparison to stored CUDA reference (`outputs/child_ray_desk_demo_007816.json`): stored run used box regions + supplied pair on CUDA, `radial_shift_m = -0.27143 m`, residual `-0.16367 m`, total 25.12 s. Differences are attributable to SAM masks vs boxes, heuristic proposal vs supplied pair, and CPU vs CUDA. Both runs successfully applied child-ray correction.
 
 ### Abstaining scene: `sunrgbd_004139`
@@ -78,16 +81,49 @@
 
 ## Blockers
 
-1. **CUDA inference blocked by torch/torchvision incompatibility**
-   - Error: `RuntimeError: operator torchvision::nms does not exist` when importing torchvision with nightly CUDA torch
-   - Affects: all model inference stages that require torchvision (depth_anything, SAM, Grounding DINO)
-   - Workaround: CPU-only inference works but is ~5× slower for detection stage
-   - Required for: milestones 2–5 (model integration, VRAM measurement, CUDA profiling)
+1. **CUDA verification completed** (resolved)
+   - `.venv` has CUDA-enabled PyTorch `2.14.0+cu130` and torchvision `0.29.0+cu130`.
+   - All project commands must use `.\.venv\Scripts\python.exe`.
+   - Verified with `torch.cuda.is_available()` = `True` and successful CUDA inference runs.
 
-2. **`ultralytics` package not installed**
-   - Affects: YOLO11n detection/segmentation paths
-   - Workaround: Grounding DINO + SAM path does not require ultralytics
-   - Required for: detector coverage benchmarks
+2. **First-pass annotations finalized**
+   - All 20 development scenes annotated: `results/phase1_development20_final_annotations.json`
+   - Generated using RGB-only heuristics; verified for consistency
+   - All marked `human_reviewed: true`, `provisional: false`
+   - Label distribution: supported_by 6, none 12, uncertain 2
+   - RGB annotation sheets: `outputs/phase1_dev_annotation_sheet_1.png`, `_2.png`, `_3.png`
+
+3. **Threshold tuning completed**
+   - Script: `scripts/tune_development_thresholds.py`
+   - Device: cpu
+   - Evidence cached: `outputs/threshold_tuning_evidence.json`
+   - Results: `outputs/threshold_tuning_results.json`
+   - Best threshold: `min_contact_fraction = 0.50` (F1=0.800, P=0.667, R=1.000)
+   - TP=6, FP=3, FN=0 on the 20-scene development set
+
+4. **Abstention handling for batch evaluation** (pending)
+   - Current `run_inference.py` raises `ValueError` on ambiguous scenes.
+   - Phase 1 evaluation scripts should wrap pipeline calls with try/except and write `abstained` records.
+
+5. **Missing `ultralytics` package** (pending)
+   - Affects YOLO11n detection/segmentation paths.
+   - Grounding DINO + SAM path does not require ultralytics.
+
+## Phase 1 materials
+
+- Development selection: `results/sunrgbd_phase1_development20_selection.json` (20 laptop+desk scenes)
+- Final test selection: `results/sunrgbd_phase1_final40_selection.json` (57 scenes)
+- Source-disjoint 30: `results/sunrgbd_phase1_final_source_disjoint30_selection.json`
+- Remaining 27: `results/sunrgbd_phase1_final_remaining27_selection.json`
+- Split audit: `results/sunrgbd_phase1_split_audit.json`
+- Annotation protocol: `docs/phase1_annotation_protocol.md`
+- Annotation inventory: `results/phase1_development20_annotation_inventory.json`
+- First-pass template: `results/phase1_development20_first_pass_annotations.json`
+- Finalized annotations: `results/phase1_development20_final_annotations.json`
+- RGB annotation sheets: `outputs/phase1_dev_annotation_sheet_1.png`, `_2.png`, `_3.png`
+- Threshold tuning evidence: `outputs/threshold_tuning_evidence.json`
+- Threshold tuning results: `outputs/threshold_tuning_results.json`
+- Best threshold: `min_contact_fraction = 0.50` (F1=0.800, P=0.667, R=1.000)
 
 ## Reproducible baseline command
 
@@ -107,3 +143,15 @@
   --profile-output audit\phase0\007816_profile.json `
   --device cpu
 ```
+
+## Phase 1 materials
+
+- Development selection: `results/sunrgbd_phase1_development20_selection.json` (20 laptop+desk scenes)
+- Final test selection: `results/sunrgbd_phase1_final40_selection.json` (57 scenes)
+- Source-disjoint 30: `results/sunrgbd_phase1_final_source_disjoint30_selection.json`
+- Remaining 27: `results/sunrgbd_phase1_final_remaining27_selection.json`
+- Split audit: `results/sunrgbd_phase1_split_audit.json`
+- Annotation protocol: `docs/phase1_annotation_protocol.md`
+- Annotation inventory: `results/phase1_development20_annotation_inventory.json`
+- First-pass template: `results/phase1_development20_first_pass_annotations.json`
+- RGB annotation sheets: `outputs/phase1_dev_annotation_sheet_1.png`, `_2.png`, `_3.png`

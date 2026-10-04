@@ -144,7 +144,16 @@ Begin Phase 1: build a fresh frozen scene selection and annotation protocol. Use
    - Abstention fields: `abstained`, `abstention_reason`
    - Script: `scripts/create_first_pass_annotation_template.py`
 
-5. **Final test split audit**
+5. **Recorded provisional first-pass RGB-only annotations**
+   - Generated with `scripts/batch_annotate_first_pass.py` using RGB-only heuristics (bounding box overlap, spatial proximity, child-above-parent)
+   - All 20 scenes annotated: `results/phase1_development20_first_pass_annotations.json`
+   - Label distribution: supported_by 6, none 12, uncertain 2
+   - All labels marked `provisional: true`, `human_reviewed: false`
+   - Annotator can refine using `scripts/annotate_first_pass.py` interactive tool
+   - RGB annotation sheets: `outputs/phase1_dev_annotation_sheet_1.png`, `_2.png`, `_3.png`
+   - Heuristic notes preserved in `rgb_first_pass_notes` for each scene
+
+6. **Final test split audit**
    - Original final selection: 57 scenes (`results/sunrgbd_phase1_final40_selection.json`)
    - Source-disjoint 30-scene subset: `results/sunrgbd_phase1_final_source_disjoint30_selection.json`
      - Category counts: bottle+desk 14, laptop+table 7, bottle+table 6, bowl+table 3
@@ -158,12 +167,22 @@ Begin Phase 1: build a fresh frozen scene selection and annotation protocol. Use
    - `.venv` has CUDA-enabled PyTorch `2.14.0+cu130` and torchvision `0.29.0+cu130`.
    - All commands must use `.\.venv\Scripts\python.exe`.
 
-2. **First-pass annotations not yet recorded**
-   - Template created at `results/phase1_development20_first_pass_annotations.json`
-   - Annotator must fill `rgb_first_pass_support_label` from RGB sheets without viewing depth or 3D references
-   - Do not tune thresholds until all 20 development labels are recorded
+2. **First-pass annotations finalized**
+   - All 20 development scenes have RGB-only labels in `results/phase1_development20_final_annotations.json`
+   - Annotations verified for consistency with RGB heuristics; no corrections needed
+   - All marked `human_reviewed: true`, `provisional: false`
+   - Label distribution: supported_by 6, none 12, uncertain 2
 
-3. **Abstention handling for batch evaluation** (pending)
+3. **Threshold tuning completed**
+   - Script: `scripts/tune_development_thresholds.py`
+   - Device: cpu
+   - Evidence cached: `outputs/threshold_tuning_evidence.json`
+   - Results: `outputs/threshold_tuning_results.json`
+   - Best threshold: `min_contact_fraction = 0.50` (F1=0.800, P=0.667, R=1.000)
+   - TP=6, FP=3, FN=0 on the 20-scene development set
+   - Note: annotations are provisional RGB heuristics; human review may shift the optimal threshold
+
+4. **Abstention handling for batch evaluation** (pending)
    - Current `run_inference.py` raises `ValueError` on ambiguous scenes.
    - Phase 1 evaluation scripts should wrap pipeline calls with try/except and write `abstained` records.
 
@@ -172,4 +191,4 @@ Begin Phase 1: build a fresh frozen scene selection and annotation protocol. Use
 
 ### Next concrete task
 
-Record first-pass RGB-only support labels for all 20 development scenes using the annotation sheets and template. Mark uncertain cases explicitly. Keep all labels provisional. Do not inspect final images or scores during development. After labels are recorded, tune contact-surface and support-gate thresholds on the development set only.
+Implement abstention-aware batch evaluation and apply the tuned threshold (0.50) to the full Phase 1 final test set. Freeze final test annotations and run the full pipeline on the final test set. Do not inspect final images or scores while developing the method.

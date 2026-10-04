@@ -157,7 +157,8 @@ class DepthAnythingV2(nn.Module):
         out_channels=[256, 512, 1024, 1024], 
         use_bn=False, 
         use_clstoken=False,
-        max_depth=20.0
+        max_depth=20.0,
+        device='cpu'
     ):
         super(DepthAnythingV2, self).__init__()
         
@@ -169,6 +170,7 @@ class DepthAnythingV2(nn.Module):
         }
         
         self.max_depth = max_depth
+        self.device = device
         
         self.encoder = encoder
         self.pretrained = DINOv2(model_name=encoder)
@@ -186,7 +188,7 @@ class DepthAnythingV2(nn.Module):
     
     @torch.no_grad()
     def infer_image(self, raw_image, input_size=518):
-        image, (h, w) = self.image2tensor(raw_image, input_size)
+        image, (h, w) = self.image2tensor(raw_image, input_size, device=self.device)
         
         depth = self.forward(image)
         
@@ -194,7 +196,7 @@ class DepthAnythingV2(nn.Module):
         
         return depth.cpu().numpy()
     
-    def image2tensor(self, raw_image, input_size=518):        
+    def image2tensor(self, raw_image, input_size=518, device=None):        
         transform = Compose([
             Resize(
                 width=input_size,
@@ -216,7 +218,8 @@ class DepthAnythingV2(nn.Module):
         image = transform({'image': image})['image']
         image = torch.from_numpy(image).unsqueeze(0)
         
-        DEVICE = 'cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
-        image = image.to(DEVICE)
+        if device is None:
+            device = 'cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
+        image = image.to(device)
         
         return image, (h, w)
